@@ -66,6 +66,62 @@
       "allowed_use": "All routes. Navigation must derive from data/navigation.json, not be hardcoded.",
       "risk": "low",
       "accessibility_note": "Must use <nav> with aria-label. Active state must be communicated via aria-current, not only color."
+    },
+    {
+      "pattern_id": "control_plane_shell",
+      "status": "approved",
+      "description": "Full-viewport outer wrapper that establishes the spatial grid background, deep-space surface color, and depth context for all contained surfaces. Uses CSS grid-line tokens as background-image overlay with a radial gradient ambient source via ::before pseudo-element.",
+      "allowed_use": "Root body wrapper on all published routes. Must use --surface-deep-space, --grid-line-soft, and --grid-line-strong tokens only. No external background images or textures.",
+      "risk": "low",
+      "accessibility_note": "Grid background must not interfere with text contrast. Radial ambient must remain decorative (aria-hidden via pseudo-element). overflow-x must be hidden to prevent horizontal scroll on any viewport."
+    },
+    {
+      "pattern_id": "spatial_command_header",
+      "status": "approved",
+      "description": "Sticky glass-surface site header using backdrop-filter blur and --surface-glass token. Contains the authority node (site identity), route cluster (primary navigation), and action node cluster (governed CTAs). Positioned at z-index 100 to float above spatial content surfaces.",
+      "allowed_use": "Site header only. backdrop-filter must be the sole visual layering mechanism — no background images, no canvas, no SVG overlays. Must remain functional without backdrop-filter support (fallback: opaque surface-command background).",
+      "risk": "low",
+      "accessibility_note": "Must contain skip-to-main-content link as first focusable element. Navigation must use <nav> with aria-label. Must maintain WCAG AA contrast against both dark and light content visible through glass surface."
+    },
+    {
+      "pattern_id": "search_to_action_orbit",
+      "status": "approved",
+      "description": "Spatial orbit zone rendering the seven-layer Search-to-Action Journey as a governed CSS control surface. Each layer displays an index number, layer title, signal dot, and description in a CSS grid layout. Ambient radial glow applied via ::after pseudo-element for spatial depth.",
+      "allowed_use": "Embedded as static HTML in page.html so it appears on all published routes. Must be readable as a plain ordered list without CSS. CSS grid and glow are progressive enhancements only.",
+      "risk": "low",
+      "accessibility_note": "Layer index numbers must be visible text, not CSS counters alone. Signal dots must be aria-hidden. Each layer description must be readable without the adjacent dot. Must not animate without prefers-reduced-motion guard."
+    },
+    {
+      "pattern_id": "governed_action_nodes",
+      "status": "approved",
+      "description": "CTA and navigation action elements bounded by the route's monetization policy. Rendered as semantic <a> elements with --signal-blue border and --action-primary background. Only appear on routes where monetization_allowed is true or where the CTA is listed in the route's allowed_cta field.",
+      "allowed_use": "Header action cluster and governed-cta-zone on pages where the route permits it. Must never appear on routes where monetization_allowed is false.",
+      "risk": "high",
+      "accessibility_note": "Link text must describe destination, not use generic labels. Focus ring must meet WCAG 2.4.11 minimum target size. Must not auto-trigger or appear only on hover."
+    },
+    {
+      "pattern_id": "route_telemetry_panel",
+      "status": "approved",
+      "description": "Governance transparency aside panel displaying route role, UX layer, claim level, monetization status, and publication status as a definition list. Hidden by default using the HTML hidden attribute. Uses --signal-violet left border for identification.",
+      "allowed_use": "All routes via route-context.html component. Must use HTML hidden attribute for default hidden state. Must not be visible in production without operator authorization. Content must derive from route data, not be hardcoded.",
+      "risk": "medium",
+      "accessibility_note": "Must use <aside> with aria-label. When visible, must be keyboard-accessible and not disrupt reading order. hidden attribute ensures screen readers skip it by default."
+    },
+    {
+      "pattern_id": "content_deck",
+      "status": "approved",
+      "description": "Governed content surface container for page body sections. Applies --surface-command background, 2px --grid-line-strong left border, and --radius-orbit for spatial panel identity. Wraps injected page content sections.",
+      "allowed_use": "Page body content area on all published routes. Must not contain inline styles. All surface, border, and radius values must reference CSS tokens.",
+      "risk": "low",
+      "accessibility_note": "Must maintain WCAG AA contrast between --surface-command and --text-primary. Left border is decorative — must not be the sole indicator of content type. Content must be readable without the container styles."
+    },
+    {
+      "pattern_id": "sovereign_signal_grid",
+      "status": "approved",
+      "description": "CSS background-image grid using repeating-linear-gradient with --grid-line-soft and --grid-line-strong tokens at 48px intervals. Applied to the control-plane-shell to create spatial depth without decoration. No images, no canvas, no SVG.",
+      "allowed_use": "control-plane-shell only. Grid must be created using CSS gradient functions with CSS custom property tokens. No external image files, data URIs, or SVG backgrounds.",
+      "risk": "low",
+      "accessibility_note": "Grid lines must be sufficiently low-contrast that they never interfere with text readability. Grid is purely decorative — must have no semantic meaning communicated through it."
     }
   ],
   "prohibited_patterns": [
@@ -140,6 +196,46 @@
       "allowed_use": "Never. Violates CLAIM_POLICY.md blocked_claim classification and MONETIZATION_BOUNDARY phase rules.",
       "risk": "high",
       "accessibility_note": "Countdown timers and urgency animations are disorienting for users with cognitive disabilities."
+    },
+    {
+      "pattern_id": "conventional_blog_header",
+      "status": "prohibited",
+      "description": "Traditional blog-style site header with logo-left, hamburger-right layout, no spatial depth, no glass surface, no authority node structure. Signals generic CMS template rather than sovereign digital asset.",
+      "allowed_use": "Never. The spatial_command_header pattern is the only approved site header form.",
+      "risk": "high",
+      "accessibility_note": "Prohibition is strategic, not accessibility-based. The spatial header must still meet all WCAG AA requirements."
+    },
+    {
+      "pattern_id": "broken_mobile_nav",
+      "status": "prohibited",
+      "description": "Navigation that collapses to an unusable, hidden, or truncated state below 768px without a governed mobile layout pattern. Horizontal overflow on small viewports caused by fixed-width navigation containers.",
+      "allowed_use": "Never. The route-cluster must use flex-wrap and appropriate responsive breakpoints so all navigation links remain accessible on all viewport sizes.",
+      "risk": "critical",
+      "accessibility_note": "Inaccessible navigation on mobile is a WCAG 2.4 failure. All navigation links must be reachable on all viewport sizes without horizontal scrolling."
+    },
+    {
+      "pattern_id": "floating_cta_overflow",
+      "status": "prohibited",
+      "description": "CTAs or action nodes that float, position absolutely, or overflow outside their governed-cta-zone or action-node-cluster containers. Sticky floating CTAs, floating chat widgets, or persistent overlay action buttons.",
+      "allowed_use": "Never. All CTAs must be contained within governed-cta-zone (page body) or action-node-cluster (header). No sticky or floating CTA surfaces.",
+      "risk": "high",
+      "accessibility_note": "Floating overlays violate WCAG 2.4.3 focus order requirements and can trap keyboard focus."
+    },
+    {
+      "pattern_id": "generic_dark_template",
+      "status": "prohibited",
+      "description": "Dark background applied without token governance, depth hierarchy, or spatial signal system. Dark-for-dark's-sake styling that does not derive from the --surface-* token family or establish a legible spatial hierarchy between content zones.",
+      "allowed_use": "Never. All surface colors must reference --surface-deep-space, --surface-orbit, --surface-command, or --surface-glass tokens. Background color alone is not a design system.",
+      "risk": "high",
+      "accessibility_note": "Generic dark surfaces frequently produce low-contrast text combinations. All surfaces must be validated for WCAG AA contrast against the text tokens applied within them."
+    },
+    {
+      "pattern_id": "ungoverned_visual_decoration",
+      "status": "prohibited",
+      "description": "Gradients, glows, borders, shadows, or background effects that are not derived from the CSS token system defined in static/css/tokens.css. Inline styles, hardcoded color values, and external image textures used as visual decoration.",
+      "allowed_use": "Never. All visual decoration must reference CSS custom properties from tokens.css. Inline styles are prohibited. Hardcoded hex, rgb, or hsl values outside tokens.css are prohibited.",
+      "risk": "medium",
+      "accessibility_note": "Ungoverned decoration frequently produces contrast failures and inconsistent focus ring visibility. Token governance ensures decoration stays within validated contrast ranges."
     }
   ]
 }
