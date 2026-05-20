@@ -1,0 +1,56 @@
+{
+  "route": "/seo-vs-sxo/",
+  "source_status": "draft_contract",
+  "page_role": "reference_comparison",
+  "ux_layer": "experience",
+  "claim_level": "doctrine_claim",
+  "monetization_allowed": false,
+  "title": "SEO vs SXO — Understanding the Difference",
+  "h1": "SEO vs SXO: Understanding the Difference",
+  "meta_description": "SEO brings the visitor. SXO governs what happens after they arrive. Understanding the relationship between SEO and SXO is foundational to the discipline.",
+  "canonical_intent": "Provide the canonical reference comparison between SEO and SXO. Reinforce that SXO is not a replacement for SEO but a governing layer built upon it.",
+  "summary": "This page defines the relationship between SEO and SXO with precision. SXO is the layer that governs the journey after SEO has delivered the visitor — not a competitor to SEO, but an extension of strategic ambition.",
+  "required_sections": [
+    {
+      "name": "defining_seo",
+      "purpose": "Define SEO accurately and without diminishing its value. SEO is the entry condition for the journey."
+    },
+    {
+      "name": "where_seo_ends",
+      "purpose": "Identify the point at which SEO's scope ends — the click — and explain what happens in the post-click environment."
+    },
+    {
+      "name": "defining_sxo_in_contrast",
+      "purpose": "Define SXO as the discipline that begins where SEO ends. Not a replacement. An extension."
+    },
+    {
+      "name": "comparison_summary",
+      "purpose": "Provide a structured summary of the SEO-SXO relationship. A comparison format may be used if it serves clarity."
+    },
+    {
+      "name": "why_both_matter",
+      "purpose": "Explain that SXO depends on SEO to deliver the visitor. Both disciplines are required for a complete strategy."
+    }
+  ],
+  "required_internal_links": [
+    "/what-is-sxo/",
+    "/sxo-framework/",
+    "/ai-search-experience/"
+  ],
+  "allowed_cta": ["explore_framework", "take_score"],
+  "blocked_claims": [
+    "SEO is dead.",
+    "SXO replaces SEO.",
+    "SEO is no longer important.",
+    "Competitors' SEO approaches are inferior.",
+    "SXO is more important than SEO."
+  ],
+  "editorial_notes": "This page must be precise and fair to SEO as a discipline. Do not diminish SEO. Do not use 'SEO is dead' framing under any circumstances. The page must reinforce that SXO is built on top of SEO, not instead of it. Tone should be institutional and analytical.",
+  "publication_blockers": [
+    "Comparison content must be reviewed and claim-classified.",
+    "No competitor disparagement in the content.",
+    "Route status must be 'published' in data/routes.json.",
+    "All internal links must resolve to published routes.",
+    "All quality gates must pass."
+  ]
+}

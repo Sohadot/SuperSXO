@@ -1,0 +1,56 @@
+{
+  "route": "/what-is-sxo/",
+  "source_status": "draft_contract",
+  "page_role": "reference_definition",
+  "ux_layer": "experience",
+  "claim_level": "doctrine_claim",
+  "monetization_allowed": false,
+  "title": "What Is SXO? — Search Experience Optimization Defined",
+  "h1": "What Is Search Experience Optimization?",
+  "meta_description": "Search Experience Optimization (SXO) governs the full journey from search visibility to user action. It is not a shallow combination of SEO, UX, and CRO.",
+  "canonical_intent": "Establish the canonical definition of SXO, making SuperSXO.com the authoritative reference for the discipline.",
+  "summary": "This page defines Search Experience Optimization with precision and authority. It distinguishes SXO from surface-level combinations of SEO and UX, and frames SXO as the governed control layer between search visibility and user decision.",
+  "required_sections": [
+    {
+      "name": "definition",
+      "purpose": "Provide the precise, doctrine-grade definition of SXO. Must be distinct from shallow 'SEO + UX' descriptions."
+    },
+    {
+      "name": "why_seo_alone_fails",
+      "purpose": "Explain that ranking is a necessary but insufficient condition for digital success."
+    },
+    {
+      "name": "sxo_as_governed_layer",
+      "purpose": "Frame SXO as the governed discipline between search visibility and user decision — not a tactic stack."
+    },
+    {
+      "name": "journey_overview",
+      "purpose": "Briefly introduce the search-to-action journey layers. Lead to /sxo-framework/ for depth."
+    },
+    {
+      "name": "sxo_vs_seo_pointer",
+      "purpose": "Direct toward /seo-vs-sxo/ for the full comparison without duplicating its content."
+    }
+  ],
+  "required_internal_links": [
+    "/sxo-framework/",
+    "/seo-vs-sxo/",
+    "/ai-search-experience/",
+    "/sxo-score/"
+  ],
+  "allowed_cta": ["explore_framework", "take_score"],
+  "blocked_claims": [
+    "SXO is just SEO + UX.",
+    "SXO is the same as CRO.",
+    "SXO guarantees conversion rates.",
+    "SXO is a new marketing term.",
+    "SXO guarantees higher rankings."
+  ],
+  "editorial_notes": "This page must be reference-grade, not blog-style. Definitions must be precise. Do not position SXO as a trend or buzzword. Avoid repetition of content from /sxo-framework/. Write as institutional doctrine.",
+  "publication_blockers": [
+    "Route status must be 'published' in data/routes.json.",
+    "Definition copy must be reviewed and claim-classified.",
+    "All internal links must resolve to published routes.",
+    "All quality gates must pass."
+  ]
+}

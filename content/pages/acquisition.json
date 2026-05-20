@@ -1,0 +1,58 @@
+{
+  "route": "/acquisition/",
+  "source_status": "draft_contract",
+  "page_role": "acquisition_signal",
+  "ux_layer": "strategic_outcome",
+  "claim_level": "commercial_claim",
+  "monetization_allowed": false,
+  "title": "Acquisition — SuperSXO Strategic Asset Positioning",
+  "h1": "SuperSXO: A Strategic Acquisition Asset",
+  "meta_description": "SuperSXO.com is a governed, structured, and strategically positioned digital asset. Built for strategic acquisition. Not a domain listing. A documented strategic package.",
+  "canonical_intent": "Signal to potential strategic acquirers that SuperSXO is intentionally built, governed, and positioned for acquisition. Institutional in tone. Not a domain marketplace listing.",
+  "summary": "This page positions SuperSXO as a sovereign-grade strategic digital asset built for acquisition. It communicates the asset's depth, governance, domain cluster, and strategic value to qualified buyers without the tone of a domain marketplace listing.",
+  "required_sections": [
+    {
+      "name": "asset_positioning",
+      "purpose": "Introduce the asset as a governed, structured, category-defining digital property — not a domain listing."
+    },
+    {
+      "name": "what_the_asset_includes",
+      "purpose": "Describe the full asset package: the methodology, the framework, the domain cluster, the governance system, and the content architecture."
+    },
+    {
+      "name": "domain_cluster_summary",
+      "purpose": "Reference the controlled six-domain cluster. Reinforce that this is not a single domain but a governed, structured cluster."
+    },
+    {
+      "name": "strategic_value_statement",
+      "purpose": "Articulate why the asset is strategically valuable to qualified buyers: category authority, framework IP, diagnostic products, and domain cluster depth."
+    },
+    {
+      "name": "acquisition_contact",
+      "purpose": "Provide a dignified, institutional inquiry path. No pressure. No fake urgency. No 'buy it now' framing."
+    }
+  ],
+  "required_internal_links": [
+    "/methodology/",
+    "/sxo-framework/"
+  ],
+  "allowed_cta": ["contact_acquisition"],
+  "blocked_claims": [
+    "Domain for sale.",
+    "Limited time offer.",
+    "Buy now before someone else does.",
+    "Exclusive deal.",
+    "Price negotiable.",
+    "Valued at $X by [unverified source].",
+    "Guaranteed revenue generating asset."
+  ],
+  "editorial_notes": "This page must be written with absolute institutional dignity. No domain marketplace language. No pressure tactics. No revenue promises. Tone should feel like a strategic brief prepared for qualified acquirers at an executive level. Reference the domain cluster, the methodology, and the governance system as evidence of strategic depth, not as sales points.",
+  "publication_blockers": [
+    "Asset must have sufficient published content to demonstrate depth to potential acquirers.",
+    "Route status must be 'published' in data/routes.json.",
+    "All core content routes must be published before this page can go live.",
+    "Acquisition contact mechanism must be defined and in place.",
+    "All internal links must resolve to published routes.",
+    "All quality gates must pass."
+  ]
+}

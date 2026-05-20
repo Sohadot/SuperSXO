@@ -1,0 +1,55 @@
+{
+  "route": "/ai-search-experience/",
+  "source_status": "draft_contract",
+  "page_role": "strategic_reference",
+  "ux_layer": "visibility",
+  "claim_level": "interpretation",
+  "monetization_allowed": false,
+  "title": "AI Search Experience — SXO in the Age of Generative Search",
+  "h1": "SXO in the Age of AI Search",
+  "meta_description": "Generative search changes how visibility is earned and how experience is governed. SXO provides the structural layer for navigating AI-driven search environments.",
+  "canonical_intent": "Position SuperSXO as structurally relevant to AI-driven search without making unsupported performance claims. Establish early authority in the AI search readiness category.",
+  "summary": "This page examines the implications of AI-generated search for the search-to-action journey. It frames SXO as the appropriate governance model for digital assets navigating generative search. All claims about AI search dynamics are classified as interpretation.",
+  "required_sections": [
+    {
+      "name": "ai_search_context",
+      "purpose": "Explain the structural shift toward generative and AI-assisted search results. Must be classified as interpretation, not proven fact."
+    },
+    {
+      "name": "what_changes_for_visibility",
+      "purpose": "Explain how AI search affects the Visibility layer of the SXO journey. Interpretive claims must be explicitly labeled as such."
+    },
+    {
+      "name": "what_remains_constant",
+      "purpose": "Establish that the fundamental search-to-action journey layers remain relevant regardless of search interface format."
+    },
+    {
+      "name": "sxo_as_ai_readiness_framework",
+      "purpose": "Position the SuperSXO Framework as the appropriate structural response to AI search. Not a guarantee. A governance model."
+    },
+    {
+      "name": "trust_and_experience_in_ai_search",
+      "purpose": "Explore how trust architecture and experience quality become more critical when AI systems mediate discovery."
+    }
+  ],
+  "required_internal_links": [
+    "/what-is-sxo/",
+    "/sxo-framework/",
+    "/sxo-score/"
+  ],
+  "allowed_cta": ["explore_framework", "take_score"],
+  "blocked_claims": [
+    "SuperSXO guarantees visibility in AI search results.",
+    "Following the SXO Framework guarantees AI search inclusion.",
+    "AI search rewards SXO-optimized sites exclusively.",
+    "Specific AI ranking factor claims without cited sources."
+  ],
+  "editorial_notes": "All claims about AI search must be classified as 'interpretation' in the final content. No performance promises. No guarantees. This page must feel analytically credible, not trend-chasing. Avoid 'optimize' in the context of AI search ranking — it implies guaranteed outcomes. Use 'govern' or 'structure' instead.",
+  "publication_blockers": [
+    "All AI-related claims must be reviewed and classified as interpretation.",
+    "No unsupported AI performance claims may appear in published copy.",
+    "Route status must be 'published' in data/routes.json.",
+    "All internal links must resolve to published routes.",
+    "All quality gates must pass."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "route": "/",
+  "source_status": "draft_contract",
+  "page_role": "homepage",
+  "ux_layer": "visibility",
+  "claim_level": "doctrine_claim",
+  "monetization_allowed": false,
+  "title": "SuperSXO — Sovereign Search Experience Optimization",
+  "h1": "Search Brings the Visitor. SXO Governs What Happens Next.",
+  "meta_description": "SuperSXO is the canonical authority for Search Experience Optimization. It measures whether visibility becomes trust, clarity, and action.",
+  "canonical_intent": "Establish SuperSXO.com as the sovereign authority layer for the SXO discipline. Introduce the asset thesis and guide visitors into the framework without functioning as a generic landing page.",
+  "summary": "The homepage introduces the SuperSXO thesis, orients the visitor toward the SXO framework, and opens the path to the diagnostic score. It must feel like entering a governed control plane, not a marketing site.",
+  "required_sections": [
+    {
+      "name": "thesis_statement",
+      "purpose": "State the governing doctrine exactly: SEO brings the visitor. SXO governs what happens next. SuperSXO measures whether visibility becomes trust, clarity, and action."
+    },
+    {
+      "name": "search_to_action_introduction",
+      "purpose": "Introduce the seven-layer search-to-action journey at a high level. Do not provide full layer definitions here. Lead visitors toward /sxo-framework/."
+    },
+    {
+      "name": "framework_entry",
+      "purpose": "Create a governed entry path toward /sxo-framework/ and /what-is-sxo/."
+    },
+    {
+      "name": "diagnostic_entry",
+      "purpose": "Introduce the SuperSXO Score as the primary action path. Free diagnostic. No promises."
+    },
+    {
+      "name": "interface_orientation",
+      "purpose": "Let the Sovereign Spatial Interface communicate its character through the interface itself. Do not describe the design in marketing language."
+    }
+  ],
+  "required_internal_links": [
+    "/what-is-sxo/",
+    "/sxo-framework/",
+    "/sxo-score/",
+    "/sxo-audit/",
+    "/methodology/"
+  ],
+  "allowed_cta": ["explore_framework", "take_score"],
+  "blocked_claims": [
+    "SuperSXO guarantees higher rankings.",
+    "SuperSXO guarantees conversion improvement.",
+    "The best SXO platform.",
+    "We are the #1 SXO solution.",
+    "Proven results.",
+    "Guaranteed ROI."
+  ],
+  "editorial_notes": "No generic welcome copy. No hype. The thesis statement must be exact and sovereign. The Sovereign Spatial Interface direction must be expressed through the interface, not described in marketing language. Tone is institutional.",
+  "publication_blockers": [
+    "Route status must be changed to 'published' in data/routes.json.",
+    "All required_sections must have reviewed, claim-classified copy.",
+    "Spatial interface implementation must be in place.",
+    "All quality gates must pass.",
+    "All required_internal_links must resolve to published routes."
+  ]
+}

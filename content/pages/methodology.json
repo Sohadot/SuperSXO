@@ -1,0 +1,59 @@
+{
+  "route": "/methodology/",
+  "source_status": "draft_contract",
+  "page_role": "methodology_authority",
+  "ux_layer": "trust",
+  "claim_level": "doctrine_claim",
+  "monetization_allowed": false,
+  "title": "SuperSXO Methodology — The Governance System for Search Experience",
+  "h1": "SuperSXO Methodology",
+  "meta_description": "The SuperSXO Methodology is the governed operating system for defining, assessing, and improving the search-to-action journey. Doctrine-grade. Acquisition-ready.",
+  "canonical_intent": "Document the full SuperSXO methodology as institutional intellectual property. Reinforce trust, support acquisition positioning, and establish the governance system as a defensible framework.",
+  "summary": "This page documents the SuperSXO Methodology: the governed system for defining, assessing, and improving the search-to-action journey. It covers route governance, claim discipline, quality gates, and content standards as an integrated operating system.",
+  "required_sections": [
+    {
+      "name": "methodology_overview",
+      "purpose": "Introduce the methodology as a governed operating system, not a checklist or tips collection."
+    },
+    {
+      "name": "route_governance_principle",
+      "purpose": "Explain that no page exists without a registered purpose. Every route is governed by explicit rules."
+    },
+    {
+      "name": "claim_discipline",
+      "purpose": "Explain how claims are classified and why unsupported claims are structurally prohibited, not just discouraged."
+    },
+    {
+      "name": "quality_gate_system",
+      "purpose": "Explain that every page must pass multiple quality gates before publication. Name the gates."
+    },
+    {
+      "name": "content_standards",
+      "purpose": "Explain the institutional content standard: precision, authority, and strategic depth."
+    },
+    {
+      "name": "acquisition_relevance",
+      "purpose": "Explain how the methodology strengthens the asset's acquisition positioning. A governed, documented, reproducible system is more valuable than an undocumented one."
+    }
+  ],
+  "required_internal_links": [
+    "/sxo-framework/",
+    "/sxo-score/",
+    "/acquisition/"
+  ],
+  "allowed_cta": ["explore_framework", "request_audit"],
+  "blocked_claims": [
+    "The methodology guarantees any specific outcome.",
+    "The methodology is the only valid SXO approach.",
+    "Competitors' methodologies are wrong or inferior.",
+    "The methodology is proven to increase rankings."
+  ],
+  "editorial_notes": "This page serves a dual audience: practitioners seeking depth, and potential acquirers evaluating the asset's intellectual defensibility. Write for both. The tone must be institutional and systematic. Avoid tutorial language. Avoid 'how-to' framing. This is governance system documentation, not a guide.",
+  "publication_blockers": [
+    "All methodology sections must be reviewed and claim-classified.",
+    "Route status must be 'published' in data/routes.json.",
+    "The /acquisition/ route must be registered and published before the acquisition link can go live.",
+    "All internal links must resolve to published routes.",
+    "All quality gates must pass."
+  ]
+}

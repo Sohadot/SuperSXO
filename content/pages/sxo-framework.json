@@ -1,0 +1,71 @@
+{
+  "route": "/sxo-framework/",
+  "source_status": "draft_contract",
+  "page_role": "methodology_core",
+  "ux_layer": "trust",
+  "claim_level": "doctrine_claim",
+  "monetization_allowed": false,
+  "title": "The SuperSXO Framework — From Search Intent to Strategic Outcome",
+  "h1": "The SuperSXO Framework",
+  "meta_description": "The SuperSXO Framework defines the seven-layer search-to-action journey: Search Intent, Visibility, Experience, Trust, Navigation, Action, Strategic Outcome.",
+  "canonical_intent": "Define and own the seven-layer search-to-action framework as SuperSXO intellectual property. Establish the framework as the structural centerpiece of the asset.",
+  "summary": "This page defines the SuperSXO Framework: a seven-layer model governing the complete path from search intent to strategic outcome. It is the structural core of the SXO discipline as defined by SuperSXO.com.",
+  "required_sections": [
+    {
+      "name": "framework_overview",
+      "purpose": "Introduce the seven-layer model as a coherent governing system, not a list of tactics."
+    },
+    {
+      "name": "layer_search_intent",
+      "purpose": "Define Search Intent as the pre-search motivation that governs what result will satisfy the user."
+    },
+    {
+      "name": "layer_visibility",
+      "purpose": "Define Visibility as the entry condition — necessary but not sufficient."
+    },
+    {
+      "name": "layer_experience",
+      "purpose": "Define Experience as the quality of interaction after arrival."
+    },
+    {
+      "name": "layer_trust",
+      "purpose": "Define Trust as the user's assessment of credibility — the most commonly missed layer in standard SEO approaches."
+    },
+    {
+      "name": "layer_navigation",
+      "purpose": "Define Navigation as path confidence, distinct from menu design or information architecture alone."
+    },
+    {
+      "name": "layer_action",
+      "purpose": "Define Action as the specific, measurable terminal event of the journey."
+    },
+    {
+      "name": "layer_strategic_outcome",
+      "purpose": "Define Strategic Outcome as the downstream consequence — separating sovereign asset thinking from ordinary website thinking."
+    },
+    {
+      "name": "framework_to_score",
+      "purpose": "Bridge from the framework explanation toward the SuperSXO Score diagnostic."
+    }
+  ],
+  "required_internal_links": [
+    "/what-is-sxo/",
+    "/sxo-score/",
+    "/methodology/"
+  ],
+  "allowed_cta": ["take_score", "request_audit"],
+  "blocked_claims": [
+    "The framework guarantees ranking improvement.",
+    "Following the framework guarantees conversions.",
+    "The framework is the only valid SXO model.",
+    "Competitors' frameworks are inferior."
+  ],
+  "editorial_notes": "Each layer must be defined with precision. Trust is the most important layer to define carefully — it is what separates SXO from shallow SEO. The framework must feel like a governed intellectual system, not a checklist. Strategic Outcome must reinforce the sovereign asset thesis.",
+  "publication_blockers": [
+    "All seven layers must have reviewed, claim-classified copy.",
+    "Route status must be 'published' in data/routes.json.",
+    "Spatial map component must be integrated into the page.",
+    "All internal links must resolve to published routes.",
+    "All quality gates must pass."
+  ]
+}

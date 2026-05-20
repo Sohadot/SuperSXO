@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "governing_principle": "Every entry must map a registered route to an existing content source file. No route outside data/routes.json may appear here.",
+  "mappings": {
+    "/": "content/pages/home.json",
+    "/what-is-sxo/": "content/pages/what-is-sxo.json",
+    "/sxo-framework/": "content/pages/sxo-framework.json",
+    "/sxo-score/": "content/pages/sxo-score.json",
+    "/sxo-audit/": "content/pages/sxo-audit.json",
+    "/seo-vs-sxo/": "content/pages/seo-vs-sxo.json",
+    "/ai-search-experience/": "content/pages/ai-search-experience.json",
+    "/methodology/": "content/pages/methodology.json",
+    "/acquisition/": "content/pages/acquisition.json"
+  }
+}

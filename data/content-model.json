@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "governing_principle": "Content source files are contracts, not final copy. No source file may cause public output unless the corresponding route has status 'published' in data/routes.json.",
+  "required_fields": [
+    "route",
+    "source_status",
+    "page_role",
+    "ux_layer",
+    "claim_level",
+    "monetization_allowed",
+    "title",
+    "h1",
+    "meta_description",
+    "canonical_intent",
+    "summary",
+    "required_sections",
+    "required_internal_links",
+    "allowed_cta",
+    "blocked_claims",
+    "editorial_notes",
+    "publication_blockers"
+  ],
+  "allowed_source_status": [
+    "draft_contract",
+    "draft_content",
+    "reviewed",
+    "approved_for_build",
+    "blocked"
+  ],
+  "publication_rule": "No source_status may cause public output unless the corresponding route status in data/routes.json is exactly 'published'.",
+  "build_gate": "approved_for_build requires route status 'published' in data/routes.json before any HTML is generated.",
+  "field_definitions": {
+    "route": "The path this content source governs. Must match an entry in data/routes.json.",
+    "source_status": "Current editorial workflow state. See allowed_source_status.",
+    "page_role": "The strategic role of this page. Must match the role in data/routes.json.",
+    "ux_layer": "The UX layer this page primarily addresses. Must match data/routes.json.",
+    "claim_level": "The dominant claim classification for content on this page. See data/claim-types.json.",
+    "monetization_allowed": "Whether monetization elements are permitted. Must match data/routes.json.",
+    "title": "The intended SEO title for the page.",
+    "h1": "The intended H1 heading. May differ from title.",
+    "meta_description": "The intended meta description.",
+    "canonical_intent": "A brief statement of the page's canonical strategic purpose.",
+    "summary": "A concise (1-3 sentence) summary of what the page communicates. Not final copy.",
+    "required_sections": "Array of section objects, each with name and purpose.",
+    "required_internal_links": "Array of paths that must be linked from this page. All must exist in data/routes.json.",
+    "allowed_cta": "Array of allowed call-to-action identifiers. Must match routes.json.",
+    "blocked_claims": "Array of claim strings or patterns that are prohibited on this page.",
+    "editorial_notes": "Internal notes about tone, approach, and content standards.",
+    "publication_blockers": "Array of conditions that must be resolved before this page can be published."
+  }
+}

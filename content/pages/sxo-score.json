@@ -1,0 +1,55 @@
+{
+  "route": "/sxo-score/",
+  "source_status": "draft_contract",
+  "page_role": "diagnostic_tool",
+  "ux_layer": "action",
+  "claim_level": "commercial_claim",
+  "monetization_allowed": true,
+  "title": "SuperSXO Score — Self-Assessment Diagnostic",
+  "h1": "Diagnose Your Search-to-Action Journey",
+  "meta_description": "The SuperSXO Score is a free diagnostic that identifies where your search-to-action journey breaks down. No rankings promised. No conversion guarantees.",
+  "canonical_intent": "Deliver the primary trust-building entry into the commercial funnel. Free diagnostic that demonstrates the framework in practice and leads naturally toward the paid audit.",
+  "summary": "The SuperSXO Score is a free self-assessment that scores a digital asset's performance across the seven search-to-action journey layers. It demonstrates the SXO framework in diagnostic practice without making unsupported performance promises.",
+  "required_sections": [
+    {
+      "name": "diagnostic_introduction",
+      "purpose": "Introduce the SuperSXO Score as a diagnostic instrument, not a marketing tool. Frame it as a governance check against the SXO framework layers."
+    },
+    {
+      "name": "what_the_score_measures",
+      "purpose": "Explain the seven dimensions assessed. Each dimension must map to a journey layer defined in /sxo-framework/."
+    },
+    {
+      "name": "score_methodology",
+      "purpose": "Explain how the score is derived. Must be defensible and transparent. No black-box framing."
+    },
+    {
+      "name": "score_limitations",
+      "purpose": "Clearly state what the score does not guarantee. No ranking promises. No conversion promises."
+    },
+    {
+      "name": "next_step_bridge",
+      "purpose": "Lead users from their score result toward the SXO Audit for deeper professional diagnosis."
+    }
+  ],
+  "required_internal_links": [
+    "/sxo-framework/",
+    "/sxo-audit/",
+    "/methodology/"
+  ],
+  "allowed_cta": ["take_score", "request_audit"],
+  "blocked_claims": [
+    "The SuperSXO Score guarantees higher rankings.",
+    "Improving your score guarantees more conversions.",
+    "A high score means your site is perfectly optimized.",
+    "The score is the only SXO diagnostic that matters."
+  ],
+  "editorial_notes": "This page must balance commercial purpose with diagnostic authority. The score must feel like a professional instrument, not a lead magnet. Monetization is allowed but must reinforce trust. No fake urgency. No countdown timers. No aggressive lead capture. The transition to /sxo-audit/ must feel like a natural clinical recommendation, not a sales push.",
+  "publication_blockers": [
+    "Score logic must be defined, documented, and defensible.",
+    "Route status must be 'published' in data/routes.json.",
+    "Monetization gate must pass before any commercial element is deployed.",
+    "All internal links must resolve to published routes.",
+    "All quality gates must pass."
+  ]
+}

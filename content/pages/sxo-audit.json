@@ -1,0 +1,57 @@
+{
+  "route": "/sxo-audit/",
+  "source_status": "draft_contract",
+  "page_role": "commercial_offer",
+  "ux_layer": "action",
+  "claim_level": "commercial_claim",
+  "monetization_allowed": true,
+  "title": "SXO Audit — Diagnostic Report",
+  "h1": "SXO Audit",
+  "meta_description": "A professional diagnostic report that maps where a digital asset's search-to-action journey breaks down. Governed by the SuperSXO methodology. No outcome guarantees.",
+  "canonical_intent": "Present the SXO Audit as the primary commercial offer — a professional diagnostic report governed by the SuperSXO framework. Institutional in tone. High-trust in form.",
+  "summary": "The SXO Audit is a paid professional diagnostic report that applies the SuperSXO Framework to a digital asset's search-to-action journey. It identifies breakdowns across the seven layers and provides structured, defensible findings.",
+  "required_sections": [
+    {
+      "name": "what_the_audit_is",
+      "purpose": "Define the audit as a diagnostic deliverable, not a ranking service or conversion guarantee."
+    },
+    {
+      "name": "what_the_audit_covers",
+      "purpose": "Explain which journey layers are assessed and what the deliverable includes. Must be specific and credible."
+    },
+    {
+      "name": "what_the_audit_does_not_include",
+      "purpose": "Explicitly state that the audit does not guarantee rankings, conversions, or business outcomes."
+    },
+    {
+      "name": "audit_process",
+      "purpose": "Describe the diagnostic process at a high level. Must be credible and process-driven, not sales-driven."
+    },
+    {
+      "name": "request_path",
+      "purpose": "Provide a clear, dignified way to request an audit. No aggressive forms. No fake scarcity. No countdown timers."
+    }
+  ],
+  "required_internal_links": [
+    "/sxo-score/",
+    "/sxo-framework/"
+  ],
+  "allowed_cta": ["request_audit"],
+  "blocked_claims": [
+    "The audit guarantees higher rankings.",
+    "The audit guarantees conversion improvement.",
+    "Limited time offer.",
+    "Only X spots remaining.",
+    "Act now before it's too late.",
+    "Our audit is the best in the industry."
+  ],
+  "editorial_notes": "This is the primary commercial offer page. It must be written with institutional seriousness. No hype. No fake urgency. No aggressive sales language. The offer must feel like a professional service, not a marketing promotion. Connection to SXOSolution.com as the commercial gateway should be reflected architecturally but the page content must stand on authority, not brand separation.",
+  "publication_blockers": [
+    "Audit deliverable must be defined and scoped before this page can be published.",
+    "Route status must be 'published' in data/routes.json.",
+    "Monetization gate must pass.",
+    "All internal links must resolve to published routes.",
+    "No aggressive or prohibited sales language may appear in copy.",
+    "All quality gates must pass."
+  ]
+}

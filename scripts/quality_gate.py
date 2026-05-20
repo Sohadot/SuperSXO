@@ -19,6 +19,7 @@ VALIDATORS = [
     ("validate_navigation",      SCRIPTS_DIR / "validate_navigation.py"),
     ("validate_domain_cluster",  SCRIPTS_DIR / "validate_domain_cluster.py"),
     ("validate_quality_gates",   SCRIPTS_DIR / "validate_quality_gates.py"),
+    ("validate_content_sources", SCRIPTS_DIR / "validate_content_sources.py"),
     ("validate_build_boundaries",SCRIPTS_DIR / "validate_build_boundaries.py"),
 ]
 
