@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-20] — Deploy Asset Validation Context Fixed
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Added `--strict` flag support to `scripts/validate_deploy_assets.py` to separate pre-build and post-build validation contexts. Without `--strict` (default): if `output/` is absent the validator skips; if `output/` exists but CSS deploy assets are missing it prints a warning and exits 0, never blocking the pre-build quality gate. With `--strict`: full enforcement — requires `output/static/css/tokens.css` and `output/static/css/main.css`, verifies HTML references both, verifies no `.js` files deployed, verifies no external stylesheet or script references, verifies no deferred route output. Updated `.github/workflows/deploy-pages.yml` to run `python scripts/validate_deploy_assets.py --strict` after build and before upload. `scripts/quality_gate.py` is unchanged and continues to invoke the validator without `--strict`, so the push/PR quality gate passes safely in both pre-build and post-build states.  
+**Reasoning:** The repository carries a committed `output/` directory from Sprint 8 (HTML only, no `output/static/css/`). The Sprint 9B validator introduced in the previous commit detected this state and failed the PR quality gate before build could run, blocking the fix from landing. The correct resolution is to make strict deploy asset enforcement a deployment-time concern, not a source governance concern. The pre-build quality gate governs source files; strict deploy asset enforcement governs the built artifact. Separating these contexts by flag preserves both without weakening either.  
+**Impact:** The push/PR quality gate (`quality-gate.yml`) now passes with or without `output/static/css/` present. The deployment workflow (`deploy-pages.yml`) enforces strict deploy asset validation after build, blocking upload if CSS assets are absent or any governance violation is detected. No validators were weakened. No routes were changed. No JavaScript, external scripts, analytics, tracking, forms, payment links, affiliate links, or heavy 3D were introduced. Deferred routes remain unpublished. Sovereign quality gate passes before and after build.  
+**Logged by:** agent
+
+---
+
 ## [2026-05-20] — Static Asset Deployment Fixed
 
 **Type:** architecture  

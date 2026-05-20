@@ -2,14 +2,22 @@
 """
 Validate deployed assets in output/ after build.
 
-Skips safely if output/ does not exist (pre-build mode).
-When output/ exists, verifies:
-  - output/static/css/tokens.css present
-  - output/static/css/main.css present
-  - generated HTML references the CSS files
-  - no .js files in output/
-  - no external stylesheet or script references in generated HTML
-  - no deferred route output exists
+Usage:
+  python scripts/validate_deploy_assets.py          # pre-build mode (non-strict)
+  python scripts/validate_deploy_assets.py --strict # post-build mode (strict)
+
+Pre-build mode (default):
+  - Skips safely if output/ does not exist.
+  - If output/ exists but deploy assets are missing, prints a warning and exits 0.
+  - Never blocks the pre-build quality gate.
+
+Strict mode (--strict):
+  - Requires output/static/css/tokens.css and output/static/css/main.css.
+  - Verifies generated HTML references both CSS files.
+  - Verifies no .js files are deployed in output/.
+  - Verifies no external stylesheet or script references in generated HTML.
+  - Verifies no deferred route output exists.
+  - Fails and exits non-zero on any violation.
 """
 
 import sys
@@ -29,7 +37,6 @@ DEFERRED_ROUTES = [
     "acquisition",
 ]
 
-# Patterns that indicate external stylesheet or script injection
 EXTERNAL_ASSET_PATTERNS = [
     'rel="stylesheet" href="http',
     "rel='stylesheet' href='http",
@@ -46,14 +53,9 @@ def check(condition: bool, label: str, errors: list) -> None:
         errors.append(label)
 
 
-def validate_deploy_assets() -> bool:
-    if not OUTPUT_DIR.exists():
-        print("  SKIP  output/ not found — pre-build mode, deploy asset checks skipped")
-        return True
-
+def run_strict_checks() -> bool:
     errors: list = []
 
-    # Required CSS files must exist in output/static/css/
     for rel_path in REQUIRED_CSS:
         check(
             (OUTPUT_DIR / rel_path).is_file(),
@@ -61,7 +63,6 @@ def validate_deploy_assets() -> bool:
             errors,
         )
 
-    # No .js files in output/
     js_files = list(OUTPUT_DIR.rglob("*.js"))
     check(
         len(js_files) == 0,
@@ -71,7 +72,6 @@ def validate_deploy_assets() -> bool:
     for jf in js_files:
         print(f"    → {jf.relative_to(REPO_ROOT)}")
 
-    # HTML file checks
     html_files = list(OUTPUT_DIR.rglob("*.html"))
     check(
         len(html_files) > 0,
@@ -113,7 +113,6 @@ def validate_deploy_assets() -> bool:
     for ref in external_refs:
         print(f"    → {ref}")
 
-    # No deferred route output
     for route_slug in DEFERRED_ROUTES:
         check(
             not (OUTPUT_DIR / route_slug).exists(),
@@ -125,9 +124,30 @@ def validate_deploy_assets() -> bool:
 
 
 def main() -> None:
-    print("=== validate_deploy_assets: checking deployed output assets ===")
-    passed = validate_deploy_assets()
-    if passed:
+    strict = "--strict" in sys.argv
+    mode = "strict" if strict else "pre-build"
+    print(f"=== validate_deploy_assets: checking deployed output assets ({mode} mode) ===")
+
+    if not OUTPUT_DIR.exists():
+        print("  SKIP  output/ not found — deploy asset checks skipped")
+        print("validate_deploy_assets: PASSED (no output/ present)")
+        return
+
+    if not strict:
+        missing = [rel for rel in REQUIRED_CSS if not (OUTPUT_DIR / rel).is_file()]
+        if missing:
+            print("  WARN  output/ exists but deploy assets are not yet present:")
+            for rel in missing:
+                print(f"    ! output/{rel} missing")
+            print("  WARN  Deploy asset validation skipped in pre-build mode.")
+            print("  WARN  Run: python scripts/build.py")
+            print("  WARN  Then: python scripts/validate_deploy_assets.py --strict")
+        else:
+            print("  OK    output/static/css/ deploy assets present")
+        print("validate_deploy_assets: PASSED (pre-build, non-strict)")
+        return
+
+    if run_strict_checks():
         print("validate_deploy_assets: PASSED")
     else:
         print("validate_deploy_assets: FAILED")

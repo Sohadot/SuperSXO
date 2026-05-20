@@ -38,6 +38,9 @@ jobs:
       - name: Build site
         run: python scripts/build.py
 
+      - name: Validate deploy assets (strict post-build)
+        run: python scripts/validate_deploy_assets.py --strict
+
       - name: Run quality gate (post-build)
         run: python scripts/quality_gate.py
 
