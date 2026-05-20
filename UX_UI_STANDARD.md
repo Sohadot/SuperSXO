@@ -1,13 +1,93 @@
-# SuperSXO UX/UI Standard
+# SuperSXO — UX/UI Standard
 
-SuperSXO.com must not use a generic SEO, SaaS, agency, or blog interface.
+## Governing Principle
 
-The visual and experiential direction is a sovereign spatial interface: a future-facing, VR-inspired, diagnostic control layer that makes the Search Experience Optimization journey visible.
+> **SuperSXO does not merely explain search experience.**
+> **It makes the search-to-action journey visible inside the interface itself.**
 
-The interface must serve the asset thesis. It must communicate the path from search intent to visibility, experience, trust, and action.
+---
 
-The UI may use spatial depth, layered panels, signal paths, diagnostic nodes, and controlled motion. It must not become a gaming interface, metaverse gimmick, cyberpunk decoration, or animation-heavy showcase.
+## Approved Direction: Sovereign Spatial Interface
 
-Core content must remain semantic, accessible, indexable, fast, and usable without reliance on heavy JavaScript or 3D rendering.
+SuperSXO.com must not look like:
 
-The interface itself must function as proof of the SuperSXO thesis: visibility becomes valuable only when experience, trust, and action are governed.
+- a generic SEO blog
+- a SaaS template
+- a digital agency site
+- an affiliate website
+- an ordinary marketing landing page
+
+The approved direction is a **Sovereign Spatial Interface**.
+
+The interface should be future-facing, spatial, VR-inspired, and conceptually tied to the asset thesis.
+
+The user experience should feel like entering a controlled search-experience observatory or diagnostic control plane.
+
+---
+
+## Approved Interface Language
+
+The interface may use:
+
+- layered panels
+- signal paths
+- spatial depth
+- controlled motion
+- diagnostic grids
+- search-to-action maps
+- trust and clarity planes
+- subtle interface perspective
+- structured visual hierarchy
+- institutional futuristic design language
+
+---
+
+## Prohibited Interface Direction
+
+The interface must not become:
+
+- gaming-like
+- childish
+- metaverse gimmick
+- cyberpunk decoration
+- heavy 3D spectacle
+- animation-first
+- canvas-only
+- inaccessible
+- slow
+- confusing
+
+---
+
+## Technical Constraints for UX/UI
+
+Spatial or VR-inspired effects must be **progressive enhancements**, not the core content delivery mechanism.
+
+The interface must remain:
+
+- accessible
+- readable without JavaScript
+- navigable without JavaScript
+- fast on mobile
+- compliant with accessibility basics
+- free of animation that cannot be disabled
+
+---
+
+## Typography and Visual Hierarchy
+
+- Typography must reinforce institutional authority, not playfulness
+- Color palette must be disciplined — not decorative
+- Motion must be purposeful — every animation must have a functional justification
+- Whitespace is a design tool — not empty space to fill
+
+---
+
+## UX Decision Protocol
+
+Any interface direction change must:
+
+1. Be evaluated against the Sovereign Spatial Interface standard
+2. Pass the prohibited list check
+3. Confirm progressive enhancement compliance
+4. Be logged in `DECISION_LOG.md` before implementation
