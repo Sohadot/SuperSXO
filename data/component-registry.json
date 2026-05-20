@@ -193,6 +193,148 @@
         "Decorative card styling that obscures link purpose"
       ],
       "publication_risk": "low"
+    },
+    {
+      "component_id": "spatial_header",
+      "role": "Sticky glass-surface site header implementing the spatial_command_header pattern. Contains authority-node (site identity), route-cluster (primary nav), and action-node-cluster (governed CTAs). Uses backdrop-filter blur on --surface-glass for spatial depth without canvas or SVG.",
+      "ux_layer": "navigation",
+      "allowed_routes": "*",
+      "required_data_sources": ["data/navigation.json", "data/routes.json"],
+      "accessibility_requirements": [
+        "Must be the first element containing the skip-to-main-content link",
+        "authority-node link must have aria-label describing destination",
+        "route-cluster must be a <nav> element with aria-label='Primary navigation'",
+        "action-node-cluster must be a <nav> element with aria-label='Primary actions'",
+        "All links must be keyboard-reachable in logical tab order",
+        "backdrop-filter fallback: opaque --surface-command background for unsupported browsers"
+      ],
+      "prohibited_behavior": [
+        "JavaScript required for header layout or visibility",
+        "External font or script loaded in header",
+        "animation that blocks header links from being clicked",
+        "Commercial CTA on routes where monetization_allowed is false",
+        "Hardcoded navigation links outside data/navigation.json"
+      ],
+      "publication_risk": "low"
+    },
+    {
+      "component_id": "route_cluster",
+      "role": "Primary navigation link cluster rendered inside the spatial_header. Derives all links from data/navigation.json primary_nav array. Rendered as <ul role='list'> of <a> links inside <nav>.",
+      "ux_layer": "navigation",
+      "allowed_routes": "*",
+      "required_data_sources": ["data/navigation.json"],
+      "accessibility_requirements": [
+        "Must use <ul> with role='list' to normalize list markers across browsers",
+        "Each link must use <a> with descriptive text",
+        "Must support flex-wrap at 768px breakpoint so all links remain visible on mobile",
+        "No link may target a deferred or unpublished route"
+      ],
+      "prohibited_behavior": [
+        "Hardcoded links not in navigation.json",
+        "Links to /seo-vs-sxo/, /ai-search-experience/, or /acquisition/ before those routes are published",
+        "Dropdown menus requiring JavaScript",
+        "Links hidden behind hover state only"
+      ],
+      "publication_risk": "low"
+    },
+    {
+      "component_id": "action_node_cluster",
+      "role": "Commercial and primary action node cluster inside the spatial_header. Renders governed CTA links as action nodes. Gated by route monetization_allowed field and route allowed_cta list.",
+      "ux_layer": "action",
+      "allowed_routes": "*",
+      "required_data_sources": ["data/routes.json", "data/navigation.json"],
+      "accessibility_requirements": [
+        "Action nodes must be <a> elements with descriptive text",
+        "Must not auto-trigger or be hidden behind hover",
+        "Focus ring must meet WCAG 2.4.11 minimum target size",
+        "Must be skippable via skip-to-content link"
+      ],
+      "prohibited_behavior": [
+        "CTA rendered on routes where monetization_allowed is false",
+        "Urgency language in action node text",
+        "Payment links, affiliate links, or external ad scripts",
+        "JavaScript required to render or reveal action nodes"
+      ],
+      "publication_risk": "high"
+    },
+    {
+      "component_id": "journey_orbit",
+      "role": "Spatial orbit zone rendering the seven-layer Search-to-Action Journey as a governed CSS control surface. Embedded as static HTML in page.html so it appears on all published routes without build.py changes. Each layer: index number, layer title, signal dot (decorative), layer description in CSS grid.",
+      "ux_layer": "experience",
+      "allowed_routes": "*",
+      "required_data_sources": [],
+      "accessibility_requirements": [
+        "Layer index numbers must be visible text elements, not CSS counters alone",
+        "Signal dots must be aria-hidden",
+        "Each layer must be readable as a plain list item without CSS grid",
+        "Ambient radial glow (::after) must not obscure layer text",
+        "Must not animate without prefers-reduced-motion guard"
+      ],
+      "prohibited_behavior": [
+        "JavaScript required to render layer list",
+        "Canvas or SVG as the primary layer rendering surface",
+        "Layers that are invisible without CSS grid support",
+        "Layer content that changes based on user identity or session"
+      ],
+      "publication_risk": "low"
+    },
+    {
+      "component_id": "content_deck",
+      "role": "Governed content surface container wrapping injected page body HTML. Applies --surface-command background, 2px --grid-line-strong left border, and --radius-orbit. All child content derives from page content source files.",
+      "ux_layer": "experience",
+      "allowed_routes": "*",
+      "required_data_sources": ["data/routes.json"],
+      "accessibility_requirements": [
+        "Must maintain WCAG AA contrast between --surface-command and contained text",
+        "Left border is decorative — must not be sole indicator of content type",
+        "Content must be readable without the container background"
+      ],
+      "prohibited_behavior": [
+        "Inline styles on content-deck or child .page-section elements",
+        "Hardcoded color values outside token system",
+        "JavaScript required to populate or reveal content",
+        "External scripts or iframes embedded in content"
+      ],
+      "publication_risk": "low"
+    },
+    {
+      "component_id": "page_command_panel",
+      "role": "Full page layout command surface that orchestrates all page zones: route-context-zone, page-signal-header, content-deck, journey-orbit-zone, related-routes-panel, governed-cta-zone. Sets max-width, grid layout, and gap for consistent spatial page structure.",
+      "ux_layer": "experience",
+      "allowed_routes": "*",
+      "required_data_sources": ["data/routes.json"],
+      "accessibility_requirements": [
+        "Must contain a single <h1> per page in page-signal-header",
+        "Must have id='main-content' on the containing <main> element for skip-link target",
+        "Reading order must follow visual order (no CSS reordering that breaks logical tab sequence)"
+      ],
+      "prohibited_behavior": [
+        "Multiple <h1> elements per page",
+        "CSS order property used to invert visual and DOM order",
+        "JavaScript layout calculation required for grid structure",
+        "Inline layout styles overriding governed grid"
+      ],
+      "publication_risk": "low"
+    },
+    {
+      "component_id": "route_telemetry_panel",
+      "role": "Governance transparency aside panel displaying route role, UX layer, claim level, monetization status, and publication status as a <dl> definition list. Hidden by default via HTML hidden attribute. --signal-violet left border identifies it as a governance surface. Implemented in templates/components/route-context.html.",
+      "ux_layer": "visibility",
+      "allowed_routes": "*",
+      "required_data_sources": ["data/routes.json", "data/ux-layers.json"],
+      "accessibility_requirements": [
+        "Must use HTML hidden attribute for default hidden state (not CSS display:none alone)",
+        "Must use <aside> with aria-label='Route telemetry'",
+        "When made visible, must not disrupt primary content reading order",
+        "Definition list must use <dt>/<dd> pairs for each governance field"
+      ],
+      "prohibited_behavior": [
+        "Visible to public users without operator authorization",
+        "Displaying data from unpublished or deferred routes",
+        "JavaScript toggle required to hide/show panel",
+        "Styling that makes panel resemble primary page content"
+      ],
+      "publication_risk": "medium"
     }
   ]
 }
