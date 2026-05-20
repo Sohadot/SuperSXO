@@ -36,6 +36,39 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-20] — Core Content Registry Added
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Created Sprint-3 core content registry: `data/content-model.json`, `data/page-source-map.json`, nine content contract files in `content/pages/`, and `scripts/validate_content_sources.py`. Updated `scripts/quality_gate.py` to include content source validation.  
+**Reasoning:** The static architecture skeleton exists but has no governed content contracts. Content contracts define the intended purpose, required sections, claim classification, internal link requirements, and publication blockers for each registered route before any copy is written. This prevents undocumented or ungoverned content from entering the build pipeline.  
+**Impact:** All nine registered routes now have content contracts with `source_status: draft_contract`. No route status was changed to `published`. No public pages were created. No HTML was generated. The quality gate now validates content source governance on every push. Content remains governed before publication.  
+**Logged by:** agent  
+
+---
+
+## [2026-05-20] — Static Architecture Skeleton Added
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Created Sprint-2 static architecture skeleton: `content/pages/`, `templates/` (base, page, and five components), `static/css/` (tokens.css and main.css), `static/js/README.md`, `static/images/README.md`, `scripts/build.py`, and `scripts/validate_build_boundaries.py`. Updated `scripts/quality_gate.py` to include the build boundary validator.  
+**Reasoning:** The governance layer and validator skeleton are complete. The static architecture skeleton establishes the design token system, template structure, and build pipeline boundaries before any public page is authored. The build script refuses to generate output unless routes have status `published`. No routes are published, so no public pages were created.  
+**Impact:** Future page authorship and build execution are governed by this skeleton. The quality gate enforces that no `index.html`, no `output/` directory, and no stray HTML files may appear outside the deliberate build pipeline.  
+**Logged by:** agent  
+
+---
+
+## [2026-05-20] — Validator Skeleton Added
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Created Sprint-1 validator skeleton: five domain-specific validators, one orchestrator (`quality_gate.py`), and a GitHub Actions workflow (`.github/workflows/quality-gate.yml`).  
+**Reasoning:** Machine-readable governance files in `data/` have no enforcement layer. Validators convert governance rules into automated checks that fail loudly on any structural violation before any public page is built. The GitHub Actions workflow ensures validation runs on every push and pull request.  
+**Impact:** All future changes to `data/*.json` are automatically validated on every push. No public pages were created. No dependencies outside the Python standard library were introduced.  
+**Logged by:** agent  
+
+---
+
 ## [2026-05-20] — Machine-Readable Governance Added
 
 **Type:** architecture  
