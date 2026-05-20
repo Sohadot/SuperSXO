@@ -9,20 +9,20 @@
       "path": "/",
       "title": "SuperSXO — Sovereign Search Experience Optimization",
       "publication_order": 1,
-      "internal_link_dependencies": ["/what-is-sxo/", "/sxo-framework/", "/sxo-score/"],
+      "internal_link_dependencies": ["/what-is-sxo/", "/sxo-framework/", "/sxo-score/", "/sxo-audit/", "/methodology/"],
       "all_dependencies_in_alpha": true,
-      "publication_readiness": "pending_content_approval",
+      "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false
     },
     {
       "path": "/what-is-sxo/",
       "title": "What Is SXO? — Search Experience Optimization Defined",
       "publication_order": 2,
-      "internal_link_dependencies": ["/sxo-framework/", "/sxo-score/"],
+      "internal_link_dependencies": ["/sxo-framework/", "/sxo-score/", "/methodology/"],
       "all_dependencies_in_alpha": true,
-      "publication_readiness": "pending_content_approval",
-      "requires_internal_link_resolution": true,
-      "link_resolution_note": "data/routes.json requires_internal_links includes /seo-vs-sxo/ which is not in this alpha. That link must be removed from required_internal_links or /seo-vs-sxo/ must be added to the alpha before this route can be published."
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "Resolved: /seo-vs-sxo/ removed from required_internal_links in routes.json. Updated required_internal_links to [/sxo-framework/, /sxo-score/, /methodology/] — all within alpha."
     },
     {
       "path": "/sxo-framework/",
@@ -30,36 +30,36 @@
       "publication_order": 3,
       "internal_link_dependencies": ["/what-is-sxo/", "/sxo-score/", "/methodology/"],
       "all_dependencies_in_alpha": true,
-      "publication_readiness": "pending_content_approval",
+      "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false
     },
     {
       "path": "/sxo-score/",
       "title": "SuperSXO Score — Self-Assessment Diagnostic",
       "publication_order": 4,
-      "internal_link_dependencies": ["/sxo-framework/", "/sxo-audit/"],
+      "internal_link_dependencies": ["/sxo-framework/", "/sxo-audit/", "/methodology/"],
       "all_dependencies_in_alpha": true,
-      "publication_readiness": "pending_content_approval",
+      "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false
     },
     {
       "path": "/sxo-audit/",
       "title": "SXO Audit — Diagnostic Report",
       "publication_order": 5,
-      "internal_link_dependencies": ["/sxo-score/", "/sxo-framework/"],
+      "internal_link_dependencies": ["/sxo-score/", "/methodology/", "/"],
       "all_dependencies_in_alpha": true,
-      "publication_readiness": "pending_content_approval",
+      "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false
     },
     {
       "path": "/methodology/",
       "title": "SuperSXO Methodology — The Governance System for Search Experience",
       "publication_order": 6,
-      "internal_link_dependencies": ["/sxo-framework/", "/what-is-sxo/"],
+      "internal_link_dependencies": ["/sxo-framework/", "/sxo-score/", "/"],
       "all_dependencies_in_alpha": true,
-      "publication_readiness": "pending_content_approval",
-      "requires_internal_link_resolution": true,
-      "link_resolution_note": "data/routes.json required_internal_links includes /acquisition/ which is not in this alpha. That link must be removed from required_internal_links or /acquisition/ must be added to the alpha before this route can be published."
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "Resolved: /acquisition/ replaced with / in required_internal_links in routes.json. Updated required_internal_links to [/sxo-framework/, /sxo-score/, /] — all within alpha."
     }
   ],
   "deferred_routes": [
@@ -73,7 +73,8 @@
     },
     {
       "path": "/acquisition/",
-      "reason": "Acquisition signal route. Not indexable in public alpha unless explicitly approved."
+      "reason": "Acquisition signal route. Marked indexable: false. Not published in public alpha.",
+      "indexable": false
     }
   ],
   "publication_requirements": {

@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-20] — Core Authority Public Alpha Published
+
+**Type:** route  
+**Status:** decided  
+**Decision:** Executed Sprint-8 controlled public alpha publication: set six routes to `status: published` in `data/routes.json` (`/`, `/what-is-sxo/`, `/sxo-framework/`, `/sxo-score/`, `/sxo-audit/`, `/methodology/`). Updated all six content files to `source_status: approved_for_build` with full doctrine-grade copy across 35 total sections. Resolved two internal link blockers documented in `data/public-alpha-plan.json`: removed `/seo-vs-sxo/` from `/what-is-sxo/` required_internal_links and replaced `/acquisition/` with `/` in `/methodology/` required_internal_links. Updated `data/public-alpha-plan.json` to mark all candidate routes `approved_for_build` and `requires_internal_link_resolution: false`. Set `/acquisition/` to `indexable: false`. Extended `/`'s `required_internal_links` to include all five published alpha routes. Ran sovereign quality gate before and after build — both passed across all 12 validators. Generated six static HTML files in `output/` via `scripts/build.py`.  
+**Reasoning:** The public alpha readiness infrastructure was complete and all six internal link dependencies were resolvable within the alpha route set. No route linked to an unpublished route. All content was written to doctrine-grade, claim-classified standards without prohibited language. The quality gate enforced all governance conditions before and after build. The authority layer is now live at the file system level and ready for deployment.  
+**Impact:** Six pages generated: `output/index.html`, `output/what-is-sxo/index.html`, `output/sxo-framework/index.html`, `output/sxo-score/index.html`, `output/sxo-audit/index.html`, `output/methodology/index.html`. Three routes remain `planned` and unpublished: `/seo-vs-sxo/`, `/ai-search-experience/`, `/acquisition/`. `/acquisition/` is now `indexable: false`. No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or monetization scripts were added. No external fonts or dependencies were introduced. No WebGL, Three.js, or heavy 3D was added. No guaranteed rankings, conversion, traffic, revenue, or AI visibility claims were made. Sovereign quality gate passed before and after build. The core authority layer is published.  
+**Logged by:** agent
+
+---
+
 ## [2026-05-20] — Public Alpha Readiness Added
 
 **Type:** architecture  

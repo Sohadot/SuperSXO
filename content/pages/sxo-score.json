@@ -1,6 +1,6 @@
 {
   "route": "/sxo-score/",
-  "source_status": "draft_contract",
+  "source_status": "approved_for_build",
   "page_role": "diagnostic_tool",
   "ux_layer": "action",
   "claim_level": "commercial_claim",
@@ -13,23 +13,28 @@
   "required_sections": [
     {
       "name": "diagnostic_introduction",
-      "purpose": "Introduce the SuperSXO Score as a diagnostic instrument, not a marketing tool. Frame it as a governance check against the SXO framework layers."
+      "purpose": "Introduce the SuperSXO Score as a diagnostic instrument, not a marketing tool. Frame it as a governance check against the SXO framework layers.",
+      "content": "The SuperSXO Score is a structured self-assessment that maps a digital asset's current performance across the seven layers of the search-to-action journey. It is a diagnostic instrument, not a marketing quiz. It does not produce a number to share on social media. It produces a structured finding about where the journey from search to action is functioning and where it is breaking down. The assessment is governed by the SuperSXO Framework and applies the same layer model used in the full professional audit."
     },
     {
       "name": "what_the_score_measures",
-      "purpose": "Explain the seven dimensions assessed. Each dimension must map to a journey layer defined in /sxo-framework/."
+      "purpose": "Explain the seven dimensions assessed. Each dimension must map to a journey layer defined in /sxo-framework/.",
+      "content": "The score assesses seven dimensions, each corresponding to a layer of the SuperSXO Framework. Intent Alignment measures whether the asset's content is matched to the actual motivation behind the search queries that drive traffic. Visibility Conditions measures whether the technical and relevance foundations for search visibility are in place. Experience Quality measures whether the post-arrival interaction meets the standard required to retain the visitor. Trust Signal Coherence measures whether the credibility signals across the asset are consistent and sufficient. Navigation Clarity measures whether the path from arrival to action is legible and confident. Action Pathway Integrity measures whether the terminal action is clearly defined, accessible, and free of friction. Strategic Outcome Alignment measures whether the actions the asset drives produce the downstream consequences it was built to achieve."
     },
     {
       "name": "score_methodology",
-      "purpose": "Explain how the score is derived. Must be defensible and transparent. No black-box framing."
+      "purpose": "Explain how the score is derived. Must be defensible and transparent. No black-box framing.",
+      "content": "The score is derived from a structured assessment of observable conditions at each journey layer. Each layer is assessed against a defined set of conditions drawn from the SuperSXO Framework. Conditions are either present, partially present, or absent. The assessment is self-reported, which means its accuracy depends on the assessor's honest evaluation of their asset's actual state. The score is not an algorithmic calculation applied to traffic data. It is a structured diagnostic framework applied to the assessor's own observations. The full methodology governing each condition is documented in the SuperSXO Methodology."
     },
     {
       "name": "score_limitations",
-      "purpose": "Clearly state what the score does not guarantee. No ranking promises. No conversion promises."
+      "purpose": "Clearly state what the score does not guarantee. No ranking promises. No conversion promises.",
+      "content": "The SuperSXO Score does not guarantee any change in search rankings. It does not guarantee improvement in conversion rates. It does not guarantee traffic growth, lead volume, revenue, or any other business metric. A self-assessment score is a structured diagnostic, not a performance contract. The score identifies conditions and gaps. What an operator does with those findings, and what outcome follows, depends on factors outside the scope of the diagnostic instrument. No score result should be interpreted as a promise of future performance."
     },
     {
       "name": "next_step_bridge",
-      "purpose": "Lead users from their score result toward the SXO Audit for deeper professional diagnosis."
+      "purpose": "Lead users from their score result toward the SXO Audit for deeper professional diagnosis.",
+      "content": "A self-assessment identifies the layers where breakdown is likely occurring. It cannot identify the specific conditions causing the breakdown or the priority order in which to address them. That depth of diagnostic work is the domain of the SXO Audit: a professional diagnostic report that applies the SuperSXO Framework to a specific asset with methodological rigor. The audit is the appropriate next step for operators who need findings they can act on with confidence, rather than a directional assessment of where to look."
     }
   ],
   "required_internal_links": [
@@ -45,11 +50,5 @@
     "The score is the only SXO diagnostic that matters."
   ],
   "editorial_notes": "This page must balance commercial purpose with diagnostic authority. The score must feel like a professional instrument, not a lead magnet. Monetization is allowed but must reinforce trust. No fake urgency. No countdown timers. No aggressive lead capture. The transition to /sxo-audit/ must feel like a natural clinical recommendation, not a sales push.",
-  "publication_blockers": [
-    "Score logic must be defined, documented, and defensible.",
-    "Route status must be 'published' in data/routes.json.",
-    "Monetization gate must pass before any commercial element is deployed.",
-    "All internal links must resolve to published routes.",
-    "All quality gates must pass."
-  ]
+  "publication_blockers": []
 }

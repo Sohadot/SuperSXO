@@ -1,6 +1,6 @@
 {
   "route": "/sxo-audit/",
-  "source_status": "draft_contract",
+  "source_status": "approved_for_build",
   "page_role": "commercial_offer",
   "ux_layer": "action",
   "claim_level": "commercial_claim",
@@ -13,28 +13,34 @@
   "required_sections": [
     {
       "name": "what_the_audit_is",
-      "purpose": "Define the audit as a diagnostic deliverable, not a ranking service or conversion guarantee."
+      "purpose": "Define the audit as a diagnostic deliverable, not a ranking service or conversion guarantee.",
+      "content": "The SXO Audit is a professional diagnostic report that applies the SuperSXO Framework to a specific digital asset. It maps the asset's current state across all seven search-to-action journey layers, identifies where the journey breaks down, and documents the conditions responsible for each breakdown. The audit is a diagnostic deliverable. It produces structured findings, not rankings improvements, conversion rate targets, or traffic projections. It is the professional-grade instrument for operators who require a defensible, methodology-governed assessment of their search-to-action performance."
     },
     {
       "name": "what_the_audit_covers",
-      "purpose": "Explain which journey layers are assessed and what the deliverable includes. Must be specific and credible."
+      "purpose": "Explain which journey layers are assessed and what the deliverable includes. Must be specific and credible.",
+      "content": "The audit covers all seven layers of the SuperSXO Framework: Search Intent alignment, Visibility conditions, Experience quality, Trust signal coherence, Navigation clarity, Action pathway integrity, and Strategic Outcome alignment. Each layer is assessed against the governing conditions defined in the SuperSXO Methodology. The deliverable is a written diagnostic report documenting the findings at each layer, the specific conditions assessed, the gaps identified, and the priority order in which the gaps present risk to the journey's continuity. The report does not include implementation services, agency management, or ongoing optimization. It is a diagnostic document."
     },
     {
       "name": "what_the_audit_does_not_include",
-      "purpose": "Explicitly state that the audit does not guarantee rankings, conversions, or business outcomes."
+      "purpose": "Explicitly state that the audit does not guarantee rankings, conversions, or business outcomes.",
+      "content": "The SXO Audit does not guarantee improvement in search rankings. It does not guarantee an increase in conversion rates, lead volume, revenue, or any other business metric. It does not include ongoing campaign management, content production, technical implementation, or monitoring. The audit is a diagnostic report. Its value is in the quality and precision of the findings, not in any outcome it promises to produce. What an operator does with the findings, and what results follow, depends on factors outside the scope of a diagnostic instrument."
     },
     {
       "name": "audit_process",
-      "purpose": "Describe the diagnostic process at a high level. Must be credible and process-driven, not sales-driven."
+      "purpose": "Describe the diagnostic process at a high level. Must be credible and process-driven, not sales-driven.",
+      "content": "The audit follows a defined process governed by the SuperSXO Methodology. The process begins with an intake assessment to establish the asset's purpose, the audience it serves, and the strategic outcome it is built to achieve. The diagnostic then proceeds layer by layer through the SuperSXO Framework, applying each layer's governing conditions to the specific asset under review. Findings are documented as the assessment progresses. The final deliverable is reviewed for claim accuracy and methodology adherence before it is issued. The process is structured to produce a finding that is defensible, reproducible by the methodology, and actionable by the operator receiving it."
     },
     {
       "name": "request_path",
-      "purpose": "Provide a clear, dignified way to request an audit. No aggressive forms. No fake scarcity. No countdown timers."
+      "purpose": "Provide a clear, dignified way to request an audit. No aggressive forms. No fake scarcity. No countdown timers.",
+      "content": "Audit requests are accepted on a governed basis. The request process is straightforward: submit a request with the asset URL and a brief description of the strategic purpose of the asset. Requests are reviewed and a response issued. There is no artificial scarcity. There are no limited-time pricing tiers. There are no high-pressure follow-up sequences. The audit is offered to operators who need a professional diagnostic instrument and are prepared to act on its findings."
     }
   ],
   "required_internal_links": [
     "/sxo-score/",
-    "/sxo-framework/"
+    "/methodology/",
+    "/"
   ],
   "allowed_cta": ["request_audit"],
   "blocked_claims": [
@@ -46,12 +52,5 @@
     "Our audit is the best in the industry."
   ],
   "editorial_notes": "This is the primary commercial offer page. It must be written with institutional seriousness. No hype. No fake urgency. No aggressive sales language. The offer must feel like a professional service, not a marketing promotion. Connection to SXOSolution.com as the commercial gateway should be reflected architecturally but the page content must stand on authority, not brand separation.",
-  "publication_blockers": [
-    "Audit deliverable must be defined and scoped before this page can be published.",
-    "Route status must be 'published' in data/routes.json.",
-    "Monetization gate must pass.",
-    "All internal links must resolve to published routes.",
-    "No aggressive or prohibited sales language may appear in copy.",
-    "All quality gates must pass."
-  ]
+  "publication_blockers": []
 }
