@@ -7,7 +7,7 @@
 
 ---
 
-## Approved Direction: Sovereign Spatial Interface
+## Approved Direction: Sovereign Search Experience Control Interface
 
 SuperSXO.com must not look like:
 
@@ -16,12 +16,34 @@ SuperSXO.com must not look like:
 - a digital agency site
 - an affiliate website
 - an ordinary marketing landing page
+- a space-themed or cosmic interface
+- a gaming or metaverse environment
 
-The approved direction is a **Sovereign Spatial Interface**.
+The approved direction is a **Sovereign Search Experience Control Interface**.
 
-The interface should be future-facing, spatial, VR-inspired, and conceptually tied to the asset thesis.
+The interface should be future-facing, immersive, and conceptually tied to the asset thesis.
 
-The user experience should feel like entering a controlled search-experience observatory or diagnostic control plane.
+VR-inspired means **immersive and layered** — not headset-dependent, not cosmic, not outer-space visual language. The correct metaphors are control, diagnosis, journey mapping, and governed decision flow.
+
+The user experience should feel like entering a governed search-to-action diagnostic control system — where the full journey from intent to outcome is visible, measurable, and navigable.
+
+---
+
+## Interface Metaphor: Diagnostic Control, Not Space
+
+The correct conceptual frame is:
+
+- **Control interface** — not spacecraft cockpit
+- **Diagnostic panel** — not observatory dome
+- **Signal path** — not constellation or trajectory
+- **Intent channel** — not orbit
+- **Decision path** — not flight path
+- **Journey layer** — not celestial sphere
+- **Control grid** — not star field
+
+Depth is used to express hierarchy — the layered architecture of the search-to-action journey. It is not used to suggest outer space, cosmic distance, or astronomical scale.
+
+The darkness of the interface must feel like a precision operating system. Not outer space.
 
 ---
 
@@ -29,16 +51,16 @@ The user experience should feel like entering a controlled search-experience obs
 
 The interface may use:
 
-- layered panels
-- signal paths
-- spatial depth
-- controlled motion
-- diagnostic grids
-- search-to-action maps
-- trust and clarity planes
-- subtle interface perspective
-- structured visual hierarchy
-- institutional futuristic design language
+- layered panels (diagnostic layers)
+- signal paths (directional connectors)
+- controlled depth (information hierarchy)
+- controlled motion (progressive enhancement only)
+- diagnostic grids (structured assessment)
+- search-to-action control maps (journey visualization)
+- trust and clarity layers (authority signals)
+- subtle interface perspective (depth without drama)
+- structured visual hierarchy (command interface order)
+- institutional precision design language
 
 ---
 
@@ -56,12 +78,15 @@ The interface must not become:
 - inaccessible
 - slow
 - confusing
+- space-themed or cosmic
+- orbital or astronomical in metaphor
+- decorative dark without diagnostic function
 
 ---
 
 ## Technical Constraints for UX/UI
 
-Spatial or VR-inspired effects must be **progressive enhancements**, not the core content delivery mechanism.
+Control interface effects must be **progressive enhancements**, not the core content delivery mechanism.
 
 The interface must remain:
 
@@ -87,10 +112,11 @@ The interface must remain:
 
 Any interface direction change must:
 
-1. Be evaluated against the Sovereign Spatial Interface standard
-2. Pass the prohibited list check
+1. Be evaluated against the Sovereign Search Experience Control Interface standard
+2. Pass the prohibited list check (including the cosmic/space metaphor prohibition)
 3. Confirm progressive enhancement compliance
-4. Be logged in `DECISION_LOG.md` before implementation
+4. Confirm the change serves the search-to-action journey narrative
+5. Be logged in `DECISION_LOG.md` before implementation
 
 ---
 

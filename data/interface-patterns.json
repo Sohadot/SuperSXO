@@ -14,7 +14,7 @@
     {
       "pattern_id": "search_to_action_map",
       "status": "approved",
-      "description": "Ordered list representation of the seven-layer Search-to-Action Journey. Semantic HTML structure with spatial styling applied as progressive enhancement.",
+      "description": "Ordered list representation of the seven-layer Search-to-Action Journey. Semantic HTML structure with control-system styling applied as progressive enhancement.",
       "allowed_use": "Homepage, SXO Framework route, and What Is SXO route only. Must render as readable ordered list without CSS.",
       "risk": "low",
       "accessibility_note": "Must be an <ol> or <ul> with numbered or labeled layers. Screen readers must be able to traverse the list."
@@ -55,7 +55,7 @@
       "pattern_id": "controlled_motion_reveal",
       "status": "approved",
       "description": "Progressive enhancement motion pattern using CSS transitions to reveal content on scroll or interaction. Suppressed under prefers-reduced-motion.",
-      "allowed_use": "Spatial panel entries, journey layer reveals, navigation state transitions. Must not hide content — only enhance its appearance.",
+      "allowed_use": "Panel entries, journey layer reveals, navigation state transitions. Must not hide content — only enhance its appearance.",
       "risk": "low",
       "accessibility_note": "Must be wrapped in prefers-reduced-motion suppression. Content must be fully readable before motion trigger."
     },
@@ -70,31 +70,31 @@
     {
       "pattern_id": "control_plane_shell",
       "status": "approved",
-      "description": "Full-viewport outer wrapper that establishes the spatial grid background, deep-space surface color, and depth context for all contained surfaces. Uses CSS grid-line tokens as background-image overlay with a radial gradient ambient source via ::before pseudo-element.",
-      "allowed_use": "Root body wrapper on all published routes. Must use --surface-deep-space, --grid-line-soft, and --grid-line-strong tokens only. No external background images or textures.",
+      "description": "Full-viewport outer wrapper that establishes the diagnostic control grid background, base surface color, and depth context for all contained surfaces. Uses CSS grid-line tokens as background-image overlay with a radial signal gradient via ::before pseudo-element.",
+      "allowed_use": "Root body wrapper on all published routes. Must use --surface-control-base, --grid-line-soft, and --grid-line-strong tokens only. No external background images or textures.",
       "risk": "low",
-      "accessibility_note": "Grid background must not interfere with text contrast. Radial ambient must remain decorative (aria-hidden via pseudo-element). overflow-x must be hidden to prevent horizontal scroll on any viewport."
+      "accessibility_note": "Grid background must not interfere with text contrast. Signal gradient must remain decorative. overflow-x must be hidden to prevent horizontal scroll on any viewport."
     },
     {
-      "pattern_id": "spatial_command_header",
+      "pattern_id": "command_header_interface",
       "status": "approved",
-      "description": "Sticky glass-surface site header using backdrop-filter blur and --surface-glass token. Contains the authority node (site identity), route cluster (primary navigation), and action node cluster (governed CTAs). Positioned at z-index 100 to float above spatial content surfaces.",
-      "allowed_use": "Site header only. backdrop-filter must be the sole visual layering mechanism — no background images, no canvas, no SVG overlays. Must remain functional without backdrop-filter support (fallback: opaque surface-command background).",
+      "description": "Sticky glass-surface command header using backdrop-filter blur and --surface-signal-field token. Contains the authority node (site identity), route cluster (primary navigation), and action node cluster (governed CTAs). Positioned at z-index 100 to float above the diagnostic content surface.",
+      "allowed_use": "Site header only. backdrop-filter must be the sole visual layering mechanism. Must remain functional without backdrop-filter support (fallback: opaque --surface-command background).",
       "risk": "low",
-      "accessibility_note": "Must contain skip-to-main-content link as first focusable element. Navigation must use <nav> with aria-label. Must maintain WCAG AA contrast against both dark and light content visible through glass surface."
+      "accessibility_note": "Must contain skip-to-main-content link as first focusable element. Navigation must use <nav> with aria-label. Must maintain WCAG AA contrast against both dark and light content visible through the signal-field surface."
     },
     {
-      "pattern_id": "search_to_action_orbit",
+      "pattern_id": "search_to_action_control_map",
       "status": "approved",
-      "description": "Spatial orbit zone rendering the seven-layer Search-to-Action Journey as a governed CSS control surface. Each layer displays an index number, layer title, signal dot, and description in a CSS grid layout. Ambient radial glow applied via ::after pseudo-element for spatial depth.",
-      "allowed_use": "Embedded as static HTML in page.html so it appears on all published routes. Must be readable as a plain ordered list without CSS. CSS grid and glow are progressive enhancements only.",
+      "description": "Layered control map rendering the seven-layer Search-to-Action Journey as a governed diagnostic surface. Each layer displays an index number, layer title, signal indicator, and description in a structured grid layout. Ambient radial glow via ::after pseudo-element communicates the active diagnostic state.",
+      "allowed_use": "Embedded as static HTML in page.html so it appears on all published routes. Must be readable as a plain ordered list without CSS. Grid layout and glow are progressive enhancements only.",
       "risk": "low",
-      "accessibility_note": "Layer index numbers must be visible text, not CSS counters alone. Signal dots must be aria-hidden. Each layer description must be readable without the adjacent dot. Must not animate without prefers-reduced-motion guard."
+      "accessibility_note": "Layer index numbers must be visible text, not CSS counters alone. Signal indicators must be aria-hidden. Each layer description must be readable without the adjacent indicator. Must not animate without prefers-reduced-motion guard."
     },
     {
       "pattern_id": "governed_action_nodes",
       "status": "approved",
-      "description": "CTA and navigation action elements bounded by the route's monetization policy. Rendered as semantic <a> elements with --signal-blue border and --action-primary background. Only appear on routes where monetization_allowed is true or where the CTA is listed in the route's allowed_cta field.",
+      "description": "CTA and navigation action elements bounded by the route's monetization policy. Rendered as semantic <a> elements with --signal-blue border. Only appear on routes where monetization_allowed is true or where the CTA is listed in the route's allowed_cta field.",
       "allowed_use": "Header action cluster and governed-cta-zone on pages where the route permits it. Must never appear on routes where monetization_allowed is false.",
       "risk": "high",
       "accessibility_note": "Link text must describe destination, not use generic labels. Focus ring must meet WCAG 2.4.11 minimum target size. Must not auto-trigger or appear only on hover."
@@ -102,7 +102,7 @@
     {
       "pattern_id": "route_telemetry_panel",
       "status": "approved",
-      "description": "Governance transparency aside panel displaying route role, UX layer, claim level, monetization status, and publication status as a definition list. Hidden by default using the HTML hidden attribute. Uses --signal-violet left border for identification.",
+      "description": "Governance transparency aside panel displaying route role, UX layer, claim level, monetization status, and publication status as a definition list. Hidden by default using the HTML hidden attribute. Uses --signal-violet left border for identification as a governance surface.",
       "allowed_use": "All routes via route-context.html component. Must use HTML hidden attribute for default hidden state. Must not be visible in production without operator authorization. Content must derive from route data, not be hardcoded.",
       "risk": "medium",
       "accessibility_note": "Must use <aside> with aria-label. When visible, must be keyboard-accessible and not disrupt reading order. hidden attribute ensures screen readers skip it by default."
@@ -110,18 +110,18 @@
     {
       "pattern_id": "content_deck",
       "status": "approved",
-      "description": "Governed content surface container for page body sections. Applies --surface-command background, 2px --grid-line-strong left border, and --radius-orbit for spatial panel identity. Wraps injected page content sections.",
+      "description": "Governed content surface container for page body sections. Applies --surface-command background, 2px --grid-line-strong left border, and --radius-control for diagnostic panel identity. Wraps injected page content sections.",
       "allowed_use": "Page body content area on all published routes. Must not contain inline styles. All surface, border, and radius values must reference CSS tokens.",
       "risk": "low",
       "accessibility_note": "Must maintain WCAG AA contrast between --surface-command and --text-primary. Left border is decorative — must not be the sole indicator of content type. Content must be readable without the container styles."
     },
     {
-      "pattern_id": "sovereign_signal_grid",
+      "pattern_id": "governed_signal_grid",
       "status": "approved",
-      "description": "CSS background-image grid using repeating-linear-gradient with --grid-line-soft and --grid-line-strong tokens at 48px intervals. Applied to the control-plane-shell to create spatial depth without decoration. No images, no canvas, no SVG.",
+      "description": "CSS background-image grid using repeating-linear-gradient with --grid-line-soft and --grid-line-strong tokens at 48px intervals. Applied to the control-plane-shell to create diagnostic structure without decoration. Communicates the governed, structured nature of the control interface. No images, no canvas, no SVG.",
       "allowed_use": "control-plane-shell only. Grid must be created using CSS gradient functions with CSS custom property tokens. No external image files, data URIs, or SVG backgrounds.",
       "risk": "low",
-      "accessibility_note": "Grid lines must be sufficiently low-contrast that they never interfere with text readability. Grid is purely decorative — must have no semantic meaning communicated through it."
+      "accessibility_note": "Grid lines must be sufficiently low-contrast that they never interfere with text readability. Grid is structural — it communicates system order, not decorative space imagery."
     }
   ],
   "prohibited_patterns": [
@@ -185,7 +185,7 @@
       "pattern_id": "intrusive_popup",
       "status": "prohibited",
       "description": "Modal overlays or popups that interrupt content reading, block page access, or appear on a timer without user trigger.",
-      "allowed_use": "Never. Violates trust plane governance and MONETIZATION_BOUNDARY phase rules.",
+      "allowed_use": "Never. Violates trust layer governance and MONETIZATION_BOUNDARY phase rules.",
       "risk": "high",
       "accessibility_note": "Intrusive modals create focus trap issues, disrupt screen reader flow, and violate WCAG 2.4.3."
     },
@@ -200,42 +200,82 @@
     {
       "pattern_id": "conventional_blog_header",
       "status": "prohibited",
-      "description": "Traditional blog-style site header with logo-left, hamburger-right layout, no spatial depth, no glass surface, no authority node structure. Signals generic CMS template rather than sovereign digital asset.",
-      "allowed_use": "Never. The spatial_command_header pattern is the only approved site header form.",
+      "description": "Traditional blog-style site header with logo-left, hamburger-right layout, no diagnostic depth, no glass surface, no authority node structure.",
+      "allowed_use": "Never. The command_header_interface pattern is the only approved site header form.",
       "risk": "high",
-      "accessibility_note": "Prohibition is strategic, not accessibility-based. The spatial header must still meet all WCAG AA requirements."
+      "accessibility_note": "Prohibition is strategic. The command header must still meet all WCAG AA requirements."
     },
     {
       "pattern_id": "broken_mobile_nav",
       "status": "prohibited",
-      "description": "Navigation that collapses to an unusable, hidden, or truncated state below 768px without a governed mobile layout pattern. Horizontal overflow on small viewports caused by fixed-width navigation containers.",
-      "allowed_use": "Never. The route-cluster must use flex-wrap and appropriate responsive breakpoints so all navigation links remain accessible on all viewport sizes.",
+      "description": "Navigation that collapses to an unusable, hidden, or truncated state below 768px without a governed mobile layout. Horizontal overflow on small viewports.",
+      "allowed_use": "Never. The route-cluster must use flex-wrap and appropriate responsive breakpoints.",
       "risk": "critical",
-      "accessibility_note": "Inaccessible navigation on mobile is a WCAG 2.4 failure. All navigation links must be reachable on all viewport sizes without horizontal scrolling."
+      "accessibility_note": "Inaccessible navigation on mobile is a WCAG 2.4 failure."
     },
     {
       "pattern_id": "floating_cta_overflow",
       "status": "prohibited",
-      "description": "CTAs or action nodes that float, position absolutely, or overflow outside their governed-cta-zone or action-node-cluster containers. Sticky floating CTAs, floating chat widgets, or persistent overlay action buttons.",
-      "allowed_use": "Never. All CTAs must be contained within governed-cta-zone (page body) or action-node-cluster (header). No sticky or floating CTA surfaces.",
+      "description": "CTAs or action nodes that float, position absolutely, or overflow outside their governed-cta-zone or action-node-cluster containers.",
+      "allowed_use": "Never. All CTAs must be contained within governed zones.",
       "risk": "high",
-      "accessibility_note": "Floating overlays violate WCAG 2.4.3 focus order requirements and can trap keyboard focus."
+      "accessibility_note": "Floating overlays violate WCAG 2.4.3 focus order requirements."
     },
     {
       "pattern_id": "generic_dark_template",
       "status": "prohibited",
-      "description": "Dark background applied without token governance, depth hierarchy, or spatial signal system. Dark-for-dark's-sake styling that does not derive from the --surface-* token family or establish a legible spatial hierarchy between content zones.",
-      "allowed_use": "Never. All surface colors must reference --surface-deep-space, --surface-orbit, --surface-command, or --surface-glass tokens. Background color alone is not a design system.",
+      "description": "Dark background applied without token governance, depth hierarchy, or diagnostic signal structure. Dark-for-dark's-sake styling that does not derive from the --surface-* token family.",
+      "allowed_use": "Never. All surface colors must reference the governed token system.",
       "risk": "high",
-      "accessibility_note": "Generic dark surfaces frequently produce low-contrast text combinations. All surfaces must be validated for WCAG AA contrast against the text tokens applied within them."
+      "accessibility_note": "Generic dark surfaces frequently produce low-contrast text combinations."
     },
     {
       "pattern_id": "ungoverned_visual_decoration",
       "status": "prohibited",
-      "description": "Gradients, glows, borders, shadows, or background effects that are not derived from the CSS token system defined in static/css/tokens.css. Inline styles, hardcoded color values, and external image textures used as visual decoration.",
-      "allowed_use": "Never. All visual decoration must reference CSS custom properties from tokens.css. Inline styles are prohibited. Hardcoded hex, rgb, or hsl values outside tokens.css are prohibited.",
+      "description": "Gradients, glows, borders, shadows, or background effects not derived from the CSS token system in static/css/tokens.css. Inline styles, hardcoded color values.",
+      "allowed_use": "Never. All visual decoration must reference CSS custom properties from tokens.css.",
       "risk": "medium",
-      "accessibility_note": "Ungoverned decoration frequently produces contrast failures and inconsistent focus ring visibility. Token governance ensures decoration stays within validated contrast ranges."
+      "accessibility_note": "Ungoverned decoration frequently produces contrast failures and inconsistent focus ring visibility."
+    },
+    {
+      "pattern_id": "cosmic_interface",
+      "status": "prohibited",
+      "description": "Interface elements that use cosmic, astronomical, or outer-space visual metaphors: star fields, nebulae, orbital rings, planet surfaces, galaxy textures, or space-station HUD patterns.",
+      "allowed_use": "Never. The interface represents a search-experience control system, not outer space.",
+      "risk": "critical",
+      "accessibility_note": "Space-themed dark interfaces frequently produce contrast failures. The prohibition is primarily about strategic clarity and brand coherence."
+    },
+    {
+      "pattern_id": "outer_space_metaphor",
+      "status": "prohibited",
+      "description": "Use of orbit, deep space, galaxy, constellation, nebula, or astronomical language in class names, component names, design system terminology, or public-facing copy to describe interface elements that serve search-experience functions.",
+      "allowed_use": "Never. All terminology must derive from search-experience, diagnostic, or control-system vocabulary.",
+      "risk": "high",
+      "accessibility_note": "No direct accessibility concern. The prohibition is about conceptual alignment with the asset thesis."
+    },
+    {
+      "pattern_id": "orbit_metaphor_without_function",
+      "status": "prohibited",
+      "description": "CSS classes, component names, or visual elements that use 'orbit' as a metaphor for circular motion, planetary rotation, or space travel when applied to search-experience interface components.",
+      "allowed_use": "Never as a space-travel or planetary metaphor. Sprint 10 orbit class names have been superseded by control-system equivalents in Sprint 10B.",
+      "risk": "high",
+      "accessibility_note": "No direct accessibility concern. Conceptual misalignment with sovereign search-experience positioning."
+    },
+    {
+      "pattern_id": "decorative_sci_fi_grid",
+      "status": "prohibited",
+      "description": "Background grid or line patterns that are purely decorative and reference science fiction visual tropes (hex grids, targeting reticles, holographic displays) rather than the structured diagnostic control grid.",
+      "allowed_use": "Never as pure sci-fi decoration. The governed_signal_grid pattern uses a CSS background grid, but its function is to communicate diagnostic structure, not suggest sci-fi technology.",
+      "risk": "medium",
+      "accessibility_note": "Decorative grids must not interfere with text contrast. The prohibition is about semantic framing."
+    },
+    {
+      "pattern_id": "visual_depth_without_diagnostic_meaning",
+      "status": "prohibited",
+      "description": "Multi-layer depth effects, parallax, or z-axis perspective that do not map to the information architecture of the search-to-action journey. Visual depth for dramatic or decorative purposes without communicating hierarchy.",
+      "allowed_use": "Never. Depth must communicate information hierarchy — which layer of the control interface the element occupies. Depth is diagnostic, not theatrical.",
+      "risk": "medium",
+      "accessibility_note": "Excessive depth effects can create confusion for users with vestibular disorders. Parallax specifically triggers motion sickness concerns under prefers-reduced-motion."
     }
   ]
 }

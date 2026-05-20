@@ -5,16 +5,24 @@
   "last_updated": "2026-05-20",
   "token_groups": {
     "surfaces": {
-      "purpose": "Define the spatial depth hierarchy of the interface. Each level communicates a distinct layer of information architecture.",
-      "allowed_use": "Background colors for page regions, panels, overlays, and highlight states. Must be used in order of depth.",
-      "prohibited_use": "Do not use surface tokens for text color. Do not use surface tokens as border colors. Do not apply surface-overlay or surface-highlight to primary content backgrounds.",
+      "purpose": "Define the diagnostic depth hierarchy of the control interface. Each level communicates a distinct layer of the search-to-action information architecture.",
+      "allowed_use": "Background colors for page regions, panels, overlays, and highlight states. Must be used in order of depth. Use control-system token names for new code.",
+      "prohibited_use": "Do not use surface tokens for text color. Do not use surface tokens as border colors. Do not apply surface-overlay or surface-highlight to primary content backgrounds. Do not use space-themed naming for new tokens.",
       "tokens": {
         "--surface-base": "#090b0e",
         "--surface-raised": "#0e1116",
         "--surface-panel": "#13171f",
         "--surface-overlay": "#181d28",
         "--surface-highlight": "#1d2333",
-        "--surface-control-plane": "#090b0e"
+        "--surface-control-plane": "#090b0e",
+        "--surface-control-base": "#050709",
+        "--surface-control-panel": "#0c0f14",
+        "--surface-signal-field": "rgba(5, 7, 9, 0.92)",
+        "--surface-diagnostic-layer": "#0e1218",
+        "--surface-command": "#0e1218",
+        "--surface-deep-space": "#050709",
+        "--surface-orbit": "#0c0f14",
+        "--surface-glass": "rgba(5, 7, 9, 0.92)"
       }
     },
     "ink": {
@@ -29,36 +37,42 @@
       }
     },
     "signal_colors": {
-      "purpose": "Navigation, primary action, and spatial connector accent. Communicates directionality and primary interface interaction.",
+      "purpose": "Navigation, primary action, and signal path connector accent. Communicates directionality and intent-to-action flow in the search experience control interface.",
       "allowed_use": "Primary navigation links, signal path connectors, focus rings, primary action buttons, interactive element hover states.",
       "prohibited_use": "Do not use signal tokens for trust indicators (use trust tokens). Do not use signal tokens for commercial CTAs (use action tokens). Do not use signal glow as primary decoration.",
       "tokens": {
         "--signal-primary": "#4a7cdc",
         "--signal-secondary": "#2a5cc0",
         "--signal-glow": "rgba(74, 124, 220, 0.14)",
-        "--signal-subtle": "rgba(74, 124, 220, 0.06)"
+        "--signal-subtle": "rgba(74, 124, 220, 0.06)",
+        "--signal-blue": "#3a6fd8",
+        "--signal-cyan": "#00b8d4",
+        "--signal-violet": "#7c6fe0",
+        "--signal-path-line": "rgba(58, 111, 216, 0.45)"
       }
     },
     "trust_colors": {
-      "purpose": "Established authority, evidence, verified claims, and institutional credibility signals.",
-      "allowed_use": "Evidence markers, verified claim indicators, trust plane backgrounds, source citation accents.",
+      "purpose": "Established authority, evidence, verified claims, and institutional credibility signals in the trust journey layer.",
+      "allowed_use": "Evidence markers, verified claim indicators, trust layer backgrounds, source citation accents.",
       "prohibited_use": "Do not use trust tokens on commercial or action surfaces. Do not use trust color for primary navigation. Do not use trust glow as decoration.",
       "tokens": {
         "--trust-color": "#38a882",
-        "--trust-glow": "rgba(56, 168, 130, 0.12)"
+        "--trust-glow": "rgba(56, 168, 130, 0.12)",
+        "--trust-layer-glow": "rgba(56, 168, 130, 0.15)"
       }
     },
     "action_colors": {
-      "purpose": "Commercial CTAs and monetization surfaces. Signals a consequential, opted-in user action.",
+      "purpose": "Governed action routes and monetization surfaces. Signals a consequential, opted-in user action in the action journey layer.",
       "allowed_use": "Primary CTAs on routes where monetization_allowed is true. Secondary CTA accents on action-layer routes.",
       "prohibited_use": "Do not use action tokens on routes where monetization_allowed is false. Do not use action color for navigation or trust signals. Action amber must never appear as decoration.",
       "tokens": {
         "--action-color": "#dfa030",
-        "--action-glow": "rgba(223, 160, 48, 0.12)"
+        "--action-glow": "rgba(223, 160, 48, 0.12)",
+        "--action-route-glow": "rgba(223, 160, 48, 0.15)"
       }
     },
     "borders": {
-      "purpose": "Define spatial edge definition between surfaces. Four levels from barely-visible to focused signal.",
+      "purpose": "Define spatial edge definition between diagnostic surfaces. Four levels from barely-visible to focused signal.",
       "allowed_use": "Panel borders, dividers, input borders, focused element outlines. Use border-subtle for ambient separation, border-signal for interactive or focused elements.",
       "prohibited_use": "Do not mix border levels on the same element class. Do not use border-signal as general decoration.",
       "tokens": {
@@ -66,7 +80,10 @@
         "--border-default": "rgba(255, 255, 255, 0.09)",
         "--border-strong": "rgba(255, 255, 255, 0.16)",
         "--border-signal": "rgba(74, 124, 220, 0.28)",
-        "--grid-line": "rgba(255, 255, 255, 0.04)"
+        "--grid-line": "rgba(255, 255, 255, 0.04)",
+        "--grid-line-soft": "rgba(255, 255, 255, 0.03)",
+        "--grid-line-strong": "rgba(255, 255, 255, 0.08)",
+        "--ring-border": "1px solid rgba(74, 124, 220, 0.30)"
       }
     },
     "spacing": {
@@ -89,7 +106,7 @@
       }
     },
     "radius": {
-      "purpose": "Consistent border radius. Institutional but not harsh — subtle rounding signals precision.",
+      "purpose": "Consistent border radius. Institutional but not harsh — subtle rounding signals precision in the control interface.",
       "allowed_use": "Panels, buttons, inputs, labels, tags. Use xs for very small elements, md for panels and inputs, lg for primary containers.",
       "prohibited_use": "Do not use radius-xl on navigation elements. Do not use full-circle radius (50%) for non-icon elements.",
       "tokens": {
@@ -97,19 +114,26 @@
         "--radius-sm": "4px",
         "--radius-md": "6px",
         "--radius-lg": "10px",
-        "--radius-xl": "16px"
+        "--radius-xl": "16px",
+        "--radius-control": "8px",
+        "--radius-orbit": "8px"
       }
     },
     "depth": {
-      "purpose": "Shadow and glow tokens that reinforce spatial hierarchy. Depth communicates information architecture, not drama.",
-      "allowed_use": "Panel elevation shadows, interactive element focus glows, spatial container depth.",
+      "purpose": "Shadow and glow tokens that reinforce diagnostic hierarchy in the control interface. Depth communicates information architecture, not drama.",
+      "allowed_use": "Panel elevation shadows, interactive element focus glows, diagnostic container depth.",
       "prohibited_use": "Do not use lg or glow-signal on body-level elements. Do not stack multiple shadow tokens on a single element. Do not use glow as primary decoration.",
       "tokens": {
         "--shadow-sm": "0 1px 3px rgba(0, 0, 0, 0.40)",
         "--shadow-md": "0 4px 12px rgba(0, 0, 0, 0.50)",
         "--shadow-lg": "0 8px 24px rgba(0, 0, 0, 0.60)",
         "--shadow-panel": "0 2px 16px rgba(0, 0, 0, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.04)",
-        "--shadow-glow-signal": "0 0 14px var(--signal-glow)"
+        "--shadow-glow-signal": "0 0 14px var(--signal-glow)",
+        "--depth-control": "0 0 0 1px rgba(255,255,255,0.06), 0 2px 8px rgba(0,0,0,0.40)",
+        "--depth-diagnostic-panel": "0 4px 24px rgba(0,0,0,0.50), inset 0 1px 0 rgba(255,255,255,0.04)",
+        "--depth-command": "0 8px 32px rgba(0,0,0,0.70)",
+        "--depth-orbit": "0 0 0 1px rgba(255,255,255,0.06), 0 2px 8px rgba(0,0,0,0.40)",
+        "--depth-panel": "0 4px 24px rgba(0,0,0,0.50), inset 0 1px 0 rgba(255,255,255,0.04)"
       }
     },
     "motion": {
