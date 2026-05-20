@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-20] — Security and Technical Hardening Baseline Added
+
+**Type:** security  
+**Status:** decided  
+**Decision:** Created Sprint-6 security and technical hardening baseline: `SECURITY_BASELINE.md`, `TECHNICAL_RISK_REGISTER.md`, `data/security-baseline.json`, `data/technical-risk-register.json`, `scripts/validate_security_baseline.py`, and `scripts/validate_repository_hygiene.py`. Updated `SECURITY_POLICY.md` with Security Baseline Enforcement section, `TECHNICAL_STANDARD.md` with Repository Hygiene Enforcement section, `.github/workflows/quality-gate.yml` with `permissions: contents: read`, and `scripts/quality_gate.py` to include both new validators after `validate_prototypes` and before `validate_build_boundaries`.  
+**Reasoning:** Security and technical risk prevention must be first-class governance layers before any public page, JavaScript, form, monetization script, analytics, or deployment surface is introduced. Machine-readable controls and automated validators enforce the security posture on every push, converting documentation-only policies into programmatically enforced checks. GitHub Actions workflow permissions were hardened to `contents: read` to apply least-privilege principle.  
+**Impact:** Security baseline controls were added for nine governance areas (repository secrets, public output, JavaScript policy, third-party policy, dependency policy, workflow policy, headers target, forms/payments/tracking, prototype safety). A technical risk register was added with fourteen risks, all high-severity risks marked `blocks_publication: true`. Repository hygiene validation was added to the sovereign quality gate. GitHub Actions workflow permissions were hardened to `contents: read`. No public pages were created. No route was published. No root `index.html` was created. No `output/` directory was created. No JavaScript, external scripts, dependencies, forms, analytics, payment, affiliate, or heavy 3D were introduced.  
+**Logged by:** agent  
+
+---
+
 ## [2026-05-20] — Non-Public Home Prototype Added
 
 **Type:** architecture  

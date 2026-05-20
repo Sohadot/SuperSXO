@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "governance_doc": "SECURITY_BASELINE.md",
+  "last_updated": "2026-05-20",
+  "controls": [
+    {
+      "control_id": "repository_secrets",
+      "purpose": "Prevent credentials, API keys, tokens, and .env files from being committed to the repository.",
+      "prohibited_patterns": [
+        ".env files",
+        ".env.* files",
+        "API_KEY= in any non-script file",
+        "SECRET_KEY= in any non-script file",
+        "PRIVATE_KEY in .env files",
+        "CLOUDFLARE_API_TOKEN in .env files",
+        "GITHUB_TOKEN= in non-workflow files"
+      ],
+      "required_checks": [
+        "validate_repository_hygiene scans for .env files by filename",
+        "validate_repository_hygiene scans .yml files for secret marker patterns",
+        "No requirements.txt or package.json in repository root"
+      ],
+      "escalation": "Rotate exposed credential immediately. Remove from git history. Log incident in DECISION_LOG.md. Assess public exposure."
+    },
+    {
+      "control_id": "public_output",
+      "purpose": "Prevent public HTML pages, output directories, or deployable artifacts from being generated before route publication approval.",
+      "prohibited_patterns": [
+        "index.html at repository root",
+        "output/ directory at repository root",
+        "public/ directory at repository root",
+        "dist/ directory at repository root"
+      ],
+      "required_checks": [
+        "validate_build_boundaries verifies no root index.html",
+        "validate_build_boundaries verifies no output/ directory",
+        "validate_repository_hygiene verifies no output/ public/ dist/ directories",
+        "build.py requires route status published before generating output"
+      ],
+      "escalation": "Delete generated files or directories. Review build script invocation. Log incident in DECISION_LOG.md."
+    },
+    {
+      "control_id": "javascript_policy",
+      "purpose": "Prevent JavaScript from being introduced into the repository before explicit operator approval.",
+      "prohibited_patterns": [
+        "*.js files anywhere in repository",
+        "onclick= in HTML templates",
+        "onload= in HTML templates",
+        "onerror= in HTML templates",
+        "onmouseover= in HTML templates",
+        "eval( in HTML templates",
+        "innerHTML in HTML templates",
+        "document.write in HTML templates"
+      ],
+      "required_checks": [
+        "validate_repository_hygiene scans for .js files",
+        "validate_repository_hygiene scans HTML templates for inline event handlers",
+        "validate_repository_hygiene scans HTML templates for dangerous JavaScript strings"
+      ],
+      "escalation": "Remove JavaScript files and inline handlers. Log incident in DECISION_LOG.md. Do not approve JavaScript without explicit operator decision."
+    },
+    {
+      "control_id": "third_party_policy",
+      "purpose": "Prevent external scripts, CDN libraries, tracking pixels, and unapproved third-party resources from being added to HTML templates.",
+      "prohibited_patterns": [
+        "<script src=\"http in HTML templates",
+        "google-analytics references in templates",
+        "googletagmanager references in templates",
+        "adsbygoogle references in templates",
+        "stripe references in templates",
+        "paypal references in templates",
+        "affiliate references in templates"
+      ],
+      "required_checks": [
+        "validate_repository_hygiene scans HTML templates for external script tags",
+        "validate_repository_hygiene scans HTML templates for third-party library references",
+        "Content-Security-Policy must be updated before any external resource is permitted"
+      ],
+      "escalation": "Remove external script tags immediately. Assess data transmission risk. Log incident in DECISION_LOG.md."
+    },
+    {
+      "control_id": "dependency_policy",
+      "purpose": "Prevent unapproved external dependencies from being introduced into the repository.",
+      "prohibited_patterns": [
+        "requirements.txt at repository root",
+        "package.json at repository root",
+        "pyproject.toml without approval",
+        "poetry.lock without approval",
+        "node_modules/ directory",
+        "pip install in workflow without approval"
+      ],
+      "required_checks": [
+        "All scripts must use Python standard library only",
+        "No requirements.txt or package.json present",
+        "validate_repository_hygiene scans for unapproved JavaScript files"
+      ],
+      "escalation": "Remove dependency manifest and installed packages. Document justification and approve explicitly in DECISION_LOG.md before reintroduction."
+    },
+    {
+      "control_id": "workflow_policy",
+      "purpose": "Ensure GitHub Actions workflow uses least-privilege permissions and only approved official actions.",
+      "prohibited_patterns": [
+        "permissions: write-all in workflow",
+        "permissions: contents: write without approval",
+        "Third-party GitHub Actions not in approved list",
+        "Hardcoded secrets in workflow files",
+        "GITHUB_TOKEN= as a hardcoded value"
+      ],
+      "required_checks": [
+        "Workflow must declare permissions: contents: read",
+        "Only actions/checkout and actions/setup-python are approved actions",
+        "No write permissions granted without logged approval",
+        "validate_repository_hygiene scans workflow files for hardcoded secret patterns"
+      ],
+      "escalation": "Restrict permissions to contents: read. Audit workflow run history. Log incident in DECISION_LOG.md."
+    },
+    {
+      "control_id": "headers_target",
+      "purpose": "Define the target security header configuration required before any public deployment.",
+      "prohibited_patterns": [
+        "Deployment without Content-Security-Policy",
+        "Deployment without Strict-Transport-Security",
+        "Deployment without X-Content-Type-Options",
+        "Deployment without Referrer-Policy",
+        "Deployment without Permissions-Policy",
+        "Deployment without frame restriction controls"
+      ],
+      "required_checks": [
+        "Content-Security-Policy must be restrictive (default-src 'self')",
+        "Strict-Transport-Security must include includeSubDomains",
+        "X-Content-Type-Options must be nosniff",
+        "Referrer-Policy must be no-referrer-when-downgrade or stricter",
+        "Permissions-Policy must restrict payment, camera, geolocation",
+        "frame-ancestors 'none' via CSP"
+      ],
+      "escalation": "Block public deployment until all security headers are configured and verified at the Cloudflare edge layer."
+    },
+    {
+      "control_id": "forms_payments_tracking",
+      "purpose": "Prohibit forms, payment scripts, affiliate links, analytics, and tracking until explicitly approved through route governance.",
+      "prohibited_patterns": [
+        "stripe.js or stripe.com references",
+        "paypal.js or paypal.com references",
+        "google-analytics.com references",
+        "googletagmanager.com references",
+        "adsbygoogle references",
+        "affiliate link parameters",
+        "<form> elements without approval",
+        "Cookie consent banners without tracking being approved first"
+      ],
+      "required_checks": [
+        "validate_repository_hygiene scans HTML templates for payment and tracking references",
+        "Monetization only permitted on routes with monetization_allowed: true in data/routes.json",
+        "Monetization gate must pass before commercial elements are introduced"
+      ],
+      "escalation": "Remove monetization or tracking element immediately. Log incident in DECISION_LOG.md. Confirm route monetization approval before reintroduction."
+    },
+    {
+      "control_id": "prototype_safety",
+      "purpose": "Ensure non-public prototypes cannot generate public output, publish routes, or create root index.html.",
+      "prohibited_patterns": [
+        "Prototype source_file set to index.html",
+        "Prototype with public_output_allowed: true",
+        "Prototype with status other than non_public_prototype",
+        "Prototype source_file outside templates/prototypes/",
+        "Prototype referencing components not in component registry"
+      ],
+      "required_checks": [
+        "validate_prototypes verifies all prototypes have status: non_public_prototype",
+        "validate_prototypes verifies public_output_allowed is false",
+        "validate_prototypes verifies source_file is inside templates/prototypes/",
+        "validate_prototypes verifies NON-PUBLIC PROTOTYPE marker is present in prototype files",
+        "validate_build_boundaries confirms no output generated from prototypes"
+      ],
+      "escalation": "Lock prototype status to non_public_prototype. Remove any generated output. Log in DECISION_LOG.md."
+    }
+  ]
+}

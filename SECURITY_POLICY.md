@@ -1,5 +1,20 @@
 # SuperSXO — Security Policy
 
+## Security Baseline Enforcement
+
+Security controls are enforced through machine-readable governance and automated validators. The following files form the security enforcement layer:
+
+- `SECURITY_BASELINE.md` — human-readable baseline covering threat model, policies, and incident response
+- `TECHNICAL_RISK_REGISTER.md` — technical risk register with severity, prevention, detection, and response for each known risk
+- `data/security-baseline.json` — machine-readable security controls for nine governance areas
+- `data/technical-risk-register.json` — machine-readable risk entries with `blocks_publication` enforcement
+- `scripts/validate_security_baseline.py` — validates control groups and risk entries against governance rules
+- `scripts/validate_repository_hygiene.py` — scans the repository for secrets, forbidden directories, JavaScript violations, external scripts, and prohibited patterns
+
+These validators run as part of the sovereign quality gate on every push.
+
+---
+
 ## Core Principle
 
 This asset must be built with a **low attack surface**.
