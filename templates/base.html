@@ -13,13 +13,17 @@
 <body class="{{ body_class }}">
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  {{ header }}
+  <div class="control-plane-shell">
 
-  <main id="main-content" tabindex="-1">
-    {{ content }}
-  </main>
+    {{ header }}
 
-  {{ footer }}
+    <main id="main-content" class="main-plane" tabindex="-1">
+      {{ content }}
+    </main>
+
+    {{ footer }}
+
+  </div>
 
 </body>
 </html>

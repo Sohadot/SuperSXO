@@ -1,54 +1,59 @@
 <!-- spatial-map.html: Search-to-Action Journey Map component -->
-<!-- Represents the seven-layer SXO journey defined in data/ux-layers.json. -->
-<!-- Semantic HTML only. No JavaScript. No canvas. No heavy 3D. -->
-<section class="spatial-map" aria-label="Search-to-Action Journey Map">
+<!-- Semantic HTML only. No JavaScript. No external scripts. -->
+<section class="journey-orbit" aria-label="Search-to-Action Journey Map">
 
-  <header class="spatial-map-header">
-    <h2 class="spatial-map-title">Search-to-Action Journey</h2>
-    <p class="spatial-map-subtitle">The seven layers governing the path from search intent to strategic outcome.</p>
+  <header class="journey-orbit-header">
+    <h2 class="journey-orbit-title">Search-to-Action Journey</h2>
+    <p class="journey-orbit-subtitle">Seven layers governing the path from search intent to strategic outcome.</p>
   </header>
 
-  <ol class="journey-layers" role="list">
+  <ol class="journey-plane" role="list">
 
-    <li class="journey-layer" data-layer="search-intent" data-order="1">
+    <li class="journey-node" data-layer="search-intent" data-order="1">
       <span class="layer-index" aria-hidden="true">01</span>
-      <span class="layer-label">Search Intent</span>
+      <span class="layer-title">Search Intent</span>
+      <span class="journey-signal" aria-hidden="true"></span>
       <span class="layer-description">The motivation that initiates the search.</span>
     </li>
 
-    <li class="journey-layer" data-layer="visibility" data-order="2">
+    <li class="journey-node" data-layer="visibility" data-order="2">
       <span class="layer-index" aria-hidden="true">02</span>
-      <span class="layer-label">Visibility</span>
+      <span class="layer-title">Visibility</span>
+      <span class="journey-signal" aria-hidden="true"></span>
       <span class="layer-description">The degree to which the asset appears in relevant search results.</span>
     </li>
 
-    <li class="journey-layer" data-layer="experience" data-order="3">
+    <li class="journey-node" data-layer="experience" data-order="3">
       <span class="layer-index" aria-hidden="true">03</span>
-      <span class="layer-label">Experience</span>
+      <span class="layer-title">Experience</span>
+      <span class="journey-signal" aria-hidden="true"></span>
       <span class="layer-description">The quality of interaction after the user arrives.</span>
     </li>
 
-    <li class="journey-layer" data-layer="trust" data-order="4">
+    <li class="journey-node" data-layer="trust" data-order="4">
       <span class="layer-index" aria-hidden="true">04</span>
-      <span class="layer-label">Trust</span>
+      <span class="layer-title">Trust</span>
+      <span class="journey-signal" aria-hidden="true"></span>
       <span class="layer-description">The user&rsquo;s assessment of credibility and authority.</span>
     </li>
 
-    <li class="journey-layer" data-layer="navigation" data-order="5">
+    <li class="journey-node" data-layer="navigation" data-order="5">
       <span class="layer-index" aria-hidden="true">05</span>
-      <span class="layer-label">Navigation</span>
+      <span class="layer-title">Navigation</span>
+      <span class="journey-signal" aria-hidden="true"></span>
       <span class="layer-description">The user&rsquo;s ability to move through the site with confidence.</span>
     </li>
 
-    <li class="journey-layer" data-layer="action" data-order="6">
+    <li class="journey-node" data-layer="action" data-order="6">
       <span class="layer-index" aria-hidden="true">06</span>
-      <span class="layer-label">Action</span>
+      <span class="layer-title">Action</span>
+      <span class="journey-signal" aria-hidden="true"></span>
       <span class="layer-description">The specific, measurable response taken by the user.</span>
     </li>
 
-    <li class="journey-layer" data-layer="strategic-outcome" data-order="7">
+    <li class="journey-node" data-layer="strategic-outcome" data-order="7">
       <span class="layer-index" aria-hidden="true">07</span>
-      <span class="layer-label">Strategic Outcome</span>
+      <span class="layer-title">Strategic Outcome</span>
       <span class="layer-description">The downstream consequence of repeated successful journeys.</span>
     </li>
 
