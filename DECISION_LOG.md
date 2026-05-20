@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-20] — GitHub Pages Deployment Workflow Added
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Created Sprint-9 GitHub Pages deployment workflow: `.github/workflows/deploy-pages.yml` (name: Deploy SuperSXO Public Alpha, triggers: push to main and workflow_dispatch, least-privilege permissions: contents: read / pages: write / id-token: write, concurrency group: pages). Created `DEPLOYMENT_POLICY.md` governing deployment method, deployable artifact, route publication requirements, quality gate enforcement, workflow permissions, and Cloudflare policy. Updated `DECISION_LOG.md`.  
+**Reasoning:** The six public alpha routes are published and `output/` is generated. The deployment infrastructure must be established through a governed workflow that enforces the sovereign quality gate before and after build, deploys only `output/`, uses least-privilege permissions, and prohibits unsafe scripts, analytics, payment links, affiliate links, forms, JavaScript, external fonts, dependencies, or heavy 3D from entering the deployment pipeline.  
+**Impact:** Deployment is now automated via GitHub Actions on every push to main and via manual dispatch. The sovereign quality gate runs before and after build — deployment is blocked if either run fails. Only `output/` is deployed as a Pages artifact. Deferred routes (`/seo-vs-sxo/`, `/ai-search-experience/`, `/acquisition/`) remain unpublished and are not included in the build or deployment. No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or monetization scripts were added. No external fonts or dependencies were introduced. No WebGL, Three.js, or heavy 3D was added. No Cloudflare API token is used in the publishing workflow. No deployment from root or docs/. Least-privilege workflow permissions are enforced.  
+**Logged by:** agent
+
+---
+
 ## [2026-05-20] — Core Authority Public Alpha Published
 
 **Type:** route  
