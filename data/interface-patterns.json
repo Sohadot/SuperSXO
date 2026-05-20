@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "governance_doc": "INTERFACE_GOVERNANCE.md",
+  "last_updated": "2026-05-20",
+  "approved_patterns": [
+    {
+      "pattern_id": "sovereign_spatial_panel",
+      "status": "approved",
+      "description": "Layered surface container using token-governed depth, border, and shadow system. Creates spatial separation between content zones without decoration.",
+      "allowed_use": "Any content section requiring visual separation from the base surface. Must use surface and border tokens.",
+      "risk": "low",
+      "accessibility_note": "Background must maintain WCAG AA contrast with contained text. Panel type must not be communicated by color alone."
+    },
+    {
+      "pattern_id": "search_to_action_map",
+      "status": "approved",
+      "description": "Ordered list representation of the seven-layer Search-to-Action Journey. Semantic HTML structure with spatial styling applied as progressive enhancement.",
+      "allowed_use": "Homepage, SXO Framework route, and What Is SXO route only. Must render as readable ordered list without CSS.",
+      "risk": "low",
+      "accessibility_note": "Must be an <ol> or <ul> with numbered or labeled layers. Screen readers must be able to traverse the list."
+    },
+    {
+      "pattern_id": "signal_path_connector",
+      "status": "approved",
+      "description": "Directional connector using signal-color tokens to indicate journey flow between content sections or layers.",
+      "allowed_use": "Framework and methodology routes to show layer progression. Must be aria-hidden if decorative. Sequence must also be communicated through text.",
+      "risk": "low",
+      "accessibility_note": "If the path conveys sequence, sequence must also be communicated through numbered labels or ordered list markup."
+    },
+    {
+      "pattern_id": "route_context_panel",
+      "status": "approved",
+      "description": "Governance transparency panel displaying route role, UX layer, and claim classification. Hidden by default in production.",
+      "allowed_use": "All routes. Default state is hidden. Only shown in development or operator review contexts.",
+      "risk": "medium",
+      "accessibility_note": "Must use the hidden attribute when not shown. Must not interfere with primary content reading order."
+    },
+    {
+      "pattern_id": "diagnostic_grid",
+      "status": "approved",
+      "description": "Structured assessment grid for scoring and audit surfaces. CSS Grid layout with fallback table/list structure.",
+      "allowed_use": "SXO Score and SXO Audit routes only. Must pass monetization gate before publication.",
+      "risk": "high",
+      "accessibility_note": "Score values must be expressed as text, not only color or visual indicator. Keyboard navigation through cells required."
+    },
+    {
+      "pattern_id": "trust_plane_stack",
+      "status": "approved",
+      "description": "Stacked evidence and authority section using trust-color accent tokens. Renders citations, verified claims, and source references.",
+      "allowed_use": "Framework, methodology, and reference routes. Claims must pass claim classification gate before display.",
+      "risk": "medium",
+      "accessibility_note": "Trust indicators must include visible text labels. Color is an enhancement, not the primary communication channel."
+    },
+    {
+      "pattern_id": "controlled_motion_reveal",
+      "status": "approved",
+      "description": "Progressive enhancement motion pattern using CSS transitions to reveal content on scroll or interaction. Suppressed under prefers-reduced-motion.",
+      "allowed_use": "Spatial panel entries, journey layer reveals, navigation state transitions. Must not hide content — only enhance its appearance.",
+      "risk": "low",
+      "accessibility_note": "Must be wrapped in prefers-reduced-motion suppression. Content must be fully readable before motion trigger."
+    },
+    {
+      "pattern_id": "semantic_navigation_cluster",
+      "status": "approved",
+      "description": "Governed navigation block using data from navigation.json. Semantic HTML with <nav>, <ul>, <a> structure.",
+      "allowed_use": "All routes. Navigation must derive from data/navigation.json, not be hardcoded.",
+      "risk": "low",
+      "accessibility_note": "Must use <nav> with aria-label. Active state must be communicated via aria-current, not only color."
+    }
+  ],
+  "prohibited_patterns": [
+    {
+      "pattern_id": "gaming_hud",
+      "status": "prohibited",
+      "description": "Interface styled to resemble video game HUDs — health bars, XP counters, player status panels, game-world overlays.",
+      "allowed_use": "Never.",
+      "risk": "critical",
+      "accessibility_note": "Game HUD patterns are typically inaccessible and confusing outside gaming contexts."
+    },
+    {
+      "pattern_id": "neon_cyberpunk_excess",
+      "status": "prohibited",
+      "description": "Heavy neon glow effects, cyan/magenta/purple neon borders, dystopian urban visual language, excessive glow blooms.",
+      "allowed_use": "Never. Subtle glow on signal-bearing elements within token constraints is permitted.",
+      "risk": "high",
+      "accessibility_note": "Neon-on-dark patterns frequently fail WCAG contrast requirements and cause eye strain."
+    },
+    {
+      "pattern_id": "metaverse_avatar_scene",
+      "status": "prohibited",
+      "description": "3D avatar scenes, virtual world environments, social metaverse UI patterns, spatial audio interface metaphors.",
+      "allowed_use": "Never.",
+      "risk": "critical",
+      "accessibility_note": "Canvas-based 3D environments are fundamentally inaccessible to screen reader users."
+    },
+    {
+      "pattern_id": "canvas_only_content",
+      "status": "prohibited",
+      "description": "Primary content rendered only on HTML canvas without HTML text equivalent. Canvas used as sole content delivery medium.",
+      "allowed_use": "Never. Canvas may be used as progressive visual enhancement behind semantic HTML content.",
+      "risk": "critical",
+      "accessibility_note": "Canvas content is invisible to screen readers and search engine crawlers. Violates static-first architecture and SEO gate."
+    },
+    {
+      "pattern_id": "animation_required_navigation",
+      "status": "prohibited",
+      "description": "Navigation that requires animation to complete or reveal its targets. Menus that only appear after an animation sequence.",
+      "allowed_use": "Never. Navigation must be accessible and complete without any animation.",
+      "risk": "critical",
+      "accessibility_note": "Animation-gated navigation is inaccessible to users with prefers-reduced-motion and breaks keyboard-only navigation."
+    },
+    {
+      "pattern_id": "hidden_text_for_seo",
+      "status": "prohibited",
+      "description": "Text content hidden from users but visible to search engines via CSS tricks, tiny font sizes, or color-on-color techniques.",
+      "allowed_use": "Never. Constitutes a security and quality violation under SECURITY_POLICY.md.",
+      "risk": "critical",
+      "accessibility_note": "Deceptive SEO practice. Violates search engine guidelines and may result in manual penalties."
+    },
+    {
+      "pattern_id": "decorative_3d_without_function",
+      "status": "prohibited",
+      "description": "Three.js, WebGL, or CSS 3D scenes used purely for decoration without strategic content function.",
+      "allowed_use": "Never. All 3D must serve a documented content purpose and have a non-3D fallback.",
+      "risk": "high",
+      "accessibility_note": "WebGL scenes are inaccessible by default and impose performance costs without strategic return."
+    },
+    {
+      "pattern_id": "intrusive_popup",
+      "status": "prohibited",
+      "description": "Modal overlays or popups that interrupt content reading, block page access, or appear on a timer without user trigger.",
+      "allowed_use": "Never. Violates trust plane governance and MONETIZATION_BOUNDARY phase rules.",
+      "risk": "high",
+      "accessibility_note": "Intrusive modals create focus trap issues, disrupt screen reader flow, and violate WCAG 2.4.3."
+    },
+    {
+      "pattern_id": "cheap_sales_banner",
+      "status": "prohibited",
+      "description": "Low-trust promotional banners with urgency language (limited time, act now, only X left), countdown timers, or high-pressure visual design.",
+      "allowed_use": "Never. Violates CLAIM_POLICY.md blocked_claim classification and MONETIZATION_BOUNDARY phase rules.",
+      "risk": "high",
+      "accessibility_note": "Countdown timers and urgency animations are disorienting for users with cognitive disabilities."
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0",
+  "governance_doc": "VISUAL_SYSTEM.md",
+  "css_file": "static/css/tokens.css",
+  "last_updated": "2026-05-20",
+  "token_groups": {
+    "surfaces": {
+      "purpose": "Define the spatial depth hierarchy of the interface. Each level communicates a distinct layer of information architecture.",
+      "allowed_use": "Background colors for page regions, panels, overlays, and highlight states. Must be used in order of depth.",
+      "prohibited_use": "Do not use surface tokens for text color. Do not use surface tokens as border colors. Do not apply surface-overlay or surface-highlight to primary content backgrounds.",
+      "tokens": {
+        "--surface-base": "#090b0e",
+        "--surface-raised": "#0e1116",
+        "--surface-panel": "#13171f",
+        "--surface-overlay": "#181d28",
+        "--surface-highlight": "#1d2333",
+        "--surface-control-plane": "#090b0e"
+      }
+    },
+    "ink": {
+      "purpose": "Define text color hierarchy. Three levels ensure readable content scanning from primary headings to muted metadata.",
+      "allowed_use": "Text, heading, label, and metadata color. Use primary for headings and key content, secondary for body text, muted for supporting metadata.",
+      "prohibited_use": "Do not use ink tokens as background colors. Do not use ink-inverse on dark surfaces.",
+      "tokens": {
+        "--ink-primary": "#e6e8f0",
+        "--ink-secondary": "#8e97ac",
+        "--ink-muted": "#525d72",
+        "--ink-inverse": "#090b0e"
+      }
+    },
+    "signal_colors": {
+      "purpose": "Navigation, primary action, and spatial connector accent. Communicates directionality and primary interface interaction.",
+      "allowed_use": "Primary navigation links, signal path connectors, focus rings, primary action buttons, interactive element hover states.",
+      "prohibited_use": "Do not use signal tokens for trust indicators (use trust tokens). Do not use signal tokens for commercial CTAs (use action tokens). Do not use signal glow as primary decoration.",
+      "tokens": {
+        "--signal-primary": "#4a7cdc",
+        "--signal-secondary": "#2a5cc0",
+        "--signal-glow": "rgba(74, 124, 220, 0.14)",
+        "--signal-subtle": "rgba(74, 124, 220, 0.06)"
+      }
+    },
+    "trust_colors": {
+      "purpose": "Established authority, evidence, verified claims, and institutional credibility signals.",
+      "allowed_use": "Evidence markers, verified claim indicators, trust plane backgrounds, source citation accents.",
+      "prohibited_use": "Do not use trust tokens on commercial or action surfaces. Do not use trust color for primary navigation. Do not use trust glow as decoration.",
+      "tokens": {
+        "--trust-color": "#38a882",
+        "--trust-glow": "rgba(56, 168, 130, 0.12)"
+      }
+    },
+    "action_colors": {
+      "purpose": "Commercial CTAs and monetization surfaces. Signals a consequential, opted-in user action.",
+      "allowed_use": "Primary CTAs on routes where monetization_allowed is true. Secondary CTA accents on action-layer routes.",
+      "prohibited_use": "Do not use action tokens on routes where monetization_allowed is false. Do not use action color for navigation or trust signals. Action amber must never appear as decoration.",
+      "tokens": {
+        "--action-color": "#dfa030",
+        "--action-glow": "rgba(223, 160, 48, 0.12)"
+      }
+    },
+    "borders": {
+      "purpose": "Define spatial edge definition between surfaces. Four levels from barely-visible to focused signal.",
+      "allowed_use": "Panel borders, dividers, input borders, focused element outlines. Use border-subtle for ambient separation, border-signal for interactive or focused elements.",
+      "prohibited_use": "Do not mix border levels on the same element class. Do not use border-signal as general decoration.",
+      "tokens": {
+        "--border-subtle": "rgba(255, 255, 255, 0.05)",
+        "--border-default": "rgba(255, 255, 255, 0.09)",
+        "--border-strong": "rgba(255, 255, 255, 0.16)",
+        "--border-signal": "rgba(74, 124, 220, 0.28)",
+        "--grid-line": "rgba(255, 255, 255, 0.04)"
+      }
+    },
+    "spacing": {
+      "purpose": "Consistent spatial rhythm. Token-governed spacing prevents ad-hoc layout decisions.",
+      "allowed_use": "All padding, margin, gap, and inset values. Scale from --space-1 (4px) to --space-24 (96px).",
+      "prohibited_use": "Do not use arbitrary pixel values for spacing. Do not mix token spacing with hardcoded em or px values in the same ruleset.",
+      "tokens": {
+        "--space-1": "0.25rem",
+        "--space-2": "0.5rem",
+        "--space-3": "0.75rem",
+        "--space-4": "1rem",
+        "--space-5": "1.25rem",
+        "--space-6": "1.5rem",
+        "--space-8": "2rem",
+        "--space-10": "2.5rem",
+        "--space-12": "3rem",
+        "--space-16": "4rem",
+        "--space-20": "5rem",
+        "--space-24": "6rem"
+      }
+    },
+    "radius": {
+      "purpose": "Consistent border radius. Institutional but not harsh — subtle rounding signals precision.",
+      "allowed_use": "Panels, buttons, inputs, labels, tags. Use xs for very small elements, md for panels and inputs, lg for primary containers.",
+      "prohibited_use": "Do not use radius-xl on navigation elements. Do not use full-circle radius (50%) for non-icon elements.",
+      "tokens": {
+        "--radius-xs": "2px",
+        "--radius-sm": "4px",
+        "--radius-md": "6px",
+        "--radius-lg": "10px",
+        "--radius-xl": "16px"
+      }
+    },
+    "depth": {
+      "purpose": "Shadow and glow tokens that reinforce spatial hierarchy. Depth communicates information architecture, not drama.",
+      "allowed_use": "Panel elevation shadows, interactive element focus glows, spatial container depth.",
+      "prohibited_use": "Do not use lg or glow-signal on body-level elements. Do not stack multiple shadow tokens on a single element. Do not use glow as primary decoration.",
+      "tokens": {
+        "--shadow-sm": "0 1px 3px rgba(0, 0, 0, 0.40)",
+        "--shadow-md": "0 4px 12px rgba(0, 0, 0, 0.50)",
+        "--shadow-lg": "0 8px 24px rgba(0, 0, 0, 0.60)",
+        "--shadow-panel": "0 2px 16px rgba(0, 0, 0, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.04)",
+        "--shadow-glow-signal": "0 0 14px var(--signal-glow)"
+      }
+    },
+    "motion": {
+      "purpose": "Token-governed animation timing. All transitions must reference these tokens — no ad-hoc durations.",
+      "allowed_use": "CSS transition and animation duration values. Use fast for hover state changes, base for panel state changes, slow for reveal effects.",
+      "prohibited_use": "Do not use durations outside this token set without a documented decision log entry. Do not use motion as a loading placeholder.",
+      "tokens": {
+        "--duration-instant": "80ms",
+        "--duration-fast": "150ms",
+        "--duration-base": "250ms",
+        "--duration-slow": "400ms",
+        "--duration-deliberate": "600ms",
+        "--easing-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "--easing-enter": "cubic-bezier(0, 0, 0.2, 1)",
+        "--easing-exit": "cubic-bezier(0.4, 0, 1, 1)"
+      }
+    },
+    "focus": {
+      "purpose": "Keyboard focus visibility governance. Focus states must never be suppressed.",
+      "allowed_use": "outline on :focus-visible for all interactive elements. outline-color should be --signal-primary. outline-offset of 2-4px.",
+      "prohibited_use": "Do not suppress outline on :focus. Do not use color-only focus indication. Do not rely on browser default focus styles without enhancement.",
+      "tokens": {
+        "--focus-ring-color": "var(--signal-primary)",
+        "--focus-ring-width": "2px",
+        "--focus-ring-offset": "3px"
+      }
+    }
+  }
+}

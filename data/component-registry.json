@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0",
+  "governance_doc": "INTERFACE_GOVERNANCE.md",
+  "last_updated": "2026-05-20",
+  "components": [
+    {
+      "component_id": "site_header",
+      "role": "Primary site navigation shell. Renders site identity, primary navigation, and commercial CTA when route-permitted.",
+      "ux_layer": "navigation",
+      "allowed_routes": "*",
+      "required_data_sources": ["data/navigation.json", "data/routes.json"],
+      "accessibility_requirements": [
+        "Must include skip-to-main-content link",
+        "Navigation must be wrapped in <nav> with aria-label",
+        "Site identity link must have descriptive text",
+        "All nav links must be keyboard-reachable"
+      ],
+      "prohibited_behavior": [
+        "Hardcoded navigation links outside data/navigation.json",
+        "Commercial CTA on routes where monetization_allowed is false",
+        "Sticky header with heavy animation",
+        "Any third-party tracking script in header"
+      ],
+      "publication_risk": "low"
+    },
+    {
+      "component_id": "site_footer",
+      "role": "Footer navigation and compliance surface. Renders footer links, legal text, and domain attribution.",
+      "ux_layer": "navigation",
+      "allowed_routes": "*",
+      "required_data_sources": ["data/navigation.json"],
+      "accessibility_requirements": [
+        "Footer links must be keyboard-reachable",
+        "Footer must use semantic <footer> element",
+        "Link text must be descriptive, not 'click here'"
+      ],
+      "prohibited_behavior": [
+        "Sales language in footer",
+        "Affiliate links",
+        "Tracking pixels",
+        "Hardcoded links outside navigation.json"
+      ],
+      "publication_risk": "low"
+    },
+    {
+      "component_id": "route_context_panel",
+      "role": "Governance transparency panel. Displays route role, UX layer, claim level, monetization status, and publication state. Hidden by default in production.",
+      "ux_layer": "visibility",
+      "allowed_routes": "*",
+      "required_data_sources": ["data/routes.json", "data/ux-layers.json"],
+      "accessibility_requirements": [
+        "Must use hidden attribute by default",
+        "When visible, must be keyboard-accessible",
+        "Content must be readable without color"
+      ],
+      "prohibited_behavior": [
+        "Visible in production without operator authorization",
+        "Displaying unpublished route data to public users",
+        "Styling that mimics primary content"
+      ],
+      "publication_risk": "medium"
+    },
+    {
+      "component_id": "search_to_action_map",
+      "role": "Spatial representation of the seven-layer Search-to-Action Journey. Makes the SXO framework visible as a navigable interface element.",
+      "ux_layer": "experience",
+      "allowed_routes": ["/", "/sxo-framework/", "/what-is-sxo/"],
+      "required_data_sources": ["data/ux-layers.json", "data/routes.json"],
+      "accessibility_requirements": [
+        "Must use semantic list markup (<ol> or <ul>)",
+        "Each layer must be readable as plain text without CSS",
+        "Layer labels must not rely on color alone for identification",
+        "Interactive elements must be keyboard-reachable"
+      ],
+      "prohibited_behavior": [
+        "Canvas-only rendering",
+        "SVG-only rendering without text fallback",
+        "Animation required to read layer content",
+        "JavaScript required to render list"
+      ],
+      "publication_risk": "low"
+    },
+    {
+      "component_id": "spatial_panel",
+      "role": "Reusable surface container for content sections. Applies spatial depth tokens and panel border system.",
+      "ux_layer": "experience",
+      "allowed_routes": "*",
+      "required_data_sources": [],
+      "accessibility_requirements": [
+        "Must not use role=presentation unless truly decorative",
+        "Background color must maintain contrast with contained text",
+        "No color-only distinction between panel types"
+      ],
+      "prohibited_behavior": [
+        "Heavy drop shadow that obscures content",
+        "Glow effects as the sole differentiator of panel type",
+        "Animated panel entry that delays content reading"
+      ],
+      "publication_risk": "low"
+    },
+    {
+      "component_id": "diagnostic_grid",
+      "role": "Structured assessment grid for diagnostic and scoring surfaces. Used on SXO Score and SXO Audit routes.",
+      "ux_layer": "action",
+      "allowed_routes": ["/sxo-score/", "/sxo-audit/"],
+      "required_data_sources": ["data/routes.json", "data/content-model.json"],
+      "accessibility_requirements": [
+        "Grid must be readable as a table or list without CSS grid",
+        "Score cells must provide text values, not only visual indicators",
+        "Color-coded scores must include text labels",
+        "Must support keyboard navigation through grid cells"
+      ],
+      "prohibited_behavior": [
+        "Grid that becomes unreadable without JavaScript",
+        "Score values conveyed only through color",
+        "Fake score animations on load",
+        "Gamification patterns (badges, confetti, streaks)"
+      ],
+      "publication_risk": "high"
+    },
+    {
+      "component_id": "trust_plane",
+      "role": "Surface layer for established authority signals. Renders evidence markers, verified claims, and trust indicators using trust-color tokens.",
+      "ux_layer": "trust",
+      "allowed_routes": ["/sxo-framework/", "/methodology/", "/what-is-sxo/", "/seo-vs-sxo/"],
+      "required_data_sources": ["data/claim-types.json", "data/routes.json"],
+      "accessibility_requirements": [
+        "Trust indicators must include text, not only color or icon",
+        "Evidence citations must be readable without hover states",
+        "Contrast must meet WCAG AA on trust-color surfaces"
+      ],
+      "prohibited_behavior": [
+        "Fake trust signals (fabricated statistics, invented endorsements)",
+        "Trust color used on non-trust surfaces",
+        "Trust plane on commercial routes without evidential basis"
+      ],
+      "publication_risk": "medium"
+    },
+    {
+      "component_id": "signal_path",
+      "role": "Directional visual connector linking journey layers or content sections. Uses signal-color tokens to indicate progression flow.",
+      "ux_layer": "navigation",
+      "allowed_routes": ["/", "/sxo-framework/", "/what-is-sxo/", "/methodology/"],
+      "required_data_sources": ["data/ux-layers.json"],
+      "accessibility_requirements": [
+        "Path connectors must not be the sole indicator of sequence — numbered or labeled sequence must also exist",
+        "Decorative SVG connectors must have aria-hidden",
+        "Color-based paths must have text equivalent"
+      ],
+      "prohibited_behavior": [
+        "JavaScript-animated paths as primary navigation",
+        "Canvas-rendered paths without SVG fallback",
+        "Signal-color used outside signal-path context"
+      ],
+      "publication_risk": "low"
+    },
+    {
+      "component_id": "allowed_cta_block",
+      "role": "Governed call-to-action block. Renders only CTAs explicitly permitted by the route's allowed_cta field.",
+      "ux_layer": "action",
+      "allowed_routes": "*",
+      "required_data_sources": ["data/routes.json", "data/navigation.json"],
+      "accessibility_requirements": [
+        "CTA must be a semantic <a> or <button> element",
+        "CTA text must be descriptive (not 'click here', 'learn more')",
+        "Focus state must be visually distinct",
+        "Must not auto-trigger or require hover to appear"
+      ],
+      "prohibited_behavior": [
+        "Commercial CTA on routes where monetization_allowed is false",
+        "Fake urgency text (limited time, only X spots remaining)",
+        "CTA not listed in route's allowed_cta",
+        "Action-color used outside CTA context"
+      ],
+      "publication_risk": "high"
+    },
+    {
+      "component_id": "related_routes_cluster",
+      "role": "Internal navigation cluster linking to related registered routes. Supports journey progression and internal link governance.",
+      "ux_layer": "navigation",
+      "allowed_routes": "*",
+      "required_data_sources": ["data/routes.json", "data/navigation.json"],
+      "accessibility_requirements": [
+        "Links must be semantic <a> elements",
+        "Cluster must be wrapped in <nav> with aria-label",
+        "Link text must describe the destination",
+        "Must function without CSS or JavaScript"
+      ],
+      "prohibited_behavior": [
+        "Links to routes not registered in data/routes.json",
+        "Links to external domains without operator authorization",
+        "JavaScript-only link rendering",
+        "Decorative card styling that obscures link purpose"
+      ],
+      "publication_risk": "low"
+    }
+  ]
+}
