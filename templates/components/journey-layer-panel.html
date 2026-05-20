@@ -1,0 +1,35 @@
+<!-- journey-layer-panel.html: Journey Layer Panel component -->
+<!-- Reusable semantic component for one layer of the Search-to-Action Journey. -->
+<!-- Supports all seven layers defined in data/ux-layers.json. -->
+<!-- No JavaScript. No inline styles. Prototype only. -->
+<!--
+  Supported layers:
+    Search Intent | Visibility | Experience | Trust | Navigation | Action | Strategic Outcome
+-->
+<article class="spatial-panel journey-layer-panel"
+         data-layer-order="{{ layer_order }}"
+         data-layer-id="{{ layer_id }}"
+         aria-labelledby="layer-title-{{ layer_order }}">
+
+  <header class="layer-panel-header">
+    <span class="layer-order-indicator" aria-label="Layer {{ layer_order }}">{{ layer_order }}</span>
+    <h2 id="layer-title-{{ layer_order }}" class="layer-name">{{ layer_name }}</h2>
+  </header>
+
+  <div class="layer-panel-body">
+
+    <p class="layer-definition">{{ layer_definition }}</p>
+
+    <section class="layer-diagnostic-relevance" aria-labelledby="diag-label-{{ layer_order }}">
+      <h3 id="diag-label-{{ layer_order }}" class="layer-diagnostic-label">Diagnostic Relevance</h3>
+      <p class="layer-diagnostic-content">{{ diagnostic_relevance }}</p>
+    </section>
+
+    <nav class="layer-route-reference" aria-label="Related route for {{ layer_name }}">
+      <p class="layer-route-label">Related Route</p>
+      <a class="layer-route-link" href="{{ related_route }}">{{ related_route }}</a>
+    </nav>
+
+  </div>
+
+</article>

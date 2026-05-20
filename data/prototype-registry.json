@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "governance_doc": "INTERFACE_GOVERNANCE.md",
+  "last_updated": "2026-05-20",
+  "prototypes": [
+    {
+      "prototype_id": "home_control_plane",
+      "route": "/",
+      "source_file": "templates/prototypes/home-control-plane.html",
+      "status": "non_public_prototype",
+      "public_output_allowed": false,
+      "allowed_components": [
+        "site_header",
+        "site_footer",
+        "route_context_panel",
+        "search_to_action_map",
+        "spatial_panel",
+        "signal_path",
+        "allowed_cta_block",
+        "related_routes_cluster"
+      ],
+      "required_data_sources": [
+        "data/routes.json",
+        "data/navigation.json",
+        "data/ux-layers.json"
+      ],
+      "prohibited_behavior": [
+        "root_index_creation",
+        "output_generation",
+        "route_publication",
+        "javascript_dependency",
+        "heavy_3d",
+        "analytics_or_tracking",
+        "monetization_script"
+      ],
+      "review_requirement": "Prototype must be reviewed and approved before any version is used to generate a public route. No build output may be generated from this prototype while route status is planned."
+    }
+  ]
+}

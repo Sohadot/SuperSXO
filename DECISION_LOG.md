@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-20] — Non-Public Home Prototype Added
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Created Sprint-5 non-public home prototype: `templates/prototypes/home-control-plane.html`, four component skeletons (`templates/components/hero-control-plane.html`, `templates/components/journey-layer-panel.html`, `templates/components/diagnostic-preview.html`, `templates/components/authority-statement.html`), `data/prototype-registry.json`, and `scripts/validate_prototypes.py`. Updated `scripts/quality_gate.py` to include prototype validation after `validate_visual_system` and before `validate_build_boundaries`.  
+**Reasoning:** The sovereign spatial visual system is governed but untested in a structural context. A non-public prototype allows the interface direction to be tested against the approved component registry, UX layer model, and spatial token system without generating any public output, publishing any route, or creating a root index.html. The prototype lives entirely inside `templates/prototypes/` and is enforced non-public by machine-readable governance in `data/prototype-registry.json`.  
+**Impact:** A non-public home prototype was added inside `templates/prototypes/`. No public page was created. No route was published. No root `index.html` was created. No `output/` directory was created. No JavaScript or heavy 3D was introduced. No external libraries, fonts, analytics, tracking, forms, or monetization scripts were added. Prototype validation was added to the sovereign quality gate. The prototype is clearly marked `NON-PUBLIC PROTOTYPE — NOT GENERATED, NOT DEPLOYED, NOT INDEXABLE` and governed by `data/prototype-registry.json`.  
+**Logged by:** agent  
+
+---
+
 ## [2026-05-20] — Sovereign Spatial Visual System Added
 
 **Type:** architecture  
