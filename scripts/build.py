@@ -15,9 +15,12 @@ Safety rules enforced at build time:
   - No JavaScript, tracking, external scripts, or monetization injected.
   - Root index.html generated only for route "/".
   - Subdirectory index.html generated for all other routes.
+  - Governed CSS assets are copied into output/static/css/.
+  - Build fails clearly if required CSS source files are missing.
 """
 
 import json
+import shutil
 import sys
 from pathlib import Path
 
@@ -26,7 +29,13 @@ ROUTES_FILE = REPO_ROOT / "data" / "routes.json"
 NAVIGATION_FILE = REPO_ROOT / "data" / "navigation.json"
 CONTENT_DIR = REPO_ROOT / "content" / "pages"
 TEMPLATES_DIR = REPO_ROOT / "templates"
+STATIC_DIR = REPO_ROOT / "static"
 OUTPUT_DIR = REPO_ROOT / "output"
+
+REQUIRED_CSS_FILES = [
+    STATIC_DIR / "css" / "tokens.css",
+    STATIC_DIR / "css" / "main.css",
+]
 
 CTA_DEFINITIONS = {
     "explore_framework": {
@@ -213,6 +222,22 @@ def write_page(route_path: str, html: str) -> Path:
     return out_file
 
 
+def copy_static_assets() -> None:
+    """Copy governed CSS assets into output/static/css/ for deployment."""
+    for src in REQUIRED_CSS_FILES:
+        if not src.is_file():
+            print(f"ERROR: required CSS file missing: {src.relative_to(REPO_ROOT)}")
+            sys.exit(1)
+
+    dest_css = OUTPUT_DIR / "static" / "css"
+    dest_css.mkdir(parents=True, exist_ok=True)
+
+    for src in REQUIRED_CSS_FILES:
+        dst = dest_css / src.name
+        shutil.copy2(src, dst)
+        print(f"  ASSET: {src.relative_to(REPO_ROOT)} → {dst.relative_to(REPO_ROOT)}")
+
+
 def load_content_sources() -> dict:
     sources = {}
     if not CONTENT_DIR.is_dir():
@@ -308,6 +333,10 @@ def main() -> None:
         built += 1
 
     print(f"Build complete. {built} page(s) generated in output/")
+
+    # --- Copy static assets ---
+    copy_static_assets()
+    print("Static assets copied to output/static/css/")
 
 
 if __name__ == "__main__":

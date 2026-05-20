@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-20] — Static Asset Deployment Fixed
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Identified root cause of unstyled public alpha: `scripts/build.py` was generating HTML that referenced `/static/css/tokens.css` and `/static/css/main.css` via absolute paths, but was not copying those files into `output/static/css/`. GitHub Pages serves only `output/` as the artifact root, so the CSS paths 404'd on every page load. Fixed by adding `copy_static_assets()` to `build.py` which copies `static/css/tokens.css` and `static/css/main.css` into `output/static/css/` after HTML generation, failing clearly if either source file is missing. Created `scripts/validate_deploy_assets.py` to verify CSS files exist in `output/`, HTML references them, no `.js` files are deployed, no external stylesheet or script references are present, and no deferred route output exists; the validator skips safely when `output/` is absent (pre-build mode). Added `validate_deploy_assets` to `scripts/quality_gate.py` after `validate_build_boundaries`.  
+**Reasoning:** The Sovereign Spatial Interface styling is governed by `static/css/tokens.css` and `static/css/main.css`. Deploying unstyled HTML undermines the sovereign asset positioning and signals an incomplete deployment pipeline. The fix is minimal, contained to the build script and a new post-build validator, and does not change any route, template, content source, or security control.  
+**Impact:** `output/static/css/tokens.css` and `output/static/css/main.css` are now generated on every build. The public alpha at supersxo.com will render with the intended Sovereign Spatial Interface styling after the next deployment. The quality gate now validates deployed assets after build via `validate_deploy_assets`. No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or monetization scripts were added. No external fonts or dependencies were introduced. No WebGL, Three.js, or heavy 3D was added. No deferred routes (`/seo-vs-sxo/`, `/ai-search-experience/`, `/acquisition/`) were generated or deployed. Sovereign quality gate passes before and after build.  
+**Logged by:** agent
+
+---
+
 ## [2026-05-20] — GitHub Pages Deployment Workflow Added
 
 **Type:** architecture  
