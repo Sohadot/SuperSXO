@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""
+SuperSXO Sovereign Quality Gate.
+
+Runs all validators in sequence.
+Fails immediately if any validator fails.
+Prints SOVEREIGN QUALITY GATE PASSED only when all checks succeed.
+"""
+
+import subprocess
+import sys
+from pathlib import Path
+
+SCRIPTS_DIR = Path(__file__).parent
+
+VALIDATORS = [
+    ("validate_json",           SCRIPTS_DIR / "validate_json.py"),
+    ("validate_routes",         SCRIPTS_DIR / "validate_routes.py"),
+    ("validate_navigation",     SCRIPTS_DIR / "validate_navigation.py"),
+    ("validate_domain_cluster", SCRIPTS_DIR / "validate_domain_cluster.py"),
+    ("validate_quality_gates",  SCRIPTS_DIR / "validate_quality_gates.py"),
+]
+
+SEP = "=" * 60
+
+
+def run_validator(name: str, script: Path) -> bool:
+    print(f"\n{SEP}")
+    result = subprocess.run([sys.executable, str(script)])
+    if result.returncode != 0:
+        print(f"\nSOVEREIGN QUALITY GATE FAILED at: {name}")
+        return False
+    return True
+
+
+def main() -> None:
+    print(SEP)
+    print("SOVEREIGN QUALITY GATE — SuperSXO.com")
+    print(SEP)
+
+    for name, script in VALIDATORS:
+        if not run_validator(name, script):
+            sys.exit(1)
+
+    print(f"\n{SEP}")
+    print("SOVEREIGN QUALITY GATE PASSED")
+    print(SEP)
+
+
+if __name__ == "__main__":
+    main()
