@@ -91,3 +91,19 @@ Any interface direction change must:
 2. Pass the prohibited list check
 3. Confirm progressive enhancement compliance
 4. Be logged in `DECISION_LOG.md` before implementation
+
+---
+
+## Visual System Governance (Sprint 4)
+
+The approved visual direction is now machine-governed. All interface decisions must reference:
+
+- `VISUAL_SYSTEM.md` — visual thesis, color philosophy, spatial depth, typography, motion, and accessibility rules
+- `INTERFACE_GOVERNANCE.md` — component creation protocol and prohibited interface elements
+- `data/component-registry.json` — registry of all approved interface components with UX layer mappings
+- `data/interface-patterns.json` — approved and prohibited interface patterns
+- `data/visual-tokens.json` — token registry aligned with `static/css/tokens.css`
+
+The validator `scripts/validate_visual_system.py` enforces these rules on every push via the quality gate.
+
+No visual component or pattern may be introduced without first being registered and validated.

@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-20] — Sovereign Spatial Visual System Added
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Created Sprint-4 sovereign spatial visual system: `VISUAL_SYSTEM.md`, `INTERFACE_GOVERNANCE.md`, `data/component-registry.json`, `data/interface-patterns.json`, `data/visual-tokens.json`, and `scripts/validate_visual_system.py`. Updated `static/css/tokens.css` (added `--surface-control-plane`, `--grid-line`, `--focus-ring-*` tokens), `static/css/main.css` (added `.spatial-panel`, `.diagnostic-grid`, `.signal-path`, `.trust-plane`, `.search-map`, `.control-plane-shell`), `UX_UI_STANDARD.md`, and `scripts/quality_gate.py`.  
+**Reasoning:** The static architecture skeleton and content registry exist but have no governed visual system. The approved Sovereign Spatial Interface direction needed to be codified into machine-readable, validator-enforced governance before any public page can be styled. The visual system now governs all component definitions, approved and prohibited interface patterns, and design token usage.  
+**Impact:** Ten interface components are registered with UX layer mappings, required data sources, and accessibility requirements. Eight approved patterns and nine prohibited patterns are machine-readable. Design tokens are dual-registered in CSS and JSON. The quality gate now runs `validate_visual_system` on every push. No public pages were created. No route was published. No JavaScript or heavy 3D was added. The Sovereign Spatial Interface is now governed before public implementation.  
+**Logged by:** agent  
+
+---
+
 ## [2026-05-20] — Core Content Registry Added
 
 **Type:** architecture  
@@ -74,12 +85,8 @@ Each entry must follow this structure:
 **Type:** architecture  
 **Status:** decided  
 **Decision:** Created Sprint-0 machine-readable governance data layer: eight JSON files in `data/` that convert the Sprint-1 markdown documentation into structured, queryable governance data.  
-claude/add-sprint-documentation-vNg8S
 **Reasoning:** Sprint-1 markdown documents are human-readable but not machine-enforceable. Converting governance rules into structured JSON enables future validators, build tools, and AI agents to check route compliance, claim classification, monetization boundaries, quality gates, and domain cluster rules programmatically without re-parsing prose.  
 **Impact:** All future validation tooling, route generation, and content pipelines must reference the `data/` files as the authoritative governance source. The Sprint-1 markdown documents remain the human-readable canonical reference. No public pages were created. No routes outside `data/routes.json` were introduced. No HTML, CSS, JavaScript, or templates were added.  
-**Reasoning:** Sprint-1 markdown documents are human-readable but not machine-enforceable. Converting governance rules into structured JSON enables future validators, build tools, and AI agents to check route compliance, claim classification, monetization boundaries, quality gates, and domain cluster rules programmatically.  
-**Impact:** All future validation tooling, route generation, and content pipelines must reference the `data/` files as the authoritative governance source. No public pages were created.  
-main
 **Logged by:** agent  
 
 ---
