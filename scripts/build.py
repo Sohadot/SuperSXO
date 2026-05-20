@@ -16,7 +16,8 @@ Safety rules enforced at build time:
   - Root index.html generated only for route "/".
   - Subdirectory index.html generated for all other routes.
   - Governed CSS assets are copied into output/static/css/.
-  - Build fails clearly if required CSS source files are missing.
+  - CNAME is copied into output/ for custom domain stability.
+  - Build fails clearly if required CSS or CNAME source files are missing.
 """
 
 import json
@@ -31,6 +32,7 @@ CONTENT_DIR = REPO_ROOT / "content" / "pages"
 TEMPLATES_DIR = REPO_ROOT / "templates"
 STATIC_DIR = REPO_ROOT / "static"
 OUTPUT_DIR = REPO_ROOT / "output"
+CNAME_FILE = REPO_ROOT / "CNAME"
 
 REQUIRED_CSS_FILES = [
     STATIC_DIR / "css" / "tokens.css",
@@ -238,6 +240,16 @@ def copy_static_assets() -> None:
         print(f"  ASSET: {src.relative_to(REPO_ROOT)} → {dst.relative_to(REPO_ROOT)}")
 
 
+def copy_cname() -> None:
+    """Copy CNAME into output/ so the custom domain is preserved after deployment."""
+    if not CNAME_FILE.is_file():
+        print(f"ERROR: CNAME file missing at repository root")
+        sys.exit(1)
+    dst = OUTPUT_DIR / "CNAME"
+    shutil.copy2(CNAME_FILE, dst)
+    print(f"  ASSET: CNAME → output/CNAME ({CNAME_FILE.read_text(encoding='utf-8').strip()})")
+
+
 def load_content_sources() -> dict:
     sources = {}
     if not CONTENT_DIR.is_dir():
@@ -334,9 +346,10 @@ def main() -> None:
 
     print(f"Build complete. {built} page(s) generated in output/")
 
-    # --- Copy static assets ---
+    # --- Copy static assets and CNAME ---
     copy_static_assets()
-    print("Static assets copied to output/static/css/")
+    copy_cname()
+    print("Static assets and CNAME copied to output/")
 
 
 if __name__ == "__main__":
