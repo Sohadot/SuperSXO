@@ -1,0 +1,65 @@
+[
+  {
+    "path": "/",
+    "title": "SuperSXO",
+    "role": "canonical_home",
+    "status": "planned",
+    "indexable": true
+  },
+  {
+    "path": "/what-is-sxo/",
+    "title": "What Is SXO?",
+    "role": "definition_reference",
+    "status": "planned",
+    "indexable": true
+  },
+  {
+    "path": "/sxo-framework/",
+    "title": "The SXO Framework",
+    "role": "framework_reference",
+    "status": "planned",
+    "indexable": true
+  },
+  {
+    "path": "/sxo-score/",
+    "title": "The SuperSXO Score",
+    "role": "diagnostic_product",
+    "status": "planned",
+    "indexable": true
+  },
+  {
+    "path": "/sxo-audit/",
+    "title": "SXO Audit",
+    "role": "commercial_offer",
+    "status": "planned",
+    "indexable": true
+  },
+  {
+    "path": "/seo-vs-sxo/",
+    "title": "SEO vs SXO",
+    "role": "comparison_reference",
+    "status": "planned",
+    "indexable": true
+  },
+  {
+    "path": "/ai-search-experience/",
+    "title": "AI Search Experience",
+    "role": "future_search_reference",
+    "status": "planned",
+    "indexable": true
+  },
+  {
+    "path": "/methodology/",
+    "title": "Methodology",
+    "role": "trust_and_governance",
+    "status": "planned",
+    "indexable": true
+  },
+  {
+    "path": "/acquisition/",
+    "title": "Strategic Acquisition",
+    "role": "buyer_logic",
+    "status": "planned",
+    "indexable": false
+  }
+]
