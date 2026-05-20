@@ -36,11 +36,22 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-20] — Static Architecture Skeleton Added
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Created Sprint-2 static architecture skeleton: `content/pages/`, `templates/` (base, page, and five components), `static/css/` (tokens.css and main.css), `static/js/README.md`, `static/images/README.md`, `scripts/build.py`, and `scripts/validate_build_boundaries.py`. Updated `scripts/quality_gate.py` to include the build boundary validator.  
+**Reasoning:** The governance layer and validator skeleton are complete. The next governed layer is the static site architecture. Creating the skeleton now establishes the design token system, template structure, and build pipeline boundaries before any public page is authored. The build script refuses to generate output unless routes have status `published`. No routes are published, so no public pages were created.  
+**Impact:** Future page authorship and build execution are now governed by this skeleton. The quality gate enforces that no `index.html`, no `output/` directory, and no stray HTML files may appear outside the deliberate build pipeline.  
+**Logged by:** agent  
+
+---
+
 ## [2026-05-20] — Validator Skeleton Added
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Created Sprint-1 validator skeleton: five domain-specific validators (`validate_json.py`, `validate_routes.py`, `validate_navigation.py`, `validate_domain_cluster.py`, `validate_quality_gates.py`), one orchestrator (`quality_gate.py`), and a GitHub Actions workflow (`.github/workflows/quality-gate.yml`).  
+**Decision:** Created Sprint-1 validator skeleton: five domain-specific validators, one orchestrator (`quality_gate.py`), and a GitHub Actions workflow (`.github/workflows/quality-gate.yml`).  
 **Reasoning:** Machine-readable governance files in `data/` have no enforcement layer. Validators convert governance rules into automated checks that fail loudly on any structural violation before any public page is built. The GitHub Actions workflow ensures validation runs on every push and pull request.  
 **Impact:** All future changes to `data/*.json` are automatically validated on every push. No public pages were created. No HTML, CSS, JavaScript, or templates were added. No dependencies outside the Python standard library were introduced.  
 **Logged by:** agent  
@@ -53,7 +64,7 @@ Each entry must follow this structure:
 **Status:** decided  
 **Decision:** Created Sprint-0 machine-readable governance data layer: eight JSON files in `data/` that convert the Sprint-1 markdown documentation into structured, queryable governance data.  
 **Reasoning:** Sprint-1 markdown documents are human-readable but not machine-enforceable. Converting governance rules into structured JSON enables future validators, build tools, and AI agents to check route compliance, claim classification, monetization boundaries, quality gates, and domain cluster rules programmatically without re-parsing prose.  
-**Impact:** All future validation tooling, route generation, and content pipelines must reference the `data/` files as the authoritative governance source. The Sprint-1 markdown documents remain the human-readable canonical reference. No public pages were created. No routes outside `data/routes.json` were introduced.  
+**Impact:** All future validation tooling, route generation, and content pipelines must reference the `data/` files as the authoritative governance source. The Sprint-1 markdown documents remain the human-readable canonical reference. No public pages were created.  
 **Logged by:** agent  
 
 ---

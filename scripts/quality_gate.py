@@ -14,11 +14,12 @@ from pathlib import Path
 SCRIPTS_DIR = Path(__file__).parent
 
 VALIDATORS = [
-    ("validate_json",           SCRIPTS_DIR / "validate_json.py"),
-    ("validate_routes",         SCRIPTS_DIR / "validate_routes.py"),
-    ("validate_navigation",     SCRIPTS_DIR / "validate_navigation.py"),
-    ("validate_domain_cluster", SCRIPTS_DIR / "validate_domain_cluster.py"),
-    ("validate_quality_gates",  SCRIPTS_DIR / "validate_quality_gates.py"),
+    ("validate_json",            SCRIPTS_DIR / "validate_json.py"),
+    ("validate_routes",          SCRIPTS_DIR / "validate_routes.py"),
+    ("validate_navigation",      SCRIPTS_DIR / "validate_navigation.py"),
+    ("validate_domain_cluster",  SCRIPTS_DIR / "validate_domain_cluster.py"),
+    ("validate_quality_gates",   SCRIPTS_DIR / "validate_quality_gates.py"),
+    ("validate_build_boundaries",SCRIPTS_DIR / "validate_build_boundaries.py"),
 ]
 
 SEP = "=" * 60
