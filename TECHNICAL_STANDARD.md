@@ -104,6 +104,25 @@ No deployment should introduce undocumented infrastructure.
 
 ---
 
+## Repository Hygiene Enforcement
+
+The following are prohibited until explicitly approved through route governance and a logged decision in `DECISION_LOG.md`:
+
+- public HTML output (`index.html`, `output/`, `public/`, `dist/`)
+- JavaScript files (`.js`) anywhere in the repository
+- inline event handlers in HTML templates (`onclick=`, `onload=`, etc.)
+- external script tags (`<script src="http...">`)
+- third-party libraries (Three.js, WebGL-only rendering, canvas-only content)
+- analytics or tracking scripts (Google Analytics, Google Tag Manager, etc.)
+- payment scripts (Stripe, PayPal, or equivalent)
+- affiliate links or monetization scripts outside approved routes
+- external dependencies (`requirements.txt`, `package.json`, etc.)
+- `.env` files or committed secrets of any kind
+
+These prohibitions are machine-enforced by `scripts/validate_repository_hygiene.py` which runs on every push as part of the sovereign quality gate.
+
+---
+
 ## Deployment
 
 - Cloudflare Pages is the approved deployment target

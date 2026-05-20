@@ -21,8 +21,10 @@ VALIDATORS = [
     ("validate_quality_gates",   SCRIPTS_DIR / "validate_quality_gates.py"),
     ("validate_content_sources", SCRIPTS_DIR / "validate_content_sources.py"),
     ("validate_visual_system",   SCRIPTS_DIR / "validate_visual_system.py"),
-    ("validate_prototypes",      SCRIPTS_DIR / "validate_prototypes.py"),
-    ("validate_build_boundaries",SCRIPTS_DIR / "validate_build_boundaries.py"),
+    ("validate_prototypes",         SCRIPTS_DIR / "validate_prototypes.py"),
+    ("validate_security_baseline",  SCRIPTS_DIR / "validate_security_baseline.py"),
+    ("validate_repository_hygiene", SCRIPTS_DIR / "validate_repository_hygiene.py"),
+    ("validate_build_boundaries",   SCRIPTS_DIR / "validate_build_boundaries.py"),
 ]
 
 SEP = "=" * 60
