@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "cluster_rule": "No duplicate sites. No fragmented authority. No competing content clusters.",
+  "authority_root": "supersxo.com",
+  "domains": [
+    {
+      "domain": "supersxo.com",
+      "role": "primary_authority",
+      "authority_level": "canonical",
+      "intended_behavior": "Main brand, canonical asset, framework, methodology, diagnostic system, and long-term strategic property.",
+      "canonical_target": "supersxo.com",
+      "allowed_use": [
+        "publish canonical content",
+        "host the SXO framework and methodology",
+        "host the SuperSXO Score diagnostic tool",
+        "host the SXO audit offer",
+        "define and own all SXO doctrine",
+        "carry acquisition positioning"
+      ],
+      "prohibited_use": [
+        "create duplicate content that mirrors other cluster domains",
+        "serve as a redirect-only domain",
+        "host competing sub-brands without approval"
+      ]
+    },
+    {
+      "domain": "sxosolution.com",
+      "role": "commercial_gateway",
+      "authority_level": "secondary",
+      "intended_behavior": "Solution-oriented traffic, diagnostic offers, audit requests, reports, and future service/product pathways.",
+      "canonical_target": "supersxo.com",
+      "allowed_use": [
+        "receive commercial and solution-intent traffic",
+        "present audit offer landing experiences",
+        "route to supersxo.com for authority content",
+        "operate as the commercial face of the cluster"
+      ],
+      "prohibited_use": [
+        "publish authority content that duplicates supersxo.com",
+        "operate as a separate brand",
+        "create canonical content outside supersxo.com scope",
+        "weaken supersxo.com authority"
+      ]
+    },
+    {
+      "domain": "supersxo.info",
+      "role": "informational_routing",
+      "authority_level": "defensive",
+      "intended_behavior": "Defensive and explanatory routing toward reference content on supersxo.com such as /what-is-sxo/ or /sxo-framework/.",
+      "canonical_target": "supersxo.com",
+      "allowed_use": [
+        "redirect informational queries to supersxo.com",
+        "serve as a defensive registration preventing domain squatting"
+      ],
+      "prohibited_use": [
+        "publish independent content",
+        "run independent SEO campaigns",
+        "operate as a standalone site",
+        "fragment authority away from supersxo.com"
+      ]
+    },
+    {
+      "domain": "sxosolution.info",
+      "role": "solution_explanation_routing",
+      "authority_level": "defensive",
+      "intended_behavior": "Defensive routing toward /sxo-audit/, /sxo-solution/, or equivalent commercial explanation pages on supersxo.com or sxosolution.com.",
+      "canonical_target": "sxosolution.com",
+      "allowed_use": [
+        "redirect solution-explanation queries to sxosolution.com",
+        "serve as defensive registration"
+      ],
+      "prohibited_use": [
+        "publish independent content",
+        "operate as a standalone site",
+        "create competing commercial offers",
+        "fragment authority"
+      ]
+    },
+    {
+      "domain": "supersxo.link",
+      "role": "campaign_routing",
+      "authority_level": "routing_only",
+      "intended_behavior": "Controlled routing for framework, score, methodology, and campaign links.",
+      "canonical_target": "supersxo.com",
+      "allowed_use": [
+        "route campaign traffic to supersxo.com pages",
+        "controlled redirect for specific framework or score campaigns",
+        "link shortening for marketing and outreach"
+      ],
+      "prohibited_use": [
+        "publish content pages",
+        "serve as canonical domain for any content",
+        "operate independently of supersxo.com routing logic"
+      ]
+    },
+    {
+      "domain": "sxosolution.link",
+      "role": "action_routing",
+      "authority_level": "routing_only",
+      "intended_behavior": "Controlled routing for audit, report, diagnostic, and action-oriented links.",
+      "canonical_target": "sxosolution.com",
+      "allowed_use": [
+        "route action-intent traffic to sxosolution.com offers",
+        "controlled redirect for audit and report campaigns",
+        "link shortening for commercial outreach"
+      ],
+      "prohibited_use": [
+        "publish content pages",
+        "serve as canonical domain for any content",
+        "operate independently of sxosolution.com routing logic"
+      ]
+    }
+  ]
+}
