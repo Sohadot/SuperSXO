@@ -1,0 +1,45 @@
+<!-- diagnostic-preview.html: Diagnostic Preview component skeleton -->
+<!-- Preview surface for the SuperSXO Score diagnostic model. -->
+<!-- No calculations. No JavaScript. No form. No fake score. Prototype only. -->
+<section class="spatial-panel diagnostic-preview-panel" aria-labelledby="diagnostic-preview-title">
+
+  <header class="diagnostic-preview-header">
+    <p class="system-label">SuperSXO Score — Diagnostic Model</p>
+    <h2 id="diagnostic-preview-title" class="diagnostic-preview-title">{{ diagnostic_model_label }}</h2>
+  </header>
+
+  <ul class="diagnostic-dimensions" aria-label="Score dimensions">
+
+    <li class="diagnostic-dimension">
+      <span class="dimension-label">{{ dimension_1_label }}</span>
+      <span class="dimension-placeholder">[score pending]</span>
+    </li>
+
+    <li class="diagnostic-dimension">
+      <span class="dimension-label">{{ dimension_2_label }}</span>
+      <span class="dimension-placeholder">[score pending]</span>
+    </li>
+
+    <li class="diagnostic-dimension">
+      <span class="dimension-label">{{ dimension_3_label }}</span>
+      <span class="dimension-placeholder">[score pending]</span>
+    </li>
+
+    <li class="diagnostic-dimension">
+      <span class="dimension-label">{{ dimension_4_label }}</span>
+      <span class="dimension-placeholder">[score pending]</span>
+    </li>
+
+    <li class="diagnostic-dimension">
+      <span class="dimension-label">{{ dimension_5_label }}</span>
+      <span class="dimension-placeholder">[score pending]</span>
+    </li>
+
+  </ul>
+
+  <aside class="diagnostic-caution" role="note">
+    <p class="caution-placeholder">{{ diagnostic_caution_note }}</p>
+    <p class="caution-doctrine">This model is diagnostic, not predictive. Scores reflect structural alignment with the SuperSXO framework. No specific outcome, ranking, or revenue result is implied or guaranteed.</p>
+  </aside>
+
+</section>

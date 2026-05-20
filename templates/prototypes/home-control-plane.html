@@ -1,0 +1,60 @@
+<!--
+  NON-PUBLIC PROTOTYPE — NOT GENERATED, NOT DEPLOYED, NOT INDEXABLE
+  Prototype ID: home_control_plane
+  Route: /
+  Status: non_public_prototype
+  Source: templates/prototypes/home-control-plane.html
+  Governed by: data/prototype-registry.json
+
+  This file is a structural and spatial design test for the future home page.
+  It is not part of the build output. It must not generate root index.html.
+  It must not be published to any public route. No SEO metadata. No scripts.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[PROTOTYPE] SuperSXO Home Control Plane — Non-Public</title>
+  <!-- No canonical. No robots meta. No description. No scripts. Non-public prototype only. -->
+  <link rel="stylesheet" href="/static/css/tokens.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body class="control-plane-shell prototype-surface">
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Route Context: governance transparency panel — renders route role, UX layer, claim level -->
+  {{ route_context }}
+
+  <!-- Site Header: primary navigation shell (component: site_header) -->
+  <header role="banner">
+    [site_header]
+  </header>
+
+  <main id="main-content" tabindex="-1">
+
+    <!-- Section 1: Hero Control Plane — system label, H1, thesis, journey phrase, CTA placeholders -->
+    {{ hero_control_plane }}
+
+    <!-- Section 2: Search-to-Action Journey Map — spatial representation of the seven-layer model -->
+    {{ search_to_action_map }}
+
+    <!-- Section 3: Diagnostic Preview — SuperSXO Score model preview, caution note -->
+    {{ diagnostic_preview }}
+
+    <!-- Section 4: Authority Statement — canonical authority, reference layer, governed gateway -->
+    {{ authority_statement }}
+
+    <!-- Section 5: Governed CTA Surface — route-permitted actions only per data/routes.json -->
+    {{ allowed_cta }}
+
+  </main>
+
+  <!-- Site Footer: footer navigation and compliance surface (component: site_footer) -->
+  <footer role="contentinfo">
+    [site_footer]
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!-- hero-control-plane.html: Hero Control Plane component -->
+<!-- Semantic hero section for the home control plane. -->
+<!-- No JavaScript. No commercial CTAs. No hype. No guaranteed outcomes. Prototype only. -->
+<section class="spatial-panel control-plane-shell hero-control-plane" aria-labelledby="hero-title">
+
+  <header class="hero-header">
+    <p class="system-label">SuperSXO — Sovereign Search Experience Optimization</p>
+    <h1 id="hero-title" class="hero-title">{{ hero_headline }}</h1>
+    <p class="hero-thesis">{{ hero_thesis_statement }}</p>
+  </header>
+
+  <p class="journey-phrase" aria-label="Search-to-Action Journey: Search Intent, Visibility, Experience, Trust, Navigation, Action">
+    Search Intent → Visibility → Experience → Trust → Navigation → Action
+  </p>
+
+  <div class="hero-cta-surface" role="group" aria-label="Primary actions">
+    <!-- CTA placeholders — rendered only when route permits, per data/routes.json allowed_cta -->
+    <!-- Route "/" allows: explore_framework, take_score -->
+    {{ cta_explore_framework }}
+    {{ cta_take_score }}
+  </div>
+
+</section>
