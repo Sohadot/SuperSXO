@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "governing_principle": "Monetization must reinforce trust, not extract attention. No monetization may damage the strategic value of the asset.",
+  "current_phase": "phase_1_foundation",
+  "phases": {
+    "phase_1_foundation": {
+      "label": "Foundation",
+      "description": "No monetization elements. Trust and authority are built before income is introduced.",
+      "allowed_monetization": []
+    },
+    "phase_2_first_offer": {
+      "label": "First Offer",
+      "description": "The first offer must be directly tied to the SXO framework, high-trust in format, and designed to reinforce authority.",
+      "allowed_monetization": ["free_self_assessment", "paid_diagnostic_report", "sxo_audit_report"]
+    },
+    "phase_3_expanded_offers": {
+      "label": "Expanded Offers",
+      "description": "Additional offers may be added only after Phase 2 offer demonstrates alignment and authority metrics show positive trajectory.",
+      "allowed_monetization": ["free_self_assessment", "paid_diagnostic_report", "sxo_audit_report", "template_pack", "agency_licensing"]
+    },
+    "phase_4_partnerships": {
+      "label": "Partnership and Licensing",
+      "description": "Strategic partnerships and agency licensing after documented partner alignment review and owner approval.",
+      "allowed_monetization": ["free_self_assessment", "paid_diagnostic_report", "sxo_audit_report", "template_pack", "agency_licensing", "selective_tool_partnership", "strategic_sponsorship_later"]
+    }
+  },
+  "approved_models": {
+    "free_self_assessment": {
+      "label": "Free SuperSXO Self-Assessment",
+      "description": "Trust-building diagnostic tool available at no cost. Establishes authority and leads naturally to paid offerings.",
+      "phase_available": "phase_2_first_offer",
+      "requires_decision_log": true,
+      "buyer_logic_compatible": true
+    },
+    "paid_diagnostic_report": {
+      "label": "Paid Diagnostic Report",
+      "description": "High-value, low-volume professional report. Demonstrates depth of the SXO framework. Reinforces authority.",
+      "phase_available": "phase_2_first_offer",
+      "requires_decision_log": true,
+      "buyer_logic_compatible": true
+    },
+    "sxo_audit_report": {
+      "label": "SXO Audit Report",
+      "description": "Commercial-grade deliverable tied to the SXO methodology. Primary conversion offer on /sxo-audit/.",
+      "phase_available": "phase_2_first_offer",
+      "requires_decision_log": true,
+      "buyer_logic_compatible": true
+    },
+    "template_pack": {
+      "label": "Template Pack",
+      "description": "Scalable product built from the SXO methodology. Professional positioning. Reinforces framework authority.",
+      "phase_available": "phase_3_expanded_offers",
+      "requires_decision_log": true,
+      "buyer_logic_compatible": true
+    },
+    "agency_licensing": {
+      "label": "Agency Licensing",
+      "description": "Framework licensing for professional service providers. High-value and low-volume. Reinforces acquisition positioning.",
+      "phase_available": "phase_3_expanded_offers",
+      "requires_decision_log": true,
+      "buyer_logic_compatible": true
+    },
+    "selective_tool_partnership": {
+      "label": "Selective Tool Partnership",
+      "description": "Tool partnerships available only after authority is established and only with brands that do not damage asset dignity.",
+      "phase_available": "phase_4_partnerships",
+      "requires_decision_log": true,
+      "buyer_logic_compatible": true
+    },
+    "strategic_sponsorship_later": {
+      "label": "Strategic Sponsorship",
+      "description": "Sponsorships only after authority is established and only with strategically aligned brands. Requires explicit owner approval.",
+      "phase_available": "phase_4_partnerships",
+      "requires_decision_log": true,
+      "buyer_logic_compatible": true
+    }
+  },
+  "prohibited_models": {
+    "random_display_ads": {
+      "label": "Random Display Ads",
+      "reason": "Damages asset dignity and category authority. Makes the asset look cheap.",
+      "prohibited_in_all_phases": true
+    },
+    "aggressive_popups": {
+      "label": "Aggressive Popups",
+      "reason": "Damages user trust, degrades experience quality, and contradicts the SXO thesis.",
+      "prohibited_in_all_phases": true
+    },
+    "thin_affiliate_pages": {
+      "label": "Thin Affiliate Pages",
+      "reason": "Creates low-quality content that degrades SEO authority and contradicts the sovereign content standard.",
+      "prohibited_in_all_phases": true
+    },
+    "fake_scarcity": {
+      "label": "Fake Scarcity Tactics",
+      "reason": "Low-trust commercial practice. Contradicts the institutional and dignified positioning of the asset.",
+      "prohibited_in_all_phases": true
+    },
+    "low_trust_lead_traps": {
+      "label": "Low-Trust Lead Traps",
+      "reason": "Degrades user trust and damages the search-to-action journey that SuperSXO is designed to govern.",
+      "prohibited_in_all_phases": true
+    },
+    "irrelevant_sponsorships": {
+      "label": "Irrelevant Sponsorships",
+      "reason": "Dilutes category authority and sends conflicting signals to strategic buyers.",
+      "prohibited_in_all_phases": true
+    },
+    "cheap_monetization_patterns": {
+      "label": "Cheap Monetization Patterns",
+      "reason": "Any monetization pattern that causes a strategic buyer to reconsider acquisition is prohibited.",
+      "prohibited_in_all_phases": true
+    }
+  }
+}

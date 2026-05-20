@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "canonical_domain": "supersxo.com",
+  "navigation": {
+    "primary": [
+      { "label": "What Is SXO", "path": "/what-is-sxo/" },
+      { "label": "Framework", "path": "/sxo-framework/" },
+      { "label": "Methodology", "path": "/methodology/" },
+      { "label": "SXO Score", "path": "/sxo-score/" }
+    ],
+    "secondary": [
+      { "label": "SEO vs SXO", "path": "/seo-vs-sxo/" },
+      { "label": "AI Search Experience", "path": "/ai-search-experience/" },
+      { "label": "SXO Audit", "path": "/sxo-audit/" }
+    ],
+    "footer": [
+      { "label": "What Is SXO", "path": "/what-is-sxo/" },
+      { "label": "SXO Framework", "path": "/sxo-framework/" },
+      { "label": "SEO vs SXO", "path": "/seo-vs-sxo/" },
+      { "label": "AI Search Experience", "path": "/ai-search-experience/" },
+      { "label": "Methodology", "path": "/methodology/" },
+      { "label": "Acquisition", "path": "/acquisition/" }
+    ],
+    "commercial_cta": [
+      {
+        "label": "Take the SXO Score",
+        "path": "/sxo-score/",
+        "cta_type": "take_score",
+        "context": "Primary trust-building conversion action. Free. Leads to paid audit upsell."
+      },
+      {
+        "label": "Request an SXO Audit",
+        "path": "/sxo-audit/",
+        "cta_type": "request_audit",
+        "context": "Commercial conversion. First approved paid offer."
+      }
+    ]
+  },
+  "navigation_rules": {
+    "no_broken_links": true,
+    "no_future_only_links": true,
+    "all_paths_must_exist_in_routes_registry": true,
+    "commercial_cta_requires_monetization_gate_passage": true
+  }
+}

@@ -1,65 +1,141 @@
-[
-  {
-    "path": "/",
-    "title": "SuperSXO",
-    "role": "canonical_home",
-    "status": "planned",
-    "indexable": true
-  },
-  {
-    "path": "/what-is-sxo/",
-    "title": "What Is SXO?",
-    "role": "definition_reference",
-    "status": "planned",
-    "indexable": true
-  },
-  {
-    "path": "/sxo-framework/",
-    "title": "The SXO Framework",
-    "role": "framework_reference",
-    "status": "planned",
-    "indexable": true
-  },
-  {
-    "path": "/sxo-score/",
-    "title": "The SuperSXO Score",
-    "role": "diagnostic_product",
-    "status": "planned",
-    "indexable": true
-  },
-  {
-    "path": "/sxo-audit/",
-    "title": "SXO Audit",
-    "role": "commercial_offer",
-    "status": "planned",
-    "indexable": true
-  },
-  {
-    "path": "/seo-vs-sxo/",
-    "title": "SEO vs SXO",
-    "role": "comparison_reference",
-    "status": "planned",
-    "indexable": true
-  },
-  {
-    "path": "/ai-search-experience/",
-    "title": "AI Search Experience",
-    "role": "future_search_reference",
-    "status": "planned",
-    "indexable": true
-  },
-  {
-    "path": "/methodology/",
-    "title": "Methodology",
-    "role": "trust_and_governance",
-    "status": "planned",
-    "indexable": true
-  },
-  {
-    "path": "/acquisition/",
-    "title": "Strategic Acquisition",
-    "role": "buyer_logic",
-    "status": "planned",
-    "indexable": false
-  }
-]
+{
+  "schema_version": "1.0",
+  "canonical_domain": "supersxo.com",
+  "routes": [
+    {
+      "path": "/",
+      "title": "SuperSXO — Sovereign Search Experience Optimization",
+      "role": "homepage",
+      "purpose": "Primary entry point and asset introduction. Establishes the SuperSXO thesis and navigates users to core framework content.",
+      "status": "planned",
+      "indexable": true,
+      "canonical": "https://supersxo.com/",
+      "ux_layer": "visibility",
+      "required_internal_links": ["/what-is-sxo/", "/sxo-framework/", "/sxo-score/"],
+      "allowed_cta": ["explore_framework", "take_score"],
+      "claim_level": "doctrine_claim",
+      "monetization_allowed": false,
+      "publication_rule": "Must pass all quality gates. Must define the SXO thesis. Must not contain placeholder sections."
+    },
+    {
+      "path": "/what-is-sxo/",
+      "title": "What Is SXO? — Search Experience Optimization Defined",
+      "role": "reference_definition",
+      "purpose": "Canonical reference definition of SXO. Establishes SuperSXO.com as the authority layer for the discipline.",
+      "status": "planned",
+      "indexable": true,
+      "canonical": "https://supersxo.com/what-is-sxo/",
+      "ux_layer": "experience",
+      "required_internal_links": ["/sxo-framework/", "/seo-vs-sxo/", "/sxo-score/"],
+      "allowed_cta": ["explore_framework", "take_score"],
+      "claim_level": "doctrine_claim",
+      "monetization_allowed": false,
+      "publication_rule": "Must pass content gate and claim gate. Definitions must be doctrine-classified. No unsupported claims."
+    },
+    {
+      "path": "/sxo-framework/",
+      "title": "The SuperSXO Framework — From Search Intent to Strategic Outcome",
+      "role": "methodology_core",
+      "purpose": "Defines the seven-layer SXO journey model. The structural centerpiece of the SuperSXO intellectual property.",
+      "status": "planned",
+      "indexable": true,
+      "canonical": "https://supersxo.com/sxo-framework/",
+      "ux_layer": "trust",
+      "required_internal_links": ["/what-is-sxo/", "/sxo-score/", "/methodology/"],
+      "allowed_cta": ["take_score", "request_audit"],
+      "claim_level": "doctrine_claim",
+      "monetization_allowed": false,
+      "publication_rule": "Must pass all gates. Framework must be complete, not partial. No placeholder layers."
+    },
+    {
+      "path": "/sxo-score/",
+      "title": "SuperSXO Score — Self-Assessment Diagnostic",
+      "role": "diagnostic_tool",
+      "purpose": "Free self-assessment tool that scores a site's search-to-action performance. First approved monetization surface via upsell to paid audit.",
+      "status": "planned",
+      "indexable": true,
+      "canonical": "https://supersxo.com/sxo-score/",
+      "ux_layer": "action",
+      "required_internal_links": ["/sxo-framework/", "/sxo-audit/"],
+      "allowed_cta": ["take_score", "request_audit"],
+      "claim_level": "commercial_claim",
+      "monetization_allowed": true,
+      "publication_rule": "Must pass all gates including monetization gate. Score logic must be defensible. No fake urgency."
+    },
+    {
+      "path": "/sxo-audit/",
+      "title": "SXO Audit — Diagnostic Report",
+      "role": "commercial_offer",
+      "purpose": "Paid diagnostic audit offer. The primary commercial conversion path tied to SXOSolution.com.",
+      "status": "planned",
+      "indexable": true,
+      "canonical": "https://supersxo.com/sxo-audit/",
+      "ux_layer": "action",
+      "required_internal_links": ["/sxo-score/", "/sxo-framework/"],
+      "allowed_cta": ["request_audit"],
+      "claim_level": "commercial_claim",
+      "monetization_allowed": true,
+      "publication_rule": "Must pass monetization gate. Offer must be high-trust. No fake scarcity. No low-trust lead traps."
+    },
+    {
+      "path": "/seo-vs-sxo/",
+      "title": "SEO vs SXO — Understanding the Difference",
+      "role": "reference_comparison",
+      "purpose": "Reference page distinguishing SEO from SXO. Supports category authority and addresses high-intent informational queries.",
+      "status": "planned",
+      "indexable": true,
+      "canonical": "https://supersxo.com/seo-vs-sxo/",
+      "ux_layer": "experience",
+      "required_internal_links": ["/what-is-sxo/", "/sxo-framework/"],
+      "allowed_cta": ["explore_framework", "take_score"],
+      "claim_level": "doctrine_claim",
+      "monetization_allowed": false,
+      "publication_rule": "Must pass content and claim gates. Comparison must be precise, not promotional. No competitor disparagement."
+    },
+    {
+      "path": "/ai-search-experience/",
+      "title": "AI Search Experience — SXO in the Age of Generative Search",
+      "role": "strategic_reference",
+      "purpose": "Positions SuperSXO as relevant to AI-driven search. Establishes early authority in the emerging AI search readiness category.",
+      "status": "planned",
+      "indexable": true,
+      "canonical": "https://supersxo.com/ai-search-experience/",
+      "ux_layer": "visibility",
+      "required_internal_links": ["/what-is-sxo/", "/sxo-framework/", "/sxo-score/"],
+      "allowed_cta": ["explore_framework", "take_score"],
+      "claim_level": "interpretation",
+      "monetization_allowed": false,
+      "publication_rule": "Must pass claim gate carefully. Interpretive claims must be classified as interpretation. No unsupported AI performance claims."
+    },
+    {
+      "path": "/methodology/",
+      "title": "SuperSXO Methodology — The Governance System for Search Experience",
+      "role": "methodology_authority",
+      "purpose": "Full methodology documentation. Reinforces intellectual property, supports acquisition positioning, and underpins agency licensing.",
+      "status": "planned",
+      "indexable": true,
+      "canonical": "https://supersxo.com/methodology/",
+      "ux_layer": "trust",
+      "required_internal_links": ["/sxo-framework/", "/what-is-sxo/", "/acquisition/"],
+      "allowed_cta": ["explore_framework", "request_audit"],
+      "claim_level": "doctrine_claim",
+      "monetization_allowed": false,
+      "publication_rule": "Must pass all gates. Methodology must be complete and defensible. Reinforces buyer logic."
+    },
+    {
+      "path": "/acquisition/",
+      "title": "Acquisition — SuperSXO Strategic Asset Positioning",
+      "role": "acquisition_signal",
+      "purpose": "Signals to potential strategic acquirers that the asset is intentionally built and positioned for acquisition. Reinforces buyer logic.",
+      "status": "planned",
+      "indexable": true,
+      "canonical": "https://supersxo.com/acquisition/",
+      "ux_layer": "strategic_outcome",
+      "required_internal_links": ["/methodology/", "/sxo-framework/"],
+      "allowed_cta": ["contact_acquisition"],
+      "claim_level": "commercial_claim",
+      "monetization_allowed": false,
+      "publication_rule": "Must pass all gates. Must be dignified and institutional. No low-trust sales language."
+    }
+  ]
+}

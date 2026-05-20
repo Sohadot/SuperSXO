@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "governing_principle": "All claims must be classified before publication. Unclassified claims may not be published.",
+  "claim_types": {
+    "doctrine_claim": {
+      "description": "A project-governing statement derived directly from the SuperSXO asset thesis. Does not require external citation.",
+      "source_required": false,
+      "allowed_in_public_content": true,
+      "review_requirement": "Must be verified for alignment with the governing statement in SYSTEM_ARCHITECTURE.md.",
+      "example": "SEO brings the visitor. SXO governs what happens next."
+    },
+    "general_industry_claim": {
+      "description": "A broadly accepted industry statement that reflects common knowledge within the SEO, UX, or CRO disciplines. Use with caution as consensus may shift.",
+      "source_required": false,
+      "allowed_in_public_content": true,
+      "review_requirement": "Must be reviewed for current accuracy. Flagged if the claim is contested or has become outdated.",
+      "example": "Page speed is a ranking factor for Google Search."
+    },
+    "source_backed_claim": {
+      "description": "A factual or externally verifiable claim that must be supported by a cited and verifiable source before publication.",
+      "source_required": true,
+      "allowed_in_public_content": true,
+      "review_requirement": "Source must be identified, linked, and confirmed as credible before the content is published.",
+      "example": "According to [source], X% of users abandon a page after Y seconds of load time."
+    },
+    "interpretation": {
+      "description": "A strategic reading or analytical position held by SuperSXO. Not presented as universal fact but as the project's reasoned perspective.",
+      "source_required": false,
+      "allowed_in_public_content": true,
+      "review_requirement": "Must be clearly framed as interpretation. Must not be presented as a factual claim without evidence.",
+      "example": "AI-generated search results represent a structural shift in how search experience must be governed."
+    },
+    "commercial_claim": {
+      "description": "A claim related to offers, products, diagnostic reports, or monetization features of the SuperSXO asset.",
+      "source_required": false,
+      "allowed_in_public_content": true,
+      "review_requirement": "Must be reviewed against MONETIZATION_BOUNDARY.md. Must not contain unsupported performance promises. Must pass the monetization gate.",
+      "example": "The SuperSXO Score diagnostic identifies gaps in your search-to-action journey."
+    },
+    "blocked_claim": {
+      "description": "A prohibited or unsupported claim. May not be published in any form under any circumstances.",
+      "source_required": false,
+      "allowed_in_public_content": false,
+      "review_requirement": "Must be documented in DECISION_LOG.md if encountered during content review. Cannot be reclassified without owner approval.",
+      "example": "SuperSXO guarantees higher rankings or conversion growth."
+    }
+  }
+}

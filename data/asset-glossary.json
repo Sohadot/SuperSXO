@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "governing_note": "Definitions are classified as doctrine claims unless otherwise noted. They derive from the SuperSXO asset thesis and do not require external citation.",
+  "terms": {
+    "SuperSXO": {
+      "term": "SuperSXO",
+      "definition": "The canonical authority asset and framework for Search Experience Optimization. SuperSXO measures whether visibility becomes trust, clarity, and action. It is a sovereign-grade strategic digital asset, not a generic SEO website.",
+      "claim_type": "doctrine_claim",
+      "related_routes": ["/", "/what-is-sxo/", "/sxo-framework/"]
+    },
+    "SXO": {
+      "term": "SXO",
+      "definition": "Search Experience Optimization. The governed discipline that addresses the full journey between search visibility and user action — not merely the act of ranking, but the quality of everything that happens after a user finds a result.",
+      "claim_type": "doctrine_claim",
+      "related_routes": ["/what-is-sxo/", "/seo-vs-sxo/"]
+    },
+    "Search_Experience_Optimization": {
+      "term": "Search Experience Optimization",
+      "definition": "The practice of governing the complete search-to-action journey: from intent signal to visibility, through experience quality, trust architecture, navigation confidence, and measurable action toward a strategic outcome.",
+      "claim_type": "doctrine_claim",
+      "related_routes": ["/what-is-sxo/", "/sxo-framework/"]
+    },
+    "Search_to_Action_Journey": {
+      "term": "Search-to-Action Journey",
+      "definition": "The seven-layer path from user intent through strategic outcome: Search Intent, Visibility, Experience, Trust, Navigation, Action, Strategic Outcome. The foundational model of the SuperSXO framework.",
+      "claim_type": "doctrine_claim",
+      "related_routes": ["/sxo-framework/", "/what-is-sxo/"]
+    },
+    "SuperSXO_Score": {
+      "term": "SuperSXO Score",
+      "definition": "A free diagnostic self-assessment tool that scores a digital asset's performance across the search-to-action journey layers. The first approved trust-building product of the SuperSXO asset.",
+      "claim_type": "commercial_claim",
+      "related_routes": ["/sxo-score/"]
+    },
+    "Sovereign_Spatial_Interface": {
+      "term": "Sovereign Spatial Interface",
+      "definition": "The approved UX/UI direction for SuperSXO.com. An interface that is future-facing, spatial, VR-inspired, and institutionally serious — designed to make the search-to-action journey visible within the interface itself. Not gaming, not metaverse, not decorative.",
+      "claim_type": "doctrine_claim",
+      "related_routes": ["/"]
+    },
+    "Control_Plane": {
+      "term": "Control Plane",
+      "definition": "The conceptual metaphor for the SuperSXO interface experience. The user should feel they are operating within a governed control plane for search experience — not browsing a standard website.",
+      "claim_type": "doctrine_claim",
+      "related_routes": ["/", "/sxo-framework/"]
+    },
+    "Search_Experience_Observatory": {
+      "term": "Search Experience Observatory",
+      "definition": "The experiential frame for the SuperSXO interface. The site should feel like entering a controlled observatory for diagnosing and governing search experience — institutional, precise, and spatially distinct.",
+      "claim_type": "doctrine_claim",
+      "related_routes": ["/"]
+    },
+    "Trust_Architecture": {
+      "term": "Trust Architecture",
+      "definition": "The deliberate design of content quality, visual professionalism, structural coherence, and institutional tone that causes users to perceive a site as credible and safe to engage with. The fourth layer of the search-to-action journey.",
+      "claim_type": "doctrine_claim",
+      "related_routes": ["/sxo-framework/", "/what-is-sxo/"]
+    },
+    "Conversion_Path": {
+      "term": "Conversion Path",
+      "definition": "The specific route through a site that leads a user from initial visibility to a measurable action. A conversion path in the SXO model must be designed to govern trust and navigation, not only to present a call-to-action.",
+      "claim_type": "doctrine_claim",
+      "related_routes": ["/sxo-framework/", "/sxo-score/", "/sxo-audit/"]
+    },
+    "AI_Search_Readiness": {
+      "term": "AI Search Readiness",
+      "definition": "The degree to which a digital asset is structurally and conceptually prepared to maintain visibility and authority in AI-generated search environments, including generative answers, AI overviews, and conversational search interfaces.",
+      "claim_type": "interpretation",
+      "related_routes": ["/ai-search-experience/", "/sxo-score/"]
+    },
+    "Domain_Cluster": {
+      "term": "Domain Cluster",
+      "definition": "The controlled set of six domains that together form the SuperSXO asset system: SuperSXO.com as authority, SXOSolution.com as commercial gateway, SuperSXO.info and SXOSolution.info as defensive routing, SuperSXO.link and SXOSolution.link as campaign routing.",
+      "claim_type": "doctrine_claim",
+      "related_routes": ["/"]
+    },
+    "Canonical_Authority": {
+      "term": "Canonical Authority",
+      "definition": "The property of SuperSXO.com as the single, governing source of truth for all SXO content, definitions, framework documentation, and methodology. All other cluster domains route toward it. No domain may fragment or duplicate its canonical authority.",
+      "claim_type": "doctrine_claim",
+      "related_routes": ["/", "/methodology/"]
+    },
+    "Commercial_Gateway": {
+      "term": "Commercial Gateway",
+      "definition": "The designated role of SXOSolution.com within the domain cluster. It receives solution-oriented and commercial-intent traffic, presents audit offers and diagnostic products, and routes to SuperSXO.com for authority content.",
+      "claim_type": "doctrine_claim",
+      "related_routes": ["/sxo-audit/"]
+    }
+  }
+}

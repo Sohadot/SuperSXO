@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "governing_principle": "SuperSXO makes the search-to-action journey visible inside the interface itself.",
+  "journey_statement": "Search Intent → Visibility → Experience → Trust → Navigation → Action → Strategic Outcome",
+  "layers": [
+    {
+      "id": "search_intent",
+      "label": "Search Intent",
+      "order": 1,
+      "definition": "The original motivation, question, or goal that drives a user to initiate a search. The pre-search mental state that determines what kind of result will satisfy the user.",
+      "interface_expression": "Diagnostic entry points, intent-mapping visualizations, and query-to-purpose indicators that reveal what the user was looking for before arriving.",
+      "related_routes": ["/what-is-sxo/", "/seo-vs-sxo/", "/ai-search-experience/"],
+      "diagnostic_relevance": "Understanding intent determines whether a page was designed to match the right signal. Misaligned intent is the first failure point in the search-to-action journey."
+    },
+    {
+      "id": "visibility",
+      "label": "Visibility",
+      "order": 2,
+      "definition": "The degree to which the asset appears in search results for relevant intent signals. Includes ranking, snippet quality, structured data presentation, and AI search inclusion.",
+      "interface_expression": "Signal path indicators, visibility score layers, and search presence mapping within the spatial interface.",
+      "related_routes": ["/", "/ai-search-experience/", "/sxo-score/"],
+      "diagnostic_relevance": "Visibility is the entry condition for the journey. Without visibility, the remainder of the journey cannot begin. However, visibility alone does not constitute success."
+    },
+    {
+      "id": "experience",
+      "label": "Experience",
+      "order": 3,
+      "definition": "The quality of the interaction a user has with the page after arrival. Includes load performance, interface clarity, content relevance, and structural coherence.",
+      "interface_expression": "Experience quality panels, diagnostic grid indicators for page speed and structural clarity, and content-to-intent alignment maps.",
+      "related_routes": ["/what-is-sxo/", "/seo-vs-sxo/", "/sxo-framework/"],
+      "diagnostic_relevance": "A poor experience breaks the journey immediately after visibility succeeds. Experience failures are measurable through Core Web Vitals, engagement signals, and structural audits."
+    },
+    {
+      "id": "trust",
+      "label": "Trust",
+      "order": 4,
+      "definition": "The user's assessment of whether the site is credible, authoritative, and safe to engage with. Trust is built through content quality, visual professionalism, clear authorship, and institutional tone.",
+      "interface_expression": "Trust architecture plane within the spatial interface. Authority signals, institutional design language, and structured credential indicators.",
+      "related_routes": ["/sxo-framework/", "/methodology/", "/what-is-sxo/"],
+      "diagnostic_relevance": "Trust is the most commonly missed layer in standard SEO approaches. A site can rank and load quickly but fail to generate trust, causing users to exit before action."
+    },
+    {
+      "id": "navigation",
+      "label": "Navigation",
+      "order": 5,
+      "definition": "The user's ability to move through the site with confidence, finding what they need without confusion or dead ends. Navigation includes internal link quality, menu clarity, and path predictability.",
+      "interface_expression": "Navigation confidence layer showing path clarity, internal link maps, and route completion indicators within the control plane.",
+      "related_routes": ["/sxo-framework/", "/sxo-score/", "/methodology/"],
+      "diagnostic_relevance": "Navigation failure causes drop-off before conversion. Users who trust the site but cannot navigate it will not take action. Navigation is both a UX and an SEO diagnostic dimension."
+    },
+    {
+      "id": "action",
+      "label": "Action",
+      "order": 6,
+      "definition": "The specific, measurable response taken by the user: form submission, tool use, content consumption, purchase, or request. Action is the measurable outcome of a successful search-to-action journey.",
+      "interface_expression": "Action path indicators, conversion signal maps, and CTA clarity layers in the diagnostic interface. Clear, single-intent call-to-action design.",
+      "related_routes": ["/sxo-score/", "/sxo-audit/", "/acquisition/"],
+      "diagnostic_relevance": "Action is the terminal point that determines whether search investment has yielded any real return. All prior layers exist to make action possible and likely."
+    },
+    {
+      "id": "strategic_outcome",
+      "label": "Strategic Outcome",
+      "order": 7,
+      "definition": "The downstream business, strategic, or asset-building consequence of repeated successful search-to-action journeys. For SuperSXO, this includes authority building, recurring income, and acquisition positioning.",
+      "interface_expression": "Strategic outcome observatory within the spatial interface. Long-horizon metrics, authority trajectory indicators, and acquisition readiness signals.",
+      "related_routes": ["/methodology/", "/acquisition/", "/sxo-framework/"],
+      "diagnostic_relevance": "Strategic outcome separates sovereign asset thinking from ordinary website thinking. The goal is not a single conversion but a durable, compounding strategic result."
+    }
+  ]
+}

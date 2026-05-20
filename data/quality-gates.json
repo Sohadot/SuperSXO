@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "governing_principle": "Failure in quality validation must block publication. No exceptions without explicit owner approval and a DECISION_LOG.md entry.",
+  "gates": {
+    "route_gate": {
+      "purpose": "Ensures every page is registered, purposeful, and governance-compliant before publication is considered.",
+      "required_checks": [
+        "path is registered in data/routes.json",
+        "purpose field is populated",
+        "status is 'approved' (not 'planned' or 'drafted')",
+        "canonical URL is defined",
+        "page_role is declared",
+        "ux_layer is assigned"
+      ],
+      "failure_condition": "Any unregistered path, missing purpose, or non-approved status blocks publication.",
+      "blocks_publication": true
+    },
+    "seo_gate": {
+      "purpose": "Ensures every indexable page meets the SEO technical requirements defined in TECHNICAL_STANDARD.md and ROUTE_GOVERNANCE.md.",
+      "required_checks": [
+        "title tag is present and unique across all routes",
+        "meta description is present and controlled",
+        "exactly one H1 is present",
+        "heading hierarchy is logical (H1 then H2 then H3)",
+        "canonical URL is set and matches routes.json",
+        "indexability is explicitly declared",
+        "no duplicate title or description across registered routes",
+        "structured data is valid where present"
+      ],
+      "failure_condition": "Missing or duplicate metadata, broken heading hierarchy, or absent canonical tag blocks publication.",
+      "blocks_publication": true
+    },
+    "content_gate": {
+      "purpose": "Ensures content meets the sovereign quality standard: institutional, precise, strategic, and trustworthy.",
+      "required_checks": [
+        "no placeholder text present",
+        "no filler paragraphs",
+        "no unsupported claims",
+        "no blocked claim types as defined in data/claim-types.json",
+        "content meets minimum depth appropriate to page role",
+        "all claims are classified according to data/claim-types.json",
+        "no hype, fake urgency, or exaggerated performance promises"
+      ],
+      "failure_condition": "Presence of placeholder content, unclassified claims, or blocked claim types blocks publication.",
+      "blocks_publication": true
+    },
+    "link_gate": {
+      "purpose": "Ensures the internal link architecture is complete, valid, and non-isolating.",
+      "required_checks": [
+        "all internal links resolve to paths registered in data/routes.json",
+        "no dead internal links",
+        "no dead external links",
+        "page has at least one internal link pointing to it from another published page",
+        "all required_internal_links from data/routes.json are present on the page",
+        "no links to routes with status 'planned' or 'drafted'"
+      ],
+      "failure_condition": "Any broken link, orphaned page, or missing required internal link blocks publication.",
+      "blocks_publication": true
+    },
+    "technical_gate": {
+      "purpose": "Ensures the implementation meets the static-first, accessible, and secure technical standard.",
+      "required_checks": [
+        "HTML passes W3C validator",
+        "page renders correctly without JavaScript",
+        "no eval() usage",
+        "no unescaped user input rendering",
+        "no exposed credentials or secrets",
+        "security headers are configured or planned",
+        "no unapproved third-party scripts"
+      ],
+      "failure_condition": "Validation failure, JavaScript dependency for core content, or security issue blocks publication.",
+      "blocks_publication": true
+    },
+    "performance_gate": {
+      "purpose": "Ensures the page meets performance standards appropriate for a sovereign-grade digital asset.",
+      "required_checks": [
+        "page passes Core Web Vitals on mobile",
+        "page passes Core Web Vitals on desktop",
+        "images are optimized",
+        "no render-blocking scripts without defer or async",
+        "no unnecessary third-party scripts",
+        "no excessive font loading"
+      ],
+      "failure_condition": "Core Web Vitals failure or render-blocking resources block publication.",
+      "blocks_publication": true
+    },
+    "accessibility_gate": {
+      "purpose": "Ensures the interface is accessible without motion, 3D, or JavaScript dependency.",
+      "required_checks": [
+        "all images have meaningful alt text",
+        "color contrast meets WCAG AA minimum ratio",
+        "all interactive elements are keyboard-navigable",
+        "no content requires motion or 3D to understand",
+        "spatial effects are progressive enhancements only"
+      ],
+      "failure_condition": "Any content that is inaccessible without motion, 3D, or JavaScript blocks publication.",
+      "blocks_publication": true
+    },
+    "monetization_gate": {
+      "purpose": "Ensures no monetization element is introduced that could damage strategic value or violate the monetization boundary.",
+      "required_checks": [
+        "no unapproved monetization elements present",
+        "no random display ads",
+        "no popups that damage asset dignity",
+        "any monetization element is listed in data/monetization-rules.json approved_models",
+        "current_phase in data/monetization-rules.json permits the monetization model present",
+        "DECISION_LOG.md entry exists for any monetization element introduced"
+      ],
+      "failure_condition": "Any prohibited monetization pattern or out-of-phase monetization model blocks publication.",
+      "blocks_publication": true
+    },
+    "security_gate": {
+      "purpose": "Ensures the published page does not introduce attack surface, credential exposure, or unreviewed external dependencies.",
+      "required_checks": [
+        "no secrets in source code",
+        "no tracking scripts without documented approval",
+        "no third-party scripts without security review",
+        "Content-Security-Policy header is planned or active",
+        "no eval() or unsafe-inline without explicit justification",
+        "no uncontrolled redirects",
+        "no user-generated content rendered without sanitization"
+      ],
+      "failure_condition": "Any security policy violation blocks publication and triggers a DECISION_LOG.md entry.",
+      "blocks_publication": true
+    }
+  }
+}
