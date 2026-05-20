@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-20] — Public Alpha Readiness Added
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Created Sprint-7 public alpha readiness layer: `data/public-alpha-plan.json` listing six controlled alpha candidate routes, `scripts/validate_publication_readiness.py` enforcing approved_for_build content, published internal links, no prohibited claims, and acquisition route governance. Updated `scripts/build.py` to generate clean static HTML only for published routes with approved_for_build content and verified internal links. Updated `scripts/validate_repository_hygiene.py` to allow `output/` and root `index.html` only when the approved build pipeline has generated them for published routes. Updated `scripts/quality_gate.py` to include `validate_publication_readiness` after `validate_repository_hygiene` and before `validate_build_boundaries`.  
+**Reasoning:** Internal governance is complete. The repository must now support controlled public generation of a limited authority layer without broken links, thin pages, random SEO, unsafe scripts, or premature monetization. Routes remain unpublished until content is approved_for_build and all quality gates pass. The build infrastructure is complete and ready for content authoring to begin on the six alpha candidate routes.  
+**Impact:** Publication is only possible when route status is `published`, content source_status is `approved_for_build`, all required_internal_links resolve to published routes, and the full quality gate passes. No routes were published. No output was generated. No root `index.html` was created. No `output/` directory was created. No JavaScript, external scripts, dependencies, forms, analytics, payment, affiliate, or heavy 3D were introduced. The six alpha candidate routes (`/`, `/what-is-sxo/`, `/sxo-framework/`, `/sxo-score/`, `/sxo-audit/`, `/methodology/`) are listed in the public alpha plan. Two link resolution notes are documented: `/what-is-sxo/` links to `/seo-vs-sxo/` and `/methodology/` links to `/acquisition/` — both must be resolved before those routes are published.  
+**Logged by:** agent  
+
+---
+
 ## [2026-05-20] — Security and Technical Hardening Baseline Added
 
 **Type:** security  
