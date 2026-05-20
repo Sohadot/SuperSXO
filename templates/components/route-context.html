@@ -1,0 +1,25 @@
+<!-- route-context.html: sovereign route awareness component -->
+<!-- Displays governance metadata for the current route. -->
+<!-- Populated from data/routes.json at build time. Not visible to end users by default. -->
+<aside class="route-context" aria-label="Route governance context" hidden>
+
+  <dl class="route-meta">
+
+    <dt>Route Role</dt>
+    <dd data-field="route_role">{{ route_role }}</dd>
+
+    <dt>UX Layer</dt>
+    <dd data-field="ux_layer">{{ ux_layer }}</dd>
+
+    <dt>Claim Level</dt>
+    <dd data-field="claim_level">{{ claim_level }}</dd>
+
+    <dt>Monetization Allowed</dt>
+    <dd data-field="monetization_allowed">{{ monetization_allowed }}</dd>
+
+    <dt>Publication Status</dt>
+    <dd data-field="publication_status">{{ publication_status }}</dd>
+
+  </dl>
+
+</aside>

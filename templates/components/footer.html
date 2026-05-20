@@ -1,0 +1,17 @@
+<!-- footer.html: semantic site footer skeleton -->
+<!-- Navigation links are populated from data/navigation.json footer section. -->
+<!-- Do not hardcode links outside the registered route registry. -->
+<footer class="site-footer" role="contentinfo">
+
+  <nav class="footer-nav" aria-label="Footer navigation">
+    <ul role="list">
+      {{ footer_nav_items }}
+      <!-- Each item rendered as: <li><a href="{path}">{label}</a></li> -->
+    </ul>
+  </nav>
+
+  <div class="site-footnote">
+    <p>SuperSXO.com &mdash; Sovereign Search Experience Optimization</p>
+  </div>
+
+</footer>

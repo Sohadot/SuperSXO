@@ -1,0 +1,23 @@
+{{ route_context }}
+
+<article class="page" data-route="{{ route_path }}">
+
+  <header class="page-header">
+    <h1 class="page-heading">{{ page_heading }}</h1>
+    <p class="page-summary">{{ page_summary }}</p>
+  </header>
+
+  <section class="page-body">
+    {{ page_body }}
+  </section>
+
+  <aside class="related-links" aria-label="Related content">
+    <h2 class="related-links-label">Related</h2>
+    {{ related_links }}
+  </aside>
+
+  <footer class="page-cta" aria-label="Page action">
+    {{ allowed_cta }}
+  </footer>
+
+</article>

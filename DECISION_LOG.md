@@ -74,8 +74,12 @@ Each entry must follow this structure:
 **Type:** architecture  
 **Status:** decided  
 **Decision:** Created Sprint-0 machine-readable governance data layer: eight JSON files in `data/` that convert the Sprint-1 markdown documentation into structured, queryable governance data.  
+claude/add-sprint-documentation-vNg8S
 **Reasoning:** Sprint-1 markdown documents are human-readable but not machine-enforceable. Converting governance rules into structured JSON enables future validators, build tools, and AI agents to check route compliance, claim classification, monetization boundaries, quality gates, and domain cluster rules programmatically without re-parsing prose.  
 **Impact:** All future validation tooling, route generation, and content pipelines must reference the `data/` files as the authoritative governance source. The Sprint-1 markdown documents remain the human-readable canonical reference. No public pages were created. No routes outside `data/routes.json` were introduced. No HTML, CSS, JavaScript, or templates were added.  
+**Reasoning:** Sprint-1 markdown documents are human-readable but not machine-enforceable. Converting governance rules into structured JSON enables future validators, build tools, and AI agents to check route compliance, claim classification, monetization boundaries, quality gates, and domain cluster rules programmatically.  
+**Impact:** All future validation tooling, route generation, and content pipelines must reference the `data/` files as the authoritative governance source. No public pages were created.  
+main
 **Logged by:** agent  
 
 ---
