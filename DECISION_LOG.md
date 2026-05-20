@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-20] — CNAME Copied to output/ for Custom Domain Stability
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Updated `scripts/build.py` to copy the repository root `CNAME` file into `output/CNAME` during every build, alongside the governed CSS assets. Updated `scripts/validate_deploy_assets.py` to verify `output/CNAME` exists in strict mode, and to include `CNAME` in the pre-build warning list. Root cause of the live site rendering README content instead of the built pages: GitHub Pages was configured to deploy from the branch root rather than from the GitHub Actions artifact. The code-side fix (CNAME in output/) ensures the custom domain `supersxo.com` is preserved across every GitHub Actions deployment once the operator switches Pages source to GitHub Actions.  
+**Reasoning:** When GitHub Pages deploys from a GitHub Actions artifact, it serves exactly what is in the uploaded artifact. If `CNAME` is absent from `output/`, GitHub Pages drops the custom domain binding after each deployment and falls back to the `*.github.io` URL. Copying `CNAME` from the repository root (the single source of truth) into `output/` on every build prevents this regression without hardcoding the domain string anywhere in the build logic.  
+**Impact:** `output/CNAME` is now generated on every build alongside `output/static/css/tokens.css` and `output/static/css/main.css`. The strict deploy asset validator enforces its presence before upload. The operator action required to restore correct deployment is: Settings → Pages → Source → GitHub Actions, then trigger or await the Deploy SuperSXO Public Alpha workflow on main. No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or heavy 3D were added. No routes were changed. No deferred routes were published.  
+**Logged by:** agent
+
+---
+
 ## [2026-05-20] — Deploy Asset Validation Context Fixed
 
 **Type:** architecture  
