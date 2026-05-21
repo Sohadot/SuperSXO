@@ -1,6 +1,6 @@
 /*
   tokens.css
-  SuperSXO Sovereign Spatial Interface — Design Tokens
+  SuperSXO Sovereign Search Experience Control Interface — Design Tokens
 
   All visual decisions derive from these tokens.
   No token may be overridden inline without a documented reason.
@@ -16,11 +16,17 @@
   --surface-highlight:     #1d2333;
   --surface-control-plane: #090b0e;
 
-  /* Extended Surface System */
-  --surface-deep-space:    #050709;
-  --surface-orbit:         #0c0f14;
-  --surface-glass:         rgba(5, 7, 9, 0.92);
-  --surface-command:       #0e1218;
+  /* Control-System Surface Tokens */
+  --surface-control-base:     #050709;
+  --surface-control-panel:    #0c0f14;
+  --surface-signal-field:     rgba(5, 7, 9, 0.92);
+  --surface-diagnostic-layer: #0e1218;
+
+  /* Legacy Surface Aliases (kept for backward compatibility) */
+  --surface-deep-space: var(--surface-control-base);
+  --surface-orbit:      var(--surface-control-panel);
+  --surface-glass:      var(--surface-signal-field);
+  --surface-command:    var(--surface-diagnostic-layer);
 
   /* ── Ink / Text Colors ── */
   --ink-primary:   #e6e8f0;
@@ -35,17 +41,20 @@
   --signal-subtle:    rgba(74, 124, 220, 0.06);
 
   /* Extended Signal System */
-  --signal-blue:   #3a6fd8;
-  --signal-cyan:   #00b8d4;
-  --signal-violet: #7c6fe0;
+  --signal-blue:      #3a6fd8;
+  --signal-cyan:      #00b8d4;
+  --signal-violet:    #7c6fe0;
+  --signal-path-line: rgba(58, 111, 216, 0.45);
 
   /* ── Trust Accent ── */
-  --trust-color: #38a882;
-  --trust-glow:  rgba(56, 168, 130, 0.12);
+  --trust-color:      #38a882;
+  --trust-glow:       rgba(56, 168, 130, 0.12);
+  --trust-layer-glow: rgba(56, 168, 130, 0.15);
 
   /* ── Action Accent ── */
-  --action-color: #dfa030;
-  --action-glow:  rgba(223, 160, 48, 0.12);
+  --action-color:      #dfa030;
+  --action-glow:       rgba(223, 160, 48, 0.12);
+  --action-route-glow: rgba(223, 160, 48, 0.15);
 
   /* ── Border Colors ── */
   --border-subtle:  rgba(255, 255, 255, 0.05);
@@ -59,12 +68,13 @@
   --grid-line-strong: rgba(255, 255, 255, 0.08);
 
   /* ── Border Radius ── */
-  --radius-xs:    2px;
-  --radius-sm:    4px;
-  --radius-md:    6px;
-  --radius-lg:    10px;
-  --radius-xl:    16px;
-  --radius-orbit: 8px;
+  --radius-xs:      2px;
+  --radius-sm:      4px;
+  --radius-md:      6px;
+  --radius-lg:      10px;
+  --radius-xl:      16px;
+  --radius-control: 8px;
+  --radius-orbit:   8px; /* legacy alias */
 
   /* ── Ring Border ── */
   --ring-border: 1px solid rgba(74, 124, 220, 0.30);
@@ -91,9 +101,13 @@
                   inset 0 1px 0 rgba(255, 255, 255, 0.04);
   --shadow-glow-signal: 0 0 14px var(--signal-glow);
 
-  /* Extended Depth System */
-  --depth-orbit:   0 0 0 1px rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.40);
-  --depth-panel:   0 4px 24px rgba(0, 0, 0, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  /* Control-System Depth Tokens */
+  --depth-control:          0 0 0 1px rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.40);
+  --depth-diagnostic-panel: 0 4px 24px rgba(0, 0, 0, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  /* Legacy Depth Aliases */
+  --depth-orbit:   var(--depth-control);
+  --depth-panel:   var(--depth-diagnostic-panel);
   --depth-command: 0 8px 32px rgba(0, 0, 0, 0.70);
 
   /* ── Perspective ── */

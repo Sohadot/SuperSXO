@@ -62,7 +62,7 @@
     },
     {
       "component_id": "search_to_action_map",
-      "role": "Spatial representation of the seven-layer Search-to-Action Journey. Makes the SXO framework visible as a navigable interface element.",
+      "role": "Control map representation of the seven-layer Search-to-Action Journey. Makes the SXO framework visible as a navigable diagnostic interface element.",
       "ux_layer": "experience",
       "allowed_routes": ["/", "/sxo-framework/", "/what-is-sxo/"],
       "required_data_sources": ["data/ux-layers.json", "data/routes.json"],
@@ -82,7 +82,7 @@
     },
     {
       "component_id": "spatial_panel",
-      "role": "Reusable surface container for content sections. Applies spatial depth tokens and panel border system.",
+      "role": "Reusable surface container for content sections. Applies diagnostic depth tokens and panel border system.",
       "ux_layer": "experience",
       "allowed_routes": "*",
       "required_data_sources": [],
@@ -100,7 +100,7 @@
     },
     {
       "component_id": "diagnostic_grid",
-      "role": "Structured assessment grid for diagnostic and scoring surfaces. Used on SXO Score and SXO Audit routes.",
+      "role": "Structured assessment grid for diagnostic and scoring surfaces. Used on SXO Score (action layer) and SXO Audit (action layer) routes.",
       "ux_layer": "action",
       "allowed_routes": ["/sxo-score/", "/sxo-audit/"],
       "required_data_sources": ["data/routes.json", "data/content-model.json"],
@@ -120,7 +120,7 @@
     },
     {
       "component_id": "trust_plane",
-      "role": "Surface layer for established authority signals. Renders evidence markers, verified claims, and trust indicators using trust-color tokens.",
+      "role": "Surface layer for established authority signals in the trust journey layer. Renders evidence markers, verified claims, and trust indicators using trust-color tokens.",
       "ux_layer": "trust",
       "allowed_routes": ["/sxo-framework/", "/methodology/", "/what-is-sxo/", "/seo-vs-sxo/"],
       "required_data_sources": ["data/claim-types.json", "data/routes.json"],
@@ -138,7 +138,7 @@
     },
     {
       "component_id": "signal_path",
-      "role": "Directional visual connector linking journey layers or content sections. Uses signal-color tokens to indicate progression flow.",
+      "role": "Directional visual connector linking journey layers or content sections. Uses signal-color tokens to indicate intent-to-action progression flow.",
       "ux_layer": "navigation",
       "allowed_routes": ["/", "/sxo-framework/", "/what-is-sxo/", "/methodology/"],
       "required_data_sources": ["data/ux-layers.json"],
@@ -156,7 +156,7 @@
     },
     {
       "component_id": "allowed_cta_block",
-      "role": "Governed call-to-action block. Renders only CTAs explicitly permitted by the route's allowed_cta field.",
+      "role": "Governed action route block in the action journey layer. Renders only CTAs explicitly permitted by the route's allowed_cta field.",
       "ux_layer": "action",
       "allowed_routes": "*",
       "required_data_sources": ["data/routes.json", "data/navigation.json"],
@@ -176,7 +176,7 @@
     },
     {
       "component_id": "related_routes_cluster",
-      "role": "Internal navigation cluster linking to related registered routes. Supports journey progression and internal link governance.",
+      "role": "Internal navigation cluster linking to related registered routes. Supports journey progression and decision-path governance across the search-to-action layers.",
       "ux_layer": "navigation",
       "allowed_routes": "*",
       "required_data_sources": ["data/routes.json", "data/navigation.json"],
@@ -195,8 +195,8 @@
       "publication_risk": "low"
     },
     {
-      "component_id": "spatial_header",
-      "role": "Sticky glass-surface site header implementing the spatial_command_header pattern. Contains authority-node (site identity), route-cluster (primary nav), and action-node-cluster (governed CTAs). Uses backdrop-filter blur on --surface-glass for spatial depth without canvas or SVG.",
+      "component_id": "command_header",
+      "role": "Sticky glass-surface command interface header for the search experience control system. Contains authority-node (site identity at the intent entry point), route-cluster (primary nav as decision path), and action-node-cluster (governed CTAs as action routes). Uses backdrop-filter blur on --surface-signal-field for interface depth without canvas or SVG.",
       "ux_layer": "navigation",
       "allowed_routes": "*",
       "required_data_sources": ["data/navigation.json", "data/routes.json"],
@@ -211,15 +211,16 @@
       "prohibited_behavior": [
         "JavaScript required for header layout or visibility",
         "External font or script loaded in header",
-        "animation that blocks header links from being clicked",
+        "Animation that blocks header links from being clicked",
         "Commercial CTA on routes where monetization_allowed is false",
-        "Hardcoded navigation links outside data/navigation.json"
+        "Hardcoded navigation links outside data/navigation.json",
+        "Space, orbit, or cosmic visual metaphors in header styling"
       ],
       "publication_risk": "low"
     },
     {
       "component_id": "route_cluster",
-      "role": "Primary navigation link cluster rendered inside the spatial_header. Derives all links from data/navigation.json primary_nav array. Rendered as <ul role='list'> of <a> links inside <nav>.",
+      "role": "Primary navigation link cluster rendered inside the command_header. Represents the decision path layer — the user's governed route through the search experience control system. Derives all links from data/navigation.json primary_nav array.",
       "ux_layer": "navigation",
       "allowed_routes": "*",
       "required_data_sources": ["data/navigation.json"],
@@ -239,7 +240,7 @@
     },
     {
       "component_id": "action_node_cluster",
-      "role": "Commercial and primary action node cluster inside the spatial_header. Renders governed CTA links as action nodes. Gated by route monetization_allowed field and route allowed_cta list.",
+      "role": "Governed action route cluster inside the command_header. Renders action nodes as governed CTAs in the action journey layer. Gated by route monetization_allowed field and route allowed_cta list.",
       "ux_layer": "action",
       "allowed_routes": "*",
       "required_data_sources": ["data/routes.json", "data/navigation.json"],
@@ -258,29 +259,30 @@
       "publication_risk": "high"
     },
     {
-      "component_id": "journey_orbit",
-      "role": "Spatial orbit zone rendering the seven-layer Search-to-Action Journey as a governed CSS control surface. Embedded as static HTML in page.html so it appears on all published routes without build.py changes. Each layer: index number, layer title, signal dot (decorative), layer description in CSS grid.",
+      "component_id": "journey_control_map",
+      "role": "Layered control map rendering the seven-layer Search-to-Action Journey as a governed diagnostic surface. Maps the experience layer of the journey — making intent, visibility, experience, trust, navigation, action, and outcome visible as a structured control interface element. Embedded as static HTML in page.html.",
       "ux_layer": "experience",
       "allowed_routes": "*",
       "required_data_sources": [],
       "accessibility_requirements": [
         "Layer index numbers must be visible text elements, not CSS counters alone",
-        "Signal dots must be aria-hidden",
+        "Signal indicators must be aria-hidden",
         "Each layer must be readable as a plain list item without CSS grid",
-        "Ambient radial glow (::after) must not obscure layer text",
+        "Ambient glow (::after) must not obscure layer text",
         "Must not animate without prefers-reduced-motion guard"
       ],
       "prohibited_behavior": [
         "JavaScript required to render layer list",
         "Canvas or SVG as the primary layer rendering surface",
         "Layers that are invisible without CSS grid support",
-        "Layer content that changes based on user identity or session"
+        "Layer content that changes based on user identity or session",
+        "Orbital, planetary, or cosmic metaphors in component naming or styling"
       ],
       "publication_risk": "low"
     },
     {
       "component_id": "content_deck",
-      "role": "Governed content surface container wrapping injected page body HTML. Applies --surface-command background, 2px --grid-line-strong left border, and --radius-orbit. All child content derives from page content source files.",
+      "role": "Governed content surface container wrapping injected page body HTML. Represents the experience layer of the journey — the quality of interaction after arrival. Applies --surface-command background, 2px --grid-line-strong left border, and --radius-control.",
       "ux_layer": "experience",
       "allowed_routes": "*",
       "required_data_sources": ["data/routes.json"],
@@ -299,7 +301,7 @@
     },
     {
       "component_id": "page_command_panel",
-      "role": "Full page layout command surface that orchestrates all page zones: route-context-zone, page-signal-header, content-deck, journey-orbit-zone, related-routes-panel, governed-cta-zone. Sets max-width, grid layout, and gap for consistent spatial page structure.",
+      "role": "Full page layout command surface that orchestrates all diagnostic zones: route-context-zone (visibility layer), page-signal-header (intent channel), content-deck (experience layer), journey-control-map-zone (journey visualization), related-routes-panel (navigation layer), governed-cta-zone (action layer).",
       "ux_layer": "experience",
       "allowed_routes": "*",
       "required_data_sources": ["data/routes.json"],
@@ -318,7 +320,7 @@
     },
     {
       "component_id": "route_telemetry_panel",
-      "role": "Governance transparency aside panel displaying route role, UX layer, claim level, monetization status, and publication status as a <dl> definition list. Hidden by default via HTML hidden attribute. --signal-violet left border identifies it as a governance surface. Implemented in templates/components/route-context.html.",
+      "role": "Governance transparency aside panel displaying route role, UX layer, claim level, monetization status, and publication status as a <dl> definition list. Represents the visibility layer of governance — making the route's strategic intent and status legible to operators. Hidden by default via HTML hidden attribute.",
       "ux_layer": "visibility",
       "allowed_routes": "*",
       "required_data_sources": ["data/routes.json", "data/ux-layers.json"],
