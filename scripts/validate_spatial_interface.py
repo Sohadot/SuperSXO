@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-Validates that the sovereign spatial interface is correctly implemented.
+Validates that the sovereign search experience control interface is correctly implemented.
 
 Checks:
-- main.css contains required spatial CSS classes and patterns
+- main.css contains required control-interface CSS classes and patterns
 - main.css has no @import url() (no external font or stylesheet imports)
 - main.css has no references to external resource URLs
 - main.css has responsive @media queries
 - main.css has overflow-x control
 - base.html uses control-plane-shell
-- header.html uses spatial-header
+- header.html uses command-header (the realigned class from Sprint 10B)
 - No .js files in static/
 - No external script tags in published templates
 - No deferred route paths hardcoded in published templates
@@ -38,8 +38,8 @@ PUBLISHED_TEMPLATES = [
 
 REQUIRED_CSS_MARKERS = [
     "control-plane-shell",
-    "spatial-header",
-    "journey-orbit",
+    "command-header",       # Sprint 10B: replaced spatial-header
+    "journey-control-map",  # Sprint 10B: replaced journey-orbit
     "route-telemetry",
     "@media",
     "overflow-x",
@@ -91,8 +91,8 @@ def check_templates(failures: list) -> None:
         failures.append("FAIL  templates/components/header.html not found")
     else:
         content = HEADER_HTML.read_text(encoding="utf-8")
-        if "spatial-header" not in content:
-            failures.append("FAIL  header.html missing class: spatial-header")
+        if "command-header" not in content:
+            failures.append("FAIL  header.html missing class: command-header")
 
 
 def check_no_js_files(failures: list) -> None:

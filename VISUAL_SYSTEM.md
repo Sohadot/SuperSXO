@@ -3,35 +3,42 @@
 ## Visual Thesis
 
 SuperSXO.com does not present search experience optimization as a service listing.
-It makes the Search-to-Action Journey visible as a spatial control system.
+It makes the Search-to-Action Journey visible as a diagnostic control system.
 
-The visual language must communicate institutional authority, diagnostic precision, and strategic depth — not marketing energy, not gaming aesthetics, not decorative futurism.
+The visual language must communicate institutional authority, diagnostic precision, and strategic depth — not marketing energy, not gaming aesthetics, not decorative futurism, and not space or cosmic imagery.
 
 Every visual decision is governed. Every component maps to a strategic function. Every motion has a justification.
+
+**The interface is not space-themed.** Depth is used to communicate hierarchy — the layered structure of intent, visibility, experience, trust, navigation, action, and outcome. Panels represent diagnostic layers. Lines represent signal paths. Route context represents governance. CTAs represent governed action routes.
+
+The visual system exists to make the search-to-action journey legible as a diagnostic control system. Every design choice must serve that function or be absent.
 
 ---
 
 ## Approved Interface Identity
 
-**Name:** Sovereign Spatial Interface  
-**Category:** Institutional Diagnostic Control Plane  
-**Tone:** Authoritative, spatial, precise, future-facing  
-**Reference Points:** Observatory control interfaces, institutional dashboards, spatial data visualization systems
+**Name:** Sovereign Search Experience Control Interface
+**Category:** Institutional Diagnostic Control System
+**Tone:** Authoritative, precise, diagnostic, future-facing
+**Reference Points:** Institutional diagnostic dashboards, governed control interfaces, structured data systems, systematic analysis tools
 
-The interface should feel like entering a **Search Experience Observatory** — a governed diagnostic environment where the full search-to-action journey is visible, measurable, and navigable.
+The interface should feel like entering a **Search-to-Action Control Plane** — a governed diagnostic environment where the full search-to-action journey is visible, measurable, and navigable.
+
+VR-inspired means immersive and layered. It does not mean cosmic, headset-dependent, or outer-space visual language. The correct metaphors are control, diagnosis, journey mapping, and governed decision flow.
 
 ### Approved Visual Concepts
 
 | Concept | Function |
 |---|---|
-| Search Experience Control Plane | Primary shell layer surrounding navigable content |
-| Search-to-Action Map | Spatial representation of the 7-layer journey model |
+| Search Experience Control Interface | Primary shell layer surrounding navigable content |
+| Search-to-Action Control Map | Layered representation of the 7-layer journey model |
 | Signal Path | Directional visual connector linking journey layers |
-| Trust Plane | Surface area communicating established authority and evidence |
-| Diagnostic Grid | Structured assessment layout for SXO measurement surfaces |
-| Route Context Panel | In-page governance panel showing route role, layer, and claim type |
-| Sovereign Spatial Interface | The governing interface identity and UX direction |
-| Search Experience Observatory | Mental model for the overall site experience |
+| Trust Layer | Surface area communicating established authority and evidence |
+| Diagnostic Panel | Structured assessment layout for SXO measurement surfaces |
+| Route Telemetry Panel | In-page governance panel showing route role, layer, and claim type |
+| Intent Channel | Visual channel representing the search intent entry point |
+| Decision Path | Governed path from intent through action to outcome |
+| Control Grid | Governed background structure communicating diagnostic hierarchy |
 
 ---
 
@@ -46,11 +53,15 @@ The following patterns are explicitly prohibited. Their presence in any design o
 | Metaverse avatar scenes | Gimmick-tier; misrepresents the asset thesis |
 | Canvas-only content | Breaks accessibility, indexability, and static-first architecture |
 | Animation-required navigation | Inaccessible; breaks core content delivery |
-| Intrusive popups | Violates trust plane; damages acquisition positioning |
+| Intrusive popups | Violates trust layer; damages acquisition positioning |
 | Cheap sales banners | Low-trust language; prohibited under MONETIZATION_BOUNDARY |
 | Hidden text for SEO | Black-hat pattern; security violation under SECURITY_POLICY |
 | Decorative 3D without function | Performance drag without strategic return |
 | Heavy animation first | Motion must be progressive enhancement, not primary content delivery |
+| Cosmic interface | Space, orbit, or astronomical imagery disconnected from search-to-action meaning |
+| Outer space metaphor | Dark background with star-field, nebula, orbital, or astronomical visual language |
+| Decorative sci-fi grid | Grid lines used as decoration rather than as a diagnostic signal structure |
+| Visual depth without diagnostic meaning | Depth effects that do not map to the information hierarchy of the journey |
 
 ---
 
@@ -58,11 +69,11 @@ The following patterns are explicitly prohibited. Their presence in any design o
 
 The color system is token-governed. No color may appear in the interface without a corresponding design token in `static/css/tokens.css` and a registered group in `data/visual-tokens.json`.
 
-**Surface layer:** Near-black surfaces at five depth levels (base, raised, panel, overlay, highlight). Depth communicates hierarchy without decoration.
+**Surface layer:** Near-black surfaces at multiple depth levels. Depth communicates hierarchy without decoration. The darkness of the interface must feel like a precision operating system, not outer space.
 
 **Ink layer:** Three ink levels (primary, secondary, muted) for text hierarchy. Typography must be readable without color dependency.
 
-**Signal (Blue `#4a7cdc`):** Used exclusively for navigation, primary actions, and spatial connectors. Not decorative.
+**Signal (Blue `#4a7cdc`):** Used exclusively for navigation, primary actions, and signal path connectors. Not decorative.
 
 **Trust (Cyan-Green `#38a882`):** Used exclusively for established authority signals, evidence indicators, and verified claim markers.
 
@@ -74,17 +85,17 @@ No colors outside the token system. Color improvisation is a governance violatio
 
 ## Spatial Depth Philosophy
 
-Depth is a strategic tool, not a decoration.
+Depth is a strategic tool, not a decoration. It maps the information architecture of the search-to-action journey — not outer space.
 
-- **Base surface (`--surface-base`):** Content background. The floor.
+- **Base surface (`--surface-control-base`):** Content background. The control floor.
+- **Panel surface (`--surface-control-panel`):** Diagnostic panels, journey map, footer. Mid-depth layer.
 - **Raised surface (`--surface-raised`):** Header, footer, navigation. Elevated but neutral.
-- **Panel surface (`--surface-panel`):** Content panels and components. Mid-depth.
-- **Overlay surface (`--surface-overlay`):** Hover states, contextual overlays.
-- **Highlight surface (`--surface-highlight`):** Focused or selected states.
+- **Command surface (`--surface-command` / `--surface-diagnostic-layer`):** Active content sections. Diagnostic command depth.
+- **Signal field (`--surface-signal-field`):** Glass-effect header surface. The command interface layer.
 
-Depth must communicate information architecture, not create visual drama.
+Depth communicates information architecture, not visual drama.
 
-Shadows and borders define spatial layers. Glow effects are permitted only on signal-carrying elements and only as progressive enhancement.
+Shadows and borders define diagnostic layers. Glow effects are permitted only on signal-carrying elements and only as progressive enhancement.
 
 ---
 
@@ -155,15 +166,15 @@ Every interface layer maps to a journey layer defined in `data/ux-layers.json`:
 
 | Journey Layer | UX Layer Name | Visual Expression |
 |---|---|---|
-| 1 | Search Intent | Signal Path origin point |
-| 2 | Visibility | Route Context Panel surface |
-| 3 | Experience | Spatial Panel depth system |
-| 4 | Trust | Trust Plane component |
-| 5 | Navigation | Primary navigation cluster |
-| 6 | Action | Action CTA blocks (amber tokens) |
-| 7 | Strategic Outcome | Acquisition and outcome surfaces |
+| 1 | Search Intent | Signal path origin — intent channel entry |
+| 2 | Visibility | Route context panel — governance surface |
+| 3 | Experience | Diagnostic panel depth system |
+| 4 | Trust | Trust layer component |
+| 5 | Navigation | Primary navigation cluster — decision path |
+| 6 | Action | Action route blocks (amber tokens) |
+| 7 | Strategic Outcome | Outcome surface — acquisition and consequence layer |
 
-The interface does not merely style pages — it makes the journey architecture visible.
+The interface does not merely style pages — it makes the journey architecture visible as a diagnostic control system.
 
 ---
 
