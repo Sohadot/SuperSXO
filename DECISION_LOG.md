@@ -36,16 +36,7 @@ Each entry must follow this structure:
 
 ---
 
-## [2026-05-20] — Conceptual Interface Realignment Added
-
-**Type:** architecture  
-**Status:** decided  
-**Decision:** Executed Sprint 10B conceptual interface realignment. Corrected the visual direction established in Sprint 10 away from space/cosmic/orbit metaphors toward a search experience control and diagnostic system identity. Updated `VISUAL_SYSTEM.md` to reframe the interface as a "Sovereign Search Experience Control Interface" and the mental model as "Search-to-Action Control Plane"; added cosmic/orbital patterns to the Forbidden Patterns table. Updated `UX_UI_STANDARD.md` with a new section "Interface Metaphor: Diagnostic Control, Not Space"; added space-themed and orbital metaphors to the prohibited list; added step 4 to UX Decision Protocol. Updated `data/interface-patterns.json`: renamed `search_to_action_orbit` → `search_to_action_control_map`, `spatial_command_header` → `command_header_interface`, `sovereign_signal_grid` → `governed_signal_grid`; added five new prohibited patterns (cosmic_interface, outer_space_metaphor, orbit_metaphor_without_function, decorative_sci_fi_grid, visual_depth_without_diagnostic_meaning). Updated `data/component-registry.json`: renamed `spatial_header` → `command_header`, `journey_orbit` → `journey_control_map` with updated role descriptions. Updated `data/visual-tokens.json`: added control-system tokens (--surface-control-base, --surface-control-panel, --surface-signal-field, --surface-diagnostic-layer, --radius-control, --depth-control, --depth-diagnostic-panel, --signal-path-line, --trust-layer-glow, --action-route-glow); kept old space-themed tokens as legacy aliases. Updated `scripts/validate_spatial_interface.py` to check for `command-header` and `journey-control-map` instead of old names. Updated `static/css/tokens.css` with all new control-system tokens; old tokens converted to variable aliases. Updated `static/css/main.css`: renamed selectors using backward-compatible combined form (`.command-header, .spatial-header`; `.journey-control-map-zone, .journey-orbit-zone`; etc.); updated body and control-plane-shell to `--surface-control-base`; journey zone, related-routes-panel, and site-footer updated to `--surface-control-panel`. Updated `templates/components/header.html`: `spatial-header` → `command-header`. Updated `templates/components/spatial-map.html`: `journey-orbit` → `journey-control-map`. Updated `templates/page.html`: `journey-orbit-zone` → `journey-control-map-zone` and all child class names. Updated `summary` fields in `content/pages/home.json`, `content/pages/what-is-sxo.json`, `content/pages/sxo-framework.json`, and `content/pages/methodology.json` to replace internal-planning language with sovereign asset copy.  
-**Reasoning:** Sprint 10 introduced dark spatial interface patterns that used orbit, deep-space, and cosmic visual language throughout CSS class names, token names, and template classes. This framing was wrong for the asset story: SuperSXO is a search experience control and diagnostic authority layer, not a space-themed site. The VR-inspired immersive depth direction is correct, but it must read as control, diagnosis, and governed decision flow — not as spacecraft cockpit or observatory dome. The `summary` fields in four content JSON files contained internal planning notes ("This page defines...", "This page documents...", "It must feel like...") that were rendered publicly via `build.py` as `{{ page_summary }}`. These were replaced with sovereign asset copy appropriate for public display.  
-**Impact:** All six published alpha routes will render with control-system class names and tokens after the next build. Old space-themed class names are preserved as combined CSS selectors for backward compatibility — both old and new class names resolve to the same styles. No layout changes. No content changes. No route changes. No validators weakened. Sovereign quality gate passes before and after build. No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or heavy 3D were added. No new routes were created. Deferred routes (`/seo-vs-sxo/`, `/ai-search-experience/`, `/acquisition/`) remain unpublished.  
-**Logged by:** agent
-
----
+ claude/add-home-prototype-jPdNY
 
 ## [2026-05-20] — Sovereign VR-Spatial Interface Upgrade Added
 
@@ -124,6 +115,7 @@ Each entry must follow this structure:
 
 ---
 
+main
 ## [2026-05-20] — Security and Technical Hardening Baseline Added
 
 **Type:** security  
