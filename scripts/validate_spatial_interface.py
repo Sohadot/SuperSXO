@@ -10,11 +10,13 @@ Checks:
 - main.css has overflow-x control
 - base.html uses control-plane-shell
 - header.html uses command-header (the realigned class from Sprint 10B)
-- No .js files in static/
+- Only approved first-party JS files exist in static/ (per data/approved-scripts.json)
+- Approved JS files contain no forbidden API patterns
 - No external script tags in published templates
 - No deferred route paths hardcoded in published templates
 """
 
+import json
 import sys
 from pathlib import Path
 
@@ -24,6 +26,7 @@ BASE_HTML = ROOT / "templates" / "base.html"
 HEADER_HTML = ROOT / "templates" / "components" / "header.html"
 TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
+APPROVED_SCRIPTS_FILE = ROOT / "data" / "approved-scripts.json"
 
 DEFERRED_ROUTES = ["/seo-vs-sxo/", "/ai-search-experience/", "/acquisition/"]
 
@@ -57,6 +60,33 @@ EXTERNAL_URL_FRAGMENTS = [
     "jsdelivr.net",
     "cdnjs.com",
 ]
+
+JS_FORBIDDEN_PATTERNS = [
+    "eval(",
+    "innerHTML",
+    "document.write(",
+    "fetch(",
+    "XMLHttpRequest",
+    "localStorage",
+    "sessionStorage",
+    "document.cookie",
+    "import(",
+]
+
+
+def load_approved_js_paths() -> set:
+    """Return resolved paths of all approved JS files from data/approved-scripts.json."""
+    if not APPROVED_SCRIPTS_FILE.exists():
+        return set()
+    try:
+        data = json.loads(APPROVED_SCRIPTS_FILE.read_text(encoding="utf-8"))
+        return {
+            (ROOT / entry["file"]).resolve()
+            for entry in data.get("approved_scripts", [])
+            if "file" in entry
+        }
+    except (json.JSONDecodeError, KeyError):
+        return set()
 
 
 def check_main_css(failures: list) -> None:
@@ -95,13 +125,33 @@ def check_templates(failures: list) -> None:
             failures.append("FAIL  header.html missing class: command-header")
 
 
-def check_no_js_files(failures: list) -> None:
+def check_js_files(failures: list) -> None:
+    """Allow only approved first-party JS files. Block all unapproved JS."""
     if not STATIC_DIR.exists():
         return
+
+    approved_resolved = load_approved_js_paths()
+
     for js_file in STATIC_DIR.rglob("*.js"):
-        if js_file.is_file():
+        if not js_file.is_file():
+            continue
+
+        if js_file.resolve() not in approved_resolved:
             rel = js_file.relative_to(ROOT)
-            failures.append(f"FAIL  JS file found in static/: {rel}")
+            failures.append(f"FAIL  Unapproved JS file in static/: {rel}")
+            continue
+
+        content = js_file.read_text(encoding="utf-8")
+        rel = js_file.relative_to(ROOT)
+        for pattern in JS_FORBIDDEN_PATTERNS:
+            if pattern in content:
+                failures.append(
+                    f"FAIL  forbidden API {pattern!r} in approved script: {rel}"
+                )
+        if "http://" in content or "https://" in content:
+            failures.append(
+                f"FAIL  external URL reference in approved script: {rel}"
+            )
 
 
 def check_no_external_scripts(failures: list) -> None:
@@ -133,7 +183,7 @@ def main() -> None:
 
     check_main_css(failures)
     check_templates(failures)
-    check_no_js_files(failures)
+    check_js_files(failures)
     check_no_external_scripts(failures)
     check_no_deferred_routes(failures)
 
