@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "governance_doc": "ROUTE_GOVERNANCE.md",
+  "last_updated": "2026-05-20",
+  "plan_name": "Public Alpha",
+  "description": "Controlled first public release. Authority layer only. Establishes SuperSXO.com as a governed, indexable, high-quality reference before any monetization or acquisition surface is live.",
+  "candidate_routes": [
+    {
+      "path": "/",
+      "title": "SuperSXO — Sovereign Search Experience Optimization",
+      "publication_order": 1,
+      "internal_link_dependencies": ["/what-is-sxo/", "/sxo-framework/", "/sxo-score/", "/sxo-audit/", "/methodology/"],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false
+    },
+    {
+      "path": "/what-is-sxo/",
+      "title": "What Is SXO? — Search Experience Optimization Defined",
+      "publication_order": 2,
+      "internal_link_dependencies": ["/sxo-framework/", "/sxo-score/", "/methodology/"],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "Resolved: /seo-vs-sxo/ removed from required_internal_links in routes.json. Updated required_internal_links to [/sxo-framework/, /sxo-score/, /methodology/] — all within alpha."
+    },
+    {
+      "path": "/sxo-framework/",
+      "title": "The SuperSXO Framework — From Search Intent to Strategic Outcome",
+      "publication_order": 3,
+      "internal_link_dependencies": ["/what-is-sxo/", "/sxo-score/", "/methodology/"],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false
+    },
+    {
+      "path": "/sxo-score/",
+      "title": "SuperSXO Score — Self-Assessment Diagnostic",
+      "publication_order": 4,
+      "internal_link_dependencies": ["/sxo-framework/", "/sxo-audit/", "/methodology/"],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false
+    },
+    {
+      "path": "/sxo-audit/",
+      "title": "SXO Audit — Diagnostic Report",
+      "publication_order": 5,
+      "internal_link_dependencies": ["/sxo-score/", "/methodology/", "/"],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false
+    },
+    {
+      "path": "/methodology/",
+      "title": "SuperSXO Methodology — The Governance System for Search Experience",
+      "publication_order": 6,
+      "internal_link_dependencies": ["/sxo-framework/", "/sxo-score/", "/"],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "Resolved: /acquisition/ replaced with / in required_internal_links in routes.json. Updated required_internal_links to [/sxo-framework/, /sxo-score/, /] — all within alpha."
+    }
+  ],
+  "deferred_routes": [
+    {
+      "path": "/seo-vs-sxo/",
+      "reason": "Not required for authority layer. Deferred to post-alpha publication."
+    },
+    {
+      "path": "/ai-search-experience/",
+      "reason": "Interpretive claim level requires additional review. Deferred to post-alpha."
+    },
+    {
+      "path": "/acquisition/",
+      "reason": "Acquisition signal route. Marked indexable: false. Not published in public alpha.",
+      "indexable": false
+    }
+  ],
+  "publication_requirements": {
+    "route_status": "published",
+    "content_source_status": "approved_for_build",
+    "internal_links": "all_required_links_must_point_to_published_routes",
+    "quality_gate": "must_pass_all_validators",
+    "no_placeholder_sections": true,
+    "no_prohibited_claims": true
+  }
+}

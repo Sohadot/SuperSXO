@@ -16,6 +16,12 @@
   --surface-highlight:     #1d2333;
   --surface-control-plane: #090b0e;
 
+  /* Extended Surface System */
+  --surface-deep-space:    #050709;
+  --surface-orbit:         #0c0f14;
+  --surface-glass:         rgba(5, 7, 9, 0.92);
+  --surface-command:       #0e1218;
+
   /* ── Ink / Text Colors ── */
   --ink-primary:   #e6e8f0;
   --ink-secondary: #8e97ac;
@@ -27,6 +33,11 @@
   --signal-secondary: #2a5cc0;
   --signal-glow:      rgba(74, 124, 220, 0.14);
   --signal-subtle:    rgba(74, 124, 220, 0.06);
+
+  /* Extended Signal System */
+  --signal-blue:   #3a6fd8;
+  --signal-cyan:   #00b8d4;
+  --signal-violet: #7c6fe0;
 
   /* ── Trust Accent ── */
   --trust-color: #38a882;
@@ -42,15 +53,21 @@
   --border-strong:  rgba(255, 255, 255, 0.16);
   --border-signal:  rgba(74, 124, 220, 0.28);
 
-  /* ── Grid Line ── */
-  --grid-line: rgba(255, 255, 255, 0.04);
+  /* ── Grid Lines ── */
+  --grid-line:        rgba(255, 255, 255, 0.04);
+  --grid-line-soft:   rgba(255, 255, 255, 0.03);
+  --grid-line-strong: rgba(255, 255, 255, 0.08);
 
   /* ── Border Radius ── */
-  --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
-  --radius-xl: 16px;
+  --radius-xs:    2px;
+  --radius-sm:    4px;
+  --radius-md:    6px;
+  --radius-lg:    10px;
+  --radius-xl:    16px;
+  --radius-orbit: 8px;
+
+  /* ── Ring Border ── */
+  --ring-border: 1px solid rgba(74, 124, 220, 0.30);
 
   /* ── Spacing Scale ── */
   --space-1:  0.25rem;
@@ -74,11 +91,19 @@
                   inset 0 1px 0 rgba(255, 255, 255, 0.04);
   --shadow-glow-signal: 0 0 14px var(--signal-glow);
 
+  /* Extended Depth System */
+  --depth-orbit:   0 0 0 1px rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.40);
+  --depth-panel:   0 4px 24px rgba(0, 0, 0, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --depth-command: 0 8px 32px rgba(0, 0, 0, 0.70);
+
+  /* ── Perspective ── */
+  --perspective-soft: 1000px;
+
   /* ── Motion Duration Tokens ── */
-  --duration-instant:    80ms;
-  --duration-fast:      150ms;
-  --duration-base:      250ms;
-  --duration-slow:      400ms;
+  --duration-instant:     80ms;
+  --duration-fast:       150ms;
+  --duration-base:       250ms;
+  --duration-slow:       400ms;
   --duration-deliberate: 600ms;
 
   /* ── Easing ── */

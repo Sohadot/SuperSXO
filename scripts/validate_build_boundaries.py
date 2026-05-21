@@ -4,12 +4,24 @@ Validate static architecture boundaries.
 
 Ensures the site skeleton is correctly structured and no unauthorized
 public pages or generated output exist outside the governed build pipeline.
+When routes are published, output/ is expected to exist after a build run.
 """
 
+import json
 import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent
+
+
+def load_published_count() -> int:
+    routes_path = REPO_ROOT / "data" / "routes.json"
+    if not routes_path.exists():
+        return 0
+    with open(routes_path, encoding="utf-8") as f:
+        data = json.load(f)
+    routes = data.get("routes", []) if isinstance(data, dict) else data
+    return sum(1 for r in routes if r.get("status") == "published")
 
 
 def check(condition: bool, label: str, errors: list) -> None:
@@ -22,6 +34,7 @@ def check(condition: bool, label: str, errors: list) -> None:
 
 def validate_build_boundaries() -> bool:
     errors: list = []
+    published_count = load_published_count()
 
     # Required skeleton directories
     check(
@@ -54,22 +67,31 @@ def validate_build_boundaries() -> bool:
         errors,
     )
 
-    # No root index.html — public pages not published yet
+    # Root index.html must never exist at the repository root
+    # (build.py writes output/index.html, never REPO_ROOT/index.html)
     check(
         not (REPO_ROOT / "index.html").exists(),
-        "No root index.html (public pages not yet published)",
+        "No root index.html at repository root (build output goes to output/)",
         errors,
     )
 
-    # No output/ directory — only created by a deliberate build run
-    check(
-        not (REPO_ROOT / "output").exists(),
-        "No output/ directory (build pipeline not yet triggered)",
-        errors,
-    )
+    # output/ is only permitted when routes are published
+    output_dir = REPO_ROOT / "output"
+    if published_count == 0:
+        check(
+            not output_dir.exists(),
+            "No output/ directory (build pipeline not yet triggered)",
+            errors,
+        )
+    else:
+        # output/ may or may not exist; if it exists that is expected after build
+        if output_dir.exists():
+            print(f"  OK    output/ directory exists ({published_count} route(s) published)")
+        else:
+            print(f"  OK    output/ not yet generated ({published_count} route(s) published — run build.py)")
 
     # No stray HTML files at repository root
-    root_html = [f for f in REPO_ROOT.glob("*.html")]
+    root_html = list(REPO_ROOT.glob("*.html"))
     check(
         len(root_html) == 0,
         f"No public HTML files at repository root ({len(root_html)} found)",

@@ -1,24 +1,25 @@
-<!-- route-context.html: sovereign route awareness component -->
-<!-- Displays governance metadata for the current route. -->
-<!-- Populated from data/routes.json at build time. Not visible to end users by default. -->
-<aside class="route-context" aria-label="Route governance context" hidden>
+<!-- route-context.html: route telemetry panel -->
+<!-- Displays sovereign governance metadata. Hidden from public by default. -->
+<aside class="route-telemetry-panel" aria-label="Route telemetry" hidden>
 
-  <dl class="route-meta">
+  <div class="telemetry-label" aria-hidden="true">ROUTE TELEMETRY</div>
 
-    <dt>Route Role</dt>
-    <dd data-field="route_role">{{ route_role }}</dd>
+  <dl class="telemetry-grid">
 
-    <dt>UX Layer</dt>
-    <dd data-field="ux_layer">{{ ux_layer }}</dd>
+    <dt class="telemetry-key">Role</dt>
+    <dd class="telemetry-value" data-field="route_role">{{ route_role }}</dd>
 
-    <dt>Claim Level</dt>
-    <dd data-field="claim_level">{{ claim_level }}</dd>
+    <dt class="telemetry-key">UX Layer</dt>
+    <dd class="telemetry-value" data-field="ux_layer">{{ ux_layer }}</dd>
 
-    <dt>Monetization Allowed</dt>
-    <dd data-field="monetization_allowed">{{ monetization_allowed }}</dd>
+    <dt class="telemetry-key">Claim Level</dt>
+    <dd class="telemetry-value" data-field="claim_level">{{ claim_level }}</dd>
 
-    <dt>Publication Status</dt>
-    <dd data-field="publication_status">{{ publication_status }}</dd>
+    <dt class="telemetry-key">Monetization</dt>
+    <dd class="telemetry-value" data-field="monetization_allowed">{{ monetization_allowed }}</dd>
+
+    <dt class="telemetry-key">Status</dt>
+    <dd class="telemetry-value" data-field="publication_status">{{ publication_status }}</dd>
 
   </dl>
 

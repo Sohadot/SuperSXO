@@ -1,23 +1,77 @@
-{{ route_context }}
+<div class="route-context-zone">
+  {{ route_context }}
+</div>
 
-<article class="page" data-route="{{ route_path }}">
+<article class="page-command-panel" data-route="{{ route_path }}">
 
-  <header class="page-header">
+  <header class="page-signal-header">
     <h1 class="page-heading">{{ page_heading }}</h1>
     <p class="page-summary">{{ page_summary }}</p>
   </header>
 
-  <section class="page-body">
+  <div class="content-deck">
     {{ page_body }}
+  </div>
+
+  <section class="journey-orbit-zone" aria-label="Search-to-Action Journey">
+    <header class="journey-orbit-header">
+      <h2 class="journey-orbit-title">Search-to-Action Journey</h2>
+      <p class="journey-orbit-subtitle">Seven layers. One sovereign path from intent to outcome.</p>
+    </header>
+    <ol class="journey-plane" role="list">
+      <li class="journey-node" data-layer="search-intent" data-order="1">
+        <span class="layer-index" aria-hidden="true">01</span>
+        <span class="layer-title">Search Intent</span>
+        <span class="journey-signal" aria-hidden="true"></span>
+        <span class="layer-description">The motivation that initiates the search.</span>
+      </li>
+      <li class="journey-node" data-layer="visibility" data-order="2">
+        <span class="layer-index" aria-hidden="true">02</span>
+        <span class="layer-title">Visibility</span>
+        <span class="journey-signal" aria-hidden="true"></span>
+        <span class="layer-description">Presence in relevant results at the right moment.</span>
+      </li>
+      <li class="journey-node" data-layer="experience" data-order="3">
+        <span class="layer-index" aria-hidden="true">03</span>
+        <span class="layer-title">Experience</span>
+        <span class="journey-signal" aria-hidden="true"></span>
+        <span class="layer-description">The quality of interaction after arrival.</span>
+      </li>
+      <li class="journey-node" data-layer="trust" data-order="4">
+        <span class="layer-index" aria-hidden="true">04</span>
+        <span class="layer-title">Trust</span>
+        <span class="journey-signal" aria-hidden="true"></span>
+        <span class="layer-description">The user&rsquo;s assessment of credibility and authority.</span>
+      </li>
+      <li class="journey-node" data-layer="navigation" data-order="5">
+        <span class="layer-index" aria-hidden="true">05</span>
+        <span class="layer-title">Navigation</span>
+        <span class="journey-signal" aria-hidden="true"></span>
+        <span class="layer-description">Confident movement through the site architecture.</span>
+      </li>
+      <li class="journey-node" data-layer="action" data-order="6">
+        <span class="layer-index" aria-hidden="true">06</span>
+        <span class="layer-title">Action</span>
+        <span class="journey-signal" aria-hidden="true"></span>
+        <span class="layer-description">The specific, measurable response taken.</span>
+      </li>
+      <li class="journey-node" data-layer="strategic-outcome" data-order="7">
+        <span class="layer-index" aria-hidden="true">07</span>
+        <span class="layer-title">Strategic Outcome</span>
+        <span class="layer-description">Downstream consequence of repeated successful journeys.</span>
+      </li>
+    </ol>
   </section>
 
-  <aside class="related-links" aria-label="Related content">
-    <h2 class="related-links-label">Related</h2>
-    {{ related_links }}
-  </aside>
+  <nav class="related-routes-panel" aria-label="Related routes">
+    <h2 class="related-routes-label">Continue</h2>
+    <ul role="list">
+      {{ related_links }}
+    </ul>
+  </nav>
 
-  <footer class="page-cta" aria-label="Page action">
+  <div class="governed-cta-zone" aria-label="Actions">
     {{ allowed_cta }}
-  </footer>
+  </div>
 
 </article>

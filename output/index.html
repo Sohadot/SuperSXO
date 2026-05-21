@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuperSXO — Sovereign Search Experience Optimization</title>
+  <meta name="description" content="SuperSXO is the canonical authority for Search Experience Optimization. It measures whether visibility becomes trust, clarity, and action.">
+  <link rel="canonical" href="https://supersxo.com/">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="/static/css/tokens.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body class="homepage">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- header.html: semantic site header skeleton -->
+<!-- Navigation links are populated from data/navigation.json primary and commercial_cta. -->
+<!-- Do not hardcode links outside the registered route registry. -->
+<header class="site-header" role="banner">
+
+  <a href="/" class="site-identity" aria-label="SuperSXO home">
+    <span class="site-name">SuperSXO</span>
+  </a>
+
+  <nav class="primary-nav" aria-label="Primary navigation">
+    <ul role="list">
+      <li><a href="/what-is-sxo/">What Is SXO</a></li>
+      <li><a href="/sxo-framework/">Framework</a></li>
+      <li><a href="/methodology/">Methodology</a></li>
+      <li><a href="/sxo-score/">SXO Score</a></li>
+      <!-- Each item rendered as: <li><a href="{path}">{label}</a></li> -->
+    </ul>
+  </nav>
+
+  <nav class="cta-nav" aria-label="Primary actions">
+    <a href="/sxo-score/" class="cta-link">Take the SXO Score</a>
+    <a href="/sxo-audit/" class="cta-link">Request an SXO Audit</a>
+    <!-- Each item rendered as: <a href="{path}" class="cta-link">{label}</a> -->
+  </nav>
+
+</header>
+
+
+  <main id="main-content" tabindex="-1">
+    <!-- route-context.html: sovereign route awareness component -->
+<!-- Displays governance metadata for the current route. -->
+<!-- Populated from data/routes.json at build time. Not visible to end users by default. -->
+<aside class="route-context" aria-label="Route governance context" hidden>
+
+  <dl class="route-meta">
+
+    <dt>Route Role</dt>
+    <dd data-field="route_role">homepage</dd>
+
+    <dt>UX Layer</dt>
+    <dd data-field="ux_layer">visibility</dd>
+
+    <dt>Claim Level</dt>
+    <dd data-field="claim_level">doctrine_claim</dd>
+
+    <dt>Monetization Allowed</dt>
+    <dd data-field="monetization_allowed">false</dd>
+
+    <dt>Publication Status</dt>
+    <dd data-field="publication_status">published</dd>
+
+  </dl>
+
+</aside>
+
+
+<article class="page" data-route="/">
+
+  <header class="page-header">
+    <h1 class="page-heading">Search Brings the Visitor. SXO Governs What Happens Next.</h1>
+    <p class="page-summary">The homepage introduces the SuperSXO thesis, orients the visitor toward the SXO framework, and opens the path to the diagnostic score. It must feel like entering a governed control plane, not a marketing site.</p>
+  </header>
+
+  <section class="page-body">
+    <section class="page-section" data-section="thesis_statement">
+    <h2>Thesis Statement</h2>
+    <p>Search Engine Optimization brings visitors to a page. What happens after arrival is governed by a different discipline. Search Experience Optimization (SXO) is the system that determines whether visibility translates into trust, clarity, and deliberate action. SuperSXO.com is the canonical authority layer for this discipline. It defines the framework, governs the standard, and provides the diagnostic instruments for measuring search-to-action performance.</p>
+  </section>
+  <section class="page-section" data-section="search_to_action_introduction">
+    <h2>Search To Action Introduction</h2>
+    <p>The search-to-action journey does not end at the click. It passes through seven governed layers: Search Intent, Visibility, Experience, Trust, Navigation, Action, and Strategic Outcome. Each layer represents a point at which the journey can continue or break. Standard SEO practice addresses the first two. SXO governs all seven. The SuperSXO Framework documents this complete path and the conditions required for each layer to function.</p>
+  </section>
+  <section class="page-section" data-section="framework_entry">
+    <h2>Framework Entry</h2>
+    <p>The SXO Framework is the structural core of this authority layer. It defines the seven search-to-action journey layers with precision, distinguishes SXO from shallow combinations of SEO and UX, and establishes the intellectual foundation for the SuperSXO diagnostic system. Visit the framework documentation to understand how the layers interact and where search-to-action performance is most commonly lost.</p>
+  </section>
+  <section class="page-section" data-section="diagnostic_entry">
+    <h2>Diagnostic Entry</h2>
+    <p>The SuperSXO Score is a free self-assessment that maps a digital asset's search-to-action performance across the seven journey layers. It does not promise rankings or conversions. It identifies where the journey functions and where it breaks down. The score is a diagnostic instrument governed by the SuperSXO Framework, not a marketing tool or lead magnet.</p>
+  </section>
+  <section class="page-section" data-section="interface_orientation">
+    <h2>Interface Orientation</h2>
+    <p>This asset is built to a governed standard. Every route has a registered purpose. Every claim is classified. Every page passes a quality gate before publication. The interface reflects that standard. Navigation is functional. Structure is intentional. Nothing here is decorative.</p>
+  </section>
+  </section>
+
+  <aside class="related-links" aria-label="Related content">
+    <h2 class="related-links-label">Related</h2>
+    <li><a href="/what-is-sxo/">What Is SXO? — Search Experience Optimization Defined</a></li>
+      <li><a href="/sxo-framework/">The SuperSXO Framework — From Search Intent to Strategic Outcome</a></li>
+      <li><a href="/sxo-score/">SuperSXO Score — Self-Assessment Diagnostic</a></li>
+      <li><a href="/sxo-audit/">SXO Audit — Diagnostic Report</a></li>
+      <li><a href="/methodology/">SuperSXO Methodology — The Governance System for Search Experience</a></li>
+  </aside>
+
+  <footer class="page-cta" aria-label="Page action">
+    <a class="cta-link cta-explore_framework" href="/sxo-framework/">Explore the SXO Framework</a>
+    <a class="cta-link cta-take_score" href="/sxo-score/">Take the SXO Score</a>
+  </footer>
+
+</article>
+
+  </main>
+
+  <!-- footer.html: semantic site footer skeleton -->
+<!-- Navigation links are populated from data/navigation.json footer section. -->
+<!-- Do not hardcode links outside the registered route registry. -->
+<footer class="site-footer" role="contentinfo">
+
+  <nav class="footer-nav" aria-label="Footer navigation">
+    <ul role="list">
+      <li><a href="/what-is-sxo/">What Is SXO</a></li>
+      <li><a href="/sxo-framework/">SXO Framework</a></li>
+      <li><a href="/methodology/">Methodology</a></li>
+      <!-- Each item rendered as: <li><a href="{path}">{label}</a></li> -->
+    </ul>
+  </nav>
+
+  <div class="site-footnote">
+    <p>SuperSXO.com &mdash; Sovereign Search Experience Optimization</p>
+  </div>
+
+</footer>
+
+
+</body>
+</html>

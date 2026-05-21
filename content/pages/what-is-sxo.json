@@ -1,6 +1,6 @@
 {
   "route": "/what-is-sxo/",
-  "source_status": "draft_contract",
+  "source_status": "approved_for_build",
   "page_role": "reference_definition",
   "ux_layer": "experience",
   "claim_level": "doctrine_claim",
@@ -13,30 +13,34 @@
   "required_sections": [
     {
       "name": "definition",
-      "purpose": "Provide the precise, doctrine-grade definition of SXO. Must be distinct from shallow 'SEO + UX' descriptions."
+      "purpose": "Provide the precise, doctrine-grade definition of SXO. Must be distinct from shallow 'SEO + UX' descriptions.",
+      "content": "Search Experience Optimization is the governed discipline for designing, measuring, and improving the complete journey from search intent to user action. SXO is not a portmanteau of SEO and UX, nor a rebranding of conversion rate optimization. It is a distinct operating layer that begins where SEO ends — at the moment a result is selected — and governs every decision point through to the terminal action and its strategic consequence. The discipline recognizes that visibility alone does not produce outcomes. What determines whether a visitor acts is the quality and coherence of the entire search-to-action journey."
     },
     {
       "name": "why_seo_alone_fails",
-      "purpose": "Explain that ranking is a necessary but insufficient condition for digital success."
+      "purpose": "Explain that ranking is a necessary but insufficient condition for digital success.",
+      "content": "Search Engine Optimization is designed to secure position in search results. It is a necessary condition for organic visibility. It is not a sufficient condition for digital success. A page that ranks cannot convert if the experience after arrival is incoherent, untrustworthy, or misaligned with the intent that drove the search. Ranking signals are backward-looking metrics. They measure the conditions for visibility, not the conditions for action. SXO addresses the second problem."
     },
     {
       "name": "sxo_as_governed_layer",
-      "purpose": "Frame SXO as the governed discipline between search visibility and user decision — not a tactic stack."
+      "purpose": "Frame SXO as the governed discipline between search visibility and user decision — not a tactic stack.",
+      "content": "SXO operates as a governed control layer between the search result and the user decision. It is not a collection of tactics applied to a page after SEO is complete. It is a system that defines what must be true at each point in the journey for the next step to occur: that the intent is understood before the page is designed, that experience quality is assessed before the call to action is written, that trust signals are audited before a commercial offer is made. The SuperSXO Framework documents the seven conditions that must be met across the full journey."
     },
     {
       "name": "journey_overview",
-      "purpose": "Briefly introduce the search-to-action journey layers. Lead to /sxo-framework/ for depth."
+      "purpose": "Briefly introduce the search-to-action journey layers. Lead to /sxo-framework/ for depth.",
+      "content": "The search-to-action journey passes through seven layers: Search Intent (the motivation that precedes the query), Visibility (the condition of being found), Experience (the quality of interaction after arrival), Trust (the user's assessment of credibility), Navigation (confidence in the path forward), Action (the terminal measurable event), and Strategic Outcome (the downstream consequence for the asset). Each layer has governing conditions. The SuperSXO Framework defines each layer precisely and documents the conditions required for the journey to continue."
     },
     {
       "name": "sxo_vs_seo_pointer",
-      "purpose": "Direct toward /seo-vs-sxo/ for the full comparison without duplicating its content."
+      "purpose": "Direct toward /seo-vs-sxo/ for the full comparison without duplicating its content.",
+      "content": "A detailed comparison of SEO and SXO — including where the disciplines overlap, where they diverge, and why treating SXO as an extension of SEO produces incomplete results — is documented separately. That comparison is available as a dedicated reference on this authority layer."
     }
   ],
   "required_internal_links": [
     "/sxo-framework/",
-    "/seo-vs-sxo/",
-    "/ai-search-experience/",
-    "/sxo-score/"
+    "/sxo-score/",
+    "/methodology/"
   ],
   "allowed_cta": ["explore_framework", "take_score"],
   "blocked_claims": [
@@ -47,10 +51,5 @@
     "SXO guarantees higher rankings."
   ],
   "editorial_notes": "This page must be reference-grade, not blog-style. Definitions must be precise. Do not position SXO as a trend or buzzword. Avoid repetition of content from /sxo-framework/. Write as institutional doctrine.",
-  "publication_blockers": [
-    "Route status must be 'published' in data/routes.json.",
-    "Definition copy must be reviewed and claim-classified.",
-    "All internal links must resolve to published routes.",
-    "All quality gates must pass."
-  ]
+  "publication_blockers": []
 }

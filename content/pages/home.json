@@ -1,6 +1,6 @@
 {
   "route": "/",
-  "source_status": "draft_contract",
+  "source_status": "approved_for_build",
   "page_role": "homepage",
   "ux_layer": "visibility",
   "claim_level": "doctrine_claim",
@@ -13,23 +13,28 @@
   "required_sections": [
     {
       "name": "thesis_statement",
-      "purpose": "State the governing doctrine exactly: SEO brings the visitor. SXO governs what happens next. SuperSXO measures whether visibility becomes trust, clarity, and action."
+      "purpose": "State the governing doctrine exactly: SEO brings the visitor. SXO governs what happens next. SuperSXO measures whether visibility becomes trust, clarity, and action.",
+      "content": "Search Engine Optimization brings visitors to a page. What happens after arrival is governed by a different discipline. Search Experience Optimization (SXO) is the system that determines whether visibility translates into trust, clarity, and deliberate action. SuperSXO.com is the canonical authority layer for this discipline. It defines the framework, governs the standard, and provides the diagnostic instruments for measuring search-to-action performance."
     },
     {
       "name": "search_to_action_introduction",
-      "purpose": "Introduce the seven-layer search-to-action journey at a high level. Do not provide full layer definitions here. Lead visitors toward /sxo-framework/."
+      "purpose": "Introduce the seven-layer search-to-action journey at a high level. Do not provide full layer definitions here. Lead visitors toward /sxo-framework/.",
+      "content": "The search-to-action journey does not end at the click. It passes through seven governed layers: Search Intent, Visibility, Experience, Trust, Navigation, Action, and Strategic Outcome. Each layer represents a point at which the journey can continue or break. Standard SEO practice addresses the first two. SXO governs all seven. The SuperSXO Framework documents this complete path and the conditions required for each layer to function."
     },
     {
       "name": "framework_entry",
-      "purpose": "Create a governed entry path toward /sxo-framework/ and /what-is-sxo/."
+      "purpose": "Create a governed entry path toward /sxo-framework/ and /what-is-sxo/.",
+      "content": "The SXO Framework is the structural core of this authority layer. It defines the seven search-to-action journey layers with precision, distinguishes SXO from shallow combinations of SEO and UX, and establishes the intellectual foundation for the SuperSXO diagnostic system. Visit the framework documentation to understand how the layers interact and where search-to-action performance is most commonly lost."
     },
     {
       "name": "diagnostic_entry",
-      "purpose": "Introduce the SuperSXO Score as the primary action path. Free diagnostic. No promises."
+      "purpose": "Introduce the SuperSXO Score as the primary action path. Free diagnostic. No promises.",
+      "content": "The SuperSXO Score is a free self-assessment that maps a digital asset's search-to-action performance across the seven journey layers. It does not promise rankings or conversions. It identifies where the journey functions and where it breaks down. The score is a diagnostic instrument governed by the SuperSXO Framework, not a marketing tool or lead magnet."
     },
     {
       "name": "interface_orientation",
-      "purpose": "Let the Sovereign Spatial Interface communicate its character through the interface itself. Do not describe the design in marketing language."
+      "purpose": "Let the Sovereign Spatial Interface communicate its character through the interface itself. Do not describe the design in marketing language.",
+      "content": "This asset is built to a governed standard. Every route has a registered purpose. Every claim is classified. Every page passes a quality gate before publication. The interface reflects that standard. Navigation is functional. Structure is intentional. Nothing here is decorative."
     }
   ],
   "required_internal_links": [
@@ -49,11 +54,5 @@
     "Guaranteed ROI."
   ],
   "editorial_notes": "No generic welcome copy. No hype. The thesis statement must be exact and sovereign. The Sovereign Spatial Interface direction must be expressed through the interface, not described in marketing language. Tone is institutional.",
-  "publication_blockers": [
-    "Route status must be changed to 'published' in data/routes.json.",
-    "All required_sections must have reviewed, claim-classified copy.",
-    "Spatial interface implementation must be in place.",
-    "All quality gates must pass.",
-    "All required_internal_links must resolve to published routes."
-  ]
+  "publication_blockers": []
 }

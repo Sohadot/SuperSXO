@@ -1,22 +1,26 @@
-<!-- header.html: semantic site header skeleton -->
-<!-- Navigation links are populated from data/navigation.json primary and commercial_cta. -->
-<!-- Do not hardcode links outside the registered route registry. -->
-<header class="site-header" role="banner">
+<!-- header.html: sovereign spatial navigation console -->
+<!-- Navigation links derived from data/navigation.json. Do not hardcode routes. -->
+<header class="spatial-header" role="banner">
 
-  <a href="/" class="site-identity" aria-label="SuperSXO home">
-    <span class="site-name">SuperSXO</span>
-  </a>
+  <div class="spatial-header-inner">
 
-  <nav class="primary-nav" aria-label="Primary navigation">
-    <ul role="list">
-      {{ primary_nav_items }}
-      <!-- Each item rendered as: <li><a href="{path}">{label}</a></li> -->
-    </ul>
-  </nav>
+    <a href="/" class="authority-node" aria-label="SuperSXO — Return to command plane">
+      <span class="authority-node-label">SuperSXO</span>
+      <span class="authority-node-tag" aria-hidden="true">SXO</span>
+    </a>
 
-  <nav class="cta-nav" aria-label="Primary actions">
-    {{ commercial_cta_items }}
-    <!-- Each item rendered as: <a href="{path}" class="cta-link">{label}</a> -->
-  </nav>
+    <nav class="route-cluster" aria-label="Primary navigation">
+      <ul class="route-cluster-list" role="list">
+        {{ primary_nav_items }}
+        <!-- Each item: <li><a href="{path}">{label}</a></li> -->
+      </ul>
+    </nav>
+
+    <nav class="action-node-cluster" aria-label="Primary actions">
+      {{ commercial_cta_items }}
+      <!-- Each item: <a href="{path}" class="cta-link">{label}</a> -->
+    </nav>
+
+  </div>
 
 </header>
