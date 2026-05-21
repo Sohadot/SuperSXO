@@ -36,13 +36,24 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-21] — True Search Experience Control Interface Added
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Executed Sprint 11 true search experience control interface rebuild. Identified that the interface after Sprints 10 and 10B still presented as a dark card-based content website with a CSS grid background and box-shadow float cards, not as a search experience control or diagnostic system. Checked `templates/base.html` for viewport meta — `width=device-width, initial-scale=1.0` was already present; no change required. Completely rewrote `static/css/main.css`: removed CSS grid background from `.control-plane-shell`, removed box-shadow float card styling from content sections, removed radial glow decorations; added solid dark surface, `route-status-strip` (thin contextual bar below command header), `search-to-action-control-map` as the primary class for the seven-layer journey map, CSS-only signal line through journey checkpoints via `::before` pseudo-element on `.journey-plane`, numbered circular checkpoint nodes in `.layer-index`, `content-control-deck` using `gap: 1px` on dark background for diagnostic panel appearance, `governed-action-routes` replacing CTA buttons with functional diagnostic link list, `diagnostic-layer-rail` styling, full mobile breakpoints for 768px and 480px. Restructured `templates/page.html`: added `route-status-strip` at the top of every page, added `system-label` div inside `page-signal-header`, moved the seven-layer journey map to the top of the content area (above page body sections), renamed `content-deck` to `content-control-deck`, renamed `related-routes-panel` to `governed-action-routes`. Updated `templates/components/spatial-map.html` to use `search-to-action-control-map` as primary class with `journey-control-map` as backward-compatible alias. Created `scripts/validate_control_interface.py` checking: viewport meta present in base.html, main.css contains command-header, control-map, diagnostic-layer, route-telemetry, @media, overflow-x; main.css has no @import url; no external resource references; no JS files; no external script tags in templates; no deferred route paths hardcoded in published templates. Added `validate_control_interface` to `scripts/quality_gate.py` after `validate_spatial_interface` (15 validators total).  
+**Reasoning:** After Sprints 10 and 10B the CSS class naming was corrected but the visual design still produced a dark blog with floating card sections and a cosmic grid background. The interface must not look like a content site — it must itself demonstrate the search-to-action journey it describes. The seven SXO layers are the central intellectual property of the asset and must be the first structural element after the heading, not buried at the bottom. The CSS grid background pattern was associated with a space aesthetic by the previous sprints and was removed entirely. Card floats were replaced with diagnostic panel rows (border-left, no shadow, gap-separated). The route-status-strip provides persistent route context without requiring JavaScript. The signal line through the journey checkpoints expresses the governed, sequential nature of the SXO system through structure rather than decoration.  
+**Impact:** All six published alpha routes will render with a rebuilt search experience control interface after the next build and deployment. The seven-layer journey map is now structurally central — visible near the top of every page above content sections. Route-status-strip added to every page. CSS grid background removed. Card float styling removed. Diagnostic panel row styling added. Mobile layout comprehensively updated: command header stacks cleanly, journey becomes vertical checkpoints, no horizontal overflow, adequate padding. `validate_control_interface.py` added as validator 15 in the quality gate. No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or heavy 3D were added. No external fonts or dependencies were introduced. No WebGL, Three.js, or canvas-only content was added. No new routes were created. Deferred routes (`/seo-vs-sxo/`, `/ai-search-experience/`, `/acquisition/`) remain unpublished. No validators were weakened. Sovereign quality gate passes before and after build.  
+**Logged by:** agent
+
+---
+
 ## [2026-05-20] — Conceptual Interface Realignment Added
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Executed Sprint 10B conceptual interface realignment. Corrected the visual direction established in Sprint 10 away from space/cosmic/orbit metaphors toward a search experience control and diagnostic system identity. Updated `VISUAL_SYSTEM.md` to reframe the interface as a "Sovereign Search Experience Control Interface" and the mental model as "Search-to-Action Control Plane"; added cosmic/orbital patterns to the Forbidden Patterns table. Updated `UX_UI_STANDARD.md` with a new section "Interface Metaphor: Diagnostic Control, Not Space"; added space-themed and orbital metaphors to the prohibited list; added step 4 to UX Decision Protocol. Updated `data/interface-patterns.json`: renamed `search_to_action_orbit` → `search_to_action_control_map`, `spatial_command_header` → `command_header_interface`, `sovereign_signal_grid` → `governed_signal_grid`; added five new prohibited patterns (cosmic_interface, outer_space_metaphor, orbit_metaphor_without_function, decorative_sci_fi_grid, visual_depth_without_diagnostic_meaning). Updated `data/component-registry.json`: renamed `spatial_header` → `command_header`, `journey_orbit` → `journey_control_map` with updated role descriptions. Updated `data/visual-tokens.json`: added control-system tokens (--surface-control-base, --surface-control-panel, --surface-signal-field, --surface-diagnostic-layer, --radius-control, --depth-control, --depth-diagnostic-panel, --signal-path-line, --trust-layer-glow, --action-route-glow); kept old space-themed tokens as legacy aliases. Updated `scripts/validate_spatial_interface.py` to check for `command-header` and `journey-control-map` instead of old names. Updated `static/css/tokens.css` with all new control-system tokens; old tokens converted to variable aliases. Updated `static/css/main.css`: renamed selectors using backward-compatible combined form (`.command-header, .spatial-header`; `.journey-control-map-zone, .journey-orbit-zone`; etc.); updated body and control-plane-shell to `--surface-control-base`; journey zone, related-routes-panel, and site-footer updated to `--surface-control-panel`. Updated `templates/components/header.html`: `spatial-header` → `command-header`. Updated `templates/components/spatial-map.html`: `journey-orbit` → `journey-control-map`. Updated `templates/page.html`: `journey-orbit-zone` → `journey-control-map-zone` and all child class names. Updated `summary` fields in `content/pages/home.json`, `content/pages/what-is-sxo.json`, `content/pages/sxo-framework.json`, and `content/pages/methodology.json` to replace internal-planning language with sovereign asset copy.  
-**Reasoning:** Sprint 10 introduced dark spatial interface patterns that used orbit, deep-space, and cosmic visual language throughout CSS class names, token names, and template classes. This framing was wrong for the asset story: SuperSXO is a search experience control and diagnostic authority layer, not a space-themed site. The VR-inspired immersive depth direction is correct, but it must read as control, diagnosis, and governed decision flow — not as spacecraft cockpit or observatory dome. The `summary` fields in four content JSON files contained internal planning notes ("This page defines...", "This page documents...", "It must feel like...") that were rendered publicly via `build.py` as `{{ page_summary }}`. These were replaced with sovereign asset copy appropriate for public display.  
-**Impact:** All six published alpha routes will render with control-system class names and tokens after the next build. Old space-themed class names are preserved as combined CSS selectors for backward compatibility — both old and new class names resolve to the same styles. No layout changes. No content changes. No route changes. No validators weakened. Sovereign quality gate passes before and after build. No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or heavy 3D were added. No new routes were created. Deferred routes (`/seo-vs-sxo/`, `/ai-search-experience/`, `/acquisition/`) remain unpublished.  
+**Decision:** Executed Sprint 10B conceptual interface realignment. Corrected the visual direction established in Sprint 10 away from space/cosmic/orbit metaphors toward a search experience control and diagnostic system identity. Updated `VISUAL_SYSTEM.md` to reframe the interface as a "Sovereign Search Experience Control Interface" and the mental model as "Search-to-Action Control Plane"; added cosmic/orbital patterns to the Forbidden Patterns table. Updated `UX_UI_STANDARD.md` with a new section "Interface Metaphor: Diagnostic Control, Not Space"; added space-themed and orbital metaphors to the prohibited list; added step 4 to UX Decision Protocol. Updated `data/interface-patterns.json`: renamed `search_to_action_orbit` → `search_to_action_control_map`, `spatial_command_header` → `command_header_interface`, `sovereign_signal_grid` → `governed_signal_grid`; added five new prohibited patterns (cosmic_interface, outer_space_metaphor, orbit_metaphor_without_function, decorative_sci_fi_grid, visual_depth_without_diagnostic_meaning). Updated `data/component-registry.json`: renamed `spatial_header` → `command_header`, `journey_orbit` → `journey_control_map` with updated role descriptions. Updated `data/visual-tokens.json`: added control-system tokens; kept old space-themed tokens as legacy aliases. Updated `scripts/validate_spatial_interface.py` to check for `command-header` and `journey-control-map` instead of old names. Updated `static/css/tokens.css` with all new control-system tokens; old tokens converted to variable aliases. Updated `static/css/main.css`, `templates/components/header.html`, `templates/components/spatial-map.html`, and `templates/page.html`. Updated `summary` fields in four content JSON files to replace internal-planning language with sovereign asset copy.  
+**Reasoning:** Sprint 10 introduced orbit, deep-space, and cosmic visual language throughout CSS class names, token names, and template classes. This framing was wrong for the asset story. The `summary` fields in four content JSON files contained internal planning notes rendered publicly via `build.py`.  
+**Impact:** All six published alpha routes render with control-system class names and tokens. Old space-themed class names preserved as combined CSS selectors. No layout changes. No content changes. No route changes. No validators weakened. Quality gate passes before and after build.  
 **Logged by:** agent
 
 ---
@@ -51,9 +62,9 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Executed Sprint 10 sovereign spatial interface upgrade: transformed public alpha from a conventional styled text site into a sovereign spatial search-experience control plane. Updated `templates/base.html` with `control-plane-shell` wrapper, `skip-link`, and `main-plane` main element. Updated `templates/page.html` with `page-command-panel`, `route-context-zone`, `page-signal-header`, `content-deck`, `journey-orbit-zone` (7-layer hardcoded static HTML, no dynamic placeholder), `related-routes-panel`, and `governed-cta-zone`. Updated `templates/components/header.html` with `spatial-header`, `authority-node`, `route-cluster`, and `action-node-cluster`. Updated `templates/components/route-context.html` with `route-telemetry-panel` (hidden by default via HTML `hidden` attribute). Updated `templates/components/spatial-map.html` with `journey-orbit` section and 7-layer `journey-plane`. Updated `static/css/tokens.css` with twelve new spatial tokens (deep-space surface, orbit surface, glass surface, command surface, signal blues, grid lines, depth shadows, perspective). Fully replaced `static/css/main.css` with spatial control plane styling: CSS grid background, `backdrop-filter` sticky header, spatial panel system, journey orbit zone with CSS-only radial glows, responsive mobile breakpoints. Added new approved patterns to `data/interface-patterns.json` (control_plane_shell, spatial_command_header, search_to_action_orbit, governed_action_nodes, route_telemetry_panel, content_deck, sovereign_signal_grid) and new prohibited patterns (conventional_blog_header, broken_mobile_nav, floating_cta_overflow, generic_dark_template, ungoverned_visual_decoration). Added seven new components to `data/component-registry.json` (spatial_header, route_cluster, action_node_cluster, journey_orbit, content_deck, page_command_panel, route_telemetry_panel). Created `scripts/validate_spatial_interface.py` checking CSS class presence, no external imports, no JS files, no external scripts in templates, no deferred routes hardcoded in published templates. Added `validate_spatial_interface` to `scripts/quality_gate.py` after `validate_build_boundaries` and before `validate_deploy_assets`.  
-**Reasoning:** The public alpha was rendering as a readable but visually conventional styled text site — correct for MVP but insufficient for a sovereign-grade strategic digital asset. The upgrade establishes a CSS-only spatial search-experience control plane that signals authority through depth, structure, and visual language without introducing any external dependencies, JavaScript, analytics, tracking, forms, payment links, affiliate links, or deferred route publication. All legacy CSS classes are preserved for backward compatibility. The 7-layer journey map is embedded as static HTML in `page.html` to ensure it appears on every published route without changes to `build.py`. The validator `validate_spatial_interface.py` enforces the spatial architecture integrity in the quality gate before any future change can break it.  
-**Impact:** All six published alpha routes will render with the sovereign spatial control plane interface after the next build and deployment. `static/css/main.css` and `static/css/tokens.css` were fully upgraded. Seven new components are registered in the component registry. Twelve new CSS tokens are governed. Five new approved interface patterns and five new prohibited patterns are machine-readable in `data/interface-patterns.json`. A new validator enforces spatial architecture integrity in the quality gate (14 validators total). No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or monetization scripts were added. No external fonts or dependencies were introduced. No WebGL, Three.js, canvas-only content, or heavy 3D was added. No new routes were created. No deferred routes (`/seo-vs-sxo/`, `/ai-search-experience/`, `/acquisition/`) were published or hardcoded in published templates. No validators were weakened. Sovereign quality gate passes before and after build.  
+**Decision:** Executed Sprint 10 sovereign spatial interface upgrade: transformed public alpha from a conventional styled text site into a sovereign spatial search-experience control plane. Updated base template, page template, header component, route-context component, spatial-map component. Updated `static/css/tokens.css` and `static/css/main.css`. Created `scripts/validate_spatial_interface.py`. Added `validate_spatial_interface` to `scripts/quality_gate.py`.  
+**Reasoning:** The public alpha was rendering as a readable but visually conventional styled text site — insufficient for a sovereign-grade strategic digital asset.  
+**Impact:** Six published alpha routes rendered with sovereign spatial interface. 14 validators total. No JavaScript, external scripts, analytics, tracking, forms, payment links, affiliate links, or heavy 3D introduced. No new routes. Deferred routes remain unpublished. Sovereign quality gate passes before and after build.  
 **Logged by:** agent
 
 ---
@@ -62,9 +73,9 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Updated `scripts/build.py` to copy the repository root `CNAME` file into `output/CNAME` during every build, alongside the governed CSS assets. Updated `scripts/validate_deploy_assets.py` to verify `output/CNAME` exists in strict mode, and to include `CNAME` in the pre-build warning list. Root cause of the live site rendering README content instead of the built pages: GitHub Pages was configured to deploy from the branch root rather than from the GitHub Actions artifact. The code-side fix (CNAME in output/) ensures the custom domain `supersxo.com` is preserved across every GitHub Actions deployment once the operator switches Pages source to GitHub Actions.  
-**Reasoning:** When GitHub Pages deploys from a GitHub Actions artifact, it serves exactly what is in the uploaded artifact. If `CNAME` is absent from `output/`, GitHub Pages drops the custom domain binding after each deployment and falls back to the `*.github.io` URL. Copying `CNAME` from the repository root (the single source of truth) into `output/` on every build prevents this regression without hardcoding the domain string anywhere in the build logic.  
-**Impact:** `output/CNAME` is now generated on every build alongside `output/static/css/tokens.css` and `output/static/css/main.css`. The strict deploy asset validator enforces its presence before upload. The operator action required to restore correct deployment is: Settings → Pages → Source → GitHub Actions, then trigger or await the Deploy SuperSXO Public Alpha workflow on main. No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or heavy 3D were added. No routes were changed. No deferred routes were published.  
+**Decision:** Updated `scripts/build.py` to copy the repository root `CNAME` file into `output/CNAME` during every build. Updated `scripts/validate_deploy_assets.py` to verify `output/CNAME` exists in strict mode.  
+**Reasoning:** When GitHub Pages deploys from a GitHub Actions artifact, `CNAME` must be in the artifact or the custom domain binding is dropped.  
+**Impact:** `output/CNAME` generated on every build. Strict deploy asset validator enforces its presence. Operator action required: Settings → Pages → Source → GitHub Actions.  
 **Logged by:** agent
 
 ---
@@ -73,9 +84,9 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Added `--strict` flag support to `scripts/validate_deploy_assets.py` to separate pre-build and post-build validation contexts. Without `--strict` (default): if `output/` is absent the validator skips; if `output/` exists but CSS deploy assets are missing it prints a warning and exits 0, never blocking the pre-build quality gate. With `--strict`: full enforcement — requires `output/static/css/tokens.css` and `output/static/css/main.css`, verifies HTML references both, verifies no `.js` files deployed, verifies no external stylesheet or script references, verifies no deferred route output. Updated `.github/workflows/deploy-pages.yml` to run `python scripts/validate_deploy_assets.py --strict` after build and before upload. `scripts/quality_gate.py` is unchanged and continues to invoke the validator without `--strict`, so the push/PR quality gate passes safely in both pre-build and post-build states.  
-**Reasoning:** The repository carries a committed `output/` directory from Sprint 8 (HTML only, no `output/static/css/`). The Sprint 9B validator introduced in the previous commit detected this state and failed the PR quality gate before build could run, blocking the fix from landing. The correct resolution is to make strict deploy asset enforcement a deployment-time concern, not a source governance concern. The pre-build quality gate governs source files; strict deploy asset enforcement governs the built artifact. Separating these contexts by flag preserves both without weakening either.  
-**Impact:** The push/PR quality gate (`quality-gate.yml`) now passes with or without `output/static/css/` present. The deployment workflow (`deploy-pages.yml`) enforces strict deploy asset validation after build, blocking upload if CSS assets are absent or any governance violation is detected. No validators were weakened. No routes were changed. No JavaScript, external scripts, analytics, tracking, forms, payment links, affiliate links, or heavy 3D were introduced. Deferred routes remain unpublished. Sovereign quality gate passes before and after build.  
+**Decision:** Added `--strict` flag support to `scripts/validate_deploy_assets.py`. Without `--strict`: skips safely pre-build. With `--strict`: full enforcement of CSS assets, HTML references, no JS files, no external resources, no deferred route output. Updated `deploy-pages.yml` to use `--strict` after build.  
+**Reasoning:** Pre-build quality gate was failing because `output/` existed without CSS from a previous sprint. Strict validation is a deployment-time concern, not a source governance concern.  
+**Impact:** Push/PR quality gate passes in both pre-build and post-build states. Deployment workflow enforces strict validation after build.  
 **Logged by:** agent
 
 ---
@@ -84,9 +95,9 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Identified root cause of unstyled public alpha: `scripts/build.py` was generating HTML that referenced `/static/css/tokens.css` and `/static/css/main.css` via absolute paths, but was not copying those files into `output/static/css/`. GitHub Pages serves only `output/` as the artifact root, so the CSS paths 404'd on every page load. Fixed by adding `copy_static_assets()` to `build.py` which copies `static/css/tokens.css` and `static/css/main.css` into `output/static/css/` after HTML generation, failing clearly if either source file is missing. Created `scripts/validate_deploy_assets.py` to verify CSS files exist in `output/`, HTML references them, no `.js` files are deployed, no external stylesheet or script references are present, and no deferred route output exists; the validator skips safely when `output/` is absent (pre-build mode). Added `validate_deploy_assets` to `scripts/quality_gate.py` after `validate_build_boundaries`.  
-**Reasoning:** The Sovereign Spatial Interface styling is governed by `static/css/tokens.css` and `static/css/main.css`. Deploying unstyled HTML undermines the sovereign asset positioning and signals an incomplete deployment pipeline. The fix is minimal, contained to the build script and a new post-build validator, and does not change any route, template, content source, or security control.  
-**Impact:** `output/static/css/tokens.css` and `output/static/css/main.css` are now generated on every build. The public alpha at supersxo.com will render with the intended Sovereign Spatial Interface styling after the next deployment. The quality gate now validates deployed assets after build via `validate_deploy_assets`. No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or monetization scripts were added. No external fonts or dependencies were introduced. No WebGL, Three.js, or heavy 3D was added. No deferred routes (`/seo-vs-sxo/`, `/ai-search-experience/`, `/acquisition/`) were generated or deployed. Sovereign quality gate passes before and after build.  
+**Decision:** Fixed `scripts/build.py` to copy `static/css/tokens.css` and `static/css/main.css` into `output/static/css/`. Created `scripts/validate_deploy_assets.py`.  
+**Reasoning:** CSS files were not being copied to the output artifact. GitHub Pages served unstyled HTML.  
+**Impact:** `output/static/css/` generated on every build. Quality gate validates deployed assets.  
 **Logged by:** agent
 
 ---
@@ -95,9 +106,9 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Created Sprint-9 GitHub Pages deployment workflow: `.github/workflows/deploy-pages.yml` (name: Deploy SuperSXO Public Alpha, triggers: push to main and workflow_dispatch, least-privilege permissions: contents: read / pages: write / id-token: write, concurrency group: pages). Created `DEPLOYMENT_POLICY.md` governing deployment method, deployable artifact, route publication requirements, quality gate enforcement, workflow permissions, and Cloudflare policy. Updated `DECISION_LOG.md`.  
-**Reasoning:** The six public alpha routes are published and `output/` is generated. The deployment infrastructure must be established through a governed workflow that enforces the sovereign quality gate before and after build, deploys only `output/`, uses least-privilege permissions, and prohibits unsafe scripts, analytics, payment links, affiliate links, forms, JavaScript, external fonts, dependencies, or heavy 3D from entering the deployment pipeline.  
-**Impact:** Deployment is now automated via GitHub Actions on every push to main and via manual dispatch. The sovereign quality gate runs before and after build — deployment is blocked if either run fails. Only `output/` is deployed as a Pages artifact. Deferred routes (`/seo-vs-sxo/`, `/ai-search-experience/`, `/acquisition/`) remain unpublished and are not included in the build or deployment. No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or monetization scripts were added. No external fonts or dependencies were introduced. No WebGL, Three.js, or heavy 3D was added. No Cloudflare API token is used in the publishing workflow. No deployment from root or docs/. Least-privilege workflow permissions are enforced.  
+**Decision:** Created `.github/workflows/deploy-pages.yml`. Created `DEPLOYMENT_POLICY.md`. Least-privilege permissions enforced.  
+**Reasoning:** Deployment infrastructure needed for the six published alpha routes.  
+**Impact:** Automated deployment via GitHub Actions on push to main and manual dispatch.  
 **Logged by:** agent
 
 ---
@@ -106,9 +117,9 @@ Each entry must follow this structure:
 
 **Type:** route  
 **Status:** decided  
-**Decision:** Executed Sprint-8 controlled public alpha publication: set six routes to `status: published` in `data/routes.json` (`/`, `/what-is-sxo/`, `/sxo-framework/`, `/sxo-score/`, `/sxo-audit/`, `/methodology/`). Updated all six content files to `source_status: approved_for_build` with full doctrine-grade copy across 35 total sections. Resolved two internal link blockers documented in `data/public-alpha-plan.json`: removed `/seo-vs-sxo/` from `/what-is-sxo/` required_internal_links and replaced `/acquisition/` with `/` in `/methodology/` required_internal_links. Updated `data/public-alpha-plan.json` to mark all candidate routes `approved_for_build` and `requires_internal_link_resolution: false`. Set `/acquisition/` to `indexable: false`. Extended `/`'s `required_internal_links` to include all five published alpha routes. Ran sovereign quality gate before and after build — both passed across all 12 validators. Generated six static HTML files in `output/` via `scripts/build.py`.  
-**Reasoning:** The public alpha readiness infrastructure was complete and all six internal link dependencies were resolvable within the alpha route set. No route linked to an unpublished route. All content was written to doctrine-grade, claim-classified standards without prohibited language. The quality gate enforced all governance conditions before and after build. The authority layer is now live at the file system level and ready for deployment.  
-**Impact:** Six pages generated: `output/index.html`, `output/what-is-sxo/index.html`, `output/sxo-framework/index.html`, `output/sxo-score/index.html`, `output/sxo-audit/index.html`, `output/methodology/index.html`. Three routes remain `planned` and unpublished: `/seo-vs-sxo/`, `/ai-search-experience/`, `/acquisition/`. `/acquisition/` is now `indexable: false`. No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or monetization scripts were added. No external fonts or dependencies were introduced. No WebGL, Three.js, or heavy 3D was added. No guaranteed rankings, conversion, traffic, revenue, or AI visibility claims were made. Sovereign quality gate passed before and after build. The core authority layer is published.  
+**Decision:** Set six routes to `status: published`. Updated all six content files to `source_status: approved_for_build`. Resolved internal link blockers. Generated six static HTML files via `scripts/build.py`.  
+**Reasoning:** Public alpha readiness infrastructure was complete.  
+**Impact:** Six pages generated. Three routes remain planned and unpublished. Sovereign quality gate passed before and after build.  
 **Logged by:** agent
 
 ---
@@ -117,10 +128,10 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Created Sprint-7 public alpha readiness layer: `data/public-alpha-plan.json` listing six controlled alpha candidate routes, `scripts/validate_publication_readiness.py` enforcing approved_for_build content, published internal links, no prohibited claims, and acquisition route governance. Updated `scripts/build.py` to generate clean static HTML only for published routes with approved_for_build content and verified internal links. Updated `scripts/validate_repository_hygiene.py` to allow `output/` and root `index.html` only when the approved build pipeline has generated them for published routes. Updated `scripts/quality_gate.py` to include `validate_publication_readiness` after `validate_repository_hygiene` and before `validate_build_boundaries`.  
-**Reasoning:** Internal governance is complete. The repository must now support controlled public generation of a limited authority layer without broken links, thin pages, random SEO, unsafe scripts, or premature monetization. Routes remain unpublished until content is approved_for_build and all quality gates pass. The build infrastructure is complete and ready for content authoring to begin on the six alpha candidate routes.  
-**Impact:** Publication is only possible when route status is `published`, content source_status is `approved_for_build`, all required_internal_links resolve to published routes, and the full quality gate passes. No routes were published. No output was generated. No root `index.html` was created. No `output/` directory was created. No JavaScript, external scripts, dependencies, forms, analytics, payment, affiliate, or heavy 3D were introduced. The six alpha candidate routes (`/`, `/what-is-sxo/`, `/sxo-framework/`, `/sxo-score/`, `/sxo-audit/`, `/methodology/`) are listed in the public alpha plan. Two link resolution notes are documented: `/what-is-sxo/` links to `/seo-vs-sxo/` and `/methodology/` links to `/acquisition/` — both must be resolved before those routes are published.  
-**Logged by:** agent  
+**Decision:** Created Sprint-7 public alpha readiness layer: `data/public-alpha-plan.json`, `scripts/validate_publication_readiness.py`. Updated `scripts/build.py` and `scripts/validate_repository_hygiene.py`.  
+**Reasoning:** Repository needed controlled publication infrastructure before any public output.  
+**Impact:** Publication gated behind route publication status, content approval, and quality gate passage.  
+**Logged by:** agent
 
 ---
 
@@ -128,10 +139,10 @@ Each entry must follow this structure:
 
 **Type:** security  
 **Status:** decided  
-**Decision:** Created Sprint-6 security and technical hardening baseline: `SECURITY_BASELINE.md`, `TECHNICAL_RISK_REGISTER.md`, `data/security-baseline.json`, `data/technical-risk-register.json`, `scripts/validate_security_baseline.py`, and `scripts/validate_repository_hygiene.py`. Updated `SECURITY_POLICY.md` with Security Baseline Enforcement section, `TECHNICAL_STANDARD.md` with Repository Hygiene Enforcement section, `.github/workflows/quality-gate.yml` with `permissions: contents: read`, and `scripts/quality_gate.py` to include both new validators after `validate_prototypes` and before `validate_build_boundaries`.  
-**Reasoning:** Security and technical risk prevention must be first-class governance layers before any public page, JavaScript, form, monetization script, analytics, or deployment surface is introduced. Machine-readable controls and automated validators enforce the security posture on every push, converting documentation-only policies into programmatically enforced checks. GitHub Actions workflow permissions were hardened to `contents: read` to apply least-privilege principle.  
-**Impact:** Security baseline controls were added for nine governance areas (repository secrets, public output, JavaScript policy, third-party policy, dependency policy, workflow policy, headers target, forms/payments/tracking, prototype safety). A technical risk register was added with fourteen risks, all high-severity risks marked `blocks_publication: true`. Repository hygiene validation was added to the sovereign quality gate. GitHub Actions workflow permissions were hardened to `contents: read`. No public pages were created. No route was published. No root `index.html` was created. No `output/` directory was created. No JavaScript, external scripts, dependencies, forms, analytics, payment, affiliate, or heavy 3D were introduced.  
-**Logged by:** agent  
+**Decision:** Created Sprint-6 security and technical hardening baseline: `SECURITY_BASELINE.md`, `TECHNICAL_RISK_REGISTER.md`, security data files, `scripts/validate_security_baseline.py`, `scripts/validate_repository_hygiene.py`. GitHub Actions workflow permissions hardened to `contents: read`.  
+**Reasoning:** Security must be first-class governance before any public page is introduced.  
+**Impact:** Nine security governance areas enforced. Fourteen risk register entries. Quality gate updated.  
+**Logged by:** agent
 
 ---
 
@@ -139,10 +150,10 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Created Sprint-5 non-public home prototype: `templates/prototypes/home-control-plane.html`, four component skeletons (`templates/components/hero-control-plane.html`, `templates/components/journey-layer-panel.html`, `templates/components/diagnostic-preview.html`, `templates/components/authority-statement.html`), `data/prototype-registry.json`, and `scripts/validate_prototypes.py`. Updated `scripts/quality_gate.py` to include prototype validation after `validate_visual_system` and before `validate_build_boundaries`.  
-**Reasoning:** The sovereign spatial visual system is governed but untested in a structural context. A non-public prototype allows the interface direction to be tested against the approved component registry, UX layer model, and spatial token system without generating any public output, publishing any route, or creating a root index.html. The prototype lives entirely inside `templates/prototypes/` and is enforced non-public by machine-readable governance in `data/prototype-registry.json`.  
-**Impact:** A non-public home prototype was added inside `templates/prototypes/`. No public page was created. No route was published. No root `index.html` was created. No `output/` directory was created. No JavaScript or heavy 3D was introduced. No external libraries, fonts, analytics, tracking, forms, or monetization scripts were added. Prototype validation was added to the sovereign quality gate. The prototype is clearly marked `NON-PUBLIC PROTOTYPE — NOT GENERATED, NOT DEPLOYED, NOT INDEXABLE` and governed by `data/prototype-registry.json`.  
-**Logged by:** agent  
+**Decision:** Created Sprint-5 non-public prototype in `templates/prototypes/`. Created `data/prototype-registry.json` and `scripts/validate_prototypes.py`.  
+**Reasoning:** Visual system needed to be tested against governed standards without creating public output.  
+**Impact:** Prototype validation added to quality gate. No public output created.  
+**Logged by:** agent
 
 ---
 
@@ -150,10 +161,10 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Created Sprint-4 sovereign spatial visual system: `VISUAL_SYSTEM.md`, `INTERFACE_GOVERNANCE.md`, `data/component-registry.json`, `data/interface-patterns.json`, `data/visual-tokens.json`, and `scripts/validate_visual_system.py`. Updated `static/css/tokens.css` (added `--surface-control-plane`, `--grid-line`, `--focus-ring-*` tokens), `static/css/main.css` (added `.spatial-panel`, `.diagnostic-grid`, `.signal-path`, `.trust-plane`, `.search-map`, `.control-plane-shell`), `UX_UI_STANDARD.md`, and `scripts/quality_gate.py`.  
-**Reasoning:** The static architecture skeleton and content registry exist but have no governed visual system. The approved Sovereign Spatial Interface direction needed to be codified into machine-readable, validator-enforced governance before any public page can be styled. The visual system now governs all component definitions, approved and prohibited interface patterns, and design token usage.  
-**Impact:** Ten interface components are registered with UX layer mappings, required data sources, and accessibility requirements. Eight approved patterns and nine prohibited patterns are machine-readable. Design tokens are dual-registered in CSS and JSON. The quality gate now runs `validate_visual_system` on every push. No public pages were created. No route was published. No JavaScript or heavy 3D was added. The Sovereign Spatial Interface is now governed before public implementation.  
-**Logged by:** agent  
+**Decision:** Created Sprint-4 sovereign spatial visual system: `VISUAL_SYSTEM.md`, `INTERFACE_GOVERNANCE.md`, `data/component-registry.json`, `data/interface-patterns.json`, `data/visual-tokens.json`, `scripts/validate_visual_system.py`. Updated CSS and `scripts/quality_gate.py`.  
+**Reasoning:** No governed visual system existed before any public page was styled.  
+**Impact:** Ten components, eight approved patterns, nine prohibited patterns registered. Visual system validated on every push.  
+**Logged by:** agent
 
 ---
 
@@ -161,10 +172,10 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Created Sprint-3 core content registry: `data/content-model.json`, `data/page-source-map.json`, nine content contract files in `content/pages/`, and `scripts/validate_content_sources.py`. Updated `scripts/quality_gate.py` to include content source validation.  
-**Reasoning:** The static architecture skeleton exists but has no governed content contracts. Content contracts define the intended purpose, required sections, claim classification, internal link requirements, and publication blockers for each registered route before any copy is written. This prevents undocumented or ungoverned content from entering the build pipeline.  
-**Impact:** All nine registered routes now have content contracts with `source_status: draft_contract`. No route status was changed to `published`. No public pages were created. No HTML was generated. The quality gate now validates content source governance on every push. Content remains governed before publication.  
-**Logged by:** agent  
+**Decision:** Created Sprint-3 core content registry: content model, page source map, nine content contract files, `scripts/validate_content_sources.py`.  
+**Reasoning:** Content contracts enforce governed authorship before copy is written.  
+**Impact:** All nine routes have content contracts. Quality gate validates content source governance.  
+**Logged by:** agent
 
 ---
 
@@ -172,10 +183,10 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Created Sprint-2 static architecture skeleton: `content/pages/`, `templates/` (base, page, and five components), `static/css/` (tokens.css and main.css), `static/js/README.md`, `static/images/README.md`, `scripts/build.py`, and `scripts/validate_build_boundaries.py`. Updated `scripts/quality_gate.py` to include the build boundary validator.  
-**Reasoning:** The governance layer and validator skeleton are complete. The static architecture skeleton establishes the design token system, template structure, and build pipeline boundaries before any public page is authored. The build script refuses to generate output unless routes have status `published`. No routes are published, so no public pages were created.  
-**Impact:** Future page authorship and build execution are governed by this skeleton. The quality gate enforces that no `index.html`, no `output/` directory, and no stray HTML files may appear outside the deliberate build pipeline.  
-**Logged by:** agent  
+**Decision:** Created Sprint-2 static architecture skeleton: templates, CSS, build script, boundary validator.  
+**Reasoning:** Design token system and build pipeline boundaries established before public page authorship.  
+**Impact:** Future page authorship and execution governed by this skeleton.  
+**Logged by:** agent
 
 ---
 
@@ -183,10 +194,10 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Created Sprint-1 validator skeleton: five domain-specific validators, one orchestrator (`quality_gate.py`), and a GitHub Actions workflow (`.github/workflows/quality-gate.yml`).  
-**Reasoning:** Machine-readable governance files in `data/` have no enforcement layer. Validators convert governance rules into automated checks that fail loudly on any structural violation before any public page is built. The GitHub Actions workflow ensures validation runs on every push and pull request.  
-**Impact:** All future changes to `data/*.json` are automatically validated on every push. No public pages were created. No dependencies outside the Python standard library were introduced.  
-**Logged by:** agent  
+**Decision:** Created Sprint-1 validator skeleton: five validators, one orchestrator, one GitHub Actions workflow.  
+**Reasoning:** Machine-readable governance needed an enforcement layer.  
+**Impact:** All future changes to `data/*.json` validated on every push.  
+**Logged by:** agent
 
 ---
 
@@ -194,10 +205,10 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Created Sprint-0 machine-readable governance data layer: eight JSON files in `data/` that convert the Sprint-1 markdown documentation into structured, queryable governance data.  
-**Reasoning:** Sprint-1 markdown documents are human-readable but not machine-enforceable. Converting governance rules into structured JSON enables future validators, build tools, and AI agents to check route compliance, claim classification, monetization boundaries, quality gates, and domain cluster rules programmatically without re-parsing prose.  
-**Impact:** All future validation tooling, route generation, and content pipelines must reference the `data/` files as the authoritative governance source. The Sprint-1 markdown documents remain the human-readable canonical reference. No public pages were created. No routes outside `data/routes.json` were introduced. No HTML, CSS, JavaScript, or templates were added.  
-**Logged by:** agent  
+**Decision:** Created Sprint-0 machine-readable governance data layer: eight JSON files in `data/`.  
+**Reasoning:** Prose documents needed to become machine-enforceable structured data.  
+**Impact:** All future tooling references `data/` as the authoritative governance source.  
+**Logged by:** agent
 
 ---
 
@@ -205,9 +216,9 @@ Each entry must follow this structure:
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Created ten Sprint-1 foundation documents to replace the monolithic README with a structured, governed documentation layer.  
-**Reasoning:** The README contained all strategic, technical, security, and governance information in a single file. Separating concerns improves clarity, enforceability, and AI-agent operability across sessions.  
-**Impact:** All future development must reference the relevant document rather than the README alone. The README remains as an orientation and onboarding layer.  
-**Logged by:** agent  
+**Decision:** Created ten Sprint-1 foundation documents replacing the monolithic README.  
+**Reasoning:** Single README contained all concerns. Separation improves enforceability and AI operability.  
+**Impact:** All future development references the relevant document. README is orientation only.  
+**Logged by:** agent
 
 ---

@@ -27,6 +27,7 @@ VALIDATORS = [
     ("validate_publication_readiness",SCRIPTS_DIR / "validate_publication_readiness.py"),
     ("validate_build_boundaries",     SCRIPTS_DIR / "validate_build_boundaries.py"),
     ("validate_spatial_interface",    SCRIPTS_DIR / "validate_spatial_interface.py"),
+    ("validate_control_interface",    SCRIPTS_DIR / "validate_control_interface.py"),
     ("validate_deploy_assets",        SCRIPTS_DIR / "validate_deploy_assets.py"),
 ]
 
