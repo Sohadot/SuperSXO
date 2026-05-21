@@ -10,63 +10,21 @@
   {{ route_context }}
 </div>
 
-<article class="page-command-panel" data-route="{{ route_path }}">
+<article class="command-console page-command-panel" data-route="{{ route_path }}">
 
-  <header class="page-signal-header">
+  <header class="console-identity page-signal-header">
     <div class="system-label">Search Experience Control Interface</div>
     <h1 class="page-heading">{{ page_heading }}</h1>
     <p class="page-summary">{{ page_summary }}</p>
   </header>
 
-  <section class="search-to-action-control-map" aria-label="Search-to-Action Journey">
-    <header class="control-map-header">
-      <h2 class="control-map-label">Search-to-Action Journey</h2>
-      <span class="control-map-subtitle">Seven layers. One governed path from intent to outcome.</span>
-    </header>
-    <ol class="journey-plane" role="list">
-      <li class="journey-node" data-layer="search-intent" data-order="1">
-        <span class="layer-index" aria-hidden="true">01</span>
-        <span class="layer-title">Search Intent</span>
-        <span class="layer-description">The motivation that initiates the search.</span>
-      </li>
-      <li class="journey-node" data-layer="visibility" data-order="2">
-        <span class="layer-index" aria-hidden="true">02</span>
-        <span class="layer-title">Visibility</span>
-        <span class="layer-description">Presence in relevant results at the right moment.</span>
-      </li>
-      <li class="journey-node" data-layer="experience" data-order="3">
-        <span class="layer-index" aria-hidden="true">03</span>
-        <span class="layer-title">Experience</span>
-        <span class="layer-description">The quality of interaction after arrival.</span>
-      </li>
-      <li class="journey-node" data-layer="trust" data-order="4">
-        <span class="layer-index" aria-hidden="true">04</span>
-        <span class="layer-title">Trust</span>
-        <span class="layer-description">The user&rsquo;s assessment of credibility and authority.</span>
-      </li>
-      <li class="journey-node" data-layer="navigation" data-order="5">
-        <span class="layer-index" aria-hidden="true">05</span>
-        <span class="layer-title">Navigation</span>
-        <span class="layer-description">Confident movement through the site architecture.</span>
-      </li>
-      <li class="journey-node" data-layer="action" data-order="6">
-        <span class="layer-index" aria-hidden="true">06</span>
-        <span class="layer-title">Action</span>
-        <span class="layer-description">The specific, measurable response taken.</span>
-      </li>
-      <li class="journey-node" data-layer="strategic-outcome" data-order="7">
-        <span class="layer-index" aria-hidden="true">07</span>
-        <span class="layer-title">Strategic Outcome</span>
-        <span class="layer-description">Downstream consequence of repeated successful journeys.</span>
-      </li>
-    </ol>
-  </section>
+  {{ sxo_diagnostic_environment }}
 
-  <div class="content-control-deck content-deck">
+  <div class="content-instrument-area content-control-deck content-deck">
     {{ page_body }}
   </div>
 
-  <nav class="governed-action-routes related-routes-panel" aria-label="Related routes">
+  <nav class="diagnostic-readout governed-action-routes related-routes-panel" aria-label="Related routes">
     <h2 class="action-routes-label related-routes-label">Continue</h2>
     <ul role="list">
       {{ related_links }}
