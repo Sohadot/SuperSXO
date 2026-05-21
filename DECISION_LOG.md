@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-21] — Light Institutional Adjudication Interface Integrated
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Executed Sprint 13: Judicial Interface Source Integration. Converted the light institutional adjudication redesign from a prototype/output-level implementation into a governed source-level implementation.  
+**Reasoning:** The previous interface direction (immersive dark SXO diagnostic environment) was technically correct but conflicted with the institutional authority positioning of the asset. A light institutional adjudication system better reflects the governed, precise, authoritative character of a canonical authority layer. The dark mode is preserved as an opt-in session toggle, not removed.  
+**Impact:** (1) `templates/home.html` created as homepage layout template. (2) Four homepage source components created: opening-chamber.html, examination-record.html, assessment-entry.html, doctrine-statement.html. (3) `scripts/build.py` updated with `render_homepage()` — `output/index.html` is now generated from source, not manually authored. (4) `static/css/tokens.css` updated with light institutional default in `:root`, dark mode in `[data-theme="dark"]`, system preference fallback via `@media (prefers-color-scheme: dark)`. (5) `static/css/main.css` rebuilt as light institutional stylesheet with full adjudication class set. (6) `static/js/theme-toggle.js` created as first-party approved script under Option A (session-only, no localStorage, no cookies, no network calls). (7) `data/approved-scripts.json` updated to include theme-toggle.js. (8) `templates/base.html` updated: `data-theme="light"` on `<html>`, both JS files loaded with `defer`. (9) `scripts/validate_adjudication_interface.py` created as 18th validator. (10) Quality gate extended to 18 validators. (11) Six content source files updated with adjudication-aligned section names. No new routes. No external dependencies. No tracking. Deferred routes remain unpublished. Core content readable without JavaScript.  
+**Logged by:** agent
+
+---
+
 ## [2026-05-21] — Immersive SXO Diagnostic Environment Added
 
 **Type:** architecture  
