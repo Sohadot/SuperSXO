@@ -1,17 +1,29 @@
-<!-- footer.html: semantic site footer skeleton -->
+<!-- footer.html: chamber footer with outcome register -->
 <!-- Navigation links are populated from data/navigation.json footer section. -->
 <!-- Do not hardcode links outside the registered route registry. -->
-<footer class="site-footer" role="contentinfo">
+<footer class="chamber-footer site-footer" role="contentinfo">
 
-  <nav class="footer-nav" aria-label="Footer navigation">
-    <ul role="list">
-      {{ footer_nav_items }}
-      <!-- Each item rendered as: <li><a href="{path}">{label}</a></li> -->
-    </ul>
-  </nav>
+  <div class="chamber-footer-inner">
 
-  <div class="site-footnote">
-    <p>SuperSXO.com &mdash; Sovereign Search Experience Optimization</p>
+    <div class="footer-outcome-register">
+      <span class="footer-outcome-label">Outcome Register</span>
+      <p class="footer-outcome-statement">
+        SuperSXO governs the complete search-to-action journey.
+        Every route has a registered purpose. Every page passes a quality gate before publication.
+      </p>
+    </div>
+
+    <nav class="footer-navigation footer-nav" aria-label="Footer navigation">
+      <ul role="list">
+        {{ footer_nav_items }}
+        <!-- Each item rendered as: <li><a href="{path}">{label}</a></li> -->
+      </ul>
+    </nav>
+
+    <div class="site-footnote">
+      <p>SuperSXO.com &mdash; Sovereign Search Experience Optimization</p>
+    </div>
+
   </div>
 
 </footer>

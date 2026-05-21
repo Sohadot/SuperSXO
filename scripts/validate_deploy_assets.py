@@ -13,7 +13,7 @@ Pre-build mode (default):
 
 Strict mode (--strict):
   - Requires output/static/css/tokens.css and output/static/css/main.css.
-  - Requires output/static/js/interface-state.js (approved first-party script).
+  - Requires all approved first-party JS files.
   - Requires output/CNAME (custom domain preservation).
   - Verifies generated HTML references both CSS files.
   - Verifies no unapproved .js files are deployed in output/.
@@ -33,7 +33,10 @@ REQUIRED_CSS = [
     "static/css/main.css",
 ]
 
-APPROVED_JS = "static/js/interface-state.js"
+APPROVED_JS = [
+    "static/js/interface-state.js",
+    "static/js/theme-toggle.js",
+]
 
 DEFERRED_ROUTES = [
     "seo-vs-sxo",
@@ -73,22 +76,23 @@ def run_strict_checks() -> bool:
             errors,
         )
 
-    approved_js_path = OUTPUT_DIR / APPROVED_JS
-    check(
-        approved_js_path.is_file(),
-        f"output/{APPROVED_JS} exists (approved interface script deployed)",
-        errors,
-    )
+    approved_js_paths = {OUTPUT_DIR / p for p in APPROVED_JS}
+    for rel_path in APPROVED_JS:
+        check(
+            (OUTPUT_DIR / rel_path).is_file(),
+            f"output/{rel_path} exists (approved script deployed)",
+            errors,
+        )
 
     js_files = list(OUTPUT_DIR.rglob("*.js"))
-    unapproved_js = [jf for jf in js_files if jf != approved_js_path]
+    unapproved_js = [jf for jf in js_files if jf not in approved_js_paths]
     check(
         len(unapproved_js) == 0,
         "No unapproved .js files in output/",
         errors,
     )
     for jf in unapproved_js:
-        print(f"    → {jf.relative_to(REPO_ROOT)}")
+        print(f"    -> {jf.relative_to(REPO_ROOT)}")
 
     html_files = list(OUTPUT_DIR.rglob("*.html"))
     check(
@@ -129,7 +133,7 @@ def run_strict_checks() -> bool:
         errors,
     )
     for ref in external_refs:
-        print(f"    → {ref}")
+        print(f"    -> {ref}")
 
     for route_slug in DEFERRED_ROUTES:
         check(
@@ -147,13 +151,13 @@ def main() -> None:
     print(f"=== validate_deploy_assets: checking deployed output assets ({mode} mode) ===")
 
     if not OUTPUT_DIR.exists():
-        print("  SKIP  output/ not found — deploy asset checks skipped")
+        print("  SKIP  output/ not found -- deploy asset checks skipped")
         print("validate_deploy_assets: PASSED (no output/ present)")
         return
 
     if not strict:
         missing = [
-            rel for rel in ["CNAME"] + REQUIRED_CSS + [APPROVED_JS]
+            rel for rel in ["CNAME"] + REQUIRED_CSS + APPROVED_JS
             if not (OUTPUT_DIR / rel).is_file()
         ]
         if missing:

@@ -12,12 +12,12 @@ Checks:
 - main.css has overflow-x protection
 - main.css has no @import url() (no external stylesheet imports)
 - main.css has no external resource references
-- only the approved JS file exists in static/ (interface-state.js)
+- only approved JS files exist in static/ (per data/approved-scripts.json)
 - templates have no external script tags
 - no deferred route paths hardcoded in published templates
 """
 
-import os
+import json
 import sys
 from pathlib import Path
 
@@ -26,10 +26,7 @@ MAIN_CSS = ROOT / "static" / "css" / "main.css"
 BASE_HTML = ROOT / "templates" / "base.html"
 TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
-
-APPROVED_JS_FILES = {
-    ROOT / "static" / "js" / "interface-state.js",
-}
+APPROVED_SCRIPTS_FILE = ROOT / "data" / "approved-scripts.json"
 
 DEFERRED_ROUTES = ["/seo-vs-sxo/", "/ai-search-experience/", "/acquisition/"]
 
@@ -66,6 +63,20 @@ EXTERNAL_URL_FRAGMENTS = [
 ]
 
 
+def load_approved_js_paths() -> set:
+    if not APPROVED_SCRIPTS_FILE.exists():
+        return set()
+    try:
+        data = json.loads(APPROVED_SCRIPTS_FILE.read_text(encoding="utf-8"))
+        return {
+            (ROOT / entry["file"]).resolve()
+            for entry in data.get("approved_scripts", [])
+            if "file" in entry
+        }
+    except (json.JSONDecodeError, KeyError):
+        return set()
+
+
 def check_viewport(failures: list) -> None:
     if not BASE_HTML.exists():
         failures.append("FAIL  base.html not found")
@@ -100,8 +111,9 @@ def check_main_css(failures: list) -> None:
 def check_no_unapproved_js(failures: list) -> None:
     if not STATIC_DIR.exists():
         return
+    approved_paths = load_approved_js_paths()
     for js_file in STATIC_DIR.rglob("*.js"):
-        if js_file.is_file() and js_file not in APPROVED_JS_FILES:
+        if js_file.is_file() and js_file.resolve() not in approved_paths:
             failures.append(
                 f"FAIL  Unapproved JS file in static/: {js_file.relative_to(ROOT)}"
             )

@@ -25,6 +25,30 @@
       ],
       "defer": true,
       "external_dependencies": false
+    },
+    {
+      "file": "static/js/theme-toggle.js",
+      "purpose": "Session-only display mode toggle. Sets the data-theme attribute on documentElement between light and dark. No persistence, no storage, no network calls. Resets on page reload — dark mode is opt-in per session only.",
+      "allowed_apis": [
+        "querySelector",
+        "getAttribute",
+        "setAttribute",
+        "addEventListener"
+      ],
+      "forbidden_apis": [
+        "eval",
+        "innerHTML",
+        "document.write",
+        "fetch",
+        "XMLHttpRequest",
+        "localStorage",
+        "sessionStorage",
+        "document.cookie",
+        "import",
+        "external script loading"
+      ],
+      "defer": true,
+      "external_dependencies": false
     }
   ]
 }

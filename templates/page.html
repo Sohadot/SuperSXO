@@ -1,7 +1,7 @@
 <div class="route-status-strip">
   <div class="route-status-strip-inner">
     <span class="route-status-indicator" aria-hidden="true"></span>
-    <span class="route-status-label">Active</span>
+    <span class="route-status-label">Examination Active</span>
     <code class="route-status-path">{{ route_path }}</code>
   </div>
 </div>
@@ -13,7 +13,7 @@
 <article class="command-console page-command-panel" data-route="{{ route_path }}">
 
   <header class="console-identity page-signal-header">
-    <div class="system-label">Search Experience Control Interface</div>
+    <div class="system-label">Adjudication System &mdash; Examination Record</div>
     <h1 class="page-heading">{{ page_heading }}</h1>
     <p class="page-summary">{{ page_summary }}</p>
   </header>
@@ -24,8 +24,8 @@
     {{ page_body }}
   </div>
 
-  <nav class="diagnostic-readout governed-action-routes related-routes-panel" aria-label="Related routes">
-    <h2 class="action-routes-label related-routes-label">Continue</h2>
+  <nav class="diagnostic-readout governed-action-routes related-routes-panel" aria-label="Continue examination">
+    <h2 class="action-routes-label related-routes-label">Continue Examination</h2>
     <ul role="list">
       {{ related_links }}
     </ul>

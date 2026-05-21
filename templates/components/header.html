@@ -1,25 +1,30 @@
-<!-- header.html: search experience command interface -->
+<!-- header.html: adjudication system chamber header -->
 <!-- Navigation links derived from data/navigation.json. Do not hardcode routes. -->
-<header class="command-header" role="banner">
+<header class="command-header chamber-header" role="banner">
 
-  <div class="command-header-inner">
+  <div class="command-header-inner chamber-header-inner">
 
-    <a href="/" class="authority-node" aria-label="SuperSXO — Return to command plane">
-      <span class="authority-node-label">SuperSXO</span>
-      <span class="authority-node-tag" aria-hidden="true">SXO</span>
+    <a href="/" class="authority-node chamber-identity" aria-label="SuperSXO — Return to case intake">
+      <span class="authority-node-label chamber-identity-name">SuperSXO</span>
+      <span class="authority-node-tag chamber-identity-tag" aria-hidden="true">SXO</span>
     </a>
 
-    <nav class="route-cluster" aria-label="Primary navigation">
-      <ul class="route-cluster-list" role="list">
+    <nav class="route-cluster chamber-nav" aria-label="Primary navigation">
+      <ul class="route-cluster-list chamber-nav-list" role="list">
         {{ primary_nav_items }}
         <!-- Each item: <li><a href="{path}">{label}</a></li> -->
       </ul>
     </nav>
 
-    <nav class="action-node-cluster" aria-label="Primary actions">
-      {{ commercial_cta_items }}
-      <!-- Each item: <a href="{path}" class="cta-link">{label}</a> -->
-    </nav>
+    <div class="chamber-actions">
+      <nav class="action-node-cluster" aria-label="Primary actions">
+        {{ commercial_cta_items }}
+        <!-- Each item: <a href="{path}" class="cta-link">{label}</a> -->
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle display mode">
+        <span class="theme-toggle-icon" aria-hidden="true">&#9680;</span>
+      </button>
+    </div>
 
   </div>
 
