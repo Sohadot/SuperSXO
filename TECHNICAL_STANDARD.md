@@ -53,7 +53,7 @@ They must not be the core content delivery mechanism.
 
 ## First-Party JavaScript Governance
 
-First-party JavaScript is now approved under the following governance model:
+First-party JavaScript is approved under the following governance model:
 
 **Approval registry:** `data/approved-scripts.json` — each approved script must declare its purpose, allowed APIs, and forbidden APIs.
 
@@ -64,8 +64,9 @@ First-party JavaScript is now approved under the following governance model:
 | File | Purpose |
 |---|---|
 | `static/js/interface-state.js` | IntersectionObserver station active state for the SXO diagnostic environment |
+| `static/js/theme-toggle.js` | Session-only display mode toggle — Option A (no storage, no network calls) |
 
-**Allowed APIs:** querySelector, querySelectorAll, classList, dataset, IntersectionObserver
+**Allowed APIs:** querySelector, querySelectorAll, classList, dataset, IntersectionObserver, getAttribute, setAttribute, addEventListener
 
 **Forbidden APIs:** eval, innerHTML, document.write, fetch, XMLHttpRequest, localStorage, sessionStorage, document.cookie, import, external script loading
 
@@ -73,6 +74,31 @@ Any additional first-party script requires:
 1. A new entry in `data/approved-scripts.json`
 2. Validation passage
 3. A log entry in `DECISION_LOG.md`
+
+---
+
+## Source Template Governance
+
+The build pipeline uses a two-path rendering model:
+
+**Homepage route ("/"):**  
+`scripts/build.py` calls `render_homepage()`, which loads `templates/home.html` as the layout template and assembles four source components:
+
+| Template | Component | Function |
+|---|---|---|
+| `templates/home.html` | Layout | Placeholder template for 4 components |
+| `templates/components/opening-chamber.html` | Opening Chamber | Case intake hero |
+| `templates/components/examination-record.html` | Examination Record | Seven-layer case sheets |
+| `templates/components/assessment-entry.html` | Assessment Entry | Diagnostic entry CTAs |
+| `templates/components/doctrine-statement.html` | Doctrine Statement | Canonical authority |
+
+`output/index.html` is a **generated file**. It must not be manually authored. The source of truth is `templates/home.html` and the four components above.
+
+**Inner page routes (all except "/"):**  
+`scripts/build.py` calls `render_full_page()` using `templates/page.html` and `templates/components/sxo-diagnostic-environment.html`.
+
+**Shared components (all routes):**  
+`templates/components/header.html` and `templates/components/footer.html` are rendered into `templates/base.html` via `render_header()` and `render_footer()`.
 
 ---
 
@@ -144,9 +170,11 @@ The following are prohibited unless explicitly approved through route governance
 - external dependencies (`requirements.txt`, `package.json`, etc.)
 - `.env` files or committed secrets of any kind
 
-**Exception:** `static/js/interface-state.js` is the approved first-party script. It is governed by `data/approved-scripts.json` and validated by `scripts/validate_approved_scripts.py`.
+**Exception:** Two first-party scripts are approved and governed by `data/approved-scripts.json`:
+- `static/js/interface-state.js` — IntersectionObserver station active state
+- `static/js/theme-toggle.js` — Session-only display mode toggle (Option A)
 
-These prohibitions are machine-enforced by `scripts/validate_repository_hygiene.py` and `scripts/validate_approved_scripts.py` which run on every push as part of the sovereign quality gate.
+Both are validated by `scripts/validate_approved_scripts.py` on every push as part of the sovereign quality gate.
 
 ---
 

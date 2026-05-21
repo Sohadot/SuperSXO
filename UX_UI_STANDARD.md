@@ -3,17 +3,67 @@
 ## Governing Principle
 
 > **SuperSXO does not merely explain search experience.**
-> **The visitor must feel as if they are inside a governed Search Experience Control System.**
+> **The visitor enters a governed adjudication system for the search-to-action journey.**
+
+---
+
+## Sprint 13: Light Institutional Adjudication System
+
+The approved interface direction as of Sprint 13 is the **Light Institutional Adjudication System**.
+
+This is the current governing direction. Dark mode is preserved as a governed opt-in session toggle — not removed.
+
+**Default visual mode:** Light institutional. `data-theme="light"` on `<html>`. No storage. On every new session, the interface opens in light institutional mode.
+
+**Opt-in dark mode:** The visitor may toggle dark mode for their session using the theme toggle button (`[data-theme-toggle]`). Governed by `static/js/theme-toggle.js` under Option A.
+
+### Homepage Adjudication Components
+
+The homepage is rendered from four source components:
+
+| Component | Adjudication Term | Function |
+|---|---|---|
+| `opening-chamber.html` | Opening Chamber | Case intake hero — H1, thesis, CTAs, journey trail |
+| `examination-record.html` | Examination Record | Seven layers under examination — case sheets with status badges |
+| `assessment-entry.html` | Assessment Entry | Diagnostic entry — Score and Audit CTAs with sidebar records |
+| `doctrine-statement.html` | Doctrine Statement | Canonical authority declaration |
+
+`templates/home.html` is the layout template. `scripts/build.py` renders the homepage via `render_homepage()`. `output/index.html` is generated from source, not manually authored.
+
+### Adjudication Status System
+
+Case sheets in the examination record carry status badges:
+
+| Status Class | Label | Meaning |
+|---|---|---|
+| `status--review` | Under Examination | Layer under active diagnostic review |
+| `status--confirmed` | Confirmed | Layer condition confirmed |
+| `status--verdict` | Ready | Layer condition assessed, action ready |
+| `status--registered` | Registered | Layer outcome registered |
+
+### Theme Toggle Governance (Option A)
+
+`static/js/theme-toggle.js` is a first-party approved script under Option A:
+
+- **Allowed APIs:** querySelector, getAttribute, setAttribute, addEventListener
+- **Forbidden:** localStorage, sessionStorage, cookies, fetch, XMLHttpRequest, eval, innerHTML, document.write, import, external script loading
+- **Default:** `data-theme="light"` (set in `templates/base.html`, not by JavaScript)
+- **Toggle:** sets `data-theme="dark"` or `data-theme="light"` on `document.documentElement`
+- **Persistence:** none — session-only
+
+### Inner Page Direction (Sprint 12 — Preserved)
+
+Inner pages (all routes except `/`) continue to render the SXO Diagnostic Environment — the seven-station diagnostic panel with IntersectionObserver station active state. Adjudication language applies to the header, footer, and route label elements on inner pages.
 
 ---
 
 ## Sprint 12: Immersive SXO Diagnostic Environment
 
-The approved interface direction as of Sprint 12 is the **Immersive SXO Diagnostic Environment**.
+The Sprint 12 direction (immersive dark SXO diagnostic environment) is preserved as the opt-in dark mode and as the governing standard for inner pages.
 
 The visitor does not read about SXO. They navigate through it.
 
-The diagnostic environment surfaces seven stations on every page:
+The diagnostic environment surfaces seven stations on every inner page:
 
 | Station | Label | Status |
 |---|---|---|
@@ -31,7 +81,7 @@ The station rail on the left tracks which station the visitor is currently readi
 
 ---
 
-## Approved Direction: Sovereign Search Experience Control Interface
+## Approved Interface Direction
 
 SuperSXO.com must not look like:
 
@@ -44,23 +94,21 @@ SuperSXO.com must not look like:
 - a gaming or metaverse environment
 - a dark website with standard content panels
 
-The approved direction is a **Sovereign Search Experience Control Interface** with an immersive diagnostic environment at the core of every page.
-
-VR-inspired means **immersive and layered** — not headset-dependent, not cosmic, not outer-space visual language. The correct metaphors are control, diagnosis, journey mapping, and governed decision flow.
+The approved direction is a **Light Institutional Adjudication System** with an immersive diagnostic environment on inner pages.
 
 ---
 
-## Interface Metaphor: Diagnostic Control, Not Space
+## Interface Metaphor: Adjudication, Not Space
 
 The correct conceptual frame is:
 
-- **Control interface** — not spacecraft cockpit
-- **Diagnostic panel** — not observatory dome
-- **Signal path** — not constellation or trajectory
-- **Intent channel** — not orbit
-- **Station** — not waypoint or planet
-- **Decision path** — not flight path
-- **Journey layer** — not celestial sphere
+- **Opening Chamber** — not landing page
+- **Examination Record** — not feature list
+- **Case Sheet** — not content card
+- **Doctrine Statement** — not about section
+- **Intake** — not sign up
+- **Docket** — not project ID
+- **Jurisdiction** — not category
 
 Depth is used to express hierarchy — the layered architecture of the search-to-action journey. It is not used to suggest outer space, cosmic distance, or astronomical scale.
 
@@ -80,6 +128,7 @@ The interface may use:
 - search-to-action control maps (journey visualization)
 - trust and clarity layers (authority signals)
 - institutional precision design language
+- Georgia serif for display headings (institutional authority register)
 
 ---
 
@@ -101,6 +150,7 @@ The interface must not become:
 - orbital or astronomical in metaphor
 - decorative dark without diagnostic function
 - a conventional dark website with content cards
+- black-first default (light is the sovereign default)
 
 ---
 
@@ -117,12 +167,16 @@ The interface must remain:
 - compliant with accessibility basics
 - free of animation that cannot be disabled
 
-**Approved JS:** `static/js/interface-state.js` — IntersectionObserver only. No network requests, no storage, no tracking.
+**Approved JS:**
+- `static/js/interface-state.js` — IntersectionObserver only. No network requests, no storage, no tracking.
+- `static/js/theme-toggle.js` — Session-only `data-theme` toggle. Option A. No network requests, no storage, no tracking.
 
 ---
 
 ## Typography and Visual Hierarchy
 
+- Display headings use Georgia serif (`--font-display`) — institutional authority register
+- Body and UI use system UI font stack — no external font loading
 - Typography must reinforce institutional authority, not playfulness
 - Color palette must be disciplined — not decorative
 - Motion must be purposeful — every animation must have a functional justification
@@ -134,15 +188,15 @@ The interface must remain:
 
 Any interface direction change must:
 
-1. Be evaluated against the Sovereign Search Experience Control Interface standard
-2. Pass the prohibited list check (including the cosmic/space metaphor prohibition)
+1. Be evaluated against the Light Institutional Adjudication System standard
+2. Pass the prohibited list check (including the cosmic/space metaphor prohibition and black-first prohibition)
 3. Confirm progressive enhancement compliance
 4. Confirm the change serves the search-to-action journey narrative
 5. Be logged in `DECISION_LOG.md` before implementation
 
 ---
 
-## Visual System Governance (Sprint 4 → Sprint 12)
+## Visual System Governance (Sprint 4 → Sprint 13)
 
 The approved visual direction is machine-governed. All interface decisions must reference:
 
@@ -153,4 +207,4 @@ The approved visual direction is machine-governed. All interface decisions must 
 - `data/visual-tokens.json` — token registry aligned with `static/css/tokens.css`
 - `data/approved-scripts.json` — registry of approved first-party JavaScript files
 
-The validators `scripts/validate_visual_system.py`, `scripts/validate_approved_scripts.py`, and `scripts/validate_immersive_experience.py` enforce these rules on every push via the quality gate.
+The validators `scripts/validate_visual_system.py`, `scripts/validate_approved_scripts.py`, `scripts/validate_immersive_experience.py`, and `scripts/validate_adjudication_interface.py` enforce these rules on every push via the quality gate.
