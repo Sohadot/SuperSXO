@@ -1,8 +1,7 @@
 /*
   main.css
-  SuperSXO — Search Experience Control Interface
-  Static-first. CSS-only. No JavaScript. No external fonts.
-  No @import url. No external resources.
+  SuperSXO — Immersive SXO Diagnostic Environment
+  Static-first. No @import url. No external resources.
 */
 
 /* ==========================================
@@ -27,7 +26,7 @@ html {
 }
 
 body {
-  background-color: var(--surface-control-base);
+  background-color: var(--surface-console);
   color: var(--ink-primary);
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
                "Segoe UI", Helvetica, Arial, sans-serif;
@@ -123,7 +122,7 @@ code, pre {
    ========================================== */
 
 .control-plane-shell {
-  background-color: var(--surface-control-base);
+  background-color: var(--surface-console);
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
@@ -139,8 +138,8 @@ code, pre {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--surface-signal-field);
-  border-bottom: 1px solid var(--grid-line-strong);
+  background: var(--surface-console);
+  border-bottom: 1px solid rgba(58, 111, 216, 0.18);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -311,7 +310,7 @@ code, pre {
 .route-telemetry-panel[hidden] { display: none; }
 
 .route-telemetry-panel {
-  background: var(--surface-diagnostic-layer);
+  background: var(--surface-readout);
   border: 1px solid rgba(124, 111, 224, 0.15);
   border-left: 2px solid rgba(124, 111, 224, 0.5);
   border-radius: var(--radius-sm);
@@ -346,20 +345,40 @@ code, pre {
 }
 
 /* ==========================================
-   Page Command Panel
+   Command Console (experience-first wrapper)
+   ========================================== */
+
+.command-console {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-8) var(--space-6) var(--space-16);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+.console-identity {
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--grid-line-strong);
+  border-left: 2px solid rgba(58, 111, 216, 0.45);
+  padding-left: var(--space-5);
+}
+
+/* ==========================================
+   Page Command Panel (backward compat)
    ========================================== */
 
 .page-command-panel {
   max-width: var(--container-max);
   margin-inline: auto;
-  padding: var(--space-10) var(--space-6) var(--space-16);
+  padding: var(--space-8) var(--space-6) var(--space-16);
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-10);
+  gap: var(--space-8);
 }
 
 /* ==========================================
-   Page Signal Header (system identity)
+   Page Signal Header
    ========================================== */
 
 .page-signal-header {
@@ -368,22 +387,23 @@ code, pre {
 }
 
 .system-label {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
   color: var(--signal-blue);
   margin-bottom: var(--space-3);
-  opacity: 0.8;
+  font-family: "SF Mono", "Fira Code", monospace;
+  opacity: 0.85;
 }
 
 .page-heading {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.6rem, 5vw, 3rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   color: var(--ink-primary);
   line-height: var(--leading-tight);
-  max-width: 22ch;
+  max-width: 20ch;
 }
 
 .page-summary {
@@ -395,7 +415,235 @@ code, pre {
 }
 
 /* ==========================================
-   Search-to-Action Control Map
+   SXO Diagnostic Environment
+   ========================================== */
+
+.sxo-diagnostic-environment {
+  background: var(--surface-instrument);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--depth-interface);
+}
+
+.diagnostic-environment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  background: var(--surface-console);
+  border-bottom: 1px solid rgba(58, 111, 216, 0.18);
+}
+
+.diagnostic-environment-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--signal-blue);
+  font-family: "SF Mono", "Fira Code", monospace;
+}
+
+.diagnostic-environment-status {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--trust-confirmed);
+  font-family: "SF Mono", "Fira Code", monospace;
+  flex-shrink: 0;
+}
+
+.diagnostic-environment-body {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+}
+
+/* ==========================================
+   Station Rail
+   ========================================== */
+
+.station-rail {
+  position: relative;
+  padding: var(--space-4) 0;
+  background: var(--surface-console);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.station-rail-signal {
+  position: absolute;
+  top: calc(var(--space-4) + 0.875rem);
+  bottom: calc(var(--space-4) + 0.875rem);
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    var(--line-signal),
+    var(--line-path)
+  );
+  pointer-events: none;
+}
+
+.station-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--space-3) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.station-node {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-station);
+  background: var(--surface-control-base);
+  border: 1px solid rgba(58, 111, 216, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.52rem;
+  font-weight: 700;
+  color: var(--signal-idle);
+  font-family: "SF Mono", "Fira Code", monospace;
+  letter-spacing: 0.02em;
+  transition:
+    border-color var(--duration-base) var(--easing-standard),
+    color var(--duration-base) var(--easing-standard),
+    background var(--duration-base) var(--easing-standard),
+    box-shadow var(--duration-base) var(--easing-standard);
+}
+
+.station-item.is-active .station-node {
+  background: var(--surface-station-active);
+  border-color: var(--signal-active);
+  color: var(--signal-active);
+  box-shadow: 0 0 10px rgba(74, 124, 220, 0.22);
+}
+
+/* ==========================================
+   Active Station Readout
+   ========================================== */
+
+.active-station-readout {
+  overflow: hidden;
+  min-width: 0;
+}
+
+.station-panels {
+  display: flex;
+  flex-direction: column;
+}
+
+.station-panel {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--grid-line);
+  background: var(--surface-readout);
+  transition: background var(--duration-slow) var(--easing-standard);
+}
+
+.station-panel:last-child {
+  border-bottom: none;
+}
+
+.station-panel.is-active {
+  background: var(--surface-station-active);
+}
+
+.station-panel-top {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.station-panel-index {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  color: var(--signal-blue);
+  font-family: "SF Mono", "Fira Code", monospace;
+  flex-shrink: 0;
+}
+
+.station-panel-label {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--ink-primary);
+  letter-spacing: 0.01em;
+  flex: 1;
+}
+
+.station-panel-status {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--signal-idle);
+  font-family: "SF Mono", "Fira Code", monospace;
+  padding: 2px var(--space-2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xs);
+  flex-shrink: 0;
+  transition:
+    color var(--duration-base) var(--easing-standard),
+    border-color var(--duration-base) var(--easing-standard);
+}
+
+.station-panel.is-active .station-panel-status {
+  color: var(--signal-active);
+  border-color: rgba(74, 124, 220, 0.30);
+}
+
+.station-panel-question {
+  font-size: var(--text-xs);
+  font-style: italic;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-2);
+  max-width: none;
+  line-height: var(--leading-normal);
+}
+
+.station-panel-meaning {
+  font-size: var(--text-xs);
+  color: var(--ink-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: none;
+}
+
+/* ==========================================
+   Content Instrument Area
+   ========================================== */
+
+.content-instrument-area {
+  display: grid;
+  gap: 1px;
+  background: var(--grid-line-strong);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* ==========================================
+   Diagnostic Readout
+   ========================================== */
+
+.diagnostic-readout {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--surface-instrument);
+  overflow: hidden;
+}
+
+/* ==========================================
+   Search-to-Action Control Map (preserved)
    ========================================== */
 
 .search-to-action-control-map,
@@ -435,8 +683,6 @@ code, pre {
   color: var(--ink-muted);
   max-width: none;
 }
-
-/* Signal line + checkpoint nodes */
 
 .journey-plane {
   list-style: none;
@@ -536,7 +782,7 @@ code, pre {
 
 .page-section {
   padding: var(--space-5) var(--space-6);
-  background: var(--surface-control-panel);
+  background: var(--surface-instrument);
   border-left: 2px solid var(--grid-line-strong);
 }
 
@@ -567,7 +813,7 @@ code, pre {
 .related-routes-panel {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  background: var(--surface-control-panel);
+  background: var(--surface-instrument);
   overflow: hidden;
 }
 
@@ -660,7 +906,7 @@ code, pre {
 }
 
 /* ==========================================
-   Diagnostic Layer Rail
+   Diagnostic Layer Rail (preserved)
    ========================================== */
 
 .diagnostic-layer-rail {
@@ -668,7 +914,7 @@ code, pre {
   border: 1px solid var(--border-subtle);
   border-left: 2px solid rgba(58, 111, 216, 0.40);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  background: var(--surface-control-panel);
+  background: var(--surface-instrument);
 }
 
 .diagnostic-layer-rail-label {
@@ -685,7 +931,7 @@ code, pre {
    ========================================== */
 
 .site-footer {
-  background: var(--surface-control-panel);
+  background: var(--surface-console);
   border-top: 1px solid var(--grid-line-strong);
   padding: var(--space-8) var(--space-6);
 }
@@ -722,7 +968,7 @@ code, pre {
 }
 
 /* ==========================================
-   Legacy Spatial Classes (preserved for backward compat)
+   Legacy Spatial / Signal Classes
    ========================================== */
 
 .panel,
@@ -921,6 +1167,7 @@ code, pre {
     padding: 4px var(--space-4);
   }
 
+  .command-console,
   .page-command-panel {
     padding: var(--space-6) var(--space-4) var(--space-10);
     gap: var(--space-6);
@@ -931,12 +1178,12 @@ code, pre {
   }
 
   .page-heading {
-    font-size: clamp(1.3rem, 6vw, 1.8rem);
+    font-size: clamp(1.4rem, 7vw, 2rem);
     max-width: none;
   }
 
   .page-section {
-    padding: var(--space-4) var(--space-4);
+    padding: var(--space-4);
   }
 
   .journey-plane::before {
@@ -964,11 +1211,60 @@ code, pre {
   .journey-layer {
     grid-template-columns: 2rem 1fr;
   }
+
+  /* Diagnostic environment: stack rail above panels on mobile */
+  .diagnostic-environment-body {
+    grid-template-columns: 1fr;
+  }
+
+  .station-rail {
+    flex-direction: row;
+    padding: var(--space-2) var(--space-3);
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+    overflow-x: auto;
+    gap: 0;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .station-rail-signal {
+    top: 50%;
+    bottom: auto;
+    left: var(--space-3);
+    right: var(--space-3);
+    width: auto;
+    height: 1px;
+    transform: translateY(-50%);
+    background: linear-gradient(
+      to right,
+      var(--line-signal),
+      var(--line-path)
+    );
+  }
+
+  .station-item {
+    padding: var(--space-2) var(--space-2);
+    flex-shrink: 0;
+  }
+
+  .station-panel {
+    padding: var(--space-4);
+  }
+
+  .station-panel-top {
+    gap: var(--space-2);
+  }
+
+  .console-identity {
+    padding-left: var(--space-3);
+  }
 }
 
 @media (max-width: 480px) {
   .authority-node-tag { display: none; }
 
+  .command-console,
   .page-command-panel {
     padding: var(--space-5) var(--space-3) var(--space-8);
     gap: var(--space-5);
@@ -992,11 +1288,19 @@ code, pre {
   }
 
   .journey-node {
-    padding: var(--space-3) var(--space-3);
+    padding: var(--space-3);
     grid-template-columns: var(--space-3) 1.75rem 1fr;
   }
 
   .journey-plane::before {
     left: calc(var(--space-3) + 0.875rem);
+  }
+
+  .station-panel {
+    padding: var(--space-3);
+  }
+
+  .diagnostic-environment-header {
+    padding: var(--space-2) var(--space-3);
   }
 }

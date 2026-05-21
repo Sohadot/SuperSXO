@@ -22,6 +22,13 @@
   --surface-signal-field:     rgba(5, 7, 9, 0.92);
   --surface-diagnostic-layer: #0e1218;
 
+  /* Sprint 12: Immersive Interface Surface Tokens */
+  --surface-console:        #020304;
+  --surface-instrument:     #080b0f;
+  --surface-readout:        #0b0e14;
+  --surface-station-active: rgba(58, 111, 216, 0.09);
+  --surface-station-idle:   transparent;
+
   /* Legacy Surface Aliases (kept for backward compatibility) */
   --surface-deep-space: var(--surface-control-base);
   --surface-orbit:      var(--surface-control-panel);
@@ -46,10 +53,23 @@
   --signal-violet:    #7c6fe0;
   --signal-path-line: rgba(58, 111, 216, 0.45);
 
+  /* Sprint 12: Signal State Tokens */
+  --signal-active: #4a7cdc;
+  --signal-idle:   rgba(255, 255, 255, 0.20);
+
+  /* Sprint 12: Signal Line Tokens */
+  --line-signal: rgba(58, 111, 216, 0.50);
+  --line-path:   rgba(58, 111, 216, 0.20);
+
   /* ── Trust Accent ── */
   --trust-color:      #38a882;
   --trust-glow:       rgba(56, 168, 130, 0.12);
   --trust-layer-glow: rgba(56, 168, 130, 0.15);
+
+  /* Sprint 12: Trust / Action / Outcome State Tokens */
+  --trust-confirmed:    #38a882;
+  --action-ready:       #dfa030;
+  --outcome-registered: #7c6fe0;
 
   /* ── Action Accent ── */
   --action-color:      #dfa030;
@@ -75,6 +95,10 @@
   --radius-xl:      16px;
   --radius-control: 8px;
   --radius-orbit:   8px; /* legacy alias */
+
+  /* Sprint 12: Immersive Interface Radius Tokens */
+  --radius-station: 50%;
+  --radius-readout: 4px;
 
   /* ── Ring Border ── */
   --ring-border: 1px solid rgba(74, 124, 220, 0.30);
@@ -104,6 +128,9 @@
   /* Control-System Depth Tokens */
   --depth-control:          0 0 0 1px rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.40);
   --depth-diagnostic-panel: 0 4px 24px rgba(0, 0, 0, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  /* Sprint 12: Interface Depth Token */
+  --depth-interface: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 8px 40px rgba(0, 0, 0, 0.60);
 
   /* Legacy Depth Aliases */
   --depth-orbit:   var(--depth-control);
