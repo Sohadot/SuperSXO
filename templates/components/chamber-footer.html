@@ -1,0 +1,28 @@
+<!-- chamber-footer.html: adjudication system outcome register footer -->
+<!-- Source component documenting the chamber footer design. -->
+<!-- The build pipeline renders templates/components/footer.html via render_footer(). -->
+<!-- This file serves as the governed source record of the footer design pattern. -->
+<footer class="chamber-footer site-footer" role="contentinfo">
+  <div class="chamber-footer-inner">
+
+    <div class="footer-outcome-register">
+      <span class="footer-outcome-label">Outcome Register</span>
+      <p class="footer-outcome-statement">
+        SuperSXO governs the complete search-to-action journey.
+        Every route has a registered purpose. Every page passes a quality gate before publication.
+      </p>
+    </div>
+
+    <nav class="footer-navigation footer-nav" aria-label="Footer navigation">
+      <ul role="list">
+        <!-- Navigation links rendered from data/navigation.json footer section. -->
+        <!-- See templates/components/footer.html for the build-integrated version. -->
+      </ul>
+    </nav>
+
+    <div class="site-footnote">
+      <p>SuperSXO.com &mdash; Sovereign Search Experience Optimization</p>
+    </div>
+
+  </div>
+</footer>
