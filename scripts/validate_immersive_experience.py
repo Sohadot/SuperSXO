@@ -1,16 +1,26 @@
 #!/usr/bin/env python3
 """
-Verifies that the immersive SXO diagnostic environment is correctly implemented.
+Validates that the governed experience interface is correctly implemented.
+
+Covers both the inner-page immersive SXO diagnostic environment (Sprint 12,
+preserved for all routes except '/') and the homepage light institutional
+adjudication interface (Sprint 13, the current immersive experience standard).
 
 Checks:
 - templates/components/sxo-diagnostic-environment.html exists
-- templates/page.html references the sxo_diagnostic_environment variable
-- main.css contains all required immersive environment patterns:
-    diagnostic-environment, station-rail, active-station-readout,
-    signal-path, @media
+- templates/page.html references sxo_diagnostic_environment
+- main.css contains required CSS markers for both inner-page and
+  adjudication-interface experience layers
 - templates/base.html has viewport meta width=device-width
 - No deferred routes hardcoded in published templates
-- No external scripts in templates
+- No external scripts or fonts in templates
+
+Spring 12 markers removed from required CSS:
+  signal-path — renamed/removed in Sprint 13 adjudication rebuild;
+                inner pages no longer use this specific class name.
+
+Sprint 13 markers added to required CSS:
+  opening-chamber, examination-record, case-sheet
 """
 
 import sys
@@ -27,7 +37,9 @@ REQUIRED_CSS_MARKERS = [
     "diagnostic-environment",
     "station-rail",
     "active-station-readout",
-    "signal-path",
+    "opening-chamber",
+    "examination-record",
+    "case-sheet",
     "@media",
 ]
 
