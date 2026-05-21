@@ -8,7 +8,9 @@ governance violations that must be caught before any public deployment.
 Allows root index.html and output/ only when the approved build pipeline
 has generated them for published routes. All other violations are hard failures.
 
-First-party JS: only static/js/interface-state.js is approved.
+First-party JS: only scripts listed in data/approved-scripts.json are allowed,
+both at their source location (e.g. static/js/interface-state.js) and at their
+corresponding deployed output location (e.g. output/static/js/interface-state.js).
 All other .js files are violations.
 """
 
@@ -20,10 +22,6 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).parent.parent
 
 VIOLATIONS = []
-
-APPROVED_JS_PATHS = {
-    "static/js/interface-state.js",
-}
 
 
 def fail(msg: str) -> None:
@@ -38,6 +36,34 @@ def load_routes() -> list:
     with open(routes_path, encoding="utf-8") as f:
         data = json.load(f)
     return data.get("routes", []) if isinstance(data, dict) else data
+
+
+def load_approved_js_paths() -> set:
+    """
+    Return the set of allowed .js relative paths derived from data/approved-scripts.json.
+
+    Each approved entry contributes two paths:
+      - its source location:  e.g. static/js/interface-state.js
+      - its deployed copy:    e.g. output/static/js/interface-state.js
+
+    This ensures the hygiene validator passes both before and after build.py runs.
+    data/approved-scripts.json remains the single source of truth.
+    """
+    approved_file = ROOT_DIR / "data" / "approved-scripts.json"
+    if not approved_file.exists():
+        return set()
+    try:
+        data = json.loads(approved_file.read_text(encoding="utf-8"))
+        paths: set = set()
+        for entry in data.get("approved_scripts", []):
+            rel = entry.get("file", "")
+            if not rel:
+                continue
+            paths.add(str(Path(rel)))                    # source
+            paths.add(str(Path("output") / rel))        # deployed copy
+        return paths
+    except (json.JSONDecodeError, KeyError, OSError):
+        return set()
 
 
 ALWAYS_FORBIDDEN_DIRS = ["public", "dist"]
@@ -148,13 +174,15 @@ def check_yml_secret_markers() -> None:
 
 
 def check_js_files() -> None:
+    """Allow only approved JS files (source + deployed copy). Block all others."""
+    approved_paths = load_approved_js_paths()
     for root, dirs, files in os.walk(ROOT_DIR):
         dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
         for filename in files:
             if not filename.endswith(".js"):
                 continue
             rel = str((Path(root) / filename).relative_to(ROOT_DIR))
-            if rel not in APPROVED_JS_PATHS:
+            if rel not in approved_paths:
                 fail(f"JavaScript file found (not approved): {rel}")
 
 
