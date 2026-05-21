@@ -12,7 +12,7 @@ Checks:
 - main.css has overflow-x protection
 - main.css has no @import url() (no external stylesheet imports)
 - main.css has no external resource references
-- no JavaScript files in static/
+- only the approved JS file exists in static/ (interface-state.js)
 - templates have no external script tags
 - no deferred route paths hardcoded in published templates
 """
@@ -27,6 +27,10 @@ BASE_HTML = ROOT / "templates" / "base.html"
 TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
 
+APPROVED_JS_FILES = {
+    ROOT / "static" / "js" / "interface-state.js",
+}
+
 DEFERRED_ROUTES = ["/seo-vs-sxo/", "/ai-search-experience/", "/acquisition/"]
 
 PUBLISHED_TEMPLATES = [
@@ -36,6 +40,7 @@ PUBLISHED_TEMPLATES = [
     ROOT / "templates" / "components" / "footer.html",
     ROOT / "templates" / "components" / "route-context.html",
     ROOT / "templates" / "components" / "spatial-map.html",
+    ROOT / "templates" / "components" / "sxo-diagnostic-environment.html",
 ]
 
 REQUIRED_CSS_MARKERS = [
@@ -92,13 +97,13 @@ def check_main_css(failures: list) -> None:
             )
 
 
-def check_no_js_files(failures: list) -> None:
+def check_no_unapproved_js(failures: list) -> None:
     if not STATIC_DIR.exists():
         return
     for js_file in STATIC_DIR.rglob("*.js"):
-        if js_file.is_file():
+        if js_file.is_file() and js_file not in APPROVED_JS_FILES:
             failures.append(
-                f"FAIL  JS file in static/: {js_file.relative_to(ROOT)}"
+                f"FAIL  Unapproved JS file in static/: {js_file.relative_to(ROOT)}"
             )
 
 
@@ -133,7 +138,7 @@ def main() -> None:
 
     check_viewport(failures)
     check_main_css(failures)
-    check_no_js_files(failures)
+    check_no_unapproved_js(failures)
     check_no_external_scripts(failures)
     check_no_deferred_routes(failures)
 

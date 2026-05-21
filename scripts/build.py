@@ -12,12 +12,13 @@ Safety rules enforced at build time:
   - Only content with approved_for_build status is rendered.
   - Internal links to unpublished routes abort the build.
   - Navigation is filtered to published routes only.
-  - No JavaScript, tracking, external scripts, or monetization injected.
+  - No tracking, external scripts, or monetization injected.
   - Root index.html generated only for route "/".
   - Subdirectory index.html generated for all other routes.
   - Governed CSS assets are copied into output/static/css/.
+  - Approved first-party JS is copied into output/static/js/.
   - CNAME is copied into output/ for custom domain stability.
-  - Build fails clearly if required CSS or CNAME source files are missing.
+  - Build fails clearly if required CSS, JS, or CNAME source files are missing.
 """
 
 import json
@@ -38,6 +39,8 @@ REQUIRED_CSS_FILES = [
     STATIC_DIR / "css" / "tokens.css",
     STATIC_DIR / "css" / "main.css",
 ]
+
+APPROVED_JS_FILE = STATIC_DIR / "js" / "interface-state.js"
 
 CTA_DEFINITIONS = {
     "explore_framework": {
@@ -180,9 +183,11 @@ def render_full_page(
     route_context = render_route_context(route)
     header = render_header(nav_data, published_paths)
     footer = render_footer(nav_data, published_paths)
+    sxo_diagnostic_environment = load_component("sxo-diagnostic-environment.html")
 
     page_tmpl = load_template("page.html")
     page_html = render(page_tmpl, {
+        "sxo_diagnostic_environment": sxo_diagnostic_environment,
         "route_context": route_context,
         "route_path": route["path"],
         "page_heading": content.get("h1", content.get("title", "")),
@@ -240,6 +245,18 @@ def copy_static_assets() -> None:
         print(f"  ASSET: {src.relative_to(REPO_ROOT)} → {dst.relative_to(REPO_ROOT)}")
 
 
+def copy_approved_js() -> None:
+    """Copy the approved first-party JS file into output/static/js/ for deployment."""
+    if not APPROVED_JS_FILE.is_file():
+        print(f"ERROR: approved JS file missing: {APPROVED_JS_FILE.relative_to(REPO_ROOT)}")
+        sys.exit(1)
+    dest_js = OUTPUT_DIR / "static" / "js"
+    dest_js.mkdir(parents=True, exist_ok=True)
+    dst = dest_js / APPROVED_JS_FILE.name
+    shutil.copy2(APPROVED_JS_FILE, dst)
+    print(f"  ASSET: {APPROVED_JS_FILE.relative_to(REPO_ROOT)} → {dst.relative_to(REPO_ROOT)}")
+
+
 def copy_cname() -> None:
     """Copy CNAME into output/ so the custom domain is preserved after deployment."""
     if not CNAME_FILE.is_file():
@@ -289,7 +306,6 @@ def main() -> None:
         print("No published routes found. Build skipped safely.")
         return
 
-    # --- Pre-build validation ---
     errors = []
     buildable = []
 
@@ -333,7 +349,6 @@ def main() -> None:
             print(f"  BUILD ERROR: {err}")
         sys.exit(1)
 
-    # --- Generate output ---
     print(f"{len(buildable)} route(s) approved for build.")
     OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -346,8 +361,8 @@ def main() -> None:
 
     print(f"Build complete. {built} page(s) generated in output/")
 
-    # --- Copy static assets and CNAME ---
     copy_static_assets()
+    copy_approved_js()
     copy_cname()
     print("Static assets and CNAME copied to output/")
 

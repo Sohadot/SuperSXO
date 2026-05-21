@@ -1,0 +1,30 @@
+{
+  "approved_scripts": [
+    {
+      "file": "static/js/interface-state.js",
+      "purpose": "IntersectionObserver-based station active state for the SXO diagnostic environment. Adds and removes the is-active class on station rail items and station panels as the user scrolls.",
+      "allowed_apis": [
+        "querySelector",
+        "querySelectorAll",
+        "classList",
+        "dataset",
+        "IntersectionObserver",
+        "Object.create"
+      ],
+      "forbidden_apis": [
+        "eval",
+        "innerHTML",
+        "document.write",
+        "fetch",
+        "XMLHttpRequest",
+        "localStorage",
+        "sessionStorage",
+        "document.cookie",
+        "import",
+        "external script loading"
+      ],
+      "defer": true,
+      "external_dependencies": false
+    }
+  ]
+}

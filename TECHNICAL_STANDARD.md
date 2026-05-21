@@ -14,7 +14,7 @@ The technical implementation must prioritize:
 
 - semantic HTML
 - controlled CSS
-- lightweight JavaScript
+- lightweight, governed JavaScript
 - fast loading
 - indexable content
 - accessible interfaces
@@ -45,9 +45,34 @@ The site must remain:
 - navigable without JavaScript
 - meaningful without JavaScript
 
-Spatial or VR-inspired effects are **progressive enhancements only**.
+JavaScript effects are **progressive enhancements only**.
 
 They must not be the core content delivery mechanism.
+
+---
+
+## First-Party JavaScript Governance
+
+First-party JavaScript is now approved under the following governance model:
+
+**Approval registry:** `data/approved-scripts.json` — each approved script must declare its purpose, allowed APIs, and forbidden APIs.
+
+**Validator:** `scripts/validate_approved_scripts.py` — runs on every push. Verifies that only approved scripts exist, that no forbidden APIs appear in any script, and that base.html references approved scripts with `defer`.
+
+**Currently approved scripts:**
+
+| File | Purpose |
+|---|---|
+| `static/js/interface-state.js` | IntersectionObserver station active state for the SXO diagnostic environment |
+
+**Allowed APIs:** querySelector, querySelectorAll, classList, dataset, IntersectionObserver
+
+**Forbidden APIs:** eval, innerHTML, document.write, fetch, XMLHttpRequest, localStorage, sessionStorage, document.cookie, import, external script loading
+
+Any additional first-party script requires:
+1. A new entry in `data/approved-scripts.json`
+2. Validation passage
+3. A log entry in `DECISION_LOG.md`
 
 ---
 
@@ -77,7 +102,7 @@ The technical implementation must:
 - avoid excessive image sizes
 - avoid unnecessary font loading
 
-Performance budgets must be defined before any public launch and enforced in the quality gate.
+All approved JS must use the `defer` attribute to avoid render-blocking.
 
 ---
 
@@ -106,10 +131,10 @@ No deployment should introduce undocumented infrastructure.
 
 ## Repository Hygiene Enforcement
 
-The following are prohibited until explicitly approved through route governance and a logged decision in `DECISION_LOG.md`:
+The following are prohibited unless explicitly approved through route governance and a logged decision in `DECISION_LOG.md`:
 
 - public HTML output (`index.html`, `output/`, `public/`, `dist/`)
-- JavaScript files (`.js`) anywhere in the repository
+- JavaScript files (`.js`) not registered in `data/approved-scripts.json`
 - inline event handlers in HTML templates (`onclick=`, `onload=`, etc.)
 - external script tags (`<script src="http...">`)
 - third-party libraries (Three.js, WebGL-only rendering, canvas-only content)
@@ -119,13 +144,15 @@ The following are prohibited until explicitly approved through route governance 
 - external dependencies (`requirements.txt`, `package.json`, etc.)
 - `.env` files or committed secrets of any kind
 
-These prohibitions are machine-enforced by `scripts/validate_repository_hygiene.py` which runs on every push as part of the sovereign quality gate.
+**Exception:** `static/js/interface-state.js` is the approved first-party script. It is governed by `data/approved-scripts.json` and validated by `scripts/validate_approved_scripts.py`.
+
+These prohibitions are machine-enforced by `scripts/validate_repository_hygiene.py` and `scripts/validate_approved_scripts.py` which run on every push as part of the sovereign quality gate.
 
 ---
 
 ## Deployment
 
-- Cloudflare Pages is the approved deployment target
+- GitHub Pages (via GitHub Actions) is the active deployment target
 - GitHub is the source of truth
 - No build output may be committed to the repository
 - No deployment secrets may be stored in the repository

@@ -13,9 +13,10 @@ Pre-build mode (default):
 
 Strict mode (--strict):
   - Requires output/static/css/tokens.css and output/static/css/main.css.
+  - Requires output/static/js/interface-state.js (approved first-party script).
   - Requires output/CNAME (custom domain preservation).
   - Verifies generated HTML references both CSS files.
-  - Verifies no .js files are deployed in output/.
+  - Verifies no unapproved .js files are deployed in output/.
   - Verifies no external stylesheet or script references in generated HTML.
   - Verifies no deferred route output exists.
   - Fails and exits non-zero on any violation.
@@ -31,6 +32,8 @@ REQUIRED_CSS = [
     "static/css/tokens.css",
     "static/css/main.css",
 ]
+
+APPROVED_JS = "static/js/interface-state.js"
 
 DEFERRED_ROUTES = [
     "seo-vs-sxo",
@@ -57,14 +60,12 @@ def check(condition: bool, label: str, errors: list) -> None:
 def run_strict_checks() -> bool:
     errors: list = []
 
-    # CNAME must exist in output/ for custom domain stability
     check(
         (OUTPUT_DIR / "CNAME").is_file(),
         "output/CNAME exists (custom domain preserved)",
         errors,
     )
 
-    # Required CSS files must exist in output/static/css/
     for rel_path in REQUIRED_CSS:
         check(
             (OUTPUT_DIR / rel_path).is_file(),
@@ -72,17 +73,23 @@ def run_strict_checks() -> bool:
             errors,
         )
 
-    # No .js files in output/
-    js_files = list(OUTPUT_DIR.rglob("*.js"))
+    approved_js_path = OUTPUT_DIR / APPROVED_JS
     check(
-        len(js_files) == 0,
-        "No .js files in output/",
+        approved_js_path.is_file(),
+        f"output/{APPROVED_JS} exists (approved interface script deployed)",
         errors,
     )
-    for jf in js_files:
+
+    js_files = list(OUTPUT_DIR.rglob("*.js"))
+    unapproved_js = [jf for jf in js_files if jf != approved_js_path]
+    check(
+        len(unapproved_js) == 0,
+        "No unapproved .js files in output/",
+        errors,
+    )
+    for jf in unapproved_js:
         print(f"    → {jf.relative_to(REPO_ROOT)}")
 
-    # HTML file checks
     html_files = list(OUTPUT_DIR.rglob("*.html"))
     check(
         len(html_files) > 0,
@@ -124,7 +131,6 @@ def run_strict_checks() -> bool:
     for ref in external_refs:
         print(f"    → {ref}")
 
-    # No deferred route output
     for route_slug in DEFERRED_ROUTES:
         check(
             not (OUTPUT_DIR / route_slug).exists(),
@@ -147,7 +153,7 @@ def main() -> None:
 
     if not strict:
         missing = [
-            rel for rel in ["CNAME"] + REQUIRED_CSS
+            rel for rel in ["CNAME"] + REQUIRED_CSS + [APPROVED_JS]
             if not (OUTPUT_DIR / rel).is_file()
         ]
         if missing:
@@ -158,7 +164,7 @@ def main() -> None:
             print("  WARN  Run: python scripts/build.py")
             print("  WARN  Then: python scripts/validate_deploy_assets.py --strict")
         else:
-            print("  OK    output/CNAME and output/static/css/ deploy assets present")
+            print("  OK    output/CNAME, output/static/css/, and output/static/js/ deploy assets present")
         print("validate_deploy_assets: PASSED (pre-build, non-strict)")
         return
 

@@ -7,6 +7,9 @@ governance violations that must be caught before any public deployment.
 
 Allows root index.html and output/ only when the approved build pipeline
 has generated them for published routes. All other violations are hard failures.
+
+First-party JS: only static/js/interface-state.js is approved.
+All other .js files are violations.
 """
 
 import json
@@ -17,6 +20,10 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).parent.parent
 
 VIOLATIONS = []
+
+APPROVED_JS_PATHS = {
+    "static/js/interface-state.js",
+}
 
 
 def fail(msg: str) -> None:
@@ -33,13 +40,9 @@ def load_routes() -> list:
     return data.get("routes", []) if isinstance(data, dict) else data
 
 
-# Directories always forbidden at the repository root
 ALWAYS_FORBIDDEN_DIRS = ["public", "dist"]
-
-# output/ is forbidden unless routes are published (build pipeline creates it)
 BUILD_OUTPUT_DIR = "output"
 
-# Secret markers scanned in .yml and .yaml files
 YML_SECRET_MARKERS = [
     "API_KEY=",
     "SECRET_KEY=",
@@ -48,34 +51,26 @@ YML_SECRET_MARKERS = [
     "GITHUB_TOKEN=",
 ]
 
-# Patterns forbidden in HTML template files
 HTML_FORBIDDEN_PATTERNS = [
-    # Inline event handlers
     "onclick=",
     "onload=",
     "onerror=",
     "onmouseover=",
-    # Dangerous JavaScript strings
     "eval(",
     "innerHTML",
     "document.write",
-    # External script tags
     '<script src="http',
-    # Prohibited libraries and frameworks
     "three.js",
     "webgl",
     "<canvas",
-    # Analytics and tracking
     "google-analytics",
     "googletagmanager",
     "adsbygoogle",
-    # Payment and monetization
     "stripe",
     "paypal",
     "affiliate",
 ]
 
-# Directories to skip when walking the repository
 SKIP_DIRS = {".git"}
 
 
@@ -142,7 +137,6 @@ def check_yml_secret_markers() -> None:
                         if marker not in line:
                             continue
                         stripped = line.strip()
-                        # Allow legitimate secrets references (${{ secrets.X }})
                         if "secrets." in stripped or "${{" in stripped:
                             continue
                         fail(
@@ -157,8 +151,10 @@ def check_js_files() -> None:
     for root, dirs, files in os.walk(ROOT_DIR):
         dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
         for filename in files:
-            if filename.endswith(".js"):
-                rel = (Path(root) / filename).relative_to(ROOT_DIR)
+            if not filename.endswith(".js"):
+                continue
+            rel = str((Path(root) / filename).relative_to(ROOT_DIR))
+            if rel not in APPROVED_JS_PATHS:
                 fail(f"JavaScript file found (not approved): {rel}")
 
 
