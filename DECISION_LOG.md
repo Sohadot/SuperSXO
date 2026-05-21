@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-05-21] — Immersive SXO Diagnostic Environment Added
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Executed Sprint 12 immersive SXO diagnostic environment rebuild.  
+**Reasoning:** After Sprint 11, the interface was technically clean but visually ordinary — still functioning as a dark website with content panels rather than a VR-inspired sovereign UX/UI reference interface. The owner requirement is that the visitor must feel as if they are inside a governed Search Experience Control System, not reading about one.  
+**Impact:** All six published alpha routes now render within an immersive SXO Diagnostic Environment featuring a seven-station diagnostic panel, a station rail with IntersectionObserver-driven active state, and a rebuilt immersive CSS layout. First-party JavaScript (interface-state.js) is now approved as a governed progressive enhancement. Governed by data/approved-scripts.json. Two new validators added: validate_approved_scripts and validate_immersive_experience. Quality gate extended to 17 validators. CSS tokens extended with 15 Sprint 12 tokens. No new routes. No external dependencies. No tracking. Core content readable without JavaScript.  
+**Logged by:** agent
+
+---
+
 ## [2026-05-21] - True Search Experience Control Interface Added
 
 **Type:** architecture  
@@ -80,33 +91,11 @@ Each entry must follow this structure:
 
 ---
 
-## [2026-05-20] — Sovereign VR-Spatial Interface Upgrade Added
-
-**Type:** architecture  
-**Status:** decided  
-**Decision:** Executed Sprint 10 sovereign spatial interface upgrade: transformed public alpha from a conventional styled text site into a sovereign spatial search-experience control plane. Updated base template, page template, header component, route-context component, spatial-map component. Updated `static/css/tokens.css` and `static/css/main.css`. Created `scripts/validate_spatial_interface.py`. Added `validate_spatial_interface` to `scripts/quality_gate.py`.  
-**Reasoning:** The public alpha was rendering as a readable but visually conventional styled text site — insufficient for a sovereign-grade strategic digital asset.  
-**Impact:** Six published alpha routes rendered with sovereign spatial interface. 14 validators total. No JavaScript, external scripts, analytics, tracking, forms, payment links, affiliate links, or heavy 3D introduced. No new routes. Deferred routes remain unpublished. Sovereign quality gate passes before and after build.  
-**Logged by:** agent
-
----
-
-## [2026-05-20] — CNAME Copied to output/ for Custom Domain Stability
-
-**Type:** architecture  
-**Status:** decided  
-**Decision:** Updated `scripts/build.py` to copy the repository root `CNAME` file into `output/CNAME` during every build. Updated `scripts/validate_deploy_assets.py` to verify `output/CNAME` exists in strict mode.  
-**Reasoning:** When GitHub Pages deploys from a GitHub Actions artifact, `CNAME` must be in the artifact or the custom domain binding is dropped.  
-**Impact:** `output/CNAME` generated on every build. Strict deploy asset validator enforces its presence. Operator action required: Settings → Pages → Source → GitHub Actions.  
-**Logged by:** agent
-
----
-
 ## [2026-05-20] — Deploy Asset Validation Context Fixed
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Added `--strict` flag support to `scripts/validate_deploy_assets.py`. Without `--strict`: skips safely pre-build. With `--strict`: full enforcement of CSS assets, HTML references, no JS files, no external resources, no deferred route output. Updated `deploy-pages.yml` to use `--strict` after build.  
+**Decision:** Added `--strict` flag support to `scripts/validate_deploy_assets.py`. Without `--strict`: skips safely pre-build. With `--strict`: full enforcement of CSS assets, HTML references, no unapproved JS files, no external resources, no deferred route output.  
 **Reasoning:** Pre-build quality gate was failing because `output/` existed without CSS from a previous sprint. Strict validation is a deployment-time concern, not a source governance concern.  
 **Impact:** Push/PR quality gate passes in both pre-build and post-build states. Deployment workflow enforces strict validation after build.  
 **Logged by:** agent
@@ -157,7 +146,6 @@ Each entry must follow this structure:
 
 ---
 
-main
 ## [2026-05-20] — Security and Technical Hardening Baseline Added
 
 **Type:** security  

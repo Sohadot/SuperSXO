@@ -9,7 +9,7 @@ Security controls are enforced through machine-readable governance and automated
 - `data/security-baseline.json` — machine-readable security controls for nine governance areas
 - `data/technical-risk-register.json` — machine-readable risk entries with `blocks_publication` enforcement
 - `scripts/validate_security_baseline.py` — validates control groups and risk entries against governance rules
-- `scripts/validate_repository_hygiene.py` — scans the repository for secrets, forbidden directories, JavaScript violations, external scripts, and prohibited patterns
+- `scripts/validate_repository_hygiene.py` — scans the repository for secrets, forbidden directories, unapproved JavaScript, external scripts, and prohibited patterns
 
 These validators run as part of the sovereign quality gate on every push.
 
@@ -57,6 +57,36 @@ The repository must at all times:
 
 ---
 
+## Third-Party Script Policy
+
+No third-party script may be added without:
+
+1. A documented justification
+2. A review of what data the script accesses
+3. A Content-Security-Policy update
+4. A log entry in `DECISION_LOG.md`
+
+---
+
+## First-Party JavaScript Policy
+
+First-party JavaScript is permitted only as a governed progressive enhancement under the following conditions:
+
+1. The script must be registered in `data/approved-scripts.json` with a stated purpose, allowed APIs, and forbidden APIs.
+2. The script must be validated by `scripts/validate_approved_scripts.py` on every push.
+3. The script must not use: `eval`, `innerHTML`, `document.write`, `fetch`, `XMLHttpRequest`, `localStorage`, `sessionStorage`, `document.cookie`, `import`, or external script loading.
+4. The script must not make any network requests.
+5. The script must not collect, store, or transmit any user data.
+6. The core content must remain fully readable and navigable without JavaScript.
+7. The script must be loaded with the `defer` attribute.
+8. The script must be deployed only via the approved build pipeline (`scripts/build.py`).
+
+**Currently approved:** `static/js/interface-state.js` — IntersectionObserver station active state for the SXO diagnostic environment. Governed by `data/approved-scripts.json`.
+
+Any additional first-party script requires a new entry in `data/approved-scripts.json`, a review, and a log entry in `DECISION_LOG.md` before implementation.
+
+---
+
 ## Deployment Security Headers
 
 Future deployment must support strong security headers:
@@ -96,17 +126,6 @@ All Cloudflare operations are governed by the Sovereign Asset System cloudflare 
 
 ---
 
-## Third-Party Script Policy
-
-No third-party script may be added without:
-
-1. A documented justification
-2. A review of what data the script accesses
-3. A Content-Security-Policy update
-4. A log entry in `DECISION_LOG.md`
-
----
-
 ## Security Violation Classification
 
 Any of the following constitutes a security violation:
@@ -115,6 +134,7 @@ Any of the following constitutes a security violation:
 |---|---|
 | Secret committed to repository | Critical |
 | Unreviewed third-party script injection | High |
+| Unapproved first-party JS file (not in approved-scripts.json) | High |
 | User data collected without consent | High |
 | Payment logic added without approval | High |
 | Admin functionality without authentication design | Medium |
