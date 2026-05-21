@@ -6,6 +6,7 @@ Enforces that the light institutional adjudication interface is correctly
 integrated at source level: templates, CSS tokens, and base.html.
 """
 
+import re
 import sys
 from pathlib import Path
 
@@ -74,7 +75,7 @@ def main() -> None:
 
     if TOKENS_CSS.is_file():
         tokens_content = TOKENS_CSS.read_text(encoding="utf-8")
-        if "--surface-console: #f8f7f5" not in tokens_content:
+        if not re.search(r"--surface-console:\s+#f8f7f5", tokens_content):
             fail(
                 "static/css/tokens.css :root must define --surface-console: #f8f7f5 "
                 "(light institutional default)"
