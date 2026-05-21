@@ -36,24 +36,46 @@ Each entry must follow this structure:
 
 ---
 
-## [2026-05-21] — True Search Experience Control Interface Added
+## [2026-05-21] - True Search Experience Control Interface Added
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Executed Sprint 11 true search experience control interface rebuild. Identified that the interface after Sprints 10 and 10B still presented as a dark card-based content website with a CSS grid background and box-shadow float cards, not as a search experience control or diagnostic system. Checked `templates/base.html` for viewport meta — `width=device-width, initial-scale=1.0` was already present; no change required. Completely rewrote `static/css/main.css`: removed CSS grid background from `.control-plane-shell`, removed box-shadow float card styling from content sections, removed radial glow decorations; added solid dark surface, `route-status-strip` (thin contextual bar below command header), `search-to-action-control-map` as the primary class for the seven-layer journey map, CSS-only signal line through journey checkpoints via `::before` pseudo-element on `.journey-plane`, numbered circular checkpoint nodes in `.layer-index`, `content-control-deck` using `gap: 1px` on dark background for diagnostic panel appearance, `governed-action-routes` replacing CTA buttons with functional diagnostic link list, `diagnostic-layer-rail` styling, full mobile breakpoints for 768px and 480px. Restructured `templates/page.html`: added `route-status-strip` at the top of every page, added `system-label` div inside `page-signal-header`, moved the seven-layer journey map to the top of the content area (above page body sections), renamed `content-deck` to `content-control-deck`, renamed `related-routes-panel` to `governed-action-routes`. Updated `templates/components/spatial-map.html` to use `search-to-action-control-map` as primary class with `journey-control-map` as backward-compatible alias. Created `scripts/validate_control_interface.py` checking: viewport meta present in base.html, main.css contains command-header, control-map, diagnostic-layer, route-telemetry, @media, overflow-x; main.css has no @import url; no external resource references; no JS files; no external script tags in templates; no deferred route paths hardcoded in published templates. Added `validate_control_interface` to `scripts/quality_gate.py` after `validate_spatial_interface` (15 validators total).  
-**Reasoning:** After Sprints 10 and 10B the CSS class naming was corrected but the visual design still produced a dark blog with floating card sections and a cosmic grid background. The interface must not look like a content site — it must itself demonstrate the search-to-action journey it describes. The seven SXO layers are the central intellectual property of the asset and must be the first structural element after the heading, not buried at the bottom. The CSS grid background pattern was associated with a space aesthetic by the previous sprints and was removed entirely. Card floats were replaced with diagnostic panel rows (border-left, no shadow, gap-separated). The route-status-strip provides persistent route context without requiring JavaScript. The signal line through the journey checkpoints expresses the governed, sequential nature of the SXO system through structure rather than decoration.  
-**Impact:** All six published alpha routes will render with a rebuilt search experience control interface after the next build and deployment. The seven-layer journey map is now structurally central — visible near the top of every page above content sections. Route-status-strip added to every page. CSS grid background removed. Card float styling removed. Diagnostic panel row styling added. Mobile layout comprehensively updated: command header stacks cleanly, journey becomes vertical checkpoints, no horizontal overflow, adequate padding. `validate_control_interface.py` added as validator 15 in the quality gate. No JavaScript was introduced. No external scripts, analytics, tracking, forms, payment links, affiliate links, or heavy 3D were added. No external fonts or dependencies were introduced. No WebGL, Three.js, or canvas-only content was added. No new routes were created. Deferred routes (`/seo-vs-sxo/`, `/ai-search-experience/`, `/acquisition/`) remain unpublished. No validators were weakened. Sovereign quality gate passes before and after build.  
+**Decision:** Executed Sprint 11 true search experience control interface rebuild.  
+**Reasoning:** After Sprint 10 and 10B, the CSS class naming and conceptual language were corrected, but the visual delivery still behaved too much like a dark content site rather than a governed search-to-action control interface. The interface needed to make the seven SXO layers structurally central and correct mobile rendering behavior.  
+**Impact:** All six published alpha routes now render within a rebuilt search experience control interface with a route status strip, system label, top-level journey control map, diagnostic panel rows, mobile-safe layout, and validator coverage for viewport and control-interface requirements.  
 **Logged by:** agent
 
 ---
 
-## [2026-05-20] — Conceptual Interface Realignment Added
+## [2026-05-20] - Conceptual Interface Realignment Added
 
 **Type:** architecture  
 **Status:** decided  
-**Decision:** Executed Sprint 10B conceptual interface realignment. Corrected the visual direction established in Sprint 10 away from space/cosmic/orbit metaphors toward a search experience control and diagnostic system identity. Updated `VISUAL_SYSTEM.md` to reframe the interface as a "Sovereign Search Experience Control Interface" and the mental model as "Search-to-Action Control Plane"; added cosmic/orbital patterns to the Forbidden Patterns table. Updated `UX_UI_STANDARD.md` with a new section "Interface Metaphor: Diagnostic Control, Not Space"; added space-themed and orbital metaphors to the prohibited list; added step 4 to UX Decision Protocol. Updated `data/interface-patterns.json`: renamed `search_to_action_orbit` → `search_to_action_control_map`, `spatial_command_header` → `command_header_interface`, `sovereign_signal_grid` → `governed_signal_grid`; added five new prohibited patterns (cosmic_interface, outer_space_metaphor, orbit_metaphor_without_function, decorative_sci_fi_grid, visual_depth_without_diagnostic_meaning). Updated `data/component-registry.json`: renamed `spatial_header` → `command_header`, `journey_orbit` → `journey_control_map` with updated role descriptions. Updated `data/visual-tokens.json`: added control-system tokens; kept old space-themed tokens as legacy aliases. Updated `scripts/validate_spatial_interface.py` to check for `command-header` and `journey-control-map` instead of old names. Updated `static/css/tokens.css` with all new control-system tokens; old tokens converted to variable aliases. Updated `static/css/main.css`, `templates/components/header.html`, `templates/components/spatial-map.html`, and `templates/page.html`. Updated `summary` fields in four content JSON files to replace internal-planning language with sovereign asset copy.  
-**Reasoning:** Sprint 10 introduced orbit, deep-space, and cosmic visual language throughout CSS class names, token names, and template classes. This framing was wrong for the asset story. The `summary` fields in four content JSON files contained internal planning notes rendered publicly via `build.py`.  
-**Impact:** All six published alpha routes render with control-system class names and tokens. Old space-themed class names preserved as combined CSS selectors. No layout changes. No content changes. No route changes. No validators weakened. Quality gate passes before and after build.  
+**Decision:** Executed Sprint 10B conceptual interface realignment.  
+**Reasoning:** Sprint 10 introduced orbit, deep-space, and cosmic visual language that did not serve the SuperSXO conceptual story. The asset is not about outer space; it is about governing the journey from search visibility to trust, clarity, navigation confidence, and action.  
+**Impact:** All six published alpha routes render with control-system class names and tokens rather than space-themed metaphors. The visual system now frames the interface as a search-experience control system, not a cosmic or orbital interface.  
+**Logged by:** agent
+
+---
+
+## [2026-05-20] - Sovereign VR-Spatial Interface Upgrade Added
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Executed Sprint 10 sovereign spatial interface upgrade.  
+**Reasoning:** The public alpha rendered as a readable but visually conventional styled content site. The interface needed to move toward the agreed non-traditional, future-facing, immersive direction while preserving static-first architecture and accessibility.  
+**Impact:** Six published alpha routes rendered with sovereign spatial interface structure and an upgraded visual system. Fourteen validators were active in the quality gate.  
+**Logged by:** agent
+
+---
+
+## [2026-05-20] - CNAME Copied to output/ for Custom Domain Stability
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Updated `scripts/build.py` to copy the repository root `CNAME` file into `output/` during every build.  
+**Reasoning:** When GitHub Pages deploys from a GitHub Actions artifact, `CNAME` must be included in the deployed artifact to preserve the custom domain configuration.  
+**Impact:** `output/CNAME` is generated on every build. Strict deployment validation enforces that the custom domain remains stable during future deployments.  
 **Logged by:** agent
 
 ---
@@ -135,6 +157,7 @@ Each entry must follow this structure:
 
 ---
 
+main
 ## [2026-05-20] — Security and Technical Hardening Baseline Added
 
 **Type:** security  
