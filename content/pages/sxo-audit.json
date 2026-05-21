@@ -32,7 +32,7 @@
       "content": "The audit follows a defined process governed by the SuperSXO Methodology. The process begins with an intake assessment to establish the asset's purpose, the audience it serves, and the strategic outcome it is built to achieve. The diagnostic then proceeds layer by layer through the SuperSXO Framework, applying each layer's governing conditions to the specific asset under review. Findings are documented as the assessment progresses. The final deliverable is reviewed for claim accuracy and methodology adherence before it is issued. The process is structured to produce a finding that is defensible, reproducible by the methodology, and actionable by the operator receiving it."
     },
     {
-      "name": "request_path",
+      "name": "intake_procedure",
       "purpose": "Provide a clear, dignified way to request an audit. No aggressive forms. No fake scarcity. No countdown timers.",
       "content": "Audit requests are accepted on a governed basis. The request process is straightforward: submit a request with the asset URL and a brief description of the strategic purpose of the asset. Requests are reviewed and a response issued. There is no artificial scarcity. There are no limited-time pricing tiers. There are no high-pressure follow-up sequences. The audit is offered to operators who need a professional diagnostic instrument and are prepared to act on its findings."
     }

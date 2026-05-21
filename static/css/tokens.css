@@ -1,91 +1,108 @@
 /*
   tokens.css
-  SuperSXO Sovereign Search Experience Control Interface — Design Tokens
+  SuperSXO — Sovereign Adjudication System
+  Light Institutional Visual System — Default Mode
 
   All visual decisions derive from these tokens.
-  No token may be overridden inline without a documented reason.
+  Dark mode is optional and secondary. Toggle via [data-theme="dark"].
 */
 
 :root {
 
-  /* ── Surface Colors ── */
-  --surface-base:          #090b0e;
-  --surface-raised:        #0e1116;
-  --surface-panel:         #13171f;
-  --surface-overlay:       #181d28;
-  --surface-highlight:     #1d2333;
-  --surface-control-plane: #090b0e;
+  /* ── Surface Colors (Light / Document / Institutional) ── */
+  --surface-base:            #f8f7f5;
+  --surface-page:            #ffffff;
+  --surface-raised:          #f4f3f0;
+  --surface-panel:           #efefed;
+  --surface-overlay:         #e8e7e4;
+  --surface-highlight:       #e4e3e0;
+  --surface-control-plane:   #f8f7f5;
 
-  /* Control-System Surface Tokens */
-  --surface-control-base:     #050709;
-  --surface-control-panel:    #0c0f14;
-  --surface-signal-field:     rgba(5, 7, 9, 0.92);
-  --surface-diagnostic-layer: #0e1218;
+  --surface-control-base:     #ffffff;
+  --surface-control-panel:    #f4f3f0;
+  --surface-signal-field:     rgba(255, 255, 255, 0.95);
+  --surface-diagnostic-layer: #f4f3f0;
 
-  /* Sprint 12: Immersive Interface Surface Tokens */
-  --surface-console:        #020304;
-  --surface-instrument:     #080b0f;
-  --surface-readout:        #0b0e14;
-  --surface-station-active: rgba(58, 111, 216, 0.09);
+  --surface-console:        #f8f7f5;
+  --surface-instrument:     #f4f3f0;
+  --surface-readout:        #efefed;
+  --surface-station-active: rgba(41, 85, 184, 0.06);
   --surface-station-idle:   transparent;
 
-  /* Legacy Surface Aliases (kept for backward compatibility) */
+  --surface-signal:  rgba(41, 85, 184, 0.05);
+  --surface-trust:   rgba(29, 122, 95, 0.05);
+  --surface-verdict: rgba(122, 90, 0, 0.05);
+  --surface-breach:  rgba(138, 31, 31, 0.04);
+
   --surface-deep-space: var(--surface-control-base);
   --surface-orbit:      var(--surface-control-panel);
   --surface-glass:      var(--surface-signal-field);
   --surface-command:    var(--surface-diagnostic-layer);
 
   /* ── Ink / Text Colors ── */
-  --ink-primary:   #e6e8f0;
-  --ink-secondary: #8e97ac;
-  --ink-muted:     #525d72;
-  --ink-inverse:   #090b0e;
+  --ink-primary:   #1a1f2e;
+  --ink-secondary: #3a4156;
+  --ink-muted:     #6b7491;
+  --ink-faint:     #9ba3be;
+  --ink-inverse:   #f4f3f0;
 
-  /* ── Signal Accent Colors ── */
-  --signal-primary:   #4a7cdc;
-  --signal-secondary: #2a5cc0;
-  --signal-glow:      rgba(74, 124, 220, 0.14);
-  --signal-subtle:    rgba(74, 124, 220, 0.06);
+  /* ── Signal (Institutional Blue) ── */
+  --signal-primary:       #2955b8;
+  --signal-secondary:     #1d3d8a;
+  --signal-accent:        #4273d4;
+  --signal-glow:          rgba(41, 85, 184, 0.10);
+  --signal-subtle:        rgba(41, 85, 184, 0.05);
+  --signal-soft:          rgba(41, 85, 184, 0.06);
+  --signal-border:        rgba(41, 85, 184, 0.18);
+  --signal-border-strong: rgba(41, 85, 184, 0.38);
 
-  /* Extended Signal System */
-  --signal-blue:      #3a6fd8;
-  --signal-cyan:      #00b8d4;
-  --signal-violet:    #7c6fe0;
-  --signal-path-line: rgba(58, 111, 216, 0.45);
+  --signal-blue:      #2955b8;
+  --signal-cyan:      #0097b8;
+  --signal-violet:    #5a4ec0;
+  --signal-path-line: rgba(41, 85, 184, 0.30);
 
-  /* Sprint 12: Signal State Tokens */
-  --signal-active: #4a7cdc;
-  --signal-idle:   rgba(255, 255, 255, 0.20);
+  --signal-active: #2955b8;
+  --signal-idle:   rgba(26, 31, 46, 0.28);
 
-  /* Sprint 12: Signal Line Tokens */
-  --line-signal: rgba(58, 111, 216, 0.50);
-  --line-path:   rgba(58, 111, 216, 0.20);
+  --line-signal: rgba(41, 85, 184, 0.45);
+  --line-path:   rgba(41, 85, 184, 0.15);
 
-  /* ── Trust Accent ── */
-  --trust-color:      #38a882;
-  --trust-glow:       rgba(56, 168, 130, 0.12);
-  --trust-layer-glow: rgba(56, 168, 130, 0.15);
+  /* ── Trust (Controlled Green) ── */
+  --trust-color:      #1d7a5f;
+  --trust-glow:       rgba(29, 122, 95, 0.08);
+  --trust-layer-glow: rgba(29, 122, 95, 0.10);
+  --trust-soft:       rgba(29, 122, 95, 0.06);
+  --trust-border:     rgba(29, 122, 95, 0.22);
+  --trust-confirmed:  #1d7a5f;
 
-  /* Sprint 12: Trust / Action / Outcome State Tokens */
-  --trust-confirmed:    #38a882;
-  --action-ready:       #dfa030;
-  --outcome-registered: #7c6fe0;
+  /* ── Verdict (Muted Amber — outcome states) ── */
+  --verdict-color:  #7a5a00;
+  --verdict-soft:   rgba(122, 90, 0, 0.07);
+  --verdict-border: rgba(122, 90, 0, 0.22);
 
-  /* ── Action Accent ── */
-  --action-color:      #dfa030;
-  --action-glow:       rgba(223, 160, 48, 0.12);
-  --action-route-glow: rgba(223, 160, 48, 0.15);
+  /* ── Breach (Muted Red — failure states) ── */
+  --breach-color:  #8a1f1f;
+  --breach-soft:   rgba(138, 31, 31, 0.06);
+  --breach-border: rgba(138, 31, 31, 0.18);
 
-  /* ── Border Colors ── */
-  --border-subtle:  rgba(255, 255, 255, 0.05);
-  --border-default: rgba(255, 255, 255, 0.09);
-  --border-strong:  rgba(255, 255, 255, 0.16);
-  --border-signal:  rgba(74, 124, 220, 0.28);
+  --action-color:      var(--verdict-color);
+  --action-glow:       var(--verdict-soft);
+  --action-route-glow: rgba(122, 90, 0, 0.10);
+  --action-ready:      var(--verdict-color);
+  --outcome-registered: var(--signal-violet);
+
+  /* ── Border / Rule Lines ── */
+  --border-rule:    rgba(26, 31, 46, 0.10);
+  --border-faint:   rgba(26, 31, 46, 0.05);
+  --border-subtle:  rgba(26, 31, 46, 0.06);
+  --border-default: rgba(26, 31, 46, 0.10);
+  --border-strong:  rgba(26, 31, 46, 0.18);
+  --border-signal:  var(--signal-border);
 
   /* ── Grid Lines ── */
-  --grid-line:        rgba(255, 255, 255, 0.04);
-  --grid-line-soft:   rgba(255, 255, 255, 0.03);
-  --grid-line-strong: rgba(255, 255, 255, 0.08);
+  --grid-line:        rgba(26, 31, 46, 0.06);
+  --grid-line-soft:   rgba(26, 31, 46, 0.04);
+  --grid-line-strong: rgba(26, 31, 46, 0.08);
 
   /* ── Border Radius ── */
   --radius-xs:      2px;
@@ -94,14 +111,11 @@
   --radius-lg:      10px;
   --radius-xl:      16px;
   --radius-control: 8px;
-  --radius-orbit:   8px; /* legacy alias */
-
-  /* Sprint 12: Immersive Interface Radius Tokens */
+  --radius-orbit:   8px;
   --radius-station: 50%;
   --radius-readout: 4px;
 
-  /* ── Ring Border ── */
-  --ring-border: 1px solid rgba(74, 124, 220, 0.30);
+  --ring-border: 1px solid rgba(41, 85, 184, 0.28);
 
   /* ── Spacing Scale ── */
   --space-1:  0.25rem;
@@ -118,36 +132,32 @@
   --space-24: 6rem;
 
   /* ── Shadow / Depth Tokens ── */
-  --shadow-sm:    0 1px 3px rgba(0, 0, 0, 0.40);
-  --shadow-md:    0 4px 12px rgba(0, 0, 0, 0.50);
-  --shadow-lg:    0 8px 24px rgba(0, 0, 0, 0.60);
-  --shadow-panel: 0 2px 16px rgba(0, 0, 0, 0.50),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  --shadow-glow-signal: 0 0 14px var(--signal-glow);
+  --shadow-sm:    0 1px 3px rgba(26, 31, 46, 0.08);
+  --shadow-md:    0 3px 10px rgba(26, 31, 46, 0.10);
+  --shadow-lg:    0 6px 20px rgba(26, 31, 46, 0.12);
+  --shadow-panel: 0 2px 8px rgba(26, 31, 46, 0.08),
+                  inset 0 -1px 0 rgba(26, 31, 46, 0.05);
+  --shadow-case:  0 1px 4px rgba(26, 31, 46, 0.10),
+                  0 4px 16px rgba(26, 31, 46, 0.06);
+  --shadow-glow-signal: 0 0 14px rgba(41, 85, 184, 0.10);
 
-  /* Control-System Depth Tokens */
-  --depth-control:          0 0 0 1px rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.40);
-  --depth-diagnostic-panel: 0 4px 24px rgba(0, 0, 0, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-
-  /* Sprint 12: Interface Depth Token */
-  --depth-interface: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 8px 40px rgba(0, 0, 0, 0.60);
-
-  /* Legacy Depth Aliases */
+  --depth-control:          0 0 0 1px rgba(26, 31, 46, 0.06), 0 2px 8px rgba(26, 31, 46, 0.08);
+  --depth-diagnostic-panel: 0 2px 12px rgba(26, 31, 46, 0.08), inset 0 -1px 0 rgba(26, 31, 46, 0.04);
+  --depth-interface:        0 0 0 1px rgba(26, 31, 46, 0.08), 0 4px 20px rgba(26, 31, 46, 0.08);
   --depth-orbit:   var(--depth-control);
   --depth-panel:   var(--depth-diagnostic-panel);
-  --depth-command: 0 8px 32px rgba(0, 0, 0, 0.70);
+  --depth-command: 0 4px 20px rgba(26, 31, 46, 0.10);
 
   /* ── Perspective ── */
   --perspective-soft: 1000px;
 
-  /* ── Motion Duration Tokens ── */
+  /* ── Motion ── */
   --duration-instant:     80ms;
   --duration-fast:       150ms;
   --duration-base:       250ms;
   --duration-slow:       400ms;
   --duration-deliberate: 600ms;
 
-  /* ── Easing ── */
   --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --easing-enter:    cubic-bezier(0, 0, 0.2, 1);
   --easing-exit:     cubic-bezier(0.4, 0, 1, 1);
@@ -176,4 +186,163 @@
   /* ── Container Width ── */
   --container-max:  1200px;
   --container-text: 68ch;
+
+  /* ── Font Stacks ── */
+  --font-display: Georgia, "Times New Roman", Times, serif;
+  --font-body:    system-ui, -apple-system, BlinkMacSystemFont,
+                  "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono:    "SF Mono", "Fira Code", "Courier New", Courier, monospace;
+}
+
+/* ── Dark Mode — explicit toggle ── */
+[data-theme="dark"] {
+  --surface-base:            #0e1116;
+  --surface-page:            #13171f;
+  --surface-raised:          #181d28;
+  --surface-panel:           #1d2333;
+  --surface-overlay:         #222840;
+  --surface-highlight:       #272f45;
+  --surface-control-plane:   #090b0e;
+  --surface-control-base:     #050709;
+  --surface-control-panel:    #0c0f14;
+  --surface-signal-field:     rgba(5, 7, 9, 0.92);
+  --surface-diagnostic-layer: #0e1218;
+  --surface-console:        #020304;
+  --surface-instrument:     #080b0f;
+  --surface-readout:        #0b0e14;
+  --surface-station-active: rgba(58, 111, 216, 0.09);
+  --surface-signal:  rgba(74, 124, 220, 0.08);
+  --surface-trust:   rgba(56, 168, 130, 0.08);
+  --surface-verdict: rgba(223, 160, 48, 0.08);
+  --surface-breach:  rgba(220, 80, 80, 0.06);
+  --ink-primary:   #e6e8f0;
+  --ink-secondary: #8e97ac;
+  --ink-muted:     #525d72;
+  --ink-faint:     #363e52;
+  --ink-inverse:   #090b0e;
+  --signal-primary:       #4a7cdc;
+  --signal-secondary:     #2a5cc0;
+  --signal-accent:        #6a9ce8;
+  --signal-glow:          rgba(74, 124, 220, 0.14);
+  --signal-subtle:        rgba(74, 124, 220, 0.06);
+  --signal-soft:          rgba(74, 124, 220, 0.08);
+  --signal-border:        rgba(74, 124, 220, 0.28);
+  --signal-border-strong: rgba(74, 124, 220, 0.50);
+  --signal-blue:      #3a6fd8;
+  --signal-cyan:      #00b8d4;
+  --signal-violet:    #7c6fe0;
+  --signal-path-line: rgba(58, 111, 216, 0.45);
+  --signal-active: #4a7cdc;
+  --signal-idle:   rgba(255, 255, 255, 0.20);
+  --line-signal: rgba(58, 111, 216, 0.50);
+  --line-path:   rgba(58, 111, 216, 0.20);
+  --trust-color:      #38a882;
+  --trust-glow:       rgba(56, 168, 130, 0.12);
+  --trust-layer-glow: rgba(56, 168, 130, 0.15);
+  --trust-soft:       rgba(56, 168, 130, 0.10);
+  --trust-border:     rgba(56, 168, 130, 0.30);
+  --trust-confirmed:  #38a882;
+  --verdict-color:  #dfa030;
+  --verdict-soft:   rgba(223, 160, 48, 0.10);
+  --verdict-border: rgba(223, 160, 48, 0.30);
+  --breach-color:  #dc5050;
+  --breach-soft:   rgba(220, 80, 80, 0.08);
+  --breach-border: rgba(220, 80, 80, 0.25);
+  --action-color:      var(--verdict-color);
+  --action-glow:       var(--verdict-soft);
+  --action-route-glow: rgba(223, 160, 48, 0.15);
+  --action-ready:      var(--verdict-color);
+  --outcome-registered: var(--signal-violet);
+  --border-rule:    rgba(255, 255, 255, 0.07);
+  --border-faint:   rgba(255, 255, 255, 0.04);
+  --border-subtle:  rgba(255, 255, 255, 0.05);
+  --border-default: rgba(255, 255, 255, 0.09);
+  --border-strong:  rgba(255, 255, 255, 0.16);
+  --grid-line:        rgba(255, 255, 255, 0.04);
+  --grid-line-soft:   rgba(255, 255, 255, 0.03);
+  --grid-line-strong: rgba(255, 255, 255, 0.08);
+  --shadow-sm:    0 1px 3px rgba(0, 0, 0, 0.40);
+  --shadow-md:    0 4px 12px rgba(0, 0, 0, 0.50);
+  --shadow-lg:    0 8px 24px rgba(0, 0, 0, 0.60);
+  --shadow-panel: 0 2px 16px rgba(0, 0, 0, 0.50),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-case:  0 2px 8px rgba(0, 0, 0, 0.35),
+                  0 8px 30px rgba(0, 0, 0, 0.25);
+  --shadow-glow-signal: 0 0 14px rgba(74, 124, 220, 0.18);
+  --depth-control:          0 0 0 1px rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.40);
+  --depth-diagnostic-panel: 0 4px 24px rgba(0, 0, 0, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --depth-interface:        0 0 0 1px rgba(255, 255, 255, 0.04), 0 8px 40px rgba(0, 0, 0, 0.60);
+  --depth-command:          0 8px 32px rgba(0, 0, 0, 0.70);
+}
+
+/* ── Dark Mode — system preference fallback ── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface-base:            #0e1116;
+    --surface-page:            #13171f;
+    --surface-raised:          #181d28;
+    --surface-panel:           #1d2333;
+    --surface-control-plane:   #090b0e;
+    --surface-control-base:     #050709;
+    --surface-control-panel:    #0c0f14;
+    --surface-signal-field:     rgba(5, 7, 9, 0.92);
+    --surface-diagnostic-layer: #0e1218;
+    --surface-console:        #020304;
+    --surface-instrument:     #080b0f;
+    --surface-readout:        #0b0e14;
+    --surface-station-active: rgba(58, 111, 216, 0.09);
+    --surface-signal:  rgba(74, 124, 220, 0.08);
+    --surface-trust:   rgba(56, 168, 130, 0.08);
+    --surface-verdict: rgba(223, 160, 48, 0.08);
+    --surface-breach:  rgba(220, 80, 80, 0.06);
+    --ink-primary:   #e6e8f0;
+    --ink-secondary: #8e97ac;
+    --ink-muted:     #525d72;
+    --ink-faint:     #363e52;
+    --ink-inverse:   #090b0e;
+    --signal-primary:       #4a7cdc;
+    --signal-secondary:     #2a5cc0;
+    --signal-accent:        #6a9ce8;
+    --signal-glow:          rgba(74, 124, 220, 0.14);
+    --signal-subtle:        rgba(74, 124, 220, 0.06);
+    --signal-soft:          rgba(74, 124, 220, 0.08);
+    --signal-border:        rgba(74, 124, 220, 0.28);
+    --signal-border-strong: rgba(74, 124, 220, 0.50);
+    --signal-blue:      #3a6fd8;
+    --signal-cyan:      #00b8d4;
+    --signal-violet:    #7c6fe0;
+    --signal-active: #4a7cdc;
+    --signal-idle:   rgba(255, 255, 255, 0.20);
+    --line-signal: rgba(58, 111, 216, 0.50);
+    --line-path:   rgba(58, 111, 216, 0.20);
+    --trust-color:     #38a882;
+    --trust-soft:      rgba(56, 168, 130, 0.10);
+    --trust-border:    rgba(56, 168, 130, 0.30);
+    --trust-confirmed: #38a882;
+    --verdict-color:  #dfa030;
+    --verdict-soft:   rgba(223, 160, 48, 0.10);
+    --verdict-border: rgba(223, 160, 48, 0.30);
+    --breach-color:  #dc5050;
+    --breach-soft:   rgba(220, 80, 80, 0.08);
+    --breach-border: rgba(220, 80, 80, 0.25);
+    --border-rule:    rgba(255, 255, 255, 0.07);
+    --border-faint:   rgba(255, 255, 255, 0.04);
+    --border-subtle:  rgba(255, 255, 255, 0.05);
+    --border-default: rgba(255, 255, 255, 0.09);
+    --border-strong:  rgba(255, 255, 255, 0.16);
+    --grid-line:        rgba(255, 255, 255, 0.04);
+    --grid-line-soft:   rgba(255, 255, 255, 0.03);
+    --grid-line-strong: rgba(255, 255, 255, 0.08);
+    --shadow-sm:    0 1px 3px rgba(0, 0, 0, 0.40);
+    --shadow-md:    0 4px 12px rgba(0, 0, 0, 0.50);
+    --shadow-lg:    0 8px 24px rgba(0, 0, 0, 0.60);
+    --shadow-panel: 0 2px 16px rgba(0, 0, 0, 0.50),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    --shadow-case:  0 2px 8px rgba(0, 0, 0, 0.35),
+                    0 8px 30px rgba(0, 0, 0, 0.25);
+    --depth-control:          0 0 0 1px rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.40);
+    --depth-diagnostic-panel: 0 4px 24px rgba(0, 0, 0, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    --depth-interface:        0 0 0 1px rgba(255, 255, 255, 0.04), 0 8px 40px rgba(0, 0, 0, 0.60);
+    --depth-command:          0 8px 32px rgba(0, 0, 0, 0.70);
+  }
 }

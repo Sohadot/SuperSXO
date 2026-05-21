@@ -16,9 +16,10 @@ Safety rules enforced at build time:
   - Root index.html generated only for route "/".
   - Subdirectory index.html generated for all other routes.
   - Governed CSS assets are copied into output/static/css/.
-  - Approved first-party JS is copied into output/static/js/.
+  - Approved first-party JS files are copied into output/static/js/.
   - CNAME is copied into output/ for custom domain stability.
   - Build fails clearly if required CSS, JS, or CNAME source files are missing.
+  - Homepage (route "/") is rendered from templates/home.html and source components.
 """
 
 import json
@@ -40,7 +41,10 @@ REQUIRED_CSS_FILES = [
     STATIC_DIR / "css" / "main.css",
 ]
 
-APPROVED_JS_FILE = STATIC_DIR / "js" / "interface-state.js"
+APPROVED_JS_FILES = [
+    STATIC_DIR / "js" / "interface-state.js",
+    STATIC_DIR / "js" / "theme-toggle.js",
+]
 
 CTA_DEFINITIONS = {
     "explore_framework": {
@@ -172,6 +176,25 @@ def render_footer(nav_data: dict, published_paths: set) -> str:
     return render(tmpl, {"footer_nav_items": footer_items})
 
 
+def render_homepage(content: dict) -> str:
+    """Render the homepage from source adjudication components."""
+    opening_chamber = render(load_component("opening-chamber.html"), {
+        "case_heading": content.get("h1", ""),
+        "case_thesis": content.get("summary", ""),
+    })
+    examination_record = load_component("examination-record.html")
+    assessment_entry = load_component("assessment-entry.html")
+    doctrine_statement = load_component("doctrine-statement.html")
+
+    home_tmpl = load_template("home.html")
+    return render(home_tmpl, {
+        "opening_chamber": opening_chamber,
+        "examination_record": examination_record,
+        "assessment_entry": assessment_entry,
+        "doctrine_statement": doctrine_statement,
+    })
+
+
 def render_full_page(
     route: dict,
     content: dict,
@@ -180,26 +203,30 @@ def render_full_page(
     routes_map: dict,
 ) -> str:
     """Render a complete HTML page from route, content, and templates."""
-    route_context = render_route_context(route)
     header = render_header(nav_data, published_paths)
     footer = render_footer(nav_data, published_paths)
-    sxo_diagnostic_environment = load_component("sxo-diagnostic-environment.html")
 
-    page_tmpl = load_template("page.html")
-    page_html = render(page_tmpl, {
-        "sxo_diagnostic_environment": sxo_diagnostic_environment,
-        "route_context": route_context,
-        "route_path": route["path"],
-        "page_heading": content.get("h1", content.get("title", "")),
-        "page_summary": content.get("summary", ""),
-        "page_body": render_page_body(content),
-        "related_links": render_related_links(
-            route.get("required_internal_links", []), published_paths, routes_map
-        ),
-        "allowed_cta": render_cta_block(
-            route.get("allowed_cta", []), published_paths
-        ),
-    })
+    if route["path"] == "/":
+        page_html = render_homepage(content)
+    else:
+        route_context = render_route_context(route)
+        sxo_diagnostic_environment = load_component("sxo-diagnostic-environment.html")
+
+        page_tmpl = load_template("page.html")
+        page_html = render(page_tmpl, {
+            "sxo_diagnostic_environment": sxo_diagnostic_environment,
+            "route_context": route_context,
+            "route_path": route["path"],
+            "page_heading": content.get("h1", content.get("title", "")),
+            "page_summary": content.get("summary", ""),
+            "page_body": render_page_body(content),
+            "related_links": render_related_links(
+                route.get("required_internal_links", []), published_paths, routes_map
+            ),
+            "allowed_cta": render_cta_block(
+                route.get("allowed_cta", []), published_paths
+            ),
+        })
 
     robots = "index, follow" if route.get("indexable", True) else "noindex, nofollow"
 
@@ -242,19 +269,23 @@ def copy_static_assets() -> None:
     for src in REQUIRED_CSS_FILES:
         dst = dest_css / src.name
         shutil.copy2(src, dst)
-        print(f"  ASSET: {src.relative_to(REPO_ROOT)} → {dst.relative_to(REPO_ROOT)}")
+        print(f"  ASSET: {src.relative_to(REPO_ROOT)} -> {dst.relative_to(REPO_ROOT)}")
 
 
 def copy_approved_js() -> None:
-    """Copy the approved first-party JS file into output/static/js/ for deployment."""
-    if not APPROVED_JS_FILE.is_file():
-        print(f"ERROR: approved JS file missing: {APPROVED_JS_FILE.relative_to(REPO_ROOT)}")
-        sys.exit(1)
+    """Copy approved first-party JS files into output/static/js/ for deployment."""
+    for src in APPROVED_JS_FILES:
+        if not src.is_file():
+            print(f"ERROR: approved JS file missing: {src.relative_to(REPO_ROOT)}")
+            sys.exit(1)
+
     dest_js = OUTPUT_DIR / "static" / "js"
     dest_js.mkdir(parents=True, exist_ok=True)
-    dst = dest_js / APPROVED_JS_FILE.name
-    shutil.copy2(APPROVED_JS_FILE, dst)
-    print(f"  ASSET: {APPROVED_JS_FILE.relative_to(REPO_ROOT)} → {dst.relative_to(REPO_ROOT)}")
+
+    for src in APPROVED_JS_FILES:
+        dst = dest_js / src.name
+        shutil.copy2(src, dst)
+        print(f"  ASSET: {src.relative_to(REPO_ROOT)} -> {dst.relative_to(REPO_ROOT)}")
 
 
 def copy_cname() -> None:
@@ -264,7 +295,7 @@ def copy_cname() -> None:
         sys.exit(1)
     dst = OUTPUT_DIR / "CNAME"
     shutil.copy2(CNAME_FILE, dst)
-    print(f"  ASSET: CNAME → output/CNAME ({CNAME_FILE.read_text(encoding='utf-8').strip()})")
+    print(f"  ASSET: CNAME -> output/CNAME ({CNAME_FILE.read_text(encoding='utf-8').strip()})")
 
 
 def load_content_sources() -> dict:
@@ -328,7 +359,7 @@ def main() -> None:
         if content.get("source_status") != "approved_for_build":
             errors.append(
                 f"Route '{path}': content source_status is "
-                f"'{content.get('source_status')}' — must be 'approved_for_build'"
+                f"'{content.get('source_status')}' -- must be 'approved_for_build'"
             )
             continue
 
@@ -337,7 +368,7 @@ def main() -> None:
             if link not in published_paths:
                 link_errors.append(
                     f"Route '{path}': required internal link '{link}' "
-                    f"is not published — cannot build with broken internal links"
+                    f"is not published -- cannot build with broken internal links"
                 )
         errors.extend(link_errors)
 
@@ -356,7 +387,7 @@ def main() -> None:
     for route, content in buildable:
         html = render_full_page(route, content, nav_data, published_paths, routes_map)
         out_file = write_page(route["path"], html)
-        print(f"  BUILT: {route['path']} → {out_file.relative_to(REPO_ROOT)}")
+        print(f"  BUILT: {route['path']} -> {out_file.relative_to(REPO_ROOT)}")
         built += 1
 
     print(f"Build complete. {built} page(s) generated in output/")

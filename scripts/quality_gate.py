@@ -31,6 +31,7 @@ VALIDATORS = [
     ("validate_approved_scripts",        SCRIPTS_DIR / "validate_approved_scripts.py"),
     ("validate_immersive_experience",    SCRIPTS_DIR / "validate_immersive_experience.py"),
     ("validate_deploy_assets",           SCRIPTS_DIR / "validate_deploy_assets.py"),
+    ("validate_adjudication_interface",  SCRIPTS_DIR / "validate_adjudication_interface.py"),
 ]
 
 SEP = "=" * 60

@@ -81,7 +81,9 @@ First-party JavaScript is permitted only as a governed progressive enhancement u
 7. The script must be loaded with the `defer` attribute.
 8. The script must be deployed only via the approved build pipeline (`scripts/build.py`).
 
-**Currently approved:** `static/js/interface-state.js` — IntersectionObserver station active state for the SXO diagnostic environment. Governed by `data/approved-scripts.json`.
+**Currently approved:**
+- `static/js/interface-state.js` — IntersectionObserver station active state for the SXO diagnostic environment. Governed by `data/approved-scripts.json`.
+- `static/js/theme-toggle.js` — Session-only display mode toggle. **Option A**: no localStorage, no sessionStorage, no cookies, no network calls. Toggles `data-theme` attribute on `<html>` for the current session only. Default mode is light (`data-theme="light"` set in `templates/base.html`). Dark mode is opt-in. Governed by `data/approved-scripts.json`.
 
 Any additional first-party script requires a new entry in `data/approved-scripts.json`, a review, and a log entry in `DECISION_LOG.md` before implementation.
 
