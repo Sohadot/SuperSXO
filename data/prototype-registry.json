@@ -34,6 +34,32 @@
         "monetization_script"
       ],
       "review_requirement": "Prototype must be reviewed and approved before any version is used to generate a public route. No build output may be generated from this prototype while route status is planned."
+    },
+    {
+      "prototype_id": "tribunal_viewport",
+      "route": "/tribunal-viewport/",
+      "source_file": "templates/prototypes/tribunal-viewport.html",
+      "status": "non_public_prototype",
+      "public_output_allowed": false,
+      "allowed_components": [
+        "spatial_panel",
+        "journey_control_map",
+        "signal_path"
+      ],
+      "required_data_sources": [
+        "data/ux-layers.json"
+      ],
+      "prohibited_behavior": [
+        "output_generation",
+        "route_publication",
+        "analytics_or_tracking",
+        "monetization_script",
+        "localStorage_usage",
+        "cookie_usage",
+        "external_network_call",
+        "production_route_modification"
+      ],
+      "review_requirement": "Prototype tests the Tribunal Viewport interaction mechanic. Seven Articles must visually rise above the viewport frame on hover, focus, and touch. Must be reviewed and approved before any version is adapted for a production route."
     }
   ]
 }

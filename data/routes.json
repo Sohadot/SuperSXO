@@ -136,6 +136,21 @@
       "claim_level": "commercial_claim",
       "monetization_allowed": false,
       "publication_rule": "Must pass all gates. Must be dignified and institutional. No low-trust sales language."
+    },
+    {
+      "path": "/tribunal-viewport/",
+      "title": "Tribunal Viewport — Search Experience Examination Model",
+      "role": "prototype_surface",
+      "purpose": "Non-public interaction prototype for the Tribunal Viewport / Adjudication Lens mechanic. Tests the seven-article rising-from-frame interaction model. Never to be published as a production route.",
+      "status": "planned",
+      "indexable": false,
+      "canonical": null,
+      "ux_layer": "experience",
+      "required_internal_links": [],
+      "allowed_cta": [],
+      "claim_level": "none",
+      "monetization_allowed": false,
+      "publication_rule": "Prototype only. Must not be published to production. Must not generate output/tribunal-viewport/index.html. Governed exclusively by data/prototype-registry.json."
     }
   ]
 }

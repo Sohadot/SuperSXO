@@ -1,0 +1,277 @@
+<!--
+  NON-PUBLIC PROTOTYPE — NOT GENERATED, NOT DEPLOYED, NOT INDEXABLE
+  Prototype ID: tribunal_viewport
+  Route: /tribunal-viewport/
+  Status: non_public_prototype
+  Source: templates/prototypes/tribunal-viewport.html
+  Governed by: data/prototype-registry.json
+
+  Tests the Tribunal Viewport interaction mechanic:
+  Seven Article sheets sit inside the Tribunal Viewport frame.
+  On hover / focus / tap, an Article rises above the frame,
+  scales up, and reveals its diagnostic prompt.
+
+  This file is not part of the build output. It must not generate
+  output/tribunal-viewport/index.html. It must not be published to
+  any public route. No SEO metadata. No canonical. No robots meta.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[PROTOTYPE] Tribunal Viewport — Search Experience Tribunal — Non-Public</title>
+  <!-- No canonical. No robots meta. No description. No analytics. Non-public prototype only. -->
+  <link rel="stylesheet" href="/static/css/tokens.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/tribunal-viewport.css">
+</head>
+<body class="tribunal-body">
+
+  <a class="skip-link" href="#tribunal-main">Skip to content</a>
+
+  <main id="tribunal-main" tabindex="-1" class="tribunal-main" role="main">
+
+    <div class="tribunal-stage">
+
+      <!-- ── Page Header ───────────────────────────────────── -->
+      <!-- Above the Tribunal Viewport frame -->
+
+      <header class="tribunal-header" aria-label="Tribunal identity">
+        <span class="tribunal-source" aria-label="Published by Super SXO">Super SXO</span>
+        <h1 class="tribunal-title">
+          Search Experience<br>Tribunal
+        </h1>
+      </header>
+
+      <!-- ── Case Metadata ─────────────────────────────────── -->
+
+      <dl class="tribunal-case-meta" aria-label="Case record">
+        <div class="tribunal-meta-row">
+          <dt class="meta-label">Case Status:</dt>
+          <dd class="meta-value meta-value--active">Active Examination</dd>
+        </div>
+        <div class="tribunal-meta-row">
+          <dt class="meta-label">Docket:</dt>
+          <dd class="meta-value">SXO-2036 / Search-to-Action</dd>
+        </div>
+        <div class="tribunal-meta-row">
+          <dt class="meta-label">Jurisdiction:</dt>
+          <dd class="meta-value">Search Experience Optimization</dd>
+        </div>
+      </dl>
+
+      <!-- ── Tribunal Viewport ─────────────────────────────── -->
+      <!--
+        .tribunal-viewport-wrap uses isolation: isolate to establish
+        a stacking context. Within it:
+          - .tribunal-viewport-frame is z-index 10 (the lens boundary)
+          - .article-sheet default is z-index 2 (behind the frame)
+          - .article-sheet on hover/focus/active is z-index 20 (above the frame)
+
+        This is the mechanism that makes Articles visually rise
+        above the Viewport frame when examined.
+      -->
+
+      <div class="tribunal-viewport-wrap">
+
+        <!-- The lens frame — decorative boundary, pointer-events: none -->
+        <div class="tribunal-viewport-frame" aria-hidden="true">
+          <span class="frame-corner frame-corner--tl" aria-hidden="true"></span>
+          <span class="frame-corner frame-corner--tr" aria-hidden="true"></span>
+          <span class="frame-corner frame-corner--bl" aria-hidden="true"></span>
+          <span class="frame-corner frame-corner--br" aria-hidden="true"></span>
+        </div>
+
+        <!-- Inquiry Panel -->
+        <div class="tribunal-inquiry" role="region" aria-label="Inquiry Panel">
+          <div class="inquiry-label-text" aria-hidden="true">Inquiry Panel</div>
+          <p class="inquiry-question">
+            Does visibility become trust, clarity, navigation confidence, action, and strategic outcome?
+          </p>
+        </div>
+
+        <!-- Seven Article Sheets -->
+        <ol class="article-deck" aria-label="Articles under examination. Hover, focus, or tap an article to examine it.">
+
+          <!-- Article I — Intent -->
+          <li class="article-sheet article-I">
+            <div
+              class="article-inner"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+              aria-label="Article I — Intent. Activate to examine diagnostic prompt."
+            >
+              <span class="article-numeral" aria-hidden="true">I</span>
+              <div class="article-body">
+                <div class="article-head">
+                  <span class="article-designation" aria-hidden="true">Article I</span>
+                  <span class="article-name">Intent</span>
+                </div>
+                <p class="article-prompt">
+                  What specific outcome is this visitor trying to achieve, and is that intent immediately legible in the page's structure, headline, and first visible action?
+                </p>
+              </div>
+              <span class="article-examine-cue" aria-hidden="true">Examine</span>
+            </div>
+          </li>
+
+          <!-- Article II — Visibility -->
+          <li class="article-sheet article-II">
+            <div
+              class="article-inner"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+              aria-label="Article II — Visibility. Activate to examine diagnostic prompt."
+            >
+              <span class="article-numeral" aria-hidden="true">II</span>
+              <div class="article-body">
+                <div class="article-head">
+                  <span class="article-designation" aria-hidden="true">Article II</span>
+                  <span class="article-name">Visibility</span>
+                </div>
+                <p class="article-prompt">
+                  Does the page surface at the right moment and in the right position when intent enters the search field?
+                </p>
+              </div>
+              <span class="article-examine-cue" aria-hidden="true">Examine</span>
+            </div>
+          </li>
+
+          <!-- Article III — Experience -->
+          <li class="article-sheet article-III">
+            <div
+              class="article-inner"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+              aria-label="Article III — Experience. Activate to examine diagnostic prompt."
+            >
+              <span class="article-numeral" aria-hidden="true">III</span>
+              <div class="article-body">
+                <div class="article-head">
+                  <span class="article-designation" aria-hidden="true">Article III</span>
+                  <span class="article-name">Experience</span>
+                </div>
+                <p class="article-prompt">
+                  When the visitor arrives, does the page experience justify their attention and reward the trust that brought them here?
+                </p>
+              </div>
+              <span class="article-examine-cue" aria-hidden="true">Examine</span>
+            </div>
+          </li>
+
+          <!-- Article IV — Trust -->
+          <li class="article-sheet article-IV">
+            <div
+              class="article-inner"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+              aria-label="Article IV — Trust. Activate to examine diagnostic prompt."
+            >
+              <span class="article-numeral" aria-hidden="true">IV</span>
+              <div class="article-body">
+                <div class="article-head">
+                  <span class="article-designation" aria-hidden="true">Article IV</span>
+                  <span class="article-name">Trust</span>
+                </div>
+                <p class="article-prompt">
+                  What evidence establishes credibility before the visitor is asked to commit to a next step?
+                </p>
+              </div>
+              <span class="article-examine-cue" aria-hidden="true">Examine</span>
+            </div>
+          </li>
+
+          <!-- Article V — Navigation -->
+          <li class="article-sheet article-V">
+            <div
+              class="article-inner"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+              aria-label="Article V — Navigation. Activate to examine diagnostic prompt."
+            >
+              <span class="article-numeral" aria-hidden="true">V</span>
+              <div class="article-body">
+                <div class="article-head">
+                  <span class="article-designation" aria-hidden="true">Article V</span>
+                  <span class="article-name">Navigation</span>
+                </div>
+                <p class="article-prompt">
+                  Can the visitor orient, progress, and recover their path without introducing new uncertainty?
+                </p>
+              </div>
+              <span class="article-examine-cue" aria-hidden="true">Examine</span>
+            </div>
+          </li>
+
+          <!-- Article VI — Action -->
+          <li class="article-sheet article-VI">
+            <div
+              class="article-inner"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+              aria-label="Article VI — Action. Activate to examine diagnostic prompt."
+            >
+              <span class="article-numeral" aria-hidden="true">VI</span>
+              <div class="article-body">
+                <div class="article-head">
+                  <span class="article-designation" aria-hidden="true">Article VI</span>
+                  <span class="article-name">Action</span>
+                </div>
+                <p class="article-prompt">
+                  Is the path to conversion clear, earned, low-friction, and aligned with the visitor's declared intent?
+                </p>
+              </div>
+              <span class="article-examine-cue" aria-hidden="true">Examine</span>
+            </div>
+          </li>
+
+          <!-- Article VII — Outcome -->
+          <li class="article-sheet article-VII">
+            <div
+              class="article-inner"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+              aria-label="Article VII — Outcome. Activate to examine diagnostic prompt."
+            >
+              <span class="article-numeral" aria-hidden="true">VII</span>
+              <div class="article-body">
+                <div class="article-head">
+                  <span class="article-designation" aria-hidden="true">Article VII</span>
+                  <span class="article-name">Outcome</span>
+                </div>
+                <p class="article-prompt">
+                  Did the full search-to-action arc produce a measurable strategic result for both the visitor and the operator?
+                </p>
+              </div>
+              <span class="article-examine-cue" aria-hidden="true">Examine</span>
+            </div>
+          </li>
+
+        </ol>
+        <!-- end .article-deck -->
+
+      </div>
+      <!-- end .tribunal-viewport-wrap -->
+
+    </div>
+    <!-- end .tribunal-stage -->
+
+  </main>
+
+  <!-- Operator prototype marker -->
+  <div class="prototype-banner" role="status" aria-live="off" aria-label="Prototype notice">
+    Non-Public Prototype · tribunal_viewport
+  </div>
+
+  <script src="/static/js/tribunal-viewport.js"></script>
+
+</body>
+</html>
