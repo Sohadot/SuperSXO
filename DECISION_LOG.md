@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — First Tier 4 Practitioner Surface Published: Intent Alignment Playbook
+
+**Type:** content  
+**Status:** decided  
+**Decision:** Published `/playbooks/intent-alignment/` as the first Tier 4 operational playbook of the Category Reference Engine, opening the `/playbooks/` route family. Eleven published routes (ten indexable).  
+**Reasoning:** The audience matrix's practitioner layer needs operational depth: the framework defines what must be true; playbooks define the working practices that make it true. Layer 1 goes first because it is the journey's entry condition and the first pair of statements in every Score reading and audit. The playbook operationalizes conditions Q1–Q2 without tutorial tone or performance promises, consistent with the content standard.  
+**Impact:** (1) Six sections: scope anchored to the governing-conditions registry; the intent-definition practice (a dated artifact answering four questions, written before the page — retroactive documentation explicitly fails the condition); the first-screen discipline (ordering rule plus mechanical viewport review); misalignment diagnosis working backward from query data (alignment / drift / absence findings, per the layer's published failure mode); condition maintenance (decay detection as the difference between evidence and assumption); and the measurement pathway bridging to Score and audit. (2) Route registered (role `operational_playbook`, ux_layer `search_intent`, nested path — first non-flat route, build and validators handle it), alpha plan candidate 11, source mapped. (3) Framework page links to the playbook via required internal links (inbound path). (4) Sitemap and llms.txt automatically include the new surface (10 governed URLs). (5) Full CI sequence passed post-build; the pre-build gate correctly flagged the stale committed sitemap against the updated registry before rebuild — the discovery validator working as designed.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-18] — Asset Evidence Dossier Started; Metrics Log Established; Full Production Verification Green
 
 **Type:** other  

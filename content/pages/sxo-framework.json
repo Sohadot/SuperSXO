@@ -60,7 +60,8 @@
   "required_internal_links": [
     "/what-is-sxo/",
     "/sxo-score/",
-    "/methodology/"
+    "/methodology/",
+    "/playbooks/intent-alignment/"
   ],
   "allowed_cta": [
     "take_score",
