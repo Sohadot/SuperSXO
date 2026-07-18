@@ -125,19 +125,45 @@ def render_related_links(
 
 
 def render_page_body(content: dict) -> str:
-    """Render page sections from approved content."""
+    """Render page sections from approved content.
+
+    Each section receives a stable id anchor derived from its name so that
+    definitions and sections are citable at stable URLs (Tier 1 requirement
+    of CATEGORY_REFERENCE_ENGINE.md). An optional per-section "heading"
+    overrides the name-derived heading for terms whose display form is not
+    title-case (e.g. "SXO").
+    """
     sections = []
     for section in content.get("required_sections", []):
         name = section.get("name", "section")
-        heading = name.replace("_", " ").title()
+        heading = section.get("heading") or name.replace("_", " ").title()
+        anchor = name.replace("_", "-")
         body = section.get("content", "")
         sections.append(
-            f'<section class="page-section" data-section="{name}">\n'
+            f'<section class="page-section" id="{anchor}" data-section="{name}">\n'
             f'    <h2>{heading}</h2>\n'
             f'    <p>{body}</p>\n'
             f'  </section>'
         )
     return "\n  ".join(sections)
+
+
+def render_structured_data(content: dict) -> str:
+    """Serialize an optional structured_data object into a JSON-LD block.
+
+    JSON-LD is descriptive metadata, not executable script: it is emitted
+    with type application/ld+json, contains no code, and references no
+    external resources. Content sources own the data; the build only
+    serializes it.
+    """
+    sd = content.get("structured_data")
+    if not sd:
+        return ""
+    return (
+        '<script type="application/ld+json">'
+        + json.dumps(sd, ensure_ascii=False)
+        + "</script>"
+    )
 
 
 def render_route_context(route: dict) -> str:
@@ -236,6 +262,7 @@ def render_full_page(
         "meta_description": content.get("meta_description", ""),
         "canonical": route.get("canonical", ""),
         "robots": robots,
+        "structured_data": render_structured_data(content),
         "body_class": route.get("role", "page"),
         "header": header,
         "content": page_html,

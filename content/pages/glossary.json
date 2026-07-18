@@ -1,0 +1,189 @@
+{
+  "route": "/glossary/",
+  "source_status": "approved_for_build",
+  "page_role": "reference_glossary",
+  "ux_layer": "trust",
+  "claim_level": "doctrine_claim",
+  "monetization_allowed": false,
+  "title": "SXO Glossary — Canonical Definitions of Search Experience Optimization",
+  "h1": "The SuperSXO Glossary",
+  "meta_description": "The governed glossary of Search Experience Optimization: canonical, claim-classified definitions of SXO, the search-to-action journey, trust architecture, and the SuperSXO asset system.",
+  "canonical_intent": "Serve as the Tier 1 citation core of the authority layer: one stable, canonical definition per term, structured for citation by practitioners, press, and AI answer engines.",
+  "summary": "Canonical definitions for the SXO category. Each term is published at a stable anchor, claim-classified, and kept verbatim-consistent with the governed asset glossary. This page is the definitional reference surface of SuperSXO.com.",
+  "required_sections": [
+    {
+      "name": "about_this_glossary",
+      "heading": "About This Glossary",
+      "purpose": "Explain the governed nature of the glossary: canonical, claim-classified definitions with stable anchors, maintained as the citation core of the SuperSXO authority layer.",
+      "content": "This glossary is the canonical definition surface of the SuperSXO authority layer. Every entry is a governed definition: claim-classified, consistent with the SuperSXO doctrine, and published at a stable anchor that does not change. Definitions here are the reference forms — the exact wording used across the SuperSXO Framework, the methodology, and the diagnostic system. They may be cited with attribution to SuperSXO.com. Terms describing the discipline are doctrine claims derived from the asset thesis; terms describing emerging search dynamics are classified as interpretation and worded accordingly."
+    },
+    {
+      "name": "sxo",
+      "heading": "SXO",
+      "purpose": "Canonical definition of 'SXO'. Claim type: doctrine_claim. Wording must remain verbatim-synchronized with data/asset-glossary.json.",
+      "content": "Search Experience Optimization. The governed discipline that addresses the full journey between search visibility and user action — not merely the act of ranking, but the quality of everything that happens after a user finds a result."
+    },
+    {
+      "name": "search_experience_optimization",
+      "heading": "Search Experience Optimization",
+      "purpose": "Canonical definition of 'Search Experience Optimization'. Claim type: doctrine_claim. Wording must remain verbatim-synchronized with data/asset-glossary.json.",
+      "content": "The practice of governing the complete search-to-action journey: from intent signal to visibility, through experience quality, trust architecture, navigation confidence, and measurable action toward a strategic outcome."
+    },
+    {
+      "name": "supersxo",
+      "heading": "SuperSXO",
+      "purpose": "Canonical definition of 'SuperSXO'. Claim type: doctrine_claim. Wording must remain verbatim-synchronized with data/asset-glossary.json.",
+      "content": "The canonical authority asset and framework for Search Experience Optimization. SuperSXO measures whether visibility becomes trust, clarity, and action. It is a sovereign-grade strategic digital asset, not a generic SEO website."
+    },
+    {
+      "name": "search_to_action_journey",
+      "heading": "Search-to-Action Journey",
+      "purpose": "Canonical definition of 'Search-to-Action Journey'. Claim type: doctrine_claim. Wording must remain verbatim-synchronized with data/asset-glossary.json.",
+      "content": "The seven-layer path from user intent through strategic outcome: Search Intent, Visibility, Experience, Trust, Navigation, Action, Strategic Outcome. The foundational model of the SuperSXO framework."
+    },
+    {
+      "name": "trust_architecture",
+      "heading": "Trust Architecture",
+      "purpose": "Canonical definition of 'Trust Architecture'. Claim type: doctrine_claim. Wording must remain verbatim-synchronized with data/asset-glossary.json.",
+      "content": "The deliberate design of content quality, visual professionalism, structural coherence, and institutional tone that causes users to perceive a site as credible and safe to engage with. The fourth layer of the search-to-action journey."
+    },
+    {
+      "name": "conversion_path",
+      "heading": "Conversion Path",
+      "purpose": "Canonical definition of 'Conversion Path'. Claim type: doctrine_claim. Wording must remain verbatim-synchronized with data/asset-glossary.json.",
+      "content": "The specific route through a site that leads a user from initial visibility to a measurable action. A conversion path in the SXO model must be designed to govern trust and navigation, not only to present a call-to-action."
+    },
+    {
+      "name": "ai_search_readiness",
+      "heading": "AI Search Readiness",
+      "purpose": "Canonical definition of 'AI Search Readiness'. Claim type: interpretation. Wording must remain verbatim-synchronized with data/asset-glossary.json.",
+      "content": "The degree to which a digital asset is structurally and conceptually prepared to maintain visibility and authority in AI-generated search environments, including generative answers, AI overviews, and conversational search interfaces."
+    },
+    {
+      "name": "supersxo_score",
+      "heading": "SuperSXO Score",
+      "purpose": "Canonical definition of 'SuperSXO Score'. Claim type: commercial_claim. Wording must remain verbatim-synchronized with data/asset-glossary.json.",
+      "content": "A free diagnostic self-assessment tool that scores a digital asset's performance across the search-to-action journey layers. The first approved trust-building product of the SuperSXO asset."
+    },
+    {
+      "name": "domain_cluster",
+      "heading": "Domain Cluster",
+      "purpose": "Canonical definition of 'Domain Cluster'. Claim type: doctrine_claim. Wording must remain verbatim-synchronized with data/asset-glossary.json.",
+      "content": "The controlled set of six domains that together form the SuperSXO asset system: SuperSXO.com as authority, SXOSolution.com as commercial gateway, SuperSXO.info and SXOSolution.info as defensive routing, SuperSXO.link and SXOSolution.link as campaign routing."
+    },
+    {
+      "name": "canonical_authority",
+      "heading": "Canonical Authority",
+      "purpose": "Canonical definition of 'Canonical Authority'. Claim type: doctrine_claim. Wording must remain verbatim-synchronized with data/asset-glossary.json.",
+      "content": "The property of SuperSXO.com as the single, governing source of truth for all SXO content, definitions, framework documentation, and methodology. All other cluster domains route toward it. No domain may fragment or duplicate its canonical authority."
+    },
+    {
+      "name": "commercial_gateway",
+      "heading": "Commercial Gateway",
+      "purpose": "Canonical definition of 'Commercial Gateway'. Claim type: doctrine_claim. Wording must remain verbatim-synchronized with data/asset-glossary.json.",
+      "content": "The designated role of SXOSolution.com within the domain cluster. It receives solution-oriented and commercial-intent traffic, presents audit offers and diagnostic products, and routes to SuperSXO.com for authority content."
+    }
+  ],
+  "required_internal_links": [
+    "/what-is-sxo/",
+    "/sxo-framework/"
+  ],
+  "allowed_cta": [
+    "explore_framework",
+    "take_score"
+  ],
+  "blocked_claims": [
+    "SuperSXO guarantees higher rankings or conversion growth.",
+    "SXO is just SEO + UX.",
+    "Definitions that alter or contradict data/asset-glossary.json wording."
+  ],
+  "editorial_notes": "data/asset-glossary.json is the source of record for every definition. Definitions on this page must remain verbatim-synchronized with it; any definition change starts in the data file, is logged in DECISION_LOG.md, and is then rebuilt here. The three internal interface-design terms (Sovereign Spatial Interface, Control Plane, Search Experience Observatory) are internal doctrine and are intentionally not published in the public glossary. Each section name doubles as the term's stable anchor; anchors must never change once published.",
+  "publication_blockers": [],
+  "structured_data": {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "@id": "https://supersxo.com/glossary/",
+    "name": "SuperSXO Glossary of Search Experience Optimization",
+    "url": "https://supersxo.com/glossary/",
+    "description": "Governed, canonical definitions for the Search Experience Optimization (SXO) category, published by SuperSXO.com.",
+    "hasDefinedTerm": [
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://supersxo.com/glossary/#sxo",
+        "name": "SXO",
+        "description": "Search Experience Optimization. The governed discipline that addresses the full journey between search visibility and user action — not merely the act of ranking, but the quality of everything that happens after a user finds a result.",
+        "inDefinedTermSet": "https://supersxo.com/glossary/"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://supersxo.com/glossary/#search-experience-optimization",
+        "name": "Search Experience Optimization",
+        "description": "The practice of governing the complete search-to-action journey: from intent signal to visibility, through experience quality, trust architecture, navigation confidence, and measurable action toward a strategic outcome.",
+        "inDefinedTermSet": "https://supersxo.com/glossary/"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://supersxo.com/glossary/#supersxo",
+        "name": "SuperSXO",
+        "description": "The canonical authority asset and framework for Search Experience Optimization. SuperSXO measures whether visibility becomes trust, clarity, and action. It is a sovereign-grade strategic digital asset, not a generic SEO website.",
+        "inDefinedTermSet": "https://supersxo.com/glossary/"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://supersxo.com/glossary/#search-to-action-journey",
+        "name": "Search-to-Action Journey",
+        "description": "The seven-layer path from user intent through strategic outcome: Search Intent, Visibility, Experience, Trust, Navigation, Action, Strategic Outcome. The foundational model of the SuperSXO framework.",
+        "inDefinedTermSet": "https://supersxo.com/glossary/"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://supersxo.com/glossary/#trust-architecture",
+        "name": "Trust Architecture",
+        "description": "The deliberate design of content quality, visual professionalism, structural coherence, and institutional tone that causes users to perceive a site as credible and safe to engage with. The fourth layer of the search-to-action journey.",
+        "inDefinedTermSet": "https://supersxo.com/glossary/"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://supersxo.com/glossary/#conversion-path",
+        "name": "Conversion Path",
+        "description": "The specific route through a site that leads a user from initial visibility to a measurable action. A conversion path in the SXO model must be designed to govern trust and navigation, not only to present a call-to-action.",
+        "inDefinedTermSet": "https://supersxo.com/glossary/"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://supersxo.com/glossary/#ai-search-readiness",
+        "name": "AI Search Readiness",
+        "description": "The degree to which a digital asset is structurally and conceptually prepared to maintain visibility and authority in AI-generated search environments, including generative answers, AI overviews, and conversational search interfaces.",
+        "inDefinedTermSet": "https://supersxo.com/glossary/"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://supersxo.com/glossary/#supersxo-score",
+        "name": "SuperSXO Score",
+        "description": "A free diagnostic self-assessment tool that scores a digital asset's performance across the search-to-action journey layers. The first approved trust-building product of the SuperSXO asset.",
+        "inDefinedTermSet": "https://supersxo.com/glossary/"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://supersxo.com/glossary/#domain-cluster",
+        "name": "Domain Cluster",
+        "description": "The controlled set of six domains that together form the SuperSXO asset system: SuperSXO.com as authority, SXOSolution.com as commercial gateway, SuperSXO.info and SXOSolution.info as defensive routing, SuperSXO.link and SXOSolution.link as campaign routing.",
+        "inDefinedTermSet": "https://supersxo.com/glossary/"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://supersxo.com/glossary/#canonical-authority",
+        "name": "Canonical Authority",
+        "description": "The property of SuperSXO.com as the single, governing source of truth for all SXO content, definitions, framework documentation, and methodology. All other cluster domains route toward it. No domain may fragment or duplicate its canonical authority.",
+        "inDefinedTermSet": "https://supersxo.com/glossary/"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://supersxo.com/glossary/#commercial-gateway",
+        "name": "Commercial Gateway",
+        "description": "The designated role of SXOSolution.com within the domain cluster. It receives solution-oriented and commercial-intent traffic, presents audit offers and diagnostic products, and routes to SuperSXO.com for authority content.",
+        "inDefinedTermSet": "https://supersxo.com/glossary/"
+      }
+    ]
+  }
+}
