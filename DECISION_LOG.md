@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — Category Reference Engine Adopted
+
+**Type:** other  
+**Status:** decided  
+**Decision:** Adopted `CATEGORY_REFERENCE_ENGINE.md` as the governing mechanism for combining recurring income with category-reference authority, extending `ASSET_VALUE_MAXIMIZATION_PLAN.md`.  
+**Reasoning:** The owner requires the asset to generate continuous income while simultaneously becoming the citable reference for multiple audience layers — executives, practitioners, designers, agencies, learners/press, and AI answer engines — so that SuperSXO.com becomes the address of the SXO category. A single engine (instrument → data → citations → authority → recurring income → reinvestment) achieves both goals without violating the monetization boundary, whereas separate income and authority plans would compete for the same surfaces.  
+**Impact:** Introduces the governing Audience Layer Matrix (routes must serve declared audience layers), a four-tier citable content architecture (canonical definitions, named framework, original benchmark evidence, playbooks) with machine-audience requirements, a seven-rung recurring income ladder ordered inside `MONETIZATION_BOUNDARY.md`, data-ethics and claim-discipline guardrails for any benchmark data collection, and sequencing that threads the engine through master plan phases A–F. No routes, scripts, content, or monetization surfaces change with this entry; each rung, tier, and data-collection mechanism requires its own governed implementation and log entry.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-18] — Asset Value Maximization Plan Adopted
 
 **Type:** other  
