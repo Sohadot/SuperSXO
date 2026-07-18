@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — Governed Glossary Published as Tier 1 Citation Core
+
+**Type:** content  
+**Status:** decided  
+**Decision:** Published `/glossary/` as the Tier 1 citation core defined in `CATEGORY_REFERENCE_ENGINE.md`: eleven canonical, claim-classified category definitions at stable anchors, with `DefinedTermSet` JSON-LD structured data. Extended the governed build pipeline with stable section anchors and a data-driven structured-data mechanism.  
+**Reasoning:** The Category Reference Engine identifies canonical definitions as the surface that humans and AI answer engines cite. `data/asset-glossary.json` already held governed definitions but exposed none publicly. A curated public glossary — category and asset terms only — turns that data into the citation surface. Editorial decision: the three internal interface-design terms (Sovereign Spatial Interface, Control Plane, Search Experience Observatory) are internal doctrine describing the site's own UI direction, not category vocabulary, and are intentionally excluded from the public glossary. JSON-LD was approved as descriptive metadata, not executable script: it contains no code, loads no external resources, and is emitted only from governed content sources by the build.  
+**Impact:** (1) `content/pages/glossary.json` created with definitions verbatim-synchronized to `data/asset-glossary.json` (declared source of record; sync rule recorded in editorial notes and publication rule). (2) `/glossary/` registered and published in `data/routes.json` (role `reference_glossary`); mapped in `page-source-map.json`; added to secondary and footer navigation; candidate route 9 in the publication plan. (3) `scripts/build.py`: `render_page_body` now emits a stable `id` anchor per section on all pages and supports per-section display headings; new `render_structured_data` serializes an optional `structured_data` object from content sources into a JSON-LD block via a new `{{ structured_data }}` slot in `templates/base.html`. (4) Site rebuilt: 9 routes; full quality gate and strict deploy-asset validation passed; JSON-LD verified parseable with 11 anchored DefinedTerm entries.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-18] — Category Definition Expansion: /seo-vs-sxo/ and /ai-search-experience/ Published
 
 **Type:** content  

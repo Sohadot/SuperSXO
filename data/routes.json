@@ -108,6 +108,21 @@
       "publication_rule": "Must pass claim gate carefully. Interpretive claims must be classified as interpretation. No unsupported AI performance claims."
     },
     {
+      "path": "/glossary/",
+      "title": "SXO Glossary — Canonical Definitions of Search Experience Optimization",
+      "role": "reference_glossary",
+      "purpose": "Tier 1 citation core of the authority layer: one stable, canonical, claim-classified definition per category term, structured for citation by practitioners, press, and AI answer engines.",
+      "status": "published",
+      "indexable": true,
+      "canonical": "https://supersxo.com/glossary/",
+      "ux_layer": "trust",
+      "required_internal_links": ["/what-is-sxo/", "/sxo-framework/"],
+      "allowed_cta": ["explore_framework", "take_score"],
+      "claim_level": "doctrine_claim",
+      "monetization_allowed": false,
+      "publication_rule": "Definitions must remain verbatim-synchronized with data/asset-glossary.json. Anchors must never change once published. Must pass all quality gates."
+    },
+    {
       "path": "/methodology/",
       "title": "SuperSXO Methodology — The Governance System for Search Experience",
       "role": "methodology_authority",

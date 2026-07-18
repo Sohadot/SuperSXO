@@ -80,6 +80,16 @@
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
       "link_resolution_note": "2026-07-18: promoted from deferred_routes after the interpretive claim review required by the original deferral. All AI search dynamics claims are explicitly framed as interpretation in the published copy; no performance promises; 'govern'/'structure' used instead of ranking-outcome language."
+    },
+    {
+      "path": "/glossary/",
+      "title": "SXO Glossary — Canonical Definitions of Search Experience Optimization",
+      "publication_order": 9,
+      "internal_link_dependencies": ["/what-is-sxo/", "/sxo-framework/"],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "2026-07-18: Tier 1 citation core per CATEGORY_REFERENCE_ENGINE.md. Eleven public terms verbatim-synchronized with data/asset-glossary.json; three internal interface-design terms intentionally excluded. DefinedTermSet JSON-LD emitted via governed structured_data build support."
     }
   ],
   "deferred_routes": [

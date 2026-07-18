@@ -9,6 +9,7 @@
     "/sxo-audit/": "content/pages/sxo-audit.json",
     "/seo-vs-sxo/": "content/pages/seo-vs-sxo.json",
     "/ai-search-experience/": "content/pages/ai-search-experience.json",
+    "/glossary/": "content/pages/glossary.json",
     "/methodology/": "content/pages/methodology.json",
     "/acquisition/": "content/pages/acquisition.json"
   }

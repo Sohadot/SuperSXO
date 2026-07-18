@@ -11,6 +11,7 @@
     "secondary": [
       { "label": "SEO vs SXO", "path": "/seo-vs-sxo/" },
       { "label": "AI Search Experience", "path": "/ai-search-experience/" },
+      { "label": "Glossary", "path": "/glossary/" },
       { "label": "SXO Audit", "path": "/sxo-audit/" }
     ],
     "footer": [
@@ -18,6 +19,7 @@
       { "label": "SXO Framework", "path": "/sxo-framework/" },
       { "label": "SEO vs SXO", "path": "/seo-vs-sxo/" },
       { "label": "AI Search Experience", "path": "/ai-search-experience/" },
+      { "label": "Glossary", "path": "/glossary/" },
       { "label": "Methodology", "path": "/methodology/" },
       { "label": "Acquisition", "path": "/acquisition/" }
     ],
