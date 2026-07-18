@@ -9,7 +9,13 @@
       "path": "/",
       "title": "SuperSXO — Sovereign Search Experience Optimization",
       "publication_order": 1,
-      "internal_link_dependencies": ["/what-is-sxo/", "/sxo-framework/", "/sxo-score/", "/sxo-audit/", "/methodology/"],
+      "internal_link_dependencies": [
+        "/what-is-sxo/",
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/sxo-audit/",
+        "/methodology/"
+      ],
       "all_dependencies_in_alpha": true,
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false
@@ -18,7 +24,12 @@
       "path": "/what-is-sxo/",
       "title": "What Is SXO? — Search Experience Optimization Defined",
       "publication_order": 2,
-      "internal_link_dependencies": ["/sxo-framework/", "/sxo-score/", "/methodology/", "/seo-vs-sxo/"],
+      "internal_link_dependencies": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/methodology/",
+        "/seo-vs-sxo/"
+      ],
       "all_dependencies_in_alpha": true,
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
@@ -28,7 +39,11 @@
       "path": "/sxo-framework/",
       "title": "The SuperSXO Framework — From Search Intent to Strategic Outcome",
       "publication_order": 3,
-      "internal_link_dependencies": ["/what-is-sxo/", "/sxo-score/", "/methodology/"],
+      "internal_link_dependencies": [
+        "/what-is-sxo/",
+        "/sxo-score/",
+        "/methodology/"
+      ],
       "all_dependencies_in_alpha": true,
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false
@@ -37,7 +52,11 @@
       "path": "/sxo-score/",
       "title": "SuperSXO Score — Self-Assessment Diagnostic",
       "publication_order": 4,
-      "internal_link_dependencies": ["/sxo-framework/", "/sxo-audit/", "/methodology/"],
+      "internal_link_dependencies": [
+        "/sxo-framework/",
+        "/sxo-audit/",
+        "/methodology/"
+      ],
       "all_dependencies_in_alpha": true,
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false
@@ -46,7 +65,11 @@
       "path": "/sxo-audit/",
       "title": "SXO Audit — Diagnostic Report",
       "publication_order": 5,
-      "internal_link_dependencies": ["/sxo-score/", "/methodology/", "/"],
+      "internal_link_dependencies": [
+        "/sxo-score/",
+        "/methodology/",
+        "/"
+      ],
       "all_dependencies_in_alpha": true,
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false
@@ -55,7 +78,11 @@
       "path": "/methodology/",
       "title": "SuperSXO Methodology — The Governance System for Search Experience",
       "publication_order": 6,
-      "internal_link_dependencies": ["/sxo-framework/", "/sxo-score/", "/"],
+      "internal_link_dependencies": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/"
+      ],
       "all_dependencies_in_alpha": true,
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
@@ -65,7 +92,11 @@
       "path": "/seo-vs-sxo/",
       "title": "SEO vs SXO — Understanding the Difference",
       "publication_order": 7,
-      "internal_link_dependencies": ["/what-is-sxo/", "/sxo-framework/", "/ai-search-experience/"],
+      "internal_link_dependencies": [
+        "/what-is-sxo/",
+        "/sxo-framework/",
+        "/ai-search-experience/"
+      ],
       "all_dependencies_in_alpha": true,
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
@@ -75,7 +106,11 @@
       "path": "/ai-search-experience/",
       "title": "AI Search Experience — SXO in the Age of Generative Search",
       "publication_order": 8,
-      "internal_link_dependencies": ["/what-is-sxo/", "/sxo-framework/", "/sxo-score/"],
+      "internal_link_dependencies": [
+        "/what-is-sxo/",
+        "/sxo-framework/",
+        "/sxo-score/"
+      ],
       "all_dependencies_in_alpha": true,
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
@@ -85,20 +120,30 @@
       "path": "/glossary/",
       "title": "SXO Glossary — Canonical Definitions of Search Experience Optimization",
       "publication_order": 9,
-      "internal_link_dependencies": ["/what-is-sxo/", "/sxo-framework/"],
+      "internal_link_dependencies": [
+        "/what-is-sxo/",
+        "/sxo-framework/"
+      ],
       "all_dependencies_in_alpha": true,
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
       "link_resolution_note": "2026-07-18: Tier 1 citation core per CATEGORY_REFERENCE_ENGINE.md. Eleven public terms verbatim-synchronized with data/asset-glossary.json; three internal interface-design terms intentionally excluded. DefinedTermSet JSON-LD emitted via governed structured_data build support."
-    }
-  ],
-  "deferred_routes": [
+    },
     {
       "path": "/acquisition/",
-      "reason": "Acquisition signal route. Marked indexable: false. Not published until Phase F acquisition readiness.",
-      "indexable": false
+      "title": "Acquisition — SuperSXO Strategic Asset Positioning",
+      "publication_order": 10,
+      "internal_link_dependencies": [
+        "/methodology/",
+        "/sxo-framework/"
+      ],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "2026-07-18: published as the buyer-facing brief with indexable: false — reachable by direct link and footer, excluded from sitemap, llms.txt, and index. Contact channel acquisition@supersxo.com active via Cloudflare Email Routing; RISK-015 resolved in the same commit."
     }
   ],
+  "deferred_routes": [],
   "publication_requirements": {
     "route_status": "published",
     "content_source_status": "approved_for_build",

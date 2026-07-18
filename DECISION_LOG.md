@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — OFFICIAL BASELINE RECORDED: Search Console Verified, Sitemap Accepted; Contact Channels Live; /acquisition/ Published; RISK-015 Resolved
+
+**Type:** other  
+**Status:** decided  
+**Decision:** Recorded the Phase A official measurement baseline and completed the search-to-action loop: both operator-side actions from the value plan are done, the contact channels are wired into the published pages, the acquisition brief is live (noindex), and RISK-015 is resolved — all in one commit, as committed to in the risk's resolution path.  
+**Reasoning:** The baseline is the dated starting point that all future growth evidence is measured against; it must be logged the day it exists. The contact channels resolve the asset's only high-severity open risk and complete, for the first time, a functioning end-to-end journey on the asset itself: search → content → Score → audit request that can actually be sent.  
+**Impact:** **(A) Official baseline, 2026-07-18:** Google Search Console verified for supersxo.com; `sitemap.xml` submitted and accepted same day (status: success); **9 pages discovered, 0 videos**; organic impressions at measurement start: effectively zero (property newly verified). All future traffic, indexing, and citation growth is measured against this entry. **(B) Contact infrastructure live:** Cloudflare Email Routing active with two governed aliases — `pro@supersxo.com` (professional inquiries) and `acquisition@supersxo.com` (acquisition inquiries), both forwarding to the operator's private inbox without exposing it. **(C) Wiring:** `/sxo-audit/` intake now names `pro@supersxo.com` as the submission channel — the primary commercial terminal action is completable; homepage `Organization` JSON-LD gained `email` and `contactPoint`. **(D) `/acquisition/` published** (route published, `indexable: false`, meta robots noindex): reachable by direct link and footer navigation, structurally excluded from sitemap.xml, llms.txt, and the index; inquiry section names `acquisition@supersxo.com`; alpha plan candidate 10; deferred-route lists in the five validators are now empty — all ten registered routes are published. **(E) RISK-015 downgraded** to low/resolved with the alias-governance rule (any routing change is a logged event) and residual-risk note. Full CI sequence passed: 20 validators, 10 routes built, strict deploy validation green.  
+**Logged by:** both
+
+---
+
 ## [2026-07-18] — Acquisition Brief Authored; Missing Contact Channel Registered as Blocking Risk; WebPage Structured Data Generalized
 
 **Type:** content  
