@@ -22,6 +22,7 @@ Strict mode (--strict):
   - Fails and exits non-zero on any violation.
 """
 
+import json
 import sys
 from pathlib import Path
 
@@ -33,10 +34,24 @@ REQUIRED_CSS = [
     "static/css/main.css",
 ]
 
-APPROVED_JS = [
-    "static/js/interface-state.js",
-    "static/js/theme-toggle.js",
-]
+APPROVED_SCRIPTS_FILE = REPO_ROOT / "data" / "approved-scripts.json"
+
+
+def load_approved_js() -> list:
+    """data/approved-scripts.json is the single source of truth for
+    first-party JavaScript. This validator must never carry its own
+    script list — a stale duplicate here broke the production deploy
+    on 2026-07-18."""
+    with open(APPROVED_SCRIPTS_FILE, encoding="utf-8") as f:
+        data = json.load(f)
+    return [
+        entry["file"]
+        for entry in data.get("approved_scripts", [])
+        if entry.get("file")
+    ]
+
+
+APPROVED_JS = load_approved_js()
 
 DEFERRED_ROUTES = [
     "acquisition",
