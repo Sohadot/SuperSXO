@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — Cloudflare NS Delegation Active; Reference Deepening of Framework and Definition Pages
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** (A) Recorded the operator's report that supersxo.com DNS is now delegated to Cloudflare nameservers — Cloudflare is active as the DNS/edge layer, GitHub Pages remains the deployment target, exactly as `DEPLOYMENT_POLICY.md` and `DOMAIN_CLUSTER_STRATEGY.md` prescribe. This unlocks the edge-configured security headers named as a target in `SECURITY_BASELINE.md`; header configuration is an operator-side Cloudflare action, recommended next. (B) Executed the first reference-deepening pass of Phase B: `/sxo-framework/` and `/what-is-sxo/`.  
+**Reasoning:** The framework page defined the seven layers but not their governing conditions — leaving the Score instrument's 14 statements without a published doctrinal source, a defensibility gap for the asset's core IP. The definition page lacked boundary-setting (what SXO is not), audience mapping, and a bridge to the glossary citation core. Deepening means adding governing substance, not word count.  
+**Impact:** (1) Each of the seven framework layer sections now defines its two governing conditions — verbatim-aligned with the Score instrument statements — and its characteristic failure mode; the assessment-pathway section states the traceability rule: the instrument measures exactly what the framework governs. (2) `/what-is-sxo/` gained three sections: `what_sxo_is_not` (boundary-setting against CRO, UX, and reporting-layer readings, respectful of each discipline), `who_practices_sxo` (the four practitioner altitudes, public-facing reflection of the audience layer matrix), and `canonical_definitions` (glossary bridge with the attribution rule). (3) `/glossary/` added to `/what-is-sxo/` required internal links in routes.json and the content source. (4) Full CI sequence passed locally: pre-build gate, build, strict deploy validation, post-build gate — 20 validators.  
+**Logged by:** both
+
+---
+
 ## [2026-07-18] — Machine-Discovery Surfaces Shipped: sitemap.xml, robots.txt, llms.txt
 
 **Type:** architecture  
