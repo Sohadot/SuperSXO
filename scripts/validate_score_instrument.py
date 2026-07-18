@@ -115,6 +115,35 @@ def main() -> None:
     if "http://" in comp or "https://" in comp:
         failures.append("FAIL  component must not reference external URLs")
 
+    # --- statements must match the governing-conditions registry verbatim ---
+    registry_path = ROOT / "data" / "governing-conditions.json"
+    if not registry_path.is_file():
+        failures.append("FAIL  data/governing-conditions.json missing")
+    else:
+        registry = json.loads(registry_path.read_text(encoding="utf-8"))
+        registered = {
+            c["condition_id"].lower(): c["statement"]
+            for c in registry.get("conditions", [])
+        }
+        in_component = {
+            qid: text.strip()
+            for qid, text in re.findall(
+                r'<p class="score-statement-text" id="(q\d+)-label">([^<]+)</p>',
+                comp,
+            )
+        }
+        if set(registered) != set(in_component):
+            failures.append(
+                "FAIL  condition ids in registry and component do not match"
+            )
+        for qid, text in in_component.items():
+            if registered.get(qid) != text:
+                failures.append(
+                    f"FAIL  statement {qid} diverges from "
+                    f"data/governing-conditions.json — registry is the "
+                    f"source of record"
+                )
+
     # --- instrument is exclusive to /sxo-score/ ---
     for source_file in CONTENT_DIR.glob("*.json"):
         source = json.loads(source_file.read_text(encoding="utf-8"))

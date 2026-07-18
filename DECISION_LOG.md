@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — Audit Delivery Package: Governing-Conditions Registry, Delivery Standard, Report Template
+
+**Type:** monetization  
+**Status:** decided  
+**Decision:** Built the audit delivery package so the first paid audit can be delivered to standard within days of a request: (1) `data/governing-conditions.json` created as the single source of record for the fourteen governing conditions, with per-condition audit evidence guidance; (2) `validate_score_instrument` extended to enforce verbatim synchronization between the Score component's statements and the registry; (3) `AUDIT_DELIVERY_STANDARD.md` adopted as the governance document for conducting, writing, claim-reviewing, and delivering audits; (4) `docs/audit/audit-report-template.md` created as the deliverable skeleton.  
+**Reasoning:** With the intake channel live, a paid request can arrive any day; delivering it ad hoc would waste the asset's central claim — that the methodology is governed and reproducible. The fourteen conditions previously existed only as component HTML and framework prose with no machine-readable source; the registry extends the single-source doctrine to the instrument itself, and the sync validator makes divergence impossible (negative-tested: a one-word statement change fails the gate). Each delivered report becomes evidence of the methodology working on a real property — a delivery-quality event is an asset-value event.  
+**Impact:** (1) Registry: 14 conditions with ids Q1–Q14, layer mapping, verbatim statements extracted from the published component, score weights, and evidence guidance per condition. (2) Delivery standard: seven process stages (intake through decision-log record), findings discipline (evidence-or-no-finding, interpretation labeling, no operator-scoring, non-guarantee restated in every report), pricing governance (no published prices without a logged decision), and the delivery boundary (findings only; Rung 3+ pathways in the cover note, never as pressure inside findings). (3) Template: engagement scope with non-guarantee block, method, layer readings summary, per-condition findings blocks (state / evidence / continuity risk / direction of correction), continuity-ordered priority register, limitations, and framework/glossary references as governing texts. (4) Full CI sequence passed: 20 validators, build, strict deploy validation.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-18] — OFFICIAL BASELINE RECORDED: Search Console Verified, Sitemap Accepted; Contact Channels Live; /acquisition/ Published; RISK-015 Resolved
 
 **Type:** other  

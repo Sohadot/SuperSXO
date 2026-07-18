@@ -1,0 +1,120 @@
+{
+ "schema_version": "1.0",
+ "governance_doc": "AUDIT_DELIVERY_STANDARD.md",
+ "last_updated": "2026-07-18",
+ "governing_principle": "This registry is the single source of record for the fourteen governing conditions of the search-to-action journey. The Score instrument's statements, the framework page's condition prose, and the audit report template all derive from these entries. A condition change starts here, is logged in DECISION_LOG.md, and propagates outward — never the reverse.",
+ "conditions": [
+  {
+   "condition_id": "Q1",
+   "layer_key": "intent_alignment",
+   "layer_name": "Intent Alignment",
+   "statement": "The primary pages receiving search traffic were designed around a defined search intent, documented before the page was written.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Documented intent definitions (briefs, content contracts) predating page publication; mapping of top entry pages to their declared intents."
+  },
+  {
+   "condition_id": "Q2",
+   "layer_key": "intent_alignment",
+   "layer_name": "Intent Alignment",
+   "statement": "On each major entry page, the first screen addresses the question the visitor searched before introducing anything else.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Above-the-fold review of each major entry page against its driving queries; does the first screen answer the searched question before anything else."
+  },
+  {
+   "condition_id": "Q3",
+   "layer_key": "visibility_conditions",
+   "layer_name": "Visibility Conditions",
+   "statement": "Every indexable page has a unique title, a controlled meta description, exactly one H1, and a canonical URL.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Crawl of all indexable pages: titles, meta descriptions, H1 count, canonical tags — uniqueness and control verified page by page."
+  },
+  {
+   "condition_id": "Q4",
+   "layer_key": "visibility_conditions",
+   "layer_name": "Visibility Conditions",
+   "statement": "The asset's key pages are indexed and appear for the queries they were designed to serve.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Index coverage from Search Console or equivalent; query-to-page appearance for the queries each page was designed to serve."
+  },
+  {
+   "condition_id": "Q5",
+   "layer_key": "experience_quality",
+   "layer_name": "Experience Quality",
+   "statement": "Key pages load quickly and are fully usable on mobile devices without layout breakage.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Load performance and mobile usability measurement on key pages; layout stability under viewport constraints."
+  },
+  {
+   "condition_id": "Q6",
+   "layer_key": "experience_quality",
+   "layer_name": "Experience Quality",
+   "statement": "Core content remains readable and navigable when JavaScript fails or loads slowly.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "JavaScript-disabled rendering of core content routes; content readability and navigation without script execution."
+  },
+  {
+   "condition_id": "Q7",
+   "layer_key": "trust_signal_coherence",
+   "layer_name": "Trust Signal Coherence",
+   "statement": "Claims on commercial pages are supported by evidence; no guarantees or performance promises the asset cannot substantiate.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Claim inventory of commercial pages; each claim traced to supporting evidence; guarantees and unsupported promises flagged."
+  },
+  {
+   "condition_id": "Q8",
+   "layer_key": "trust_signal_coherence",
+   "layer_name": "Trust Signal Coherence",
+   "statement": "Identity, terminology, and visual presentation are consistent across every page of the asset.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Cross-page consistency review: naming, terminology, visual presentation, tone — divergence catalogued."
+  },
+  {
+   "condition_id": "Q9",
+   "layer_key": "navigation_clarity",
+   "layer_name": "Navigation Clarity",
+   "statement": "From any entry page, the intended next step is visible and evident without hunting or guesswork.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Entry-page walkthroughs: is the intended next step visible without hunting; decision-point clarity assessment."
+  },
+  {
+   "condition_id": "Q10",
+   "layer_key": "navigation_clarity",
+   "layer_name": "Navigation Clarity",
+   "statement": "No page is a dead end: every page links onward to a purposeful next destination.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Full-route link audit: pages without purposeful onward destinations identified."
+  },
+  {
+   "condition_id": "Q11",
+   "layer_key": "action_pathway_integrity",
+   "layer_name": "Action Pathway Integrity",
+   "statement": "Each key page has one clearly defined terminal action, and it completes without friction on all devices.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Terminal action execution on all key pages across devices; friction points in the completion path documented."
+  },
+  {
+   "condition_id": "Q12",
+   "layer_key": "action_pathway_integrity",
+   "layer_name": "Action Pathway Integrity",
+   "statement": "Nothing interrupts the path to action: no popups, forced steps, or competing calls to action.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Interruption inventory: popups, forced steps, competing calls to action on the path to the terminal action."
+  },
+  {
+   "condition_id": "Q13",
+   "layer_key": "strategic_outcome_alignment",
+   "layer_name": "Strategic Outcome Alignment",
+   "statement": "The actions the asset drives are the ones the operation actually needs, and they are measured.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Mapping of driven actions to stated operational needs; measurement coverage of each terminal action."
+  },
+  {
+   "condition_id": "Q14",
+   "layer_key": "strategic_outcome_alignment",
+   "layer_name": "Strategic Outcome Alignment",
+   "statement": "Those measurements are reviewed on a defined cadence, and findings feed back into the asset.",
+   "score_weight": 2,
+   "audit_evidence_guidance": "Review cadence evidence: who reviews the measurements, on what schedule, and what changes resulted."
+  }
+ ]
+}
