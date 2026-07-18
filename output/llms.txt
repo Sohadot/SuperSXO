@@ -1,0 +1,15 @@
+# SuperSXO
+
+> SuperSXO.com is the canonical authority for Search Experience Optimization (SXO): the governed discipline for the journey from search visibility to user trust, clarity, and action. Definitions on this site are governed, claim-classified, and published at stable anchors; they may be cited with attribution to SuperSXO.com.
+
+## Canonical surfaces
+
+- [SuperSXO — Sovereign Search Experience Optimization](https://supersxo.com/): SuperSXO is the canonical authority for Search Experience Optimization. It measures whether visibility becomes trust, clarity, and action.
+- [What Is SXO? — Search Experience Optimization Defined](https://supersxo.com/what-is-sxo/): Search Experience Optimization (SXO) governs the full journey from search visibility to user action. It is not a shallow combination of SEO, UX, and CRO.
+- [The SuperSXO Framework — From Search Intent to Strategic Outcome](https://supersxo.com/sxo-framework/): The SuperSXO Framework defines the seven-layer search-to-action journey: Search Intent, Visibility, Experience, Trust, Navigation, Action, Strategic Outcome.
+- [SuperSXO Score — Self-Assessment Diagnostic](https://supersxo.com/sxo-score/): The SuperSXO Score is a free diagnostic that identifies where your search-to-action journey breaks down. No rankings promised. No conversion guarantees.
+- [SXO Audit — Diagnostic Report](https://supersxo.com/sxo-audit/): A professional diagnostic report that maps where a digital asset's search-to-action journey breaks down. Governed by the SuperSXO methodology. No outcome guarantees.
+- [SEO vs SXO — Understanding the Difference](https://supersxo.com/seo-vs-sxo/): SEO brings the visitor. SXO governs what happens after they arrive. Understanding the relationship between SEO and SXO is foundational to the discipline.
+- [AI Search Experience — SXO in the Age of Generative Search](https://supersxo.com/ai-search-experience/): Generative search changes how visibility is earned and how experience is governed. SXO provides the structural layer for navigating AI-driven search environments.
+- [SXO Glossary — Canonical Definitions of Search Experience Optimization](https://supersxo.com/glossary/): The governed glossary of Search Experience Optimization: canonical, claim-classified definitions of SXO, the search-to-action journey, trust architecture, and the SuperSXO asset system.
+- [SuperSXO Methodology — The Governance System for Search Experience](https://supersxo.com/methodology/): The SuperSXO Methodology is the governed operating system for defining, assessing, and improving the search-to-action journey. Doctrine-grade. Acquisition-ready.
