@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/static/css/main.css">
   <script src="/static/js/interface-state.js" defer></script>
   <script src="/static/js/theme-toggle.js" defer></script>
+  <script src="/static/js/sxo-score.js" defer></script>
 </head>
 <body class="diagnostic_tool">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -99,7 +100,7 @@
   <header class="console-identity page-signal-header">
     <div class="system-label">Adjudication System &mdash; Examination Record</div>
     <h1 class="page-heading">Diagnose Your Search-to-Action Journey</h1>
-    <p class="page-summary">The SuperSXO Score is a free self-assessment that scores a digital asset's performance across the seven search-to-action journey layers. It demonstrates the SXO framework in diagnostic practice without making unsupported performance promises.</p>
+    <p class="page-summary">The SuperSXO Score is a free self-assessment that scores a digital asset&#x27;s performance across the seven search-to-action journey layers. It demonstrates the SXO framework in diagnostic practice without making unsupported performance promises.</p>
   </header>
 
   <section class="sxo-diagnostic-environment" aria-label="SXO Diagnostic Environment">
@@ -217,15 +218,15 @@
   <div class="content-instrument-area content-control-deck content-deck">
     <section class="page-section" id="diagnostic-introduction" data-section="diagnostic_introduction">
     <h2>Diagnostic Introduction</h2>
-    <p>The SuperSXO Score is a structured self-assessment that maps a digital asset's current performance across the seven layers of the search-to-action journey. It is a diagnostic instrument, not a marketing quiz. It does not produce a number to share on social media. It produces a structured finding about where the journey from search to action is functioning and where it is breaking down. The assessment is governed by the SuperSXO Framework and applies the same layer model used in the full professional audit.</p>
+    <p>The SuperSXO Score is a structured self-assessment that maps a digital asset&#x27;s current performance across the seven layers of the search-to-action journey. It is a diagnostic instrument, not a marketing quiz. It does not produce a number to share on social media. It produces a structured finding about where the journey from search to action is functioning and where it is breaking down. The assessment is governed by the SuperSXO Framework and applies the same layer model used in the full professional audit.</p>
   </section>
   <section class="page-section" id="what-the-score-measures" data-section="what_the_score_measures">
     <h2>What The Score Measures</h2>
-    <p>The score assesses seven dimensions, each corresponding to a layer of the SuperSXO Framework. Intent Alignment measures whether the asset's content is matched to the actual motivation behind the search queries that drive traffic. Visibility Conditions measures whether the technical and relevance foundations for search visibility are in place. Experience Quality measures whether the post-arrival interaction meets the standard required to retain the visitor. Trust Signal Coherence measures whether the credibility signals across the asset are consistent and sufficient. Navigation Clarity measures whether the path from arrival to action is legible and confident. Action Pathway Integrity measures whether the terminal action is clearly defined, accessible, and free of friction. Strategic Outcome Alignment measures whether the actions the asset drives produce the downstream consequences it was built to achieve.</p>
+    <p>The score assesses seven dimensions, each corresponding to a layer of the SuperSXO Framework. Intent Alignment measures whether the asset&#x27;s content is matched to the actual motivation behind the search queries that drive traffic. Visibility Conditions measures whether the technical and relevance foundations for search visibility are in place. Experience Quality measures whether the post-arrival interaction meets the standard required to retain the visitor. Trust Signal Coherence measures whether the credibility signals across the asset are consistent and sufficient. Navigation Clarity measures whether the path from arrival to action is legible and confident. Action Pathway Integrity measures whether the terminal action is clearly defined, accessible, and free of friction. Strategic Outcome Alignment measures whether the actions the asset drives produce the downstream consequences it was built to achieve.</p>
   </section>
   <section class="page-section" id="score-methodology" data-section="score_methodology">
     <h2>Score Methodology</h2>
-    <p>The score is derived from a structured assessment of observable conditions at each journey layer. Each layer is assessed against a defined set of conditions drawn from the SuperSXO Framework. Conditions are either present, partially present, or absent. The assessment is self-reported, which means its accuracy depends on the assessor's honest evaluation of their asset's actual state. The score is not an algorithmic calculation applied to traffic data. It is a structured diagnostic framework applied to the assessor's own observations. The full methodology governing each condition is documented in the SuperSXO Methodology.</p>
+    <p>The score is derived from a structured assessment of observable conditions at each journey layer. Each layer is assessed against a defined set of conditions drawn from the SuperSXO Framework. Conditions are either present, partially present, or absent. The assessment is self-reported, which means its accuracy depends on the assessor&#x27;s honest evaluation of their asset&#x27;s actual state. The score is not an algorithmic calculation applied to traffic data. It is a structured diagnostic framework applied to the assessor&#x27;s own observations. The full methodology governing each condition is documented in the SuperSXO Methodology.</p>
   </section>
   <section class="page-section" id="score-limitations" data-section="score_limitations">
     <h2>Score Limitations</h2>
@@ -236,6 +237,162 @@
     <p>A self-assessment identifies the layers where breakdown is likely occurring. It cannot identify the specific conditions causing the breakdown or the priority order in which to address them. That depth of diagnostic work is the domain of the SXO Audit: a professional diagnostic report that applies the SuperSXO Framework to a specific asset with methodological rigor. The audit is the appropriate next step for operators who need findings they can act on with confidence, rather than a directional assessment of where to look.</p>
   </section>
   </div>
+
+  <section class="score-instrument" id="score-instrument" data-section="score_instrument" aria-labelledby="score-instrument-heading">
+  <h2 id="score-instrument-heading">Run the Assessment</h2>
+  <p class="score-privacy-note">This assessment runs entirely in your browser. Your answers are never transmitted, never stored, and are discarded when you leave the page. There is no account, no email gate, and no tracking.</p>
+
+  <form id="sxo-score-form" class="score-form">
+
+    <fieldset class="score-layer" data-layer="intent_alignment">
+      <legend>1 &middot; Intent Alignment</legend>
+      <div class="score-statement" role="group" aria-labelledby="q1-label">
+        <p class="score-statement-text" id="q1-label">The primary pages receiving search traffic were designed around a defined search intent, documented before the page was written.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q1" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q1" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q1" value="0"> Absent</label>
+        </div>
+      </div>
+      <div class="score-statement" role="group" aria-labelledby="q2-label">
+        <p class="score-statement-text" id="q2-label">On each major entry page, the first screen addresses the question the visitor searched before introducing anything else.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q2" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q2" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q2" value="0"> Absent</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="score-layer" data-layer="visibility_conditions">
+      <legend>2 &middot; Visibility Conditions</legend>
+      <div class="score-statement" role="group" aria-labelledby="q3-label">
+        <p class="score-statement-text" id="q3-label">Every indexable page has a unique title, a controlled meta description, exactly one H1, and a canonical URL.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q3" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q3" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q3" value="0"> Absent</label>
+        </div>
+      </div>
+      <div class="score-statement" role="group" aria-labelledby="q4-label">
+        <p class="score-statement-text" id="q4-label">The asset's key pages are indexed and appear for the queries they were designed to serve.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q4" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q4" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q4" value="0"> Absent</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="score-layer" data-layer="experience_quality">
+      <legend>3 &middot; Experience Quality</legend>
+      <div class="score-statement" role="group" aria-labelledby="q5-label">
+        <p class="score-statement-text" id="q5-label">Key pages load quickly and are fully usable on mobile devices without layout breakage.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q5" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q5" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q5" value="0"> Absent</label>
+        </div>
+      </div>
+      <div class="score-statement" role="group" aria-labelledby="q6-label">
+        <p class="score-statement-text" id="q6-label">Core content remains readable and navigable when JavaScript fails or loads slowly.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q6" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q6" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q6" value="0"> Absent</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="score-layer" data-layer="trust_signal_coherence">
+      <legend>4 &middot; Trust Signal Coherence</legend>
+      <div class="score-statement" role="group" aria-labelledby="q7-label">
+        <p class="score-statement-text" id="q7-label">Claims on commercial pages are supported by evidence; no guarantees or performance promises the asset cannot substantiate.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q7" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q7" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q7" value="0"> Absent</label>
+        </div>
+      </div>
+      <div class="score-statement" role="group" aria-labelledby="q8-label">
+        <p class="score-statement-text" id="q8-label">Identity, terminology, and visual presentation are consistent across every page of the asset.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q8" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q8" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q8" value="0"> Absent</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="score-layer" data-layer="navigation_clarity">
+      <legend>5 &middot; Navigation Clarity</legend>
+      <div class="score-statement" role="group" aria-labelledby="q9-label">
+        <p class="score-statement-text" id="q9-label">From any entry page, the intended next step is visible and evident without hunting or guesswork.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q9" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q9" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q9" value="0"> Absent</label>
+        </div>
+      </div>
+      <div class="score-statement" role="group" aria-labelledby="q10-label">
+        <p class="score-statement-text" id="q10-label">No page is a dead end: every page links onward to a purposeful next destination.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q10" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q10" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q10" value="0"> Absent</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="score-layer" data-layer="action_pathway_integrity">
+      <legend>6 &middot; Action Pathway Integrity</legend>
+      <div class="score-statement" role="group" aria-labelledby="q11-label">
+        <p class="score-statement-text" id="q11-label">Each key page has one clearly defined terminal action, and it completes without friction on all devices.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q11" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q11" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q11" value="0"> Absent</label>
+        </div>
+      </div>
+      <div class="score-statement" role="group" aria-labelledby="q12-label">
+        <p class="score-statement-text" id="q12-label">Nothing interrupts the path to action: no popups, forced steps, or competing calls to action.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q12" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q12" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q12" value="0"> Absent</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="score-layer" data-layer="strategic_outcome_alignment">
+      <legend>7 &middot; Strategic Outcome Alignment</legend>
+      <div class="score-statement" role="group" aria-labelledby="q13-label">
+        <p class="score-statement-text" id="q13-label">The actions the asset drives are the ones the operation actually needs, and they are measured.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q13" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q13" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q13" value="0"> Absent</label>
+        </div>
+      </div>
+      <div class="score-statement" role="group" aria-labelledby="q14-label">
+        <p class="score-statement-text" id="q14-label">Those measurements are reviewed on a defined cadence, and findings feed back into the asset.</p>
+        <div class="score-options">
+          <label class="score-option"><input type="radio" name="q14" value="2"> Present</label>
+          <label class="score-option"><input type="radio" name="q14" value="1"> Partially present</label>
+          <label class="score-option"><input type="radio" name="q14" value="0"> Absent</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <button type="button" id="score-compute" class="score-compute" disabled>Compute the Assessment Reading</button>
+    <noscript>
+      <p class="score-js-note">Computing the reading requires JavaScript. The assessment statements above remain fully readable without it, and no data leaves your browser either way.</p>
+    </noscript>
+  </form>
+
+  <div id="score-result" class="score-result" role="region" aria-live="polite" aria-label="Assessment reading"></div>
+</section>
+
 
   <nav class="diagnostic-readout governed-action-routes related-routes-panel" aria-label="Continue examination">
     <h2 class="action-routes-label related-routes-label">Continue Examination</h2>

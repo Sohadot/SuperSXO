@@ -26,9 +26,9 @@ No backend, database, authentication system, user-generated content surface, or 
 
 ## Static-First Security Posture
 
-The asset must remain static until a deliberate, logged decision introduces server-side functionality. Static HTML with no JavaScript, no server-side logic, no database, no user inputs, and no third-party execution context represents the current lowest-risk posture.
+The asset must remain static until a deliberate, logged decision introduces server-side functionality. Static HTML with no server-side logic, no database, no data-transmitting inputs, and no third-party execution context represents the current lowest-risk posture.
 
-Progressive enhancement is permitted when JavaScript is approved, but the asset must remain readable, navigable, and meaningful without it.
+First-party JavaScript is permitted only as a governed progressive enhancement under the JavaScript Governance Policy below. The asset must remain readable, navigable, and meaningful without any JavaScript execution.
 
 ---
 
@@ -36,7 +36,7 @@ Progressive enhancement is permitted when JavaScript is approved, but the asset 
 
 The following attack surfaces are disallowed until explicitly approved through route governance and decision logging:
 
-- user input forms of any kind
+- forms that transmit, store, or persist user input in any way (client-side-only instrument forms whose answers never leave browser memory — such as the SuperSXO Score — are permitted only when registered in `data/component-registry.json` and covered by a dedicated validator)
 - database queries or connections
 - server-side rendering with user-controlled variables
 - login or authentication flows
@@ -67,21 +67,24 @@ Secrets required for deployment must be managed through the deployment platform'
 
 ---
 
-## JavaScript Restriction Policy
+## JavaScript Governance Policy
 
-No JavaScript file (`.js`) may exist in this repository until JavaScript is explicitly approved through a logged decision. Current approval status: **not approved**.
+First-party JavaScript is approved under strict governance. Current approval status: **approved, governed** (first authorization logged 2026-05-21; each script individually logged in `DECISION_LOG.md`).
 
-When approved, JavaScript must:
+`data/approved-scripts.json` is the **single source of truth** for all JavaScript. Every script must:
 
+- be listed in `data/approved-scripts.json` with purpose, allowed APIs, forbidden APIs, `defer: true`, and `external_dependencies: false`
 - live exclusively in `static/js/`
-- be reviewed for `eval()`, `innerHTML`, and `document.write` usage before merge
-- not introduce third-party library loading without separate approval
-- not introduce tracking or analytics behavior
+- contain none of the forbidden patterns: `eval(`, `innerHTML`, `document.write(`, `fetch(`, `XMLHttpRequest`, `localStorage`, `sessionStorage`, `document.cookie`, `import(`, or any external URL
+- be loaded from `templates/base.html` with a per-tag `defer` attribute
+- not introduce third-party library loading, tracking, or analytics behavior
 - be referenced in `DECISION_LOG.md` with authorization date
+
+Enforcement: `validate_approved_scripts` (list integrity, forbidden patterns, per-tag defer, no unapproved script tags, no executable inline scripts) and `validate_score_instrument` (instrument-specific governance). The build derives its script list from `data/approved-scripts.json` and never hardcodes script paths.
 
 JavaScript must remain a progressive enhancement layer. The asset must be readable, navigable, and meaningful without any JavaScript execution.
 
-No inline event handlers (`onclick`, `onload`, `onerror`, `onmouseover`) may appear in HTML templates.
+No inline event handlers (`onclick`, `onload`, `onerror`, `onmouseover`) and no executable inline `<script>` blocks may appear in HTML templates. Non-executable `<script type="application/ld+json">` metadata blocks are permitted: they contain serialized data only, are emitted exclusively by the governed build from content sources, and are hardened against element breakout (`<` serialized as `<`).
 
 ---
 
@@ -165,16 +168,16 @@ No monetization surface may be introduced outside the routes where `monetization
 
 ## Deployment Security Assumptions
 
-Current deployment target: Cloudflare Pages.
+Current deployment target: **GitHub Pages** via `.github/workflows/deploy-pages.yml`, governed by `DEPLOYMENT_POLICY.md`.
 
 Security assumptions:
 
-- Cloudflare enforces TLS on all connections
-- Repository secrets (Cloudflare API token) are stored in GitHub Actions repository secrets, not in repository files
-- No build output is committed back to the repository
+- GitHub Pages enforces TLS on all connections; the custom domain is pinned by the committed `CNAME`
+- `output/` is the only deployable artifact; it is generated exclusively by `scripts/build.py`, committed to the repository, and validated by `validate_publication_readiness` and `validate_deploy_assets --strict` so no unpublished route can be deployed
+- The deployment workflow uses least-privilege permissions (`contents: read`, `pages: write`, `id-token: write`) and no repository secrets
+- No Cloudflare API token is used in the publishing workflow; Cloudflare, if adopted, is a DNS/edge layer only, never a deployment target
 - All deployments are triggered through the approved CI/CD pipeline
-- Cloudflare must not create hidden deployment paths or store credentials accessible to AI agents
-- Deployment configuration is documented in `DECISION_LOG.md` before activation
+- Deployment configuration changes are documented in `DECISION_LOG.md` before activation
 - GitHub remains the single source of truth for all repository state
 
 ---

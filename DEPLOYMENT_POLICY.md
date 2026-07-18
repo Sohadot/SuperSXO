@@ -64,5 +64,7 @@ This document governs how SuperSXO.com is deployed. It exists to prevent unsafe 
 - No deployment from `docs/`.
 - No manual editing of `output/` for production.
 - No Cloudflare API token in the publishing workflow.
-- No unsafe scripts, JavaScript, analytics, tracking, forms, payment links, affiliate links, or heavy 3D in any deployed artifact.
+- No unapproved scripts in any deployed artifact: JavaScript is permitted only when listed in `data/approved-scripts.json` under the JavaScript Governance Policy in `SECURITY_BASELINE.md`.
+- No analytics, tracking, payment links, affiliate links, or heavy 3D in any deployed artifact.
+- No data-transmitting forms in any deployed artifact; client-side-only instrument forms are permitted only when registered in `data/component-registry.json` and validator-covered.
 - No routes may be deployed without passing the sovereign quality gate.

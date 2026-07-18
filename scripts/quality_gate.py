@@ -29,6 +29,7 @@ VALIDATORS = [
     ("validate_spatial_interface",       SCRIPTS_DIR / "validate_spatial_interface.py"),
     ("validate_control_interface",       SCRIPTS_DIR / "validate_control_interface.py"),
     ("validate_approved_scripts",        SCRIPTS_DIR / "validate_approved_scripts.py"),
+    ("validate_score_instrument",        SCRIPTS_DIR / "validate_score_instrument.py"),
     ("validate_immersive_experience",    SCRIPTS_DIR / "validate_immersive_experience.py"),
     ("validate_deploy_assets",           SCRIPTS_DIR / "validate_deploy_assets.py"),
     ("validate_adjudication_interface",  SCRIPTS_DIR / "validate_adjudication_interface.py"),

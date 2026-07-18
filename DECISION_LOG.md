@@ -36,6 +36,28 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — Security Hardening: Escaping, Script Source Unification, Baseline Alignment
+
+**Type:** security  
+**Status:** decided  
+**Decision:** Accepted four advisor findings and executed them as a hardening pass: (1) HTML escaping in the build pipeline, (2) `data/approved-scripts.json` unified as the single source of truth for scripts, (3) `validate_approved_scripts` strengthened, (4) `SECURITY_BASELINE.md` realigned with repository reality. Two additional contradictions found and fixed during the review: the baseline described a Cloudflare Pages deployment with uncommitted output (reality: GitHub Pages with governed committed `output/`), and `DEPLOYMENT_POLICY.md` prohibited all JavaScript and forms while three governed scripts and the client-side instrument form exist.  
+**Reasoning:** Content sources are trusted governed files, but unescaped injection is a latent defect that grows with every content contributor and every new surface; the duplicated script list was three-way drift waiting to happen; the validator's global `defer` check would pass a template with one deferred tag and one undeferred; and a security baseline that contradicts observable reality trains operators to ignore it.  
+**Impact:** (1) `build.py`: every leaf value originating in JSON data (titles, meta descriptions, headings, section bodies, summaries, nav labels, route context values, anchors) is HTML-escaped before template injection; component/template HTML is never escaped; JSON-LD serialization hardens `<` to `<` so no data value can close the script element. (2) `build.py` derives its script list from `data/approved-scripts.json` (rejecting anything outside `static/js/`) — the hardcoded list is gone. (3) `validate_approved_scripts`: per-entry governance fields enforced (`defer: true`, `external_dependencies: false`, purpose/allowed/forbidden APIs), per-tag defer verification via exact tag pattern, detection of unapproved script tags and executable inline scripts in `base.html` (ld+json exempt). Negative-tested: an undeferred tag and a rogue script tag are both caught. (4) `SECURITY_BASELINE.md`: JavaScript policy rewritten from "not approved" to approved-under-governance with the single-source rule and enforcement map; forms prohibition refined to data-transmitting forms with a registered-instrument carve-out; deployment assumptions rewritten for GitHub Pages with governed committed output; `DEPLOYMENT_POLICY.md` prohibited-actions aligned; `data/security-baseline.json` `javascript_policy` and `public_output` controls updated to match the enforced validators. Full 19-validator gate passes; browser re-verification confirms the instrument computes correctly (28/28 = 100% on all-Present), no raw entities render, glossary JSON-LD parses, zero page errors.  
+**Logged by:** agent
+
+---
+
+## [2026-07-18] — Interactive SuperSXO Score Instrument Shipped (Rung 0)
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Executed Phase C of `ASSET_VALUE_MAXIMIZATION_PLAN.md`: converted `/sxo-score/` from a descriptive page into a working interactive self-assessment instrument — Rung 0 of the recurring income ladder in `CATEGORY_REFERENCE_ENGINE.md`. Also emitted `Organization` and `WebSite` JSON-LD on the homepage via the governed structured-data mechanism.  
+**Reasoning:** The instrument is the single highest-leverage value action in the adopted plans: it converts the asset from content about SXO into the instrument that measures SXO, and it is the acquisition surface feeding the paid audit pathway. Privacy-first design was mandatory: the free assessment must build trust, so all answers stay in browser memory with no transmission, storage, or gating — verified in a real browser (zero external requests).  
+**Impact:** (1) `templates/components/score-instrument.html` created: 14 claim-governed condition statements across the seven journey layers, each answered Present/Partially present/Absent (2/1/0), in accessible fieldsets with `role=group` labeling, an `aria-live` result region, a noscript fallback, and a compute button that ships disabled until the script activates it — statements remain fully readable without JavaScript. (2) `static/js/sxo-score.js` approved as the third first-party script: builds the assessment reading with createElement/textContent only (per-layer bands Governed / Partially governed / Ungoverned, weakest-layer finding, mandatory non-guarantee disclaimer, clinical pointer to `/sxo-audit/`); no-op on every other page. (3) `scripts/build.py` extended with a governed `interactive_component` allowlist; `templates/page.html` gained the instrument slot. (4) `score_instrument` registered in `data/component-registry.json` with prohibited behaviors including answer transmission, email gating, fake urgency, and guarantee-implying result wording. (5) Instrument styles appended to `main.css` using existing visual tokens. (6) `scripts/validate_score_instrument.py` added as the 19th validator: verifies script approval and forbidden-pattern absence, component structure (7 fieldsets, q1–q14, 42 radios valued 0/1/2, aria-live, noscript, disabled-by-default button), no inline script/style or external URLs, and instrument exclusivity to `/sxo-score/` in sources and built output. (7) Functional verification in headless Chromium: computation exact (19/28 = 68% on a mixed answer set), incomplete-answer detection correct, zero external network requests, script inert on other routes, homepage JSON-LD parsing as Organization + WebSite. Full quality gate (19 validators) passed.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-18] — Governed Glossary Published as Tier 1 Citation Core
 
 **Type:** content  
