@@ -44,7 +44,15 @@ REQUIRED_CSS_FILES = [
 APPROVED_JS_FILES = [
     STATIC_DIR / "js" / "interface-state.js",
     STATIC_DIR / "js" / "theme-toggle.js",
+    STATIC_DIR / "js" / "sxo-score.js",
 ]
+
+# Interactive components a content source may request via its
+# "interactive_component" field. Governed allowlist: a source asking for
+# any component outside this set aborts the build.
+APPROVED_INTERACTIVE_COMPONENTS = {
+    "score-instrument.html",
+}
 
 CTA_DEFINITIONS = {
     "explore_framework": {
@@ -238,11 +246,21 @@ def render_full_page(
         route_context = render_route_context(route)
         sxo_diagnostic_environment = load_component("sxo-diagnostic-environment.html")
 
+        interactive = content.get("interactive_component", "")
+        if interactive and interactive not in APPROVED_INTERACTIVE_COMPONENTS:
+            print(
+                f"ERROR: route '{route['path']}' requests unapproved "
+                f"interactive component: {interactive}"
+            )
+            sys.exit(1)
+        interactive_instrument = load_component(interactive) if interactive else ""
+
         page_tmpl = load_template("page.html")
         page_html = render(page_tmpl, {
             "sxo_diagnostic_environment": sxo_diagnostic_environment,
             "route_context": route_context,
             "route_path": route["path"],
+            "interactive_instrument": interactive_instrument,
             "page_heading": content.get("h1", content.get("title", "")),
             "page_summary": content.get("summary", ""),
             "page_body": render_page_body(content),

@@ -49,6 +49,36 @@
       ],
       "defer": true,
       "external_dependencies": false
+    },
+    {
+      "file": "static/js/sxo-score.js",
+      "purpose": "SuperSXO Score self-assessment instrument. Activates the compute button on /sxo-score/, reads the 14 claim-governed statements from the DOM, and renders a per-layer assessment reading built with createElement/textContent only. All answers stay in browser memory: no network calls, no storage, no cookies, no persistence. No-op on every page without the instrument form.",
+      "allowed_apis": [
+        "querySelector",
+        "querySelectorAll",
+        "createElement",
+        "createTextNode",
+        "textContent",
+        "appendChild",
+        "replaceChildren",
+        "setAttribute",
+        "removeAttribute",
+        "addEventListener"
+      ],
+      "forbidden_apis": [
+        "eval",
+        "innerHTML",
+        "document.write",
+        "fetch",
+        "XMLHttpRequest",
+        "localStorage",
+        "sessionStorage",
+        "document.cookie",
+        "import",
+        "external script loading"
+      ],
+      "defer": true,
+      "external_dependencies": false
     }
   ]
 }

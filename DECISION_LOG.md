@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — Interactive SuperSXO Score Instrument Shipped (Rung 0)
+
+**Type:** architecture  
+**Status:** decided  
+**Decision:** Executed Phase C of `ASSET_VALUE_MAXIMIZATION_PLAN.md`: converted `/sxo-score/` from a descriptive page into a working interactive self-assessment instrument — Rung 0 of the recurring income ladder in `CATEGORY_REFERENCE_ENGINE.md`. Also emitted `Organization` and `WebSite` JSON-LD on the homepage via the governed structured-data mechanism.  
+**Reasoning:** The instrument is the single highest-leverage value action in the adopted plans: it converts the asset from content about SXO into the instrument that measures SXO, and it is the acquisition surface feeding the paid audit pathway. Privacy-first design was mandatory: the free assessment must build trust, so all answers stay in browser memory with no transmission, storage, or gating — verified in a real browser (zero external requests).  
+**Impact:** (1) `templates/components/score-instrument.html` created: 14 claim-governed condition statements across the seven journey layers, each answered Present/Partially present/Absent (2/1/0), in accessible fieldsets with `role=group` labeling, an `aria-live` result region, a noscript fallback, and a compute button that ships disabled until the script activates it — statements remain fully readable without JavaScript. (2) `static/js/sxo-score.js` approved as the third first-party script: builds the assessment reading with createElement/textContent only (per-layer bands Governed / Partially governed / Ungoverned, weakest-layer finding, mandatory non-guarantee disclaimer, clinical pointer to `/sxo-audit/`); no-op on every other page. (3) `scripts/build.py` extended with a governed `interactive_component` allowlist; `templates/page.html` gained the instrument slot. (4) `score_instrument` registered in `data/component-registry.json` with prohibited behaviors including answer transmission, email gating, fake urgency, and guarantee-implying result wording. (5) Instrument styles appended to `main.css` using existing visual tokens. (6) `scripts/validate_score_instrument.py` added as the 19th validator: verifies script approval and forbidden-pattern absence, component structure (7 fieldsets, q1–q14, 42 radios valued 0/1/2, aria-live, noscript, disabled-by-default button), no inline script/style or external URLs, and instrument exclusivity to `/sxo-score/` in sources and built output. (7) Functional verification in headless Chromium: computation exact (19/28 = 68% on a mixed answer set), incomplete-answer detection correct, zero external network requests, script inert on other routes, homepage JSON-LD parsing as Organization + WebSite. Full quality gate (19 validators) passed.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-18] — Governed Glossary Published as Tier 1 Citation Core
 
 **Type:** content  

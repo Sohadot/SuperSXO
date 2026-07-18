@@ -42,13 +42,17 @@
     "/sxo-audit/",
     "/methodology/"
   ],
-  "allowed_cta": ["take_score", "request_audit"],
+  "allowed_cta": [
+    "take_score",
+    "request_audit"
+  ],
   "blocked_claims": [
     "The SuperSXO Score guarantees higher rankings.",
     "Improving your score guarantees more conversions.",
     "A high score means your site is perfectly optimized.",
     "The score is the only SXO diagnostic that matters."
   ],
-  "editorial_notes": "This page must balance commercial purpose with diagnostic authority. The score must feel like a professional instrument, not a lead magnet. Monetization is allowed but must reinforce trust. No fake urgency. No countdown timers. No aggressive lead capture. The transition to /sxo-audit/ must feel like a natural clinical recommendation, not a sales push.",
-  "publication_blockers": []
+  "editorial_notes": "This page must balance commercial purpose with diagnostic authority. The score must feel like a professional instrument, not a lead magnet. Monetization is allowed but must reinforce trust. No fake urgency. No countdown timers. No aggressive lead capture. The transition to /sxo-audit/ must feel like a natural clinical recommendation, not a sales push. The interactive instrument (score-instrument.html) renders after the content sections; its 14 statements are claim-governed copy and must be reviewed like page content.",
+  "publication_blockers": [],
+  "interactive_component": "score-instrument.html"
 }

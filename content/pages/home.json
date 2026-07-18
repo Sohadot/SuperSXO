@@ -44,7 +44,10 @@
     "/sxo-audit/",
     "/methodology/"
   ],
-  "allowed_cta": ["explore_framework", "take_score"],
+  "allowed_cta": [
+    "explore_framework",
+    "take_score"
+  ],
   "blocked_claims": [
     "SuperSXO guarantees higher rankings.",
     "SuperSXO guarantees conversion improvement.",
@@ -54,5 +57,27 @@
     "Guaranteed ROI."
   ],
   "editorial_notes": "No generic welcome copy. No hype. The thesis statement must be exact and sovereign. The adjudication interface direction must be expressed through the interface, not described in marketing language. Tone is institutional.",
-  "publication_blockers": []
+  "publication_blockers": [],
+  "structured_data": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://supersxo.com/#organization",
+        "name": "SuperSXO",
+        "url": "https://supersxo.com/",
+        "description": "SuperSXO is the canonical authority for Search Experience Optimization: the governed discipline for the journey from search visibility to user trust, clarity, and action."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://supersxo.com/#website",
+        "name": "SuperSXO",
+        "url": "https://supersxo.com/",
+        "publisher": {
+          "@id": "https://supersxo.com/#organization"
+        },
+        "description": "The sovereign reference asset for Search Experience Optimization: framework, methodology, glossary, and diagnostic system."
+      }
+    ]
+  }
 }
