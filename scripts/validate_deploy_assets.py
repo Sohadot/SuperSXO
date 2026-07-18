@@ -53,9 +53,7 @@ def load_approved_js() -> list:
 
 APPROVED_JS = load_approved_js()
 
-DEFERRED_ROUTES = [
-    "acquisition",
-]
+DEFERRED_ROUTES = []  # all registered routes are published as of 2026-07-18
 
 EXTERNAL_ASSET_PATTERNS = [
     'rel="stylesheet" href="http',

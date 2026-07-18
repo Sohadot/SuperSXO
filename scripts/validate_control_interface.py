@@ -28,7 +28,7 @@ TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
 APPROVED_SCRIPTS_FILE = ROOT / "data" / "approved-scripts.json"
 
-DEFERRED_ROUTES = ["/acquisition/"]
+DEFERRED_ROUTES = []  # all registered routes are published as of 2026-07-18
 
 PUBLISHED_TEMPLATES = [
     ROOT / "templates" / "base.html",

@@ -65,7 +65,7 @@ REQUIRED_CSS_MARKERS = [
     "@media",
 ]
 
-DEFERRED_ROUTES = ["/acquisition/"]
+DEFERRED_ROUTES = []  # all registered routes are published as of 2026-07-18
 
 # External resources and tracking patterns forbidden in all templates
 FORBIDDEN_FRAGMENTS = [

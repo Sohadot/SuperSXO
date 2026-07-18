@@ -207,7 +207,7 @@
       "title": "Acquisition — SuperSXO Strategic Asset Positioning",
       "role": "acquisition_signal",
       "purpose": "Signals to potential strategic acquirers that the asset is intentionally built and positioned for acquisition. Reinforces buyer logic.",
-      "status": "planned",
+      "status": "published",
       "indexable": false,
       "canonical": "https://supersxo.com/acquisition/",
       "ux_layer": "strategic_outcome",

@@ -1,6 +1,6 @@
 {
   "route": "/acquisition/",
-  "source_status": "draft_content",
+  "source_status": "approved_for_build",
   "page_role": "acquisition_signal",
   "ux_layer": "strategic_outcome",
   "claim_level": "commercial_claim",
@@ -34,7 +34,7 @@
     {
       "name": "acquisition_contact",
       "purpose": "Provide a dignified, institutional inquiry path. No pressure. No fake urgency. No 'buy it now' framing.",
-      "content": "Inquiries are received from qualified strategic acquirers: operating companies and investors for whom the SXO category is strategically relevant. An inquiry should identify the acquiring organization, its strategic interest in the category, and the evaluation it intends to conduct. Inquiries are reviewed and answered in order of strategic seriousness. There is no asking price published on this page, no auction mechanic, and no urgency framing: the asset is operated on a hold-indefinitely basis and considered for transfer only when a strategic acquirer presents a case that exceeds the value of continued independent operation. The designated inquiry channel is published in this section when this page is live."
+      "content": "Inquiries are received from qualified strategic acquirers: operating companies and investors for whom the SXO category is strategically relevant. An inquiry should identify the acquiring organization, its strategic interest in the category, and the evaluation it intends to conduct. Inquiries are reviewed and answered in order of strategic seriousness. There is no asking price published on this page, no auction mechanic, and no urgency framing: the asset is operated on a hold-indefinitely basis and considered for transfer only when a strategic acquirer presents a case that exceeds the value of continued independent operation. Inquiries are received by email at acquisition@supersxo.com."
     }
   ],
   "required_internal_links": [
@@ -54,10 +54,5 @@
     "Guaranteed revenue generating asset."
   ],
   "editorial_notes": "This page must be written with absolute institutional dignity. No domain marketplace language. No pressure tactics. No revenue promises. Tone should feel like a strategic brief prepared for qualified acquirers at an executive level. Reference the domain cluster, the methodology, and the governance system as evidence of strategic depth, not as sales points.",
-  "publication_blockers": [
-    "Acquisition contact channel must be defined by the operator (recommended: a dedicated alias via Cloudflare Email Routing, e.g. acquisition@supersxo.com) and inserted into the acquisition_contact section, replacing its final sentence.",
-    "Route status must be 'published' in data/routes.json (page remains indexable: false).",
-    "Deferred-route lists in the five interface/deploy validators must be updated when publication is approved.",
-    "All quality gates must pass."
-  ]
+  "publication_blockers": []
 }

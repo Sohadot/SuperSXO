@@ -146,12 +146,12 @@
   {
    "risk_id": "RISK-015",
    "category": "conversion_path",
-   "description": "The asset has no functioning contact or inquiry channel anywhere. The audit request — the primary commercial terminal action — and the future acquisition inquiry have no completion mechanism. The asset currently fails its own Layer 6 (Action Pathway Integrity) governing condition: a defined terminal action that completes without friction.",
-   "severity": "high",
-   "prevention": "Operator defines a governed inquiry channel (recommended: Cloudflare Email Routing alias on supersxo.com, now available since NS delegation). Channel choice is logged in DECISION_LOG.md before any page publishes it.",
-   "detection": "Manual: any CTA or intake copy that names a submission action must resolve to a working channel. To be validator-enforced when the channel ships.",
-   "response": "Blocks publication of any new surface that names a submission mechanism — above all /acquisition/, per its contract blocker. Until resolved: /sxo-audit/ intake copy describes the process without promising an unreachable submission mechanism. Resolution path: operator defines the channel, it is logged in DECISION_LOG.md, wired into the affected pages, and this risk is downgraded in the same commit.",
-   "blocks_publication": true
+   "description": "RESOLVED 2026-07-18: the asset previously had no functioning contact or inquiry channel, failing its own Layer 6 governing condition. Operator activated Cloudflare Email Routing with two governed aliases: pro@supersxo.com (professional inquiries, wired into the /sxo-audit/ intake) and acquisition@supersxo.com (acquisition inquiries, wired into /acquisition/). Residual risk is low: alias deactivation would silently break both terminal actions.",
+   "severity": "low",
+   "prevention": "Aliases are governed infrastructure: any change to routing destinations or alias status is logged in DECISION_LOG.md.",
+   "detection": "Operator monitors the destination inbox; periodic manual verification that both aliases deliver.",
+   "response": "If an alias stops delivering: restore routing in Cloudflare, verify delivery, log the incident.",
+   "blocks_publication": false
   }
  ]
 }
