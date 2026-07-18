@@ -65,7 +65,7 @@ REQUIRED_CSS_MARKERS = [
     "@media",
 ]
 
-DEFERRED_ROUTES = ["/seo-vs-sxo/", "/ai-search-experience/", "/acquisition/"]
+DEFERRED_ROUTES = ["/acquisition/"]
 
 # External resources and tracking patterns forbidden in all templates
 FORBIDDEN_FRAGMENTS = [

@@ -28,7 +28,7 @@ TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
 APPROVED_SCRIPTS_FILE = ROOT / "data" / "approved-scripts.json"
 
-DEFERRED_ROUTES = ["/seo-vs-sxo/", "/ai-search-experience/", "/acquisition/"]
+DEFERRED_ROUTES = ["/acquisition/"]
 
 PUBLISHED_TEMPLATES = [
     ROOT / "templates" / "base.html",

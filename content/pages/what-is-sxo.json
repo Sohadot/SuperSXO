@@ -40,7 +40,8 @@
   "required_internal_links": [
     "/sxo-framework/",
     "/sxo-score/",
-    "/methodology/"
+    "/methodology/",
+    "/seo-vs-sxo/"
   ],
   "allowed_cta": ["explore_framework", "take_score"],
   "blocked_claims": [
