@@ -370,6 +370,64 @@ def copy_cname() -> None:
     print(f"  ASSET: CNAME -> output/CNAME ({CNAME_FILE.read_text(encoding='utf-8').strip()})")
 
 
+def write_discovery_files(all_routes: list, content_sources: dict) -> None:
+    """Generate sitemap.xml, robots.txt, and llms.txt in output/.
+
+    All three derive exclusively from data/routes.json: only routes that
+    are both published and indexable appear. No hand-maintained URL list
+    exists anywhere.
+    """
+    discoverable = [
+        r for r in all_routes
+        if r.get("status") == "published" and r.get("indexable", False)
+    ]
+
+    # --- sitemap.xml ---
+    url_entries = "\n".join(
+        f"  <url>\n    <loc>{esc(r['canonical'])}</loc>\n  </url>"
+        for r in discoverable
+    )
+    sitemap = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{url_entries}\n"
+        "</urlset>\n"
+    )
+    (OUTPUT_DIR / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+    print(f"  DISCOVERY: output/sitemap.xml ({len(discoverable)} URLs)")
+
+    # --- robots.txt ---
+    robots = (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "\n"
+        "Sitemap: https://supersxo.com/sitemap.xml\n"
+    )
+    (OUTPUT_DIR / "robots.txt").write_text(robots, encoding="utf-8")
+    print("  DISCOVERY: output/robots.txt")
+
+    # --- llms.txt ---
+    lines = [
+        "# SuperSXO",
+        "",
+        "> SuperSXO.com is the canonical authority for Search Experience "
+        "Optimization (SXO): the governed discipline for the journey from "
+        "search visibility to user trust, clarity, and action. Definitions "
+        "on this site are governed, claim-classified, and published at "
+        "stable anchors; they may be cited with attribution to SuperSXO.com.",
+        "",
+        "## Canonical surfaces",
+        "",
+    ]
+    for r in discoverable:
+        content = content_sources.get(r["path"], {})
+        description = content.get("meta_description", r.get("purpose", ""))
+        lines.append(f"- [{r['title']}]({r['canonical']}): {description}")
+    lines.append("")
+    (OUTPUT_DIR / "llms.txt").write_text("\n".join(lines), encoding="utf-8")
+    print(f"  DISCOVERY: output/llms.txt ({len(discoverable)} surfaces)")
+
+
 def load_content_sources() -> dict:
     sources = {}
     if not CONTENT_DIR.is_dir():
@@ -467,7 +525,8 @@ def main() -> None:
     copy_static_assets()
     copy_approved_js()
     copy_cname()
-    print("Static assets and CNAME copied to output/")
+    write_discovery_files(all_routes, content_sources)
+    print("Static assets, CNAME, and discovery files written to output/")
 
 
 if __name__ == "__main__":
