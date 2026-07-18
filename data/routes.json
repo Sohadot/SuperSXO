@@ -191,7 +191,8 @@
       "required_internal_links": [
         "/sxo-framework/",
         "/sxo-score/",
-        "/"
+        "/",
+        "/glossary/"
       ],
       "allowed_cta": [
         "explore_framework",

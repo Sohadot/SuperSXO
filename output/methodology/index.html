@@ -226,11 +226,11 @@
   </section>
   <section class="page-section" id="claim-discipline" data-section="claim_discipline">
     <h2>Claim Discipline</h2>
-    <p>Every claim on this asset is classified before it is approved for publication. The claim classification system distinguishes between doctrine claims (statements of defined principle within the SuperSXO framework), interpretation claims (statements that represent a reasoned position on external evidence), and commercial claims (statements made in the context of a commercial offer). Claims that cannot be classified are prohibited from publication. This is not a style guideline. It is a structural enforcement layer: content that has not been claim-classified cannot reach the approved_for_build status required to enter the build pipeline.</p>
+    <p>Every claim on this asset is classified before it is approved for publication. The claim classification system defines six classes: doctrine claims (project-governing statements derived from the asset thesis, requiring no external citation), general industry claims (broadly accepted statements within the search, experience, and conversion disciplines, used with caution because consensus shifts), source-backed claims (factual or external statements that must be supported by sources), interpretation claims (reasoned strategic positions, explicitly labeled as such), commercial claims (statements made in the context of an offer, held to the strictest evidentiary standard), and blocked claims (prohibited statements — above all, performance guarantees — that may never be published in any form). Claims that cannot be classified are prohibited from publication. This is not a style guideline. It is a structural enforcement layer: content that has not been claim-classified cannot reach the approved_for_build status required to enter the build pipeline.</p>
   </section>
   <section class="page-section" id="quality-governance" data-section="quality_governance">
     <h2>Quality Governance</h2>
-    <p>Every page on this asset must pass a defined sequence of quality gates before it is published. The quality gate system runs automatically and fails loudly on any violation. The gates in sequence are: JSON schema validation, route registry validation, navigation governance validation, domain cluster validation, publication quality gate validation, content source validation, visual system validation, prototype isolation validation, security baseline validation, repository hygiene validation, publication readiness validation, build boundary validation, spatial interface validation, control interface validation, approved scripts validation, immersive experience validation, deploy asset validation, and adjudication interface validation. A page that fails any gate in this sequence cannot be published. The gates are not aspirational. They are enforced at every push to the repository.</p>
+    <p>Every page on this asset must pass a defined sequence of automated quality gates before it is published, and the sequence fails loudly on any violation. The gates span seven enforcement domains: data integrity (schema validity of every governance file), route governance (registry completeness, canonical discipline, internal link resolution), content governance (source contracts, claim boundaries, publication readiness), interface governance (visual system, component registry, accessibility structure), script governance (a single approved-scripts registry from which the build and every validator derive their script lists, forbidden-API scanning, per-tag load verification), security governance (secret scanning, repository hygiene, baseline control verification), and deployment governance (build boundaries, deploy-asset verification, machine-discovery surface integrity). The authoritative gate registry is machine-readable in the repository and grows with the asset — every new surface ships with the validator that governs it. A page that fails any gate cannot be published. The gates are not aspirational; they are enforced on every push and every deployment.</p>
   </section>
   <section class="page-section" id="content-standards" data-section="content_standards">
     <h2>Content Standards</h2>
@@ -239,6 +239,10 @@
   <section class="page-section" id="acquisition-relevance" data-section="acquisition_relevance">
     <h2>Acquisition Relevance</h2>
     <p>A digital asset with a documented, machine-enforced operating methodology is more defensible and more transferable than one without. The SuperSXO Methodology serves the operational integrity of this asset and its acquisition positioning equally. A potential acquirer evaluating this asset will find a system in which every route has a registered purpose, every claim is classified, every page passes a quality gate, and the entire build pipeline is governed by machine-readable rules. That documentation reduces evaluation risk, demonstrates intellectual property depth, and establishes that the asset&#x27;s value is not dependent on undocumented knowledge held by its current operator.</p>
+  </section>
+  <section class="page-section" id="definition-governance" data-section="definition_governance">
+    <h2>Definition Governance</h2>
+    <p>Definitions are governed assets in their own right. Every category term carries exactly one canonical definition, held in a machine-readable glossary registry that is the source of record. The public glossary publishes those definitions verbatim at stable anchors that never change once published, and every use of a term across the asset must remain consistent with its registered definition. A definition change is a governance event: it begins in the registry, is logged in the decision log, and propagates to the published surface through the governed build — never by editing the page directly. This rule exists because the asset&#x27;s citability depends on it: a reference layer whose definitions drift between pages, or whose anchors break, forfeits the trust that makes citation rational.</p>
   </section>
   </div>
 
@@ -250,6 +254,7 @@
       <li><a href="/sxo-framework/">The SuperSXO Framework — From Search Intent to Strategic Outcome</a></li>
       <li><a href="/sxo-score/">SuperSXO Score — Self-Assessment Diagnostic</a></li>
       <li><a href="/">SuperSXO — Sovereign Search Experience Optimization</a></li>
+      <li><a href="/glossary/">SXO Glossary — Canonical Definitions of Search Experience Optimization</a></li>
     </ul>
   </nav>
 
