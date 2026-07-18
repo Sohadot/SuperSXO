@@ -22,10 +22,21 @@ Safety rules enforced at build time:
   - Homepage (route "/") is rendered from templates/home.html and source components.
 """
 
+import html
 import json
 import shutil
 import sys
 from pathlib import Path
+
+
+def esc(value) -> str:
+    """HTML-escape a leaf text value before template injection.
+
+    Applied to every value that originates in JSON data (titles, headings,
+    section bodies, nav labels) and lands in HTML text or attribute
+    context. Never applied to rendered component/template HTML.
+    """
+    return html.escape(str(value) if value is not None else "", quote=True)
 
 REPO_ROOT = Path(__file__).parent.parent
 ROUTES_FILE = REPO_ROOT / "data" / "routes.json"
@@ -41,11 +52,23 @@ REQUIRED_CSS_FILES = [
     STATIC_DIR / "css" / "main.css",
 ]
 
-APPROVED_JS_FILES = [
-    STATIC_DIR / "js" / "interface-state.js",
-    STATIC_DIR / "js" / "theme-toggle.js",
-    STATIC_DIR / "js" / "sxo-score.js",
-]
+APPROVED_SCRIPTS_FILE = REPO_ROOT / "data" / "approved-scripts.json"
+
+
+def load_approved_js_files() -> list:
+    """data/approved-scripts.json is the single source of truth for
+    first-party JavaScript. The build never hardcodes script paths."""
+    with open(APPROVED_SCRIPTS_FILE, encoding="utf-8") as f:
+        data = json.load(f)
+    files = []
+    for entry in data.get("approved_scripts", []):
+        rel = entry.get("file", "")
+        if not rel.startswith("static/js/"):
+            print(f"ERROR: approved script outside static/js/: {rel}")
+            sys.exit(1)
+        files.append(REPO_ROOT / rel)
+    return files
+
 
 # Interactive components a content source may request via its
 # "interactive_component" field. Governed allowlist: a source asking for
@@ -98,13 +121,13 @@ def load_component(name: str) -> str:
 
 def render_nav_items(items: list, published_paths: set) -> str:
     """Render <li><a> list items filtered to published routes only."""
-    html = []
+    rendered = []
     for item in items:
         if item.get("path") in published_paths:
-            html.append(
-                f'<li><a href="{item["path"]}">{item["label"]}</a></li>'
+            rendered.append(
+                f'<li><a href="{esc(item["path"])}">{esc(item["label"])}</a></li>'
             )
-    return "\n      ".join(html)
+    return "\n      ".join(rendered)
 
 
 def render_cta_block(allowed_cta: list, published_paths: set) -> str:
@@ -114,8 +137,8 @@ def render_cta_block(allowed_cta: list, published_paths: set) -> str:
         defn = CTA_DEFINITIONS.get(cta_type)
         if defn and defn["href"] in published_paths:
             links.append(
-                f'<a class="cta-link cta-{cta_type}" href="{defn["href"]}">'
-                f'{defn["label"]}</a>'
+                f'<a class="cta-link cta-{esc(cta_type)}" href="{esc(defn["href"])}">'
+                f'{esc(defn["label"])}</a>'
             )
     return "\n    ".join(links)
 
@@ -128,7 +151,7 @@ def render_related_links(
     for path in required_links:
         if path in published_paths:
             title = routes_map.get(path, {}).get("title", path)
-            items.append(f'<li><a href="{path}">{title}</a></li>')
+            items.append(f'<li><a href="{esc(path)}">{esc(title)}</a></li>')
     return "\n      ".join(items)
 
 
@@ -148,9 +171,9 @@ def render_page_body(content: dict) -> str:
         anchor = name.replace("_", "-")
         body = section.get("content", "")
         sections.append(
-            f'<section class="page-section" id="{anchor}" data-section="{name}">\n'
-            f'    <h2>{heading}</h2>\n'
-            f'    <p>{body}</p>\n'
+            f'<section class="page-section" id="{esc(anchor)}" data-section="{esc(name)}">\n'
+            f'    <h2>{esc(heading)}</h2>\n'
+            f'    <p>{esc(body)}</p>\n'
             f'  </section>'
         )
     return "\n  ".join(sections)
@@ -167,9 +190,12 @@ def render_structured_data(content: dict) -> str:
     sd = content.get("structured_data")
     if not sd:
         return ""
+    # "<" is serialized as < so no data value can ever close the
+    # script element or open a new tag from inside the JSON-LD block.
+    payload = json.dumps(sd, ensure_ascii=False).replace("<", "\\u003c")
     return (
         '<script type="application/ld+json">'
-        + json.dumps(sd, ensure_ascii=False)
+        + payload
         + "</script>"
     )
 
@@ -177,11 +203,11 @@ def render_structured_data(content: dict) -> str:
 def render_route_context(route: dict) -> str:
     tmpl = load_component("route-context.html")
     return render(tmpl, {
-        "route_role": route.get("role", ""),
-        "ux_layer": route.get("ux_layer", ""),
-        "claim_level": route.get("claim_level", ""),
+        "route_role": esc(route.get("role", "")),
+        "ux_layer": esc(route.get("ux_layer", "")),
+        "claim_level": esc(route.get("claim_level", "")),
         "monetization_allowed": str(route.get("monetization_allowed", False)).lower(),
-        "publication_status": route.get("status", ""),
+        "publication_status": esc(route.get("status", "")),
     })
 
 
@@ -213,8 +239,8 @@ def render_footer(nav_data: dict, published_paths: set) -> str:
 def render_homepage(content: dict) -> str:
     """Render the homepage from source adjudication components."""
     opening_chamber = render(load_component("opening-chamber.html"), {
-        "case_heading": content.get("h1", ""),
-        "case_thesis": content.get("summary", ""),
+        "case_heading": esc(content.get("h1", "")),
+        "case_thesis": esc(content.get("summary", "")),
     })
     examination_record = load_component("examination-record.html")
     assessment_entry = load_component("assessment-entry.html")
@@ -259,10 +285,10 @@ def render_full_page(
         page_html = render(page_tmpl, {
             "sxo_diagnostic_environment": sxo_diagnostic_environment,
             "route_context": route_context,
-            "route_path": route["path"],
+            "route_path": esc(route["path"]),
             "interactive_instrument": interactive_instrument,
-            "page_heading": content.get("h1", content.get("title", "")),
-            "page_summary": content.get("summary", ""),
+            "page_heading": esc(content.get("h1", content.get("title", ""))),
+            "page_summary": esc(content.get("summary", "")),
             "page_body": render_page_body(content),
             "related_links": render_related_links(
                 route.get("required_internal_links", []), published_paths, routes_map
@@ -276,12 +302,12 @@ def render_full_page(
 
     base_tmpl = load_template("base.html")
     return render(base_tmpl, {
-        "title": content.get("title", route.get("title", "")),
-        "meta_description": content.get("meta_description", ""),
-        "canonical": route.get("canonical", ""),
-        "robots": robots,
+        "title": esc(content.get("title", route.get("title", ""))),
+        "meta_description": esc(content.get("meta_description", "")),
+        "canonical": esc(route.get("canonical", "")),
+        "robots": esc(robots),
         "structured_data": render_structured_data(content),
-        "body_class": route.get("role", "page"),
+        "body_class": esc(route.get("role", "page")),
         "header": header,
         "content": page_html,
         "footer": footer,
@@ -319,7 +345,8 @@ def copy_static_assets() -> None:
 
 def copy_approved_js() -> None:
     """Copy approved first-party JS files into output/static/js/ for deployment."""
-    for src in APPROVED_JS_FILES:
+    approved_js_files = load_approved_js_files()
+    for src in approved_js_files:
         if not src.is_file():
             print(f"ERROR: approved JS file missing: {src.relative_to(REPO_ROOT)}")
             sys.exit(1)
@@ -327,7 +354,7 @@ def copy_approved_js() -> None:
     dest_js = OUTPUT_DIR / "static" / "js"
     dest_js.mkdir(parents=True, exist_ok=True)
 
-    for src in APPROVED_JS_FILES:
+    for src in approved_js_files:
         dst = dest_js / src.name
         shutil.copy2(src, dst)
         print(f"  ASSET: {src.relative_to(REPO_ROOT)} -> {dst.relative_to(REPO_ROOT)}")
