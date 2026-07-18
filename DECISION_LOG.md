@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — Asset Evidence Dossier Started; Metrics Log Established; Full Production Verification Green
+
+**Type:** other  
+**Status:** decided  
+**Decision:** (A) Created `docs/evidence/ASSET_EVIDENCE_DOSSIER.md` as the living buyer-facing evidence file (Phase F preparation started early, per the one-week-presentation exit criterion) and `data/metrics-log.json` as its append-only machine-readable source of record, seeded with the official baseline. (B) Ran the first full production verification of the live site: all 13 URLs (10 routes + three discovery files) return 200; acquisition noindex confirmed live; Score form, DefinedTermSet, and both contact channels confirmed live; sitemap serves 9 URLs. (C) Finding recorded: Cloudflare Email Obfuscation is active at the edge — published email addresses are rewritten into JS-decoded protected links. Functional for JS users, but it conflicts with the asset's readable-without-JavaScript doctrine (no-JS visitors see "[email protected]"). Recommendation to operator: disable Scrape Shield → Email Address Obfuscation; the aliases are deliberate governed routing addresses, and inbox filtering is the appropriate spam control.  
+**Reasoning:** Evidence must accrue in a governed place from the day the baseline exists, not be assembled retroactively at sale time; the dossier's rules (every claim verifiable from a named source; append-only metrics; an honest known-gaps register) are what make it worth more than a pitch deck. The production check also confirmed deploys #26–27 landed correctly.  
+**Impact:** Dossier sections: asset identity, product/content state, governance evidence (including the publicly logged deploy incident as evidence the gate works), measurement trail, and the honest gaps register (no traffic history, no citations, no revenue, no audience, headers pending) — kept deliberately because a dossier that hides gaps fails due diligence. Metrics log entry 1: the 2026-07-18 baseline with GSC, production, and repository-state facts. Full CI sequence passed: 20 validators.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-18] — Audit Delivery Package: Governing-Conditions Registry, Delivery Standard, Report Template
 
 **Type:** monetization  

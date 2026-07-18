@@ -1,0 +1,31 @@
+{
+ "schema_version": "1.0",
+ "governance_doc": "docs/evidence/ASSET_EVIDENCE_DOSSIER.md",
+ "governing_principle": "Append-only. Each entry is a dated, verifiable snapshot. Entries are never edited after the fact; corrections are new entries. This log feeds the Asset Evidence Dossier and the buyer-facing evidence trail.",
+ "entries": [
+  {
+   "date": "2026-07-18",
+   "entry_type": "official_baseline",
+   "source": "Google Search Console, production verification, repository state",
+   "metrics": {
+    "published_routes": 10,
+    "indexable_routes": 9,
+    "sitemap_status": "submitted and accepted 2026-07-18",
+    "gsc_pages_discovered": 9,
+    "organic_impressions": "measurement starts (property newly verified)",
+    "referring_domains": 0,
+    "quality_gate_validators": 20,
+    "first_party_scripts": 3,
+    "interactive_instruments": 1,
+    "contact_channels": [
+     "pro@supersxo.com",
+     "acquisition@supersxo.com"
+    ],
+    "revenue_to_date": 0,
+    "owned_audience": 0,
+    "production_check": "13/13 URLs return 200 (10 routes + sitemap.xml + robots.txt + llms.txt), acquisition noindex confirmed, Score form live, DefinedTermSet live"
+   },
+   "notes": "Official Phase A baseline. All future growth measured against this entry."
+  }
+ ]
+}
