@@ -141,6 +141,20 @@
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
       "link_resolution_note": "2026-07-18: published as the buyer-facing brief with indexable: false — reachable by direct link and footer, excluded from sitemap, llms.txt, and index. Contact channel acquisition@supersxo.com active via Cloudflare Email Routing; RISK-015 resolved in the same commit."
+    },
+    {
+      "path": "/playbooks/intent-alignment/",
+      "title": "Intent Alignment Playbook — Governing Layer 1 of the Search-to-Action Journey",
+      "publication_order": 11,
+      "internal_link_dependencies": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/glossary/"
+      ],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "2026-07-18: first Tier 4 practitioner surface per CATEGORY_REFERENCE_ENGINE.md. Framework page links to it via required_internal_links."
     }
   ],
   "deferred_routes": [],

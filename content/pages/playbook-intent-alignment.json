@@ -1,0 +1,60 @@
+{
+  "route": "/playbooks/intent-alignment/",
+  "source_status": "approved_for_build",
+  "page_role": "operational_playbook",
+  "ux_layer": "search_intent",
+  "claim_level": "doctrine_claim",
+  "monetization_allowed": false,
+  "title": "Intent Alignment Playbook — Governing Layer 1 of the Search-to-Action Journey",
+  "h1": "The Intent Alignment Playbook",
+  "meta_description": "The operational playbook for governing Search Intent — Layer 1 of the SuperSXO Framework: documenting intent before pages are written and holding the first screen to the searched question.",
+  "canonical_intent": "First Tier 4 practitioner surface: operationalize Layer 1's two governing conditions so practitioners can establish, verify, and maintain them on real assets.",
+  "summary": "How to establish and maintain the two governing conditions of the Search Intent layer: a documented intent definition preceding every search-facing page, and a first screen that answers the searched question before anything else. Written for practitioners operating real assets against the SuperSXO Framework.",
+  "required_sections": [
+    {
+      "name": "playbook_scope",
+      "purpose": "Define what this playbook governs and for whom. Anchor to conditions Q1 and Q2 of the governing-conditions registry.",
+      "content": "This playbook operationalizes Layer 1 of the SuperSXO Framework: Search Intent. The framework defines the layer's two governing conditions — that the primary pages receiving search traffic were designed around a defined search intent documented before the page was written, and that on each major entry page the first screen addresses the question the visitor searched before introducing anything else. This playbook describes the working practices that make those conditions true and keep them true. It is written for practitioners operating real assets. It contains no performance predictions: establishing these conditions governs the entry of the journey; what follows depends on the layers downstream."
+    },
+    {
+      "name": "the_intent_definition_practice",
+      "purpose": "Operationalize condition Q1: a written intent definition preceding every search-facing page.",
+      "content": "The first condition requires an artifact, not an intention: a written intent definition that exists before the page is written. A serviceable intent definition answers four questions in a few disciplined sentences. What question or need drives the search this page is built to receive? What state is the searcher in — what do they already know, and what are they trying to decide or do? What would satisfy the search — what must be true on this page for the searcher to consider the question answered? And what does not belong — what adjacent content would dilute or misdirect the page's purpose? The definition lives wherever the operation keeps its content records, provided it is dated and survives the page's publication. A page whose intent definition is written after the fact fails the condition: retroactive documentation records what was built, not what governed the building."
+    },
+    {
+      "name": "the_first_screen_discipline",
+      "purpose": "Operationalize condition Q2: the first screen answers the searched question before anything else.",
+      "content": "The second condition disciplines the most valuable surface an entry page has: what the visitor sees before scrolling or interacting. The practice is a single ordering rule — the searched question is addressed first, and everything else on the page is subordinate to that answer. Branding statements, navigation flourishes, context-setting preambles, and offers all have places on the page; the first screen is not one of them unless they are themselves the answer. The review method is mechanical: open each major entry page at common viewport sizes, read only what is visible without interaction, and ask whether a visitor who arrived from this page's driving query would recognize their question being addressed. If recognition requires scrolling, the condition is partially present at best. This review is performed against the page's intent definition — which is why the first condition precedes the second."
+    },
+    {
+      "name": "diagnosing_misalignment",
+      "purpose": "Describe the observable evidence of intent misalignment, per the layer's published failure mode.",
+      "content": "The framework defines this layer's characteristic failure mode: ranking for queries whose intent the page was never designed to satisfy — traffic arrives, recognizes the mismatch, and leaves before the journey begins. The observable evidence is a divergence pattern: pages that receive search traffic but whose visitors do not proceed to any next step the page offers. Diagnosis works backward from the query data: for each page receiving meaningful search traffic, compare the queries that actually deliver visitors with the intent the page was designed for. Three findings are possible. Alignment: the delivering queries match the documented intent — the layer is governed. Drift: the page has attracted queries adjacent to its intent — the intent definition or the page must be revised, deliberately, not by accident. Absence: no documented intent exists to compare against — the diagnosis is the first condition failing, and the remedy starts there rather than with page edits."
+    },
+    {
+      "name": "maintaining_the_conditions",
+      "purpose": "Governance over time: intent definitions and first screens decay; define the review practice.",
+      "content": "Both conditions decay silently. Queries shift, pages accumulate additions, and a first screen that answered its question at publication can bury the answer under later insertions. Maintenance is a review cadence, not a rebuild: on a defined schedule, and after any material change to a search-facing page, re-run the two checks — does the intent definition still describe the queries that actually deliver visitors, and does the first screen still address the question first. Record the review outcome with a date. The record matters because governed decay-detection is what separates a maintained asset from a drifting one: an operator who can show when each entry page was last verified against its intent holds evidence; an operator who cannot holds an assumption."
+    },
+    {
+      "name": "measurement_pathway",
+      "purpose": "Connect the playbook to the Score instrument and the audit. Bridge, not upsell.",
+      "content": "These two conditions are assessed as the first pair of statements in the SuperSXO Score, and they are the first conditions examined in a professional SXO Audit, following the evidence guidance in the governing-conditions registry. The honest sequence for a practitioner is: apply this playbook, then measure — take the Score to read the layer's state alongside the six layers downstream of it. A playbook establishes conditions; an instrument verifies them. Neither substitutes for the other."
+    }
+  ],
+  "required_internal_links": [
+    "/sxo-framework/",
+    "/sxo-score/",
+    "/glossary/"
+  ],
+  "allowed_cta": [
+    "take_score"
+  ],
+  "blocked_claims": [
+    "Following this playbook guarantees better rankings.",
+    "Intent alignment guarantees conversion improvement.",
+    "This playbook is all you need for SEO."
+  ],
+  "editorial_notes": "First Tier 4 practitioner surface. Operational depth without tutorial tone: practices and review methods, not step-numbered how-to listicles. Statements Q1/Q2 wording must stay consistent with data/governing-conditions.json when quoted. No performance promises anywhere.",
+  "publication_blockers": []
+}

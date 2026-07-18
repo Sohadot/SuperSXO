@@ -11,6 +11,7 @@
     "/ai-search-experience/": "content/pages/ai-search-experience.json",
     "/glossary/": "content/pages/glossary.json",
     "/methodology/": "content/pages/methodology.json",
-    "/acquisition/": "content/pages/acquisition.json"
+    "/acquisition/": "content/pages/acquisition.json",
+    "/playbooks/intent-alignment/": "content/pages/playbook-intent-alignment.json"
   }
 }
