@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — Incident: Production Deploy Blocked by Stale Script List in Deploy Validator
+
+**Type:** quality  
+**Status:** decided  
+**Decision:** Completed the script-source unification that the hardening pass began: `scripts/validate_deploy_assets.py` now derives its approved-JS list from `data/approved-scripts.json` instead of carrying its own hardcoded copy. No validator or build script carries a script list anymore.  
+**Reasoning:** Deploy run #19 (workflow "Deploy SuperSXO Public Alpha", main commit cd84f0a) failed at the strict post-build asset validation: `output/static/js/sxo-score.js` was flagged as unapproved because `validate_deploy_assets.py` still held a hardcoded two-script list predating the Score instrument. This was precisely the drift class the script-source-unification review identified — the hardening pass unified `build.py` but missed this validator's private list. It escaped local verification because the local quality gate runs this validator in non-strict pre-build mode; the strict mode executes only post-build, and the strict step was not run locally before the Score sprint was pushed. No security impact and no public breakage: the failed gate correctly blocked the deploy, and the previously deployed site remained live.  
+**Impact:** (1) `validate_deploy_assets.py` loads its approved-JS list from `data/approved-scripts.json`; a comment records the incident at the load site. (2) Repository swept for remaining hardcoded script lists: none remain (`validate_repository_hygiene` already derives from the data file; other matches are documentation comments). (3) Process correction adopted: every sprint that touches scripts or output must replicate the full CI sequence locally before push — pre-build gate, build, `validate_deploy_assets.py --strict`, post-build gate. This fix was verified with that exact sequence: all four steps pass.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-18] — Security Hardening: Escaping, Script Source Unification, Baseline Alignment
 
 **Type:** security  
