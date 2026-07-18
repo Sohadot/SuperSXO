@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — Phase B Closed: Methodology Drift Corrected, Commercial Pages Deepened
+
+**Type:** content  
+**Status:** decided  
+**Decision:** Completed the reference-deepening pass across `/methodology/`, `/sxo-audit/`, and `/sxo-score/`, correcting two factual drift defects in the published methodology page. Phase B (category definition completion) of `ASSET_VALUE_MAXIMIZATION_PLAN.md` is closed: ten routes at reference depth. The homepage is intentionally excluded from this pass — it renders from the governed component set, is a deliberate design surface, and carries no reference-content burden.  
+**Reasoning:** The methodology page — which claims the asset's governance is strict — itself contradicted the governance files: it enumerated eighteen quality gates by name (twenty exist) and described three claim classes (`data/claim-types.json` defines six). A governance page that drifts from its own registries undermines the exact trust it exists to build. The rewrite also removed the brittle pattern: gates are now described by their seven enforcement domains with the machine-readable registry named as authoritative, so the page no longer decays with every validator added.  
+**Impact:** (1) `/methodology/` `claim_discipline` rewritten to define all six governed claim classes; `quality_governance` rewritten around seven enforcement domains (data, route, content, interface, script, security, deployment) with the growth rule — every new surface ships with its validator; new `definition_governance` section documents the glossary source-of-record rule, stable anchors, and why citability depends on it; `/glossary/` added to required internal links. (2) `/sxo-audit/` gained `relation_to_the_score`: the same framework at two depths — self-reported directional signal versus independent professional diagnosis, with the honest sequence stated (Score first). (3) `/sxo-score/` gained `reading_the_assessment`: the three governance bands (Governed, Partially governed, Ungoverned) defined as published doctrine with the re-assessment cadence — bands describe condition states, not operator grades, not metric predictions. (4) Full CI sequence passed locally: 20 validators, build, strict deploy validation.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-18] — Cloudflare NS Delegation Active; Reference Deepening of Framework and Definition Pages
 
 **Type:** architecture  
