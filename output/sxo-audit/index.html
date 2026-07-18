@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,74 +9,211 @@
   <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="/static/css/tokens.css">
   <link rel="stylesheet" href="/static/css/main.css">
+  <script src="/static/js/interface-state.js" defer></script>
+  <script src="/static/js/theme-toggle.js" defer></script>
 </head>
 <body class="commercial_offer">
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!-- header.html: semantic site header skeleton -->
-<!-- Navigation links are populated from data/navigation.json primary and commercial_cta. -->
-<!-- Do not hardcode links outside the registered route registry. -->
-<header class="site-header" role="banner">
+  <div class="control-plane-shell">
 
-  <a href="/" class="site-identity" aria-label="SuperSXO home">
-    <span class="site-name">SuperSXO</span>
-  </a>
+    <!-- header.html: adjudication system chamber header -->
+<!-- Navigation links derived from data/navigation.json. Do not hardcode routes. -->
+<header class="command-header chamber-header" role="banner">
 
-  <nav class="primary-nav" aria-label="Primary navigation">
-    <ul role="list">
-      <li><a href="/what-is-sxo/">What Is SXO</a></li>
+  <div class="command-header-inner chamber-header-inner">
+
+    <a href="/" class="authority-node chamber-identity" aria-label="SuperSXO — Return to case intake">
+      <span class="authority-node-label chamber-identity-name">SuperSXO</span>
+      <span class="authority-node-tag chamber-identity-tag" aria-hidden="true">SXO</span>
+    </a>
+
+    <nav class="route-cluster chamber-nav" aria-label="Primary navigation">
+      <ul class="route-cluster-list chamber-nav-list" role="list">
+        <li><a href="/what-is-sxo/">What Is SXO</a></li>
       <li><a href="/sxo-framework/">Framework</a></li>
       <li><a href="/methodology/">Methodology</a></li>
       <li><a href="/sxo-score/">SXO Score</a></li>
-      <!-- Each item rendered as: <li><a href="{path}">{label}</a></li> -->
-    </ul>
-  </nav>
+        <!-- Each item: <li><a href="{path}">{label}</a></li> -->
+      </ul>
+    </nav>
 
-  <nav class="cta-nav" aria-label="Primary actions">
-    <a href="/sxo-score/" class="cta-link">Take the SXO Score</a>
+    <div class="chamber-actions">
+      <nav class="action-node-cluster" aria-label="Primary actions">
+        <a href="/sxo-score/" class="cta-link">Take the SXO Score</a>
     <a href="/sxo-audit/" class="cta-link">Request an SXO Audit</a>
-    <!-- Each item rendered as: <a href="{path}" class="cta-link">{label}</a> -->
-  </nav>
+        <!-- Each item: <a href="{path}" class="cta-link">{label}</a> -->
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle display mode">
+        <span class="theme-toggle-icon" aria-hidden="true">&#9680;</span>
+      </button>
+    </div>
+
+  </div>
 
 </header>
 
 
-  <main id="main-content" tabindex="-1">
-    <!-- route-context.html: sovereign route awareness component -->
-<!-- Displays governance metadata for the current route. -->
-<!-- Populated from data/routes.json at build time. Not visible to end users by default. -->
-<aside class="route-context" aria-label="Route governance context" hidden>
+    <main id="main-content" class="main-plane" tabindex="-1">
+      <div class="route-status-strip">
+  <div class="route-status-strip-inner">
+    <span class="route-status-indicator" aria-hidden="true"></span>
+    <span class="route-status-label">Examination Active</span>
+    <code class="route-status-path">/sxo-audit/</code>
+  </div>
+</div>
 
-  <dl class="route-meta">
+<div class="route-context-zone">
+  <!-- route-context.html: route telemetry panel -->
+<!-- Displays sovereign governance metadata. Hidden from public by default. -->
+<aside class="route-telemetry-panel" aria-label="Route telemetry" hidden>
 
-    <dt>Route Role</dt>
-    <dd data-field="route_role">commercial_offer</dd>
+  <div class="telemetry-label" aria-hidden="true">ROUTE TELEMETRY</div>
 
-    <dt>UX Layer</dt>
-    <dd data-field="ux_layer">action</dd>
+  <dl class="telemetry-grid">
 
-    <dt>Claim Level</dt>
-    <dd data-field="claim_level">commercial_claim</dd>
+    <dt class="telemetry-key">Role</dt>
+    <dd class="telemetry-value" data-field="route_role">commercial_offer</dd>
 
-    <dt>Monetization Allowed</dt>
-    <dd data-field="monetization_allowed">true</dd>
+    <dt class="telemetry-key">UX Layer</dt>
+    <dd class="telemetry-value" data-field="ux_layer">action</dd>
 
-    <dt>Publication Status</dt>
-    <dd data-field="publication_status">published</dd>
+    <dt class="telemetry-key">Claim Level</dt>
+    <dd class="telemetry-value" data-field="claim_level">commercial_claim</dd>
+
+    <dt class="telemetry-key">Monetization</dt>
+    <dd class="telemetry-value" data-field="monetization_allowed">true</dd>
+
+    <dt class="telemetry-key">Status</dt>
+    <dd class="telemetry-value" data-field="publication_status">published</dd>
 
   </dl>
 
 </aside>
 
+</div>
 
-<article class="page" data-route="/sxo-audit/">
+<article class="command-console page-command-panel" data-route="/sxo-audit/">
 
-  <header class="page-header">
+  <header class="console-identity page-signal-header">
+    <div class="system-label">Adjudication System &mdash; Examination Record</div>
     <h1 class="page-heading">SXO Audit</h1>
     <p class="page-summary">The SXO Audit is a paid professional diagnostic report that applies the SuperSXO Framework to a digital asset's search-to-action journey. It identifies breakdowns across the seven layers and provides structured, defensible findings.</p>
   </header>
 
-  <section class="page-body">
+  <section class="sxo-diagnostic-environment" aria-label="SXO Diagnostic Environment">
+  <header class="diagnostic-environment-header">
+    <span class="diagnostic-environment-label">SXO Diagnostic Environment</span>
+    <span class="diagnostic-environment-status">System Active</span>
+  </header>
+  <div class="diagnostic-environment-body">
+
+    <div class="station-rail" aria-hidden="true">
+      <div class="station-rail-signal"></div>
+      <div class="station-item" data-station-index="1">
+        <div class="station-node">01</div>
+      </div>
+      <div class="station-item" data-station-index="2">
+        <div class="station-node">02</div>
+      </div>
+      <div class="station-item" data-station-index="3">
+        <div class="station-node">03</div>
+      </div>
+      <div class="station-item" data-station-index="4">
+        <div class="station-node">04</div>
+      </div>
+      <div class="station-item" data-station-index="5">
+        <div class="station-node">05</div>
+      </div>
+      <div class="station-item" data-station-index="6">
+        <div class="station-node">06</div>
+      </div>
+      <div class="station-item" data-station-index="7">
+        <div class="station-node">07</div>
+      </div>
+    </div>
+
+    <div class="active-station-readout">
+      <div class="station-panels">
+
+        <article class="station-panel" data-station="intent-channel" data-station-index="1">
+          <div class="station-panel-top">
+            <span class="station-panel-index">01</span>
+            <span class="station-panel-label">Intent Channel</span>
+            <span class="station-panel-status">Receiving</span>
+          </div>
+          <p class="station-panel-question">What brought this visitor here?</p>
+          <p class="station-panel-meaning">The search query is the initial signal. It defines the scope, authority, and relevance threshold that every subsequent layer must satisfy. The intent channel is not a starting point — it is a governing constraint on everything that follows.</p>
+        </article>
+
+        <article class="station-panel" data-station="visibility-gate" data-station-index="2">
+          <div class="station-panel-top">
+            <span class="station-panel-index">02</span>
+            <span class="station-panel-label">Visibility Gate</span>
+            <span class="station-panel-status">Monitoring</span>
+          </div>
+          <p class="station-panel-question">Is this route findable at the right moment?</p>
+          <p class="station-panel-meaning">Presence in search results at the exact query-intent intersection. Without visibility, the journey cannot begin — authority and experience are irrelevant until the gate is open. The gate is either open or it is not.</p>
+        </article>
+
+        <article class="station-panel" data-station="experience-layer" data-station-index="3">
+          <div class="station-panel-top">
+            <span class="station-panel-index">03</span>
+            <span class="station-panel-label">Experience Layer</span>
+            <span class="station-panel-status">Active</span>
+          </div>
+          <p class="station-panel-question">Does the page deliver on the search promise?</p>
+          <p class="station-panel-meaning">The governed quality of the first-contact interaction: speed, coherence, and content relevance assessed within moments of arrival. The experience layer is the proof point of the visibility claim. A broken promise at this layer terminates the journey.</p>
+        </article>
+
+        <article class="station-panel" data-station="trust-layer" data-station-index="4">
+          <div class="station-panel-top">
+            <span class="station-panel-index">04</span>
+            <span class="station-panel-label">Trust Layer</span>
+            <span class="station-panel-status">Confirmed</span>
+          </div>
+          <p class="station-panel-question">Does the visitor accept the authority of this source?</p>
+          <p class="station-panel-meaning">Perceived credibility and expertise assessed before any commitment is made. Trust cannot be declared — it is demonstrated through evidence, coherence, and consistency across the entire route. A single inconsistency can collapse this layer.</p>
+        </article>
+
+        <article class="station-panel" data-station="navigation-path" data-station-index="5">
+          <div class="station-panel-top">
+            <span class="station-panel-index">05</span>
+            <span class="station-panel-label">Navigation Path</span>
+            <span class="station-panel-status">Mapped</span>
+          </div>
+          <p class="station-panel-question">Can the visitor find what comes next?</p>
+          <p class="station-panel-meaning">Structured, intentional movement through the site system. Every route has a defined next step. Navigation failure here terminates the journey regardless of how well the prior four layers performed. Architecture is not decoration.</p>
+        </article>
+
+        <article class="station-panel" data-station="action-route" data-station-index="6">
+          <div class="station-panel-top">
+            <span class="station-panel-index">06</span>
+            <span class="station-panel-label">Action Route</span>
+            <span class="station-panel-status">Ready</span>
+          </div>
+          <p class="station-panel-question">Is the action clear and achievable from here?</p>
+          <p class="station-panel-meaning">The specific, measurable response this route is designed to produce. One route carries one governed action. Ambiguity at the action layer negates every layer that preceded it. Clarity is not a preference — it is a structural requirement.</p>
+        </article>
+
+        <article class="station-panel" data-station="outcome-register" data-station-index="7">
+          <div class="station-panel-top">
+            <span class="station-panel-index">07</span>
+            <span class="station-panel-label">Outcome Register</span>
+            <span class="station-panel-status">Registered</span>
+          </div>
+          <p class="station-panel-question">Did this journey produce strategic value?</p>
+          <p class="station-panel-meaning">The downstream consequence of repeated, successful journeys. The outcome register is not a single interaction — it is the aggregate of what the governed SXO system was built to achieve over time. This is the reason every other station exists.</p>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <div class="content-instrument-area content-control-deck content-deck">
     <section class="page-section" data-section="what_the_audit_is">
     <h2>What The Audit Is</h2>
     <p>The SXO Audit is a professional diagnostic report that applies the SuperSXO Framework to a specific digital asset. It maps the asset's current state across all seven search-to-action journey layers, identifies where the journey breaks down, and documents the conditions responsible for each breakdown. The audit is a diagnostic deliverable. It produces structured findings, not rankings improvements, conversion rate targets, or traffic projections. It is the professional-grade instrument for operators who require a defensible, methodology-governed assessment of their search-to-action performance.</p>
@@ -93,47 +230,65 @@
     <h2>Audit Process</h2>
     <p>The audit follows a defined process governed by the SuperSXO Methodology. The process begins with an intake assessment to establish the asset's purpose, the audience it serves, and the strategic outcome it is built to achieve. The diagnostic then proceeds layer by layer through the SuperSXO Framework, applying each layer's governing conditions to the specific asset under review. Findings are documented as the assessment progresses. The final deliverable is reviewed for claim accuracy and methodology adherence before it is issued. The process is structured to produce a finding that is defensible, reproducible by the methodology, and actionable by the operator receiving it.</p>
   </section>
-  <section class="page-section" data-section="request_path">
-    <h2>Request Path</h2>
+  <section class="page-section" data-section="intake_procedure">
+    <h2>Intake Procedure</h2>
     <p>Audit requests are accepted on a governed basis. The request process is straightforward: submit a request with the asset URL and a brief description of the strategic purpose of the asset. Requests are reviewed and a response issued. There is no artificial scarcity. There are no limited-time pricing tiers. There are no high-pressure follow-up sequences. The audit is offered to operators who need a professional diagnostic instrument and are prepared to act on its findings.</p>
   </section>
-  </section>
+  </div>
 
-  <aside class="related-links" aria-label="Related content">
-    <h2 class="related-links-label">Related</h2>
-    <li><a href="/sxo-score/">SuperSXO Score — Self-Assessment Diagnostic</a></li>
+  <nav class="diagnostic-readout governed-action-routes related-routes-panel" aria-label="Continue examination">
+    <h2 class="action-routes-label related-routes-label">Continue Examination</h2>
+    <ul role="list">
+      <li><a href="/sxo-score/">SuperSXO Score — Self-Assessment Diagnostic</a></li>
       <li><a href="/methodology/">SuperSXO Methodology — The Governance System for Search Experience</a></li>
       <li><a href="/">SuperSXO — Sovereign Search Experience Optimization</a></li>
-  </aside>
-
-  <footer class="page-cta" aria-label="Page action">
-    <a class="cta-link cta-request_audit" href="/sxo-audit/">Request an SXO Audit</a>
-  </footer>
-
-</article>
-
-  </main>
-
-  <!-- footer.html: semantic site footer skeleton -->
-<!-- Navigation links are populated from data/navigation.json footer section. -->
-<!-- Do not hardcode links outside the registered route registry. -->
-<footer class="site-footer" role="contentinfo">
-
-  <nav class="footer-nav" aria-label="Footer navigation">
-    <ul role="list">
-      <li><a href="/what-is-sxo/">What Is SXO</a></li>
-      <li><a href="/sxo-framework/">SXO Framework</a></li>
-      <li><a href="/methodology/">Methodology</a></li>
-      <!-- Each item rendered as: <li><a href="{path}">{label}</a></li> -->
     </ul>
   </nav>
 
-  <div class="site-footnote">
-    <p>SuperSXO.com &mdash; Sovereign Search Experience Optimization</p>
+  <div class="governed-cta-zone" aria-label="Actions">
+    <a class="cta-link cta-request_audit" href="/sxo-audit/">Request an SXO Audit</a>
+  </div>
+
+</article>
+
+    </main>
+
+    <!-- footer.html: chamber footer with outcome register -->
+<!-- Navigation links are populated from data/navigation.json footer section. -->
+<!-- Do not hardcode links outside the registered route registry. -->
+<footer class="chamber-footer site-footer" role="contentinfo">
+
+  <div class="chamber-footer-inner">
+
+    <div class="footer-outcome-register">
+      <span class="footer-outcome-label">Outcome Register</span>
+      <p class="footer-outcome-statement">
+        SuperSXO governs the complete search-to-action journey.
+        Every route has a registered purpose. Every page passes a quality gate before publication.
+      </p>
+    </div>
+
+    <nav class="footer-navigation footer-nav" aria-label="Footer navigation">
+      <ul role="list">
+        <li><a href="/what-is-sxo/">What Is SXO</a></li>
+      <li><a href="/sxo-framework/">SXO Framework</a></li>
+      <li><a href="/seo-vs-sxo/">SEO vs SXO</a></li>
+      <li><a href="/ai-search-experience/">AI Search Experience</a></li>
+      <li><a href="/methodology/">Methodology</a></li>
+        <!-- Each item rendered as: <li><a href="{path}">{label}</a></li> -->
+      </ul>
+    </nav>
+
+    <div class="site-footnote">
+      <p>SuperSXO.com &mdash; Sovereign Search Experience Optimization</p>
+    </div>
+
   </div>
 
 </footer>
 
+
+  </div>
 
 </body>
 </html>

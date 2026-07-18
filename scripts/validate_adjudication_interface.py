@@ -26,7 +26,7 @@ BASE_TEMPLATE = ROOT / "templates" / "base.html"
 MAIN_CSS = ROOT / "static" / "css" / "main.css"
 TOKENS_CSS = ROOT / "static" / "css" / "tokens.css"
 
-DEFERRED_ROUTES = ["/seo-vs-sxo/", "/ai-search-experience/", "/acquisition/"]
+DEFERRED_ROUTES = ["/acquisition/"]
 
 REQUIRED_CSS_CLASSES = [
     "opening-chamber",

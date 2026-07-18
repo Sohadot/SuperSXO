@@ -1,6 +1,6 @@
 {
   "route": "/seo-vs-sxo/",
-  "source_status": "draft_contract",
+  "source_status": "approved_for_build",
   "page_role": "reference_comparison",
   "ux_layer": "experience",
   "claim_level": "doctrine_claim",
@@ -13,23 +13,28 @@
   "required_sections": [
     {
       "name": "defining_seo",
-      "purpose": "Define SEO accurately and without diminishing its value. SEO is the entry condition for the journey."
+      "purpose": "Define SEO accurately and without diminishing its value. SEO is the entry condition for the journey.",
+      "content": "Search Engine Optimization is the discipline of earning visibility in search results. It encompasses technical accessibility, content relevance, authority signals, and alignment with the ranking systems that determine which results a searcher sees. SEO is a mature, rigorous discipline, and nothing in the SXO doctrine diminishes it. Within the search-to-action journey, SEO governs the entry condition: it determines whether a searcher can find the asset at all. Without that condition, no subsequent layer of the journey exists. SEO is therefore not a competitor to SXO. It is the discipline that makes the journey possible."
     },
     {
       "name": "where_seo_ends",
-      "purpose": "Identify the point at which SEO's scope ends — the click — and explain what happens in the post-click environment."
+      "purpose": "Identify the point at which SEO's scope ends — the click — and explain what happens in the post-click environment.",
+      "content": "The scope of SEO concludes at a precise, observable moment: the selection of a result. Everything SEO measures — position, impressions, click-through — describes conditions up to and including that selection. What happens next occurs in a different environment governed by different forces: whether the page fulfills the intent that motivated the query, whether the visitor judges the asset credible, whether the path to the next step is evident, and whether an action follows. These post-click conditions are not failures of SEO; they are simply outside its scope. A discipline is not deficient for ending where its instruments end. But the journey does not end there, and the space after the click requires its own governing discipline."
     },
     {
       "name": "defining_sxo_in_contrast",
-      "purpose": "Define SXO as the discipline that begins where SEO ends. Not a replacement. An extension."
+      "purpose": "Define SXO as the discipline that begins where SEO ends. Not a replacement. An extension.",
+      "content": "Search Experience Optimization is the governed discipline for the journey that begins at the moment a search result is selected. Where SEO asks whether the asset can be found, SXO asks whether being found produces trust, clarity, confident navigation, and action. SXO does not replace SEO and cannot function without it: a journey that no visitor enters cannot be governed. Nor is SXO merely SEO with usability improvements attached. It is a distinct operating layer with its own object of study — the post-selection journey — its own conditions of success, and its own measurement model, documented in the SuperSXO Framework."
     },
     {
       "name": "comparison_summary",
-      "purpose": "Provide a structured summary of the SEO-SXO relationship. A comparison format may be used if it serves clarity."
+      "purpose": "Provide a structured summary of the SEO-SXO relationship. A comparison format may be used if it serves clarity.",
+      "content": "The relationship can be summarized along four axes. Object: SEO governs the conditions of being found; SXO governs the conditions of acting after arrival. Boundary: SEO's scope concludes at result selection; SXO's scope begins there and continues through the terminal action and its strategic consequence. Measurement: SEO is evidenced by position, impressions, and selection rates; SXO is evidenced by intent fulfillment, trust formation, navigation confidence, and completed action. Failure mode: an asset failing at SEO is invisible; an asset failing at SXO is visited and abandoned. The two disciplines describe consecutive segments of one journey, and neither segment can substitute for the other."
     },
     {
       "name": "why_both_matter",
-      "purpose": "Explain that SXO depends on SEO to deliver the visitor. Both disciplines are required for a complete strategy."
+      "purpose": "Explain that SXO depends on SEO to deliver the visitor. Both disciplines are required for a complete strategy.",
+      "content": "A complete search strategy requires both disciplines in sequence. SEO without SXO produces visibility whose value leaks away after the click: the visitor arrives, and the ungoverned journey determines the outcome by accident. SXO without SEO governs a journey that too few visitors ever enter. The disciplines are interdependent by structure, not by preference. This is why the SuperSXO doctrine states: SEO brings the visitor; SXO governs what happens next. An organization that invests in ranking while leaving the post-click journey ungoverned has purchased only the first half of the outcome it is pursuing."
     }
   ],
   "required_internal_links": [

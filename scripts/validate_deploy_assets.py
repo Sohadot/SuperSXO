@@ -39,8 +39,6 @@ APPROVED_JS = [
 ]
 
 DEFERRED_ROUTES = [
-    "seo-vs-sxo",
-    "ai-search-experience",
     "acquisition",
 ]
 

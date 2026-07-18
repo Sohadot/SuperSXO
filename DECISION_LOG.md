@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — Category Definition Expansion: /seo-vs-sxo/ and /ai-search-experience/ Published
+
+**Type:** content  
+**Status:** decided  
+**Decision:** Executed Phase B (category definition completion) of `ASSET_VALUE_MAXIMIZATION_PLAN.md`: authored, claim-reviewed, and published the two deferred reference routes `/seo-vs-sxo/` and `/ai-search-experience/`, raising the published route count from six to eight.  
+**Reasoning:** The asset claims to be the canonical SXO reference; the category definition was incomplete without the SEO–SXO comparison (the highest-intent informational query in the category) and the AI search positioning (the emerging entry surface named in the Category Reference Engine's audience matrix). Both content sources existed as draft contracts. The interpretive-claim review required by the original `/ai-search-experience/` deferral was performed: every claim about AI search dynamics is explicitly framed as interpretation, no performance promises appear, and ranking-outcome language is avoided in favor of govern/structure framing per the editorial contract. The `/seo-vs-sxo/` comparison was reviewed against its blocked-claim list: SEO is treated as a complete, respected discipline; no replacement or disparagement framing appears.  
+**Impact:** (1) Both content sources authored to reference-grade depth and set to `approved_for_build`. (2) Both routes set to `published` in `data/routes.json`. (3) `/seo-vs-sxo/` restored to `/what-is-sxo/` required internal links (routes.json + content source), resolving the previously dangling pointer section. (4) `data/public-alpha-plan.json` updated: both routes promoted from `deferred_routes` to `candidate_routes` (publication orders 7–8) with review notes; plan renamed "Public Alpha — Category Definition Expansion"; `/acquisition/` remains the only deferred route. (5) `DEFERRED_ROUTES` lists updated in five validators (control, spatial, immersive, adjudication, deploy-assets) to reflect the new publication state. (6) Site rebuilt: 8 routes generated; full quality gate and strict deploy-asset validation passed. Secondary and footer navigation now automatically include both routes via the published-route filter.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-18] — Category Reference Engine Adopted
 
 **Type:** other  
