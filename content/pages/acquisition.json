@@ -1,6 +1,6 @@
 {
   "route": "/acquisition/",
-  "source_status": "draft_contract",
+  "source_status": "draft_content",
   "page_role": "acquisition_signal",
   "ux_layer": "strategic_outcome",
   "claim_level": "commercial_claim",
@@ -13,30 +13,37 @@
   "required_sections": [
     {
       "name": "asset_positioning",
-      "purpose": "Introduce the asset as a governed, structured, category-defining digital property — not a domain listing."
+      "purpose": "Introduce the asset as a governed, structured, category-defining digital property — not a domain listing.",
+      "content": "SuperSXO is a governed strategic digital asset built to own the Search Experience Optimization category — not a domain listing, and not a website offered for sale on volume metrics. The asset was constructed from its first commit for strategic acquisition: every route has a registered purpose, every claim is classified before publication, every page passes an automated quality gate, and every architectural decision is recorded in a public decision log. What an acquirer evaluates here is not a name with traffic attached. It is a documented operating system for a category, with the category's defining vocabulary, framework, and diagnostic instrument already built and published."
     },
     {
       "name": "what_the_asset_includes",
-      "purpose": "Describe the full asset package: the methodology, the framework, the domain cluster, the governance system, and the content architecture."
+      "purpose": "Describe the full asset package: the methodology, the framework, the domain cluster, the governance system, and the content architecture.",
+      "content": "The asset package comprises six governed components. First, the SuperSXO Framework: the seven-layer search-to-action journey model, published with each layer's governing conditions and failure modes. Second, the SuperSXO Score: a working interactive diagnostic instrument whose fourteen assessment statements are traceable line-by-line to the published framework. Third, the canonical content layer: reference definitions, the SEO-SXO comparison, AI search positioning, and a governed glossary with stable citation anchors and structured data for machine consumption. Fourth, the methodology: the documented governance system — route registry, claim classification, quality gates, security baseline — that makes the asset reproducible without its current operator. Fifth, the six-domain cluster. Sixth, the commercial architecture: a defined audit offer and a designed recurring-income ladder, governed by a monetization boundary that prohibits value-degrading income."
     },
     {
       "name": "domain_cluster_summary",
-      "purpose": "Reference the controlled six-domain cluster. Reinforce that this is not a single domain but a governed, structured cluster."
+      "purpose": "Reference the controlled six-domain cluster. Reinforce that this is not a single domain but a governed, structured cluster.",
+      "content": "The asset is a governed cluster of six domains, not a single property. SuperSXO.com holds canonical authority: all definitions, framework documentation, and methodology live here, and all canonical signals point here. SXOSolution.com is the designated commercial gateway for solution-intent traffic and offer delivery. SuperSXO.info and SXOSolution.info are defensive registrations routing to canonical content. SuperSXO.link and SXOSolution.link are controlled campaign and action-routing layers. The cluster demonstrates registration discipline and structural intent: no fragmented authority, no abandoned properties, no duplicate content surfaces."
     },
     {
       "name": "strategic_value_statement",
-      "purpose": "Articulate why the asset is strategically valuable to qualified buyers: category authority, framework IP, diagnostic products, and domain cluster depth."
+      "purpose": "Articulate why the asset is strategically valuable to qualified buyers: category authority, framework IP, diagnostic products, and domain cluster depth.",
+      "content": "The strategic case rests on category economics rather than current traffic. Search Experience Optimization is an emerging category at the intersection of search, user experience, and AI-mediated discovery — and this asset holds the category's canonical definitional layer: the glossary, the named framework, the measurement instrument, and machine-discovery surfaces built for citation by search engines and AI answer engines alike. For an acquirer operating in SEO tooling, conversion optimization, digital experience, or AI search visibility, the asset provides a defensible category position that would be slow and conspicuous to replicate: the governance trail is public, timestamped, and demonstrates sustained institutional construction. All claims about the asset are verifiable directly from the repository, the published site, and the decision log — no claim in this brief requires taking the operator's word."
     },
     {
       "name": "acquisition_contact",
-      "purpose": "Provide a dignified, institutional inquiry path. No pressure. No fake urgency. No 'buy it now' framing."
+      "purpose": "Provide a dignified, institutional inquiry path. No pressure. No fake urgency. No 'buy it now' framing.",
+      "content": "Inquiries are received from qualified strategic acquirers: operating companies and investors for whom the SXO category is strategically relevant. An inquiry should identify the acquiring organization, its strategic interest in the category, and the evaluation it intends to conduct. Inquiries are reviewed and answered in order of strategic seriousness. There is no asking price published on this page, no auction mechanic, and no urgency framing: the asset is operated on a hold-indefinitely basis and considered for transfer only when a strategic acquirer presents a case that exceeds the value of continued independent operation. The designated inquiry channel is published in this section when this page is live."
     }
   ],
   "required_internal_links": [
     "/methodology/",
     "/sxo-framework/"
   ],
-  "allowed_cta": ["contact_acquisition"],
+  "allowed_cta": [
+    "contact_acquisition"
+  ],
   "blocked_claims": [
     "Domain for sale.",
     "Limited time offer.",
@@ -48,11 +55,9 @@
   ],
   "editorial_notes": "This page must be written with absolute institutional dignity. No domain marketplace language. No pressure tactics. No revenue promises. Tone should feel like a strategic brief prepared for qualified acquirers at an executive level. Reference the domain cluster, the methodology, and the governance system as evidence of strategic depth, not as sales points.",
   "publication_blockers": [
-    "Asset must have sufficient published content to demonstrate depth to potential acquirers.",
-    "Route status must be 'published' in data/routes.json.",
-    "All core content routes must be published before this page can go live.",
-    "Acquisition contact mechanism must be defined and in place.",
-    "All internal links must resolve to published routes.",
+    "Acquisition contact channel must be defined by the operator (recommended: a dedicated alias via Cloudflare Email Routing, e.g. acquisition@supersxo.com) and inserted into the acquisition_contact section, replacing its final sentence.",
+    "Route status must be 'published' in data/routes.json (page remains indexable: false).",
+    "Deferred-route lists in the five interface/deploy validators must be updated when publication is approved.",
     "All quality gates must pass."
   ]
 }
