@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — Acquisition Brief Authored; Missing Contact Channel Registered as Blocking Risk; WebPage Structured Data Generalized
+
+**Type:** content  
+**Status:** decided  
+**Decision:** (A) Authored the full `/acquisition/` buyer-facing brief against its draft contract; source moved to `draft_content`, route intentionally kept unpublished. (B) Registered RISK-015 in the technical risk register: the asset has no functioning contact or inquiry channel anywhere — the audit request terminal action and the future acquisition inquiry have no completion mechanism, meaning the asset currently fails its own Layer 6 (Action Pathway Integrity) governing condition. Severity high, blocks_publication true: no new surface that names a submission mechanism may publish until the operator defines the channel. (C) Extended the build so every route without explicit structured data receives an auto-generated `WebPage` JSON-LD node derived from the route registry.  
+**Reasoning:** The acquisition contract's own blocker list anticipated this: "Acquisition contact mechanism must be defined and in place." Authoring the brief now means the page publishes the same day the channel exists. The risk had to be formally registered rather than silently tolerated — an asset whose doctrine defines Action Pathway Integrity cannot leave its own terminal actions uncompletable without recording that as a governance finding. The recommended resolution is a dedicated alias via Cloudflare Email Routing (available since NS delegation), an operator-side action.  
+**Impact:** (1) All five acquisition sections written at executive-brief register: positioning, the six-component asset package, cluster summary, a strategic value statement grounded in verifiability ("no claim in this brief requires taking the operator's word"), and an inquiry section defining qualification and the hold-indefinitely posture — its final sentence is the designated insertion point for the channel. Publication blockers updated to the exact remaining steps. (2) RISK-015 recorded with prevention, detection, and a resolution path that downgrades the risk in the same commit that ships the channel. (3) `render_structured_data` auto-generates a `WebPage` node (canonical `@id`, title, description, `isPartOf` the site's `#website`) for the seven routes without explicit structured data; homepage and glossary keep their richer graphs. Verified in built output. (4) Full CI sequence passed — including one governance catch during the sprint itself: the security baseline validator rejected RISK-015 as originally filed (severity high without blocks_publication), forcing the honest classification. The gate corrected its operator.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-18] — Phase B Closed: Methodology Drift Corrected, Commercial Pages Deepened
 
 **Type:** content  

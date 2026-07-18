@@ -179,15 +179,31 @@ def render_page_body(content: dict) -> str:
     return "\n  ".join(sections)
 
 
-def render_structured_data(content: dict) -> str:
-    """Serialize an optional structured_data object into a JSON-LD block.
+def render_structured_data(content: dict, route: dict = None) -> str:
+    """Serialize structured data into a JSON-LD block.
+
+    A content source may declare an explicit structured_data object
+    (homepage Organization/WebSite graph, glossary DefinedTermSet).
+    Every other route receives an auto-generated WebPage node derived
+    from the route registry — no hand-maintained metadata.
 
     JSON-LD is descriptive metadata, not executable script: it is emitted
     with type application/ld+json, contains no code, and references no
-    external resources. Content sources own the data; the build only
-    serializes it.
+    external resources.
     """
     sd = content.get("structured_data")
+    if not sd and route is not None:
+        canonical = route.get("canonical", "")
+        if canonical:
+            sd = {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "@id": canonical,
+                "url": canonical,
+                "name": content.get("title", route.get("title", "")),
+                "description": content.get("meta_description", ""),
+                "isPartOf": {"@id": "https://supersxo.com/#website"},
+            }
     if not sd:
         return ""
     # "<" is serialized as < so no data value can ever close the
@@ -306,7 +322,7 @@ def render_full_page(
         "meta_description": esc(content.get("meta_description", "")),
         "canonical": esc(route.get("canonical", "")),
         "robots": esc(robots),
-        "structured_data": render_structured_data(content),
+        "structured_data": render_structured_data(content, route),
         "body_class": esc(route.get("role", "page")),
         "header": header,
         "content": page_html,
