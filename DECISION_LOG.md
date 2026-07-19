@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-19] — Ruling: Playbook Chain Confirmed Live by Three Methods; /acquisition/ Published-Noindex Reaffirmed
+
+**Type:** quality  
+**Status:** decided  
+**Decision:** (A) Closed the operator's repeated finding that playbook cross-links are absent from live pages: three independent verification methods confirm the chain is present and visible on production. (1) Raw HTML via curl with cache busters: the live Continue Examination panels contain intent→visibility, visibility→intent+experience, and experience→visibility as plain `<li><a href>` markup. (2) Rendered-visibility check in headless Chromium against the built pages: the panel has a real bounding box, `display: block`, `visibility: visible`, and its links pass an offsetParent visibility filter. (3) Registry-to-output verification in the quality gate. Root cause of the discrepancy: the operator's checking tool does not report links inside the `<nav aria-label="Continue examination">` landmark — a tool-extraction artifact, not an asset defect. Verification guidance for manual confirmation: open the live page, scroll to the "Continue Examination" panel above the CTA zone, or view page source and search for `related-routes-panel`. (B) Reaffirmed the `/acquisition/` ruling in answer to the operator's direct question: the route is **deliberately published with `indexable: false`** — live at 200 for direct-link access by qualified acquirers and via the footer, excluded from sitemap.xml, llms.txt, and the index via meta robots. This is the design ordered by `ASSET_VALUE_MAXIMIZATION_PLAN.md` Phase F ("kept non-indexable") and logged at publication on 2026-07-18. The alternative (fully unpublished) would leave the acquisition inquiry channel with no destination page; the operator may override this ruling, and an override reverts the route to `planned` in one commit.  
+**Reasoning:** A finding repeated twice deserved escalation from single-method to triple-method verification before any code was touched — and the evidence shows the build, the governance data, and the live product are consistent. No fix is applied because there is nothing to fix; recording the verification protects the next operator from re-investigating the same artifact.  
+**Impact:** No code changes. Verification evidence recorded. `/acquisition/` status unchanged pending any operator override.  
+**Logged by:** both
+
+---
+
 ## [2026-07-19] — Playbook Chain Verified Live; Experience Quality Playbook Published (Tier 4 #3)
 
 **Type:** content  
