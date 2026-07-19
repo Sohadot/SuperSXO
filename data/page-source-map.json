@@ -13,6 +13,7 @@
     "/methodology/": "content/pages/methodology.json",
     "/acquisition/": "content/pages/acquisition.json",
     "/playbooks/intent-alignment/": "content/pages/playbook-intent-alignment.json",
-    "/playbooks/visibility-conditions/": "content/pages/playbook-visibility-conditions.json"
+    "/playbooks/visibility-conditions/": "content/pages/playbook-visibility-conditions.json",
+    "/playbooks/experience-quality/": "content/pages/playbook-experience-quality.json"
   }
 }

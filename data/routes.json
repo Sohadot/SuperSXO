@@ -214,7 +214,8 @@
       "required_internal_links": [
         "/sxo-framework/",
         "/sxo-score/",
-        "/playbooks/intent-alignment/"
+        "/playbooks/intent-alignment/",
+        "/playbooks/experience-quality/"
       ],
       "allowed_cta": [
         "take_score"
@@ -222,6 +223,27 @@
       "claim_level": "doctrine_claim",
       "monetization_allowed": false,
       "publication_rule": "Conditions, never outcomes: no indexation, ranking, or traffic promises. Condition statements quoted from data/governing-conditions.json must match verbatim. Must pass all quality gates."
+    },
+    {
+      "path": "/playbooks/experience-quality/",
+      "title": "Experience Quality Playbook — Governing Layer 3 of the Search-to-Action Journey",
+      "role": "operational_playbook",
+      "purpose": "Third Tier 4 practitioner playbook: operationalizes the Experience layer's two governing conditions — performance with mobile usability, and content resilience without JavaScript.",
+      "status": "published",
+      "indexable": true,
+      "canonical": "https://supersxo.com/playbooks/experience-quality/",
+      "ux_layer": "experience",
+      "required_internal_links": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/playbooks/visibility-conditions/"
+      ],
+      "allowed_cta": [
+        "take_score"
+      ],
+      "claim_level": "doctrine_claim",
+      "monetization_allowed": false,
+      "publication_rule": "Conditions, not results: no bounce-rate, ranking, or conversion promises. No tool names. Condition statements quoted from data/governing-conditions.json must match verbatim. Must pass all quality gates."
     },
     {
       "path": "/methodology/",
