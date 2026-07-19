@@ -197,6 +197,20 @@
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
       "link_resolution_note": "2026-07-19: fourth Tier 4 surface. Chains experience ↔ trust through the journey sequence."
+    },
+    {
+      "path": "/playbooks/navigation-clarity/",
+      "title": "Navigation Clarity Playbook — Governing Layer 5 of the Search-to-Action Journey",
+      "publication_order": 15,
+      "internal_link_dependencies": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/playbooks/trust-signal-coherence/"
+      ],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "2026-07-19: fifth Tier 4 surface. Chains trust ↔ navigation through the journey sequence."
     }
   ],
   "deferred_routes": [],

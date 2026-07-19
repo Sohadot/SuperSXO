@@ -258,7 +258,8 @@
       "required_internal_links": [
         "/sxo-framework/",
         "/sxo-score/",
-        "/playbooks/experience-quality/"
+        "/playbooks/experience-quality/",
+        "/playbooks/navigation-clarity/"
       ],
       "allowed_cta": [
         "take_score"
@@ -266,6 +267,27 @@
       "claim_level": "doctrine_claim",
       "monetization_allowed": false,
       "publication_rule": "The page must survive its own adversarial reading: every claim doctrine-classified, no promises. Q7/Q8 quoted verbatim from data/governing-conditions.json. Must pass all quality gates."
+    },
+    {
+      "path": "/playbooks/navigation-clarity/",
+      "title": "Navigation Clarity Playbook — Governing Layer 5 of the Search-to-Action Journey",
+      "role": "operational_playbook",
+      "purpose": "Fifth Tier 4 practitioner playbook: operationalizes the Navigation layer's two governing conditions — next-step evidence and the no-dead-ends rule.",
+      "status": "published",
+      "indexable": true,
+      "canonical": "https://supersxo.com/playbooks/navigation-clarity/",
+      "ux_layer": "navigation",
+      "required_internal_links": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/playbooks/trust-signal-coherence/"
+      ],
+      "allowed_cta": [
+        "take_score"
+      ],
+      "claim_level": "doctrine_claim",
+      "monetization_allowed": false,
+      "publication_rule": "Path confidence framing, never menu-design language. Q9/Q10 quoted verbatim from data/governing-conditions.json. No outcome promises. Must pass all quality gates."
     },
     {
       "path": "/methodology/",

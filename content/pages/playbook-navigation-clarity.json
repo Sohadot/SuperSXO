@@ -1,0 +1,60 @@
+{
+  "route": "/playbooks/navigation-clarity/",
+  "source_status": "approved_for_build",
+  "page_role": "operational_playbook",
+  "ux_layer": "navigation",
+  "claim_level": "doctrine_claim",
+  "monetization_allowed": false,
+  "title": "Navigation Clarity Playbook — Governing Layer 5 of the Search-to-Action Journey",
+  "h1": "The Navigation Clarity Playbook",
+  "meta_description": "The operational playbook for governing Navigation — Layer 5 of the SuperSXO Framework: an evident next step from every entry page, and no page left as a dead end.",
+  "canonical_intent": "Fifth Tier 4 practitioner surface: operationalize the Navigation layer's two governing conditions — next-step evidence and the no-dead-ends rule. Path confidence, not menu design.",
+  "summary": "How to establish and maintain the two governing conditions of the Navigation layer: an intended next step visible and evident from every entry page, and no page that ends the journey by offering nowhere purposeful to go. Written for practitioners operating real assets.",
+  "required_sections": [
+    {
+      "name": "playbook_scope",
+      "purpose": "Define what this playbook governs. Anchor to Q9 and Q10. Navigation as path confidence, distinct from menu design.",
+      "content": "This playbook operationalizes Layer 5 of the SuperSXO Framework: Navigation. The framework defines the layer's two governing conditions — that from any entry page the intended next step is visible and evident without hunting or guesswork, and that no page is a dead end: every page links onward to a purposeful next destination. Navigation in this discipline means path confidence: the visitor's ability to understand where they are, what the next step is, and what will happen if they take it. It is not menu design, though menus contribute; a page can carry a complete, well-structured menu and still fail this layer, because a menu offers everywhere and path confidence requires somewhere. This is the layer that converts a trusting visitor into an acting one — and this playbook governs the two conditions that make the conversion possible."
+    },
+    {
+      "name": "the_next_step_practice",
+      "purpose": "Operationalize Q9: every entry page declares one intended next step, and the page makes it evident.",
+      "content": "The first condition requires a decision before it requires a design: for each entry page, the operator names the one step a visitor who found what they came for should take next. The decision is recorded alongside the page's intent definition, because the two are halves of one contract — the intent says what the visitor came to resolve; the next step says where resolution leads. With the decision made, the design question becomes answerable: is that step visible and evident on the page, findable without hunting, labeled so the visitor knows what taking it means and what will happen after? Evident is a higher bar than present. A next step buried among six competing calls to action is present; a next step the visitor's eye finds when the content has done its work is evident. The review is performed page by page against the recorded decision: if a reviewer cannot state the page's intended next step from the page alone, neither can the visitor."
+    },
+    {
+      "name": "the_no_dead_ends_practice",
+      "purpose": "Operationalize Q10: the onward-link audit; purposeful destinations, not link decoration.",
+      "content": "The second condition is structural: no page may end the journey by default. A dead end is any page from which the visitor's only options are the browser's back button or departure — and every dead end converts whatever interest the page created into an exit. The working practice is the onward-link audit: traverse every page and record where it sends the visitor next, then judge each destination against one test — is it purposeful? A purposeful onward link continues the visitor's journey in a direction the page itself made relevant: deeper reference for the reader who needs more, the next stage for the visitor ready to proceed, the parallel path for the visitor whose need turned out different. Links that exist to exist — boilerplate footers pointing everywhere, related-content blocks assembled by accident — technically satisfy the letter of the condition while failing its purpose. The audit records both failures: pages with nowhere to go, and pages whose onward paths serve the operator's sitemap rather than the visitor's journey."
+    },
+    {
+      "name": "diagnosing_navigation_failure",
+      "purpose": "The layer's failure mode: the stalled journey. Diagnosis of decision points the interface never resolved.",
+      "content": "The framework defines this layer's characteristic failure mode: the stalled journey — a visitor who trusts the source and intends to proceed, halted at a decision point the interface never resolved. The signature is distinctive: engagement followed by exit without action. The visitor read, stayed, perhaps explored — and left without doing what the asset needed them to do, not because they refused, but because the path was never made plain. Diagnosis walks the journeys, not the pages: begin at each significant entry page, carry its documented intent, and proceed as the visitor would — where does the path forward stop being obvious? The stall points are usually one of three kinds: the fork with no signpost, where multiple options are offered and none is framed; the finished page, which completes its content and simply ends; and the ambiguous label, where the next step exists but the visitor cannot predict what taking it will do. Each stall point found in walking is a specific, fixable defect — which is what separates this layer's diagnosis from vague judgments about site usability."
+    },
+    {
+      "name": "maintaining_the_conditions",
+      "purpose": "Governance over time: growth adds pages and forks; the review cadence.",
+      "content": "Navigation decays through growth: every added page is a new potential dead end, every new offering adds a fork to paths that were once linear, and redesigns rearrange what visitors had learned to find. Maintenance follows the established pattern with one structural rule added: a new page enters the asset with its onward links and intended next step defined at publication, not discovered afterward — the same governance moment that assigns the page its intent and metadata assigns it its place in the journey. On the defined cadence, the walks are repeated: entry pages traversed with their intents, stall points hunted, the onward-link audit refreshed. Each round is dated and recorded, and the record serves its usual double purpose — it maintains the conditions, and it demonstrates to any examiner that the paths through the asset are governed rather than accidental."
+    },
+    {
+      "name": "measurement_pathway",
+      "purpose": "Bridge to the Score instrument and the audit.",
+      "content": "These two conditions are assessed as the fifth pair of statements in the SuperSXO Score, and in a professional SXO Audit they are examined through entry-page walkthroughs and a full-route link audit, following the evidence guidance in the governing-conditions registry. The practitioner sequence holds: apply the playbook, then measure. A navigation reading is best interpreted alongside the trust reading above it — a visitor stalls either because they do not believe the source or because they cannot see the path, and the treatments for those two failures are entirely different."
+    }
+  ],
+  "required_internal_links": [
+    "/sxo-framework/",
+    "/sxo-score/",
+    "/playbooks/trust-signal-coherence/"
+  ],
+  "allowed_cta": [
+    "take_score"
+  ],
+  "blocked_claims": [
+    "Following this playbook guarantees more conversions.",
+    "Clear navigation guarantees lower bounce rates.",
+    "This playbook guarantees visitor engagement."
+  ],
+  "editorial_notes": "Fifth Tier 4 surface. Path confidence framing throughout — never menu-design or generic usability language. Q9/Q10 wording verbatim with data/governing-conditions.json when quoted. No outcome promises.",
+  "publication_blockers": []
+}
