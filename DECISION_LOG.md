@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-19] — Distribution Live on Both Channels; Controlled Preview Metadata Verified in the Wild
+
+**Type:** other  
+**Status:** decided  
+**Decision:** Recorded the operator's Substack publication of the operating-phase announcement, completing the two-channel distribution plan (LinkedIn + Substack). The Substack edition includes the three recommended deep links — `/sxo-framework/`, `/glossary/`, `/sxo-score/` — each a citable surface in its own right.  
+**Reasoning:** First real-world verification of yesterday's Open Graph fix: the Substack preview card renders the governed `og:title` ("SuperSXO — Sovereign Search Experience Optimization") and the governed description exactly — the metadata-control gap exposed by the first LinkedIn share was closed before the second channel consumed it. Distribution entry appended to `data/metrics-log.json`.  
+**Impact:** Phase D distribution is live to the learner/press layer on both announced channels, with deep links pointing at the Tier 1 and Tier 2 citation surfaces and the instrument. Watch items: Search Console referral signals, professional feedback on either channel (candidate evidence-dossier material), and indexation movement on the deep-linked surfaces.  
+**Logged by:** both
+
+---
+
 ## [2026-07-19] — Phase D Distribution Started: First Public Announcement on LinkedIn; Social Preview Metadata Brought Under Control
 
 **Type:** other  

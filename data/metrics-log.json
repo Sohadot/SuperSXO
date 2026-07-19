@@ -51,6 +51,25 @@
     "indexable_routes": 16
    },
    "notes": "First full-asset production verification after playbook library completion. The complete structure is live."
+  },
+  {
+   "date": "2026-07-19",
+   "entry_type": "distribution",
+   "source": "operator publication, live preview verification",
+   "metrics": {
+    "distribution_surfaces_live": 2,
+    "channels": [
+     "LinkedIn (personal profile)",
+     "Substack"
+    ],
+    "deep_links_published": [
+     "/sxo-framework/",
+     "/glossary/",
+     "/sxo-score/"
+    ],
+    "og_metadata_verified_in_wild": "Substack preview card renders the governed og:title and og:description exactly"
+   },
+   "notes": "Phase D distribution live on both announced channels. The operating-phase announcement links the homepage plus three deep surfaces. First real-world verification of controlled social preview metadata: the fix shipped one day earlier rendered correctly on its first external consumer."
   }
  ]
 }
