@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-19] — Phase D Channel Doctrine Recalibrated: Personal Social Is Portfolio, Not Distribution
+
+**Type:** other  
+**Status:** decided  
+**Decision:** On the operator's strategic input, recalibrated the Phase D channel doctrine. The operator's personal social surfaces (X, Facebook, LinkedIn, Substack) are reclassified as **portfolio and public record** — dated, verifiable announcements of milestones — not as distribution channels, because the operator has no follower base and engagement-dependent channels cannot carry the authority strategy. Reddit and similar karma-gated communities are excluded entirely. The load-bearing Phase D channels are those that require no audience: (1) search-intent capture — indexation and ranking of the definitional surfaces, decided by merit and already running; (2) AI answer engines — citation of the glossary, framework, and definitions, decided by crawlable structural quality (llms.txt, structured data, stable anchors — all live), not by follower counts; (3) the instrument's inherent shareability — the free, ungated Score travels on usefulness; (4) targeted one-to-one outreach (definitional citations, resource-list suggestions), which needs precision, not reach.  
+**Reasoning:** Honest strategy over aspirational strategy, per the asset's own claim discipline. The Category Reference Engine's citation flywheel was designed around merit channels from the start; this entry removes any implicit dependency on audience-building and sets expectations honestly: authority without an audience is slow — months, not days — and its first signals will be modest search impressions and early AI citations. Portfolio posting retains real value regardless of engagement: a public, dated operating record for future due diligence, and the asset's first crawlable external links.  
+**Impact:** No repository changes required — the merit-channel infrastructure is already built. Operator expectation set: publish socially only when a milestone deserves public record, with zero engagement obligations. Manager watch items unchanged: Search Console signals, AI answer engine citations (periodic neutral-query checks to begin), first inquiries.  
+**Logged by:** both
+
+---
+
 ## [2026-07-19] — Distribution Live on Both Channels; Controlled Preview Metadata Verified in the Wild
 
 **Type:** other  
