@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-19] — Navigation Clarity Playbook Published (Tier 4 #5)
+
+**Type:** content  
+**Status:** decided  
+**Decision:** Published `/playbooks/navigation-clarity/` as the fifth Tier 4 surface, operationalizing Layer 5's conditions Q9–Q10. Fifteen published routes (fourteen indexable). Chain: intent ↔ visibility ↔ experience ↔ trust ↔ navigation.  
+**Reasoning:** Path-confidence framing held throughout, per the framework's definition — never menu design or generic usability language: "a menu offers everywhere and path confidence requires somewhere."  
+**Impact:** Six sections: scope (the layer that converts a trusting visitor into an acting one); the next-step practice (a decision before a design — each entry page's intended next step recorded beside its intent definition, with evident as a higher bar than present); the no-dead-ends practice (onward-link audit judging destinations as purposeful, catching both pages with nowhere to go and links that "serve the operator's sitemap rather than the visitor's journey"); failure diagnosis by walking journeys, not pages (three stall-point kinds: the fork with no signpost, the finished page, the ambiguous label); maintenance with the structural rule that new pages enter with their journey position defined at publication; measurement pathway pairing navigation readings with trust readings ("a visitor stalls either because they do not believe the source or because they cannot see the path — the treatments are entirely different"). Route registered (alpha plan candidate 15); sitemap and llms.txt at 14 governed URLs. Full CI sequence passed.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-19] — Trust Signal Coherence Playbook Published (Tier 4 #4)
 
 **Type:** content  
