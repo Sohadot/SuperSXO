@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-19] — Trust Signal Coherence Playbook Published (Tier 4 #4)
+
+**Type:** content  
+**Status:** decided  
+**Decision:** Published `/playbooks/trust-signal-coherence/` as the fourth Tier 4 surface, operationalizing Layer 4's conditions Q7–Q8. Fourteen published routes (thirteen indexable). The chain now runs intent ↔ visibility ↔ experience ↔ trust.  
+**Reasoning:** The doctrinally central playbook: trust is the layer the editorial standard names as what separates SXO from shallow search practice, and its failure mode is the most expensive — "an experience failure loses a visit; a trust failure loses the visitor." The page was written to survive its own adversarial reading: every claim doctrine-classified, no promises anywhere.  
+**Impact:** Six sections: threshold-condition scope; the claim-support practice (claim inventory with three resolutions — supported, reframable, removable — and the cardinal violation defined: unsubstantiatable promises as "trust debt, borrowed from the visitor at the moment of persuasion and repaid with interest at the moment of disappointment"); the consistency practice (identity, terminology, presentation held to canonical reference forms — "consistency is not a matter of taste but of conformance"); failure diagnosis by adversarial reading (the silent failure that renders no error); maintenance with the double-weight record (the verification log is itself a trust signal); measurement pathway noting this layer gates the two that follow. Route registered (alpha plan candidate 14); sitemap and llms.txt at 13 governed URLs. Full CI sequence passed.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-19] — Ruling: Playbook Chain Confirmed Live by Three Methods; /acquisition/ Published-Noindex Reaffirmed
 
 **Type:** quality  

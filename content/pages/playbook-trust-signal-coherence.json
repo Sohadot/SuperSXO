@@ -1,0 +1,60 @@
+{
+  "route": "/playbooks/trust-signal-coherence/",
+  "source_status": "approved_for_build",
+  "page_role": "operational_playbook",
+  "ux_layer": "trust",
+  "claim_level": "doctrine_claim",
+  "monetization_allowed": false,
+  "title": "Trust Signal Coherence Playbook — Governing Layer 4 of the Search-to-Action Journey",
+  "h1": "The Trust Signal Coherence Playbook",
+  "meta_description": "The operational playbook for governing Trust — Layer 4 of the SuperSXO Framework: evidence-supported claims on every commercial page, and consistent identity, terminology, and presentation across the asset.",
+  "canonical_intent": "Fourth Tier 4 practitioner surface: operationalize the Trust layer's two governing conditions — claim support and cross-asset consistency. The doctrinally central playbook: trust is the layer most commonly absent from standard search practice.",
+  "summary": "How to establish and maintain the two governing conditions of the Trust layer: claims on commercial pages supported by evidence with no unsubstantiatable promises, and identity, terminology, and visual presentation held consistent across every page. Written for practitioners operating real assets.",
+  "required_sections": [
+    {
+      "name": "playbook_scope",
+      "purpose": "Define what this playbook governs. Anchor to Q7 and Q8. Trust as the threshold condition and the layer that separates SXO from shallow search practice.",
+      "content": "This playbook operationalizes Layer 4 of the SuperSXO Framework: Trust. The framework defines the layer's two governing conditions — that claims on commercial pages are supported by evidence, with no guarantees or performance promises the asset cannot substantiate, and that identity, terminology, and visual presentation are consistent across every page of the asset. Trust is the threshold condition of the journey: a visitor who has found the asset, experienced it functionally, and understood its content still acts only if they judge the source credible enough to act upon. It is also the layer most commonly absent from standard search practice, which optimizes for being found and assumes credibility follows. It does not follow. It is built — and this playbook governs the two conditions that build it."
+    },
+    {
+      "name": "the_claim_support_practice",
+      "purpose": "Operationalize Q7: the claim inventory, evidence tracing, and the prohibition on unsubstantiatable promises.",
+      "content": "The first condition requires knowing what the asset claims before defending any of it. The working practice is a claim inventory: every commercial page is read claim by claim, and each claim is recorded with its type and its support. A claim is anything the page asserts that a skeptical visitor could ask to see proven — capability statements, outcome statements, comparisons, numbers. Each inventoried claim resolves to one of three states. Supported: evidence exists and is reachable from the claim. Reframable: the claim exceeds its evidence but a defensible version exists — the claim is rewritten down to what the evidence carries. Removable: no defensible version exists, and the claim is deleted rather than defended. The cardinal violation is the unsubstantiatable promise — guaranteed outcomes, assured results, performance the operator does not control. Such promises are not strong claims; they are trust debt, borrowed from the visitor at the moment of persuasion and repaid with interest at the moment of disappointment."
+    },
+    {
+      "name": "the_consistency_practice",
+      "purpose": "Operationalize Q8: identity, terminology, and presentation consistency; the cross-page review.",
+      "content": "The second condition governs coherence: whether the asset presents as one deliberate entity or as an accumulation of pages written at different times by different hands. Three registers are held consistent. Identity: the asset's name, what it claims to be, and how it describes itself do not vary between pages. Terminology: each key term keeps one form and one meaning everywhere — a concept renamed page to page reads as either carelessness or evasion, and a visitor cannot always tell which. Presentation: typography, layout conventions, and tone remain recognizably the same asset throughout. The working practice is the consistency review: traverse every page asking one question — could a visitor arriving here doubt this is the same asset they read a moment ago? Divergences are catalogued and resolved toward the canonical form. Where canonical definitions exist, they are the arbiters: consistency is not a matter of taste but of conformance to the asset's own declared reference forms."
+    },
+    {
+      "name": "diagnosing_trust_failure",
+      "purpose": "The layer's failure mode: visited-but-not-acted; trust judgments rarely revisited. Diagnosis method.",
+      "content": "The framework defines this layer's characteristic failure mode: the visited-but-not-acted pattern — the visitor consumes the content, remains unconvinced of the source's credibility, and departs, often permanently, because a trust judgment once formed is rarely revisited. That permanence is what makes this layer's failures expensive: an experience failure loses a visit; a trust failure loses the visitor. Diagnosis is harder here than at other layers because the failure is silent — no error renders, no page breaks, and the visitor rarely reports why they left. The method is therefore adversarial reading: examine the asset as its most skeptical plausible visitor would. Every claim is challenged — where is the proof of this? Every inconsistency is registered — why does this page describe the asset differently? Every persuasion pattern is tested — does this build confidence, or does it resemble the tactics that trained visitors to be skeptical in the first place? The findings of adversarial reading are the layer's diagnosis; the two practices above are its treatment."
+    },
+    {
+      "name": "maintaining_the_conditions",
+      "purpose": "Governance over time: evidence goes stale, terminology drifts with growth; the review cadence.",
+      "content": "Both conditions decay in characteristic ways. Claims decay as their evidence ages: a supported statement stays on the page while the facts beneath it shift, until the asset asserts something it can no longer show. Consistency decays through growth: every added page, new author, and new surface is an opportunity for terminology to fork and presentation to drift. Maintenance follows the pattern of every layer, tightened for this one: the claim inventory is re-verified on a defined cadence — each claim's evidence checked as still current, not merely still cited — and the consistency review is re-run whenever the asset gains pages or contributors. Each verification is dated and recorded. At this layer the record carries a double weight: it maintains the conditions, and it is itself a trust signal — an asset that can show when and how its claims were last verified is demonstrating the exact property the layer exists to establish."
+    },
+    {
+      "name": "measurement_pathway",
+      "purpose": "Bridge to the Score instrument and the audit.",
+      "content": "These two conditions are assessed as the fourth pair of statements in the SuperSXO Score, and in a professional SXO Audit they are examined through a claim inventory of the asset's commercial pages and a cross-page consistency review, following the evidence guidance in the governing-conditions registry. The practitioner sequence holds: apply the playbook, then measure. Trust readings deserve particular attention in any assessment, because this layer gates the two that follow — a visitor who does not trust the source will not seek the path forward, and will not act at its end."
+    }
+  ],
+  "required_internal_links": [
+    "/sxo-framework/",
+    "/sxo-score/",
+    "/playbooks/experience-quality/"
+  ],
+  "allowed_cta": [
+    "take_score"
+  ],
+  "blocked_claims": [
+    "Following this playbook guarantees visitor trust.",
+    "Trust signals guarantee conversions.",
+    "This playbook guarantees brand credibility."
+  ],
+  "editorial_notes": "Fourth Tier 4 surface and the doctrinally central one: trust is what separates SXO from shallow search practice. The page must itself pass its own adversarial reading — every claim here is doctrine-classified, no promises anywhere. Q7/Q8 wording verbatim with data/governing-conditions.json when quoted.",
+  "publication_blockers": []
+}
