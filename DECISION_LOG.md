@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-19] — Phase D Distribution Started: First Public Announcement on LinkedIn; Social Preview Metadata Brought Under Control
+
+**Type:** other  
+**Status:** decided  
+**Decision:** (A) Recorded the operator's publication of the first external announcement: the operating-phase conceptual post on the operator's personal LinkedIn profile (Substack planned), claim-reviewed by the manager before publication — zero performance promises, all listed components live and verifiable. This is the first distribution action of Phase D, addressed to the learner/press layer of the audience matrix. (B) Finding from the live post's link preview: LinkedIn rendered a preview title not authored by the asset ("Search Brings the Visitor. SXO Governs What Happens Next.") because the site emitted no Open Graph or Twitter card metadata — social preview metadata was present-but-not-controlled, the exact defect class the Visibility playbook's own metadata-control practice names. Fixed in the same commit: `templates/base.html` now emits `og:type`, `og:site_name`, `og:title`, `og:description`, `og:url`, and `twitter:card`/`title`/`description` on every page, populated from the same governed title, meta description, and canonical the page already declares — one metadata source, all consumers.  
+**Reasoning:** The first share exposed the gap under favorable conditions (the extractor happened to quote doctrine); governance does not rely on extractors' good luck. Every future share of any route now renders exactly what the asset governs. An `og:image` brand card is deliberately deferred: it is a visual-direction decision governed by `VISUAL_DIRECTION_LOCK.md` and needs a designed asset, not an improvised one.  
+**Impact:** All 17 routes emit controlled social preview metadata. Follow-ups registered: watch Search Console for first referral signals from the announcement (next metrics entry), capture any professional feedback for the evidence dossier. Full CI sequence passed.  
+**Logged by:** both
+
+---
+
 ## [2026-07-19] — Build Phase Closed: Full-Asset Production Verification Green; Operational Posture Adopted
 
 **Type:** other  
