@@ -169,6 +169,20 @@
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
       "link_resolution_note": "2026-07-18: second Tier 4 surface. Chains to the intent playbook (layer order) — playbooks link forward and backward through the journey sequence."
+    },
+    {
+      "path": "/playbooks/experience-quality/",
+      "title": "Experience Quality Playbook — Governing Layer 3 of the Search-to-Action Journey",
+      "publication_order": 13,
+      "internal_link_dependencies": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/playbooks/visibility-conditions/"
+      ],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "2026-07-19: third Tier 4 surface. Chains visibility ↔ experience through the journey sequence."
     }
   ],
   "deferred_routes": [],

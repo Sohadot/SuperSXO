@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-19] — Playbook Chain Verified Live; Experience Quality Playbook Published (Tier 4 #3)
+
+**Type:** content  
+**Status:** decided  
+**Decision:** (A) Resolved the operator's finding that the two published playbooks did not cross-link on production: verification against the live site shows both directions present (`/playbooks/visibility-conditions/` → intent, intent → visibility) in the Continue Examination panels; the links shipped in the visibility commit and the operator's check predated deploy propagation (live `last-modified` 2026-07-19 06:32 GMT). No structural defect; no fix required. (B) Published `/playbooks/experience-quality/` as the third Tier 4 surface, operationalizing Layer 3's conditions Q5–Q6. Thirteen published routes (twelve indexable).  
+**Reasoning:** The operator's ruling — playbooks must work as an operational chain, not isolated pages — was verified satisfied before proceeding, per their instruction. Layer 3 continues the journey order; the playbook's discipline is one the asset itself practices (all core routes readable without JavaScript), stated as engineering rationale rather than self-praise.  
+**Impact:** Six sections in the Tier 4 register: scope (functional quality from the visitor's perspective — "this playbook governs what actually renders"); the performance-and-mobile practice (a budget, not an aspiration — performance decays by accumulation); the resilience practice (the core/enhancement line, the disabled-script review, and the machine-reader extraction rationale); failure diagnosis (honest reproduction on the visitor's constraints — "a visitor who left before the page settled never met the content at all; only that is this layer's failure"); maintenance as change discipline (regressions caught at introduction, not archaeology); measurement pathway. No tool names anywhere — tools change, conditions do not. Chain extended: visibility ↔ experience. Route registered (alpha plan candidate 13); sitemap and llms.txt at 12 governed URLs. Full CI sequence passed.  
+**Logged by:** both
+
+---
+
 ## [2026-07-18] — Email Obfuscation Resolved; Visibility Conditions Playbook Published (Tier 4 #2)
 
 **Type:** content  

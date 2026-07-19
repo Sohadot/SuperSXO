@@ -1,0 +1,60 @@
+{
+  "route": "/playbooks/experience-quality/",
+  "source_status": "approved_for_build",
+  "page_role": "operational_playbook",
+  "ux_layer": "experience",
+  "claim_level": "doctrine_claim",
+  "monetization_allowed": false,
+  "title": "Experience Quality Playbook — Governing Layer 3 of the Search-to-Action Journey",
+  "h1": "The Experience Quality Playbook",
+  "meta_description": "The operational playbook for governing Experience — Layer 3 of the SuperSXO Framework: fast, mobile-usable key pages and core content that survives JavaScript failure.",
+  "canonical_intent": "Third Tier 4 practitioner surface: operationalize Layer 3's two governing conditions — performance with mobile usability, and content resilience without JavaScript.",
+  "summary": "How to establish and maintain the two governing conditions of the Experience layer: key pages that load quickly and remain fully usable on mobile without layout breakage, and core content that stays readable and navigable when JavaScript fails or loads slowly. Written for practitioners operating real assets.",
+  "required_sections": [
+    {
+      "name": "playbook_scope",
+      "purpose": "Define what this playbook governs. Anchor to conditions Q5 and Q6. Experience as functional quality, not aesthetics.",
+      "content": "This playbook operationalizes Layer 3 of the SuperSXO Framework: Experience. The framework defines the layer's two governing conditions — that key pages load quickly and are fully usable on mobile devices without layout breakage, and that core content remains readable and navigable when JavaScript fails or loads slowly. Experience in this discipline is functional quality measured from the visitor's perspective, not design aesthetics judged from the operator's. A page can be visually accomplished and still fail this layer: the visitor who arrives on a slow connection, a small screen, or a browser that never finishes executing a script does not experience the design intention — they experience what actually renders. This playbook governs what actually renders."
+    },
+    {
+      "name": "the_performance_and_mobile_practice",
+      "purpose": "Operationalize condition Q5: performance budgets and mobile usability review, layout stability included.",
+      "content": "The first condition requires a budget, not an aspiration. A performance budget names the limits a key page must stay within — total transfer weight, script weight, time to a usable first screen — and treats exceeding them as a defect to resolve, not a trade-off to accept silently. The budget exists because performance decays by accumulation: no single addition is slow, and the sum is. Mobile usability is reviewed on real constraints: common small viewports, touch targets that can be hit, text readable without zooming, and layouts that hold their shape while assets load — a page whose content jumps as images arrive is failing the condition at the exact moment the visitor is deciding whether to stay. The review is performed on the pages that receive search traffic first, because those are the pages where the layer's failure is paid for in abandoned journeys."
+    },
+    {
+      "name": "the_resilience_practice",
+      "purpose": "Operationalize condition Q6: progressive enhancement discipline — core content readable and navigable without JavaScript.",
+      "content": "The second condition draws a line through every page: which of it is core, and which is enhancement. Core content — the text that answers the search intent, the navigation that moves the visitor onward, the information the page exists to deliver — must be present in the served HTML and remain readable and navigable when no script executes. Enhancement — interactivity, dynamic readouts, interface refinements — layers on top and degrades gracefully when absent. The working discipline is the disabled-script review: load each key page with JavaScript off and verify the core survives. Where an interactive element cannot function without script, it announces that plainly instead of failing silently. This is not a retro constraint; it is resilience engineering for the real conditions of arrival — interrupted connections, aggressive content blockers, partial loads — and it is the same property that makes content extractable by the machine readers that increasingly mediate discovery."
+    },
+    {
+      "name": "diagnosing_experience_failure",
+      "purpose": "The layer's failure mode: arrival followed by immediate abandonment. Diagnosis from the visitor's perspective.",
+      "content": "The framework defines this layer's characteristic failure mode: arrival followed by immediate abandonment — the visibility investment is spent, the visitor is present, and the interaction quality ends the journey before any content is evaluated. Diagnosis starts from the visitor's conditions, not the operator's: test from the network speeds and devices the audience actually uses, not from the development machine on which every page is fast. The pattern to look for is entry pages with meaningful search arrivals and near-immediate departures — then reproduce the arrival: open the page as the visitor did, on the constraint the visitor had, and watch what they watched. A slow first screen, a layout that assembles itself in jumps, a page unusable until a script finishes — each is visible within seconds of honest reproduction. The distinction that matters diagnostically: a visitor who left after reading made a judgment about the content; a visitor who left before the page settled never met the content at all. Only the second is this layer's failure."
+    },
+    {
+      "name": "maintaining_the_conditions",
+      "purpose": "Governance over time: performance decays by accumulation; the review cadence and change discipline.",
+      "content": "Experience decays through legitimate work: every added script, embedded asset, and design refinement carries weight, and each arrives with a good reason. Maintenance is therefore a change discipline, not an annual cleanup. Material changes to key pages re-run the two checks before they ship — the budget check and the disabled-script check — so regressions are caught at the moment they are introduced, when the cause is obvious, rather than months later when it is archaeology. On a defined cadence, the full review repeats across all key pages, dated and recorded. The record serves the same purpose it serves at every layer: an operator who can show when each page was last verified against the conditions holds evidence of a governed asset; one who cannot holds the assumption that nothing has decayed — an assumption this layer punishes quietly."
+    },
+    {
+      "name": "measurement_pathway",
+      "purpose": "Bridge to the Score instrument and the audit.",
+      "content": "These two conditions are assessed as the third pair of statements in the SuperSXO Score, and in a professional SXO Audit they are examined through performance measurement and disabled-script rendering of the asset's core routes, following the evidence guidance in the governing-conditions registry. The practitioner sequence holds: apply the playbook, then measure — and read this layer's state against its neighbors, because an experience failure is often where a visibility success goes to die."
+    }
+  ],
+  "required_internal_links": [
+    "/sxo-framework/",
+    "/sxo-score/",
+    "/playbooks/visibility-conditions/"
+  ],
+  "allowed_cta": [
+    "take_score"
+  ],
+  "blocked_claims": [
+    "Following this playbook guarantees lower bounce rates.",
+    "Fast pages guarantee higher rankings.",
+    "This playbook guarantees conversion improvement."
+  ],
+  "editorial_notes": "Third Tier 4 surface. Same register: practices and review methods, no tutorial tone, no tool names (tools change; conditions do not). Q5/Q6 wording verbatim with data/governing-conditions.json when quoted. No performance-outcome promises: budgets and reviews are conditions, not results.",
+  "publication_blockers": []
+}
