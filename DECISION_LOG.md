@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-19] — Action Pathway Integrity Playbook Published (Tier 4 #6)
+
+**Type:** content  
+**Status:** decided  
+**Decision:** Published `/playbooks/action-pathway-integrity/` as the sixth Tier 4 surface, operationalizing Layer 6's conditions Q11–Q12. Sixteen published routes (fifteen indexable). Chain: intent ↔ visibility ↔ experience ↔ trust ↔ navigation ↔ action.  
+**Reasoning:** Completion mechanics only, with the boundary stated in scope: nothing in this playbook manufactures intention, and no practice substitutes for the upstream layers that do. The layer's history on this asset (RISK-015) informed the discipline without being referenced on the public page.  
+**Impact:** Six sections: scope with the completion-mechanics boundary; the terminal-action practice ("one is the operative number — a page assigned two terminal actions has been assigned a conflict, and the visitor inherits it"; the execution test on real devices and conditions, every unnecessary form field named as unnecessary friction); the uninterrupted-path practice (the interruption inventory with its single test — does removing it cost the journey anything? — and competing calls resolved by hierarchy, not elimination); failure diagnosis of dissipation (boundary with navigation failure drawn: never saw the path versus worn out on it; repair from the end backward because "the deepest friction is destroying the most committed visitors"); maintenance ("interruption removal has no natural constituency, which is why it must have a governed one"); measurement pathway handing the strategic question to Layer 7. Route registered (alpha plan candidate 16); sitemap and llms.txt at 15 governed URLs. Full CI sequence passed.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-19] — Navigation Clarity Playbook Published (Tier 4 #5)
 
 **Type:** content  
