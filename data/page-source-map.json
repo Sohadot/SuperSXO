@@ -17,6 +17,7 @@
     "/playbooks/experience-quality/": "content/pages/playbook-experience-quality.json",
     "/playbooks/trust-signal-coherence/": "content/pages/playbook-trust-signal-coherence.json",
     "/playbooks/navigation-clarity/": "content/pages/playbook-navigation-clarity.json",
-    "/playbooks/action-pathway-integrity/": "content/pages/playbook-action-pathway-integrity.json"
+    "/playbooks/action-pathway-integrity/": "content/pages/playbook-action-pathway-integrity.json",
+    "/playbooks/strategic-outcome-alignment/": "content/pages/playbook-strategic-outcome-alignment.json"
   }
 }
