@@ -12,6 +12,7 @@
     "/glossary/": "content/pages/glossary.json",
     "/methodology/": "content/pages/methodology.json",
     "/acquisition/": "content/pages/acquisition.json",
-    "/playbooks/intent-alignment/": "content/pages/playbook-intent-alignment.json"
+    "/playbooks/intent-alignment/": "content/pages/playbook-intent-alignment.json",
+    "/playbooks/visibility-conditions/": "content/pages/playbook-visibility-conditions.json"
   }
 }

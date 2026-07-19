@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-18] — Email Obfuscation Resolved; Visibility Conditions Playbook Published (Tier 4 #2)
+
+**Type:** content  
+**Status:** decided  
+**Decision:** (A) Confirmed resolved: the operator disabled Cloudflare Email Address Obfuscation (Security → Settings) and purged the edge cache; live verification shows both governed addresses rendering as plain text on `/sxo-audit/` and `/acquisition/` with no email-protection remnants — the readable-without-JavaScript doctrine holds on production again. (B) Published `/playbooks/visibility-conditions/` as the second Tier 4 practitioner surface, operationalizing Layer 2's conditions Q3–Q4. Twelve published routes (eleven indexable).  
+**Reasoning:** Playbook library proceeds in journey order. Visibility carries the highest claim risk of any layer — the discipline's own doctrine is the defense: conditions, never outcomes; the playbook governs the conditions of being found and explicitly promises nothing about position, traffic, or what any search system decides.  
+**Impact:** (1) Six sections mirroring the Tier 4 register: scope (necessary-but-insufficient framing); the metadata-control practice (control as the operative word — templated titles are "present but not controlled"; a metadata registry making duplication visible before publication); the indexation practice (sitemap discipline — "a page in the sitemap but absent from the index is a finding to investigate, not a statistic to accept"; designed-query verification connecting back to Layer 1); twofold failure diagnosis (invisibility via coverage data, misdirected visibility via query data — "a Layer 1 remedy reached through a Layer 2 diagnosis"); condition maintenance (pages become indexable through governance, never by being published and left for discovery); and the measurement pathway. (2) Playbooks now chain through the journey sequence: intent ↔ visibility linked both directions. (3) Route registered (alpha plan candidate 12), sitemap and llms.txt at 11 governed URLs. Full CI sequence passed.  
+**Logged by:** both
+
+---
+
 ## [2026-07-18] — First Tier 4 Practitioner Surface Published: Intent Alignment Playbook
 
 **Type:** content  

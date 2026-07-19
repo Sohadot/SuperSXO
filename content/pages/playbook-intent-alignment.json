@@ -45,7 +45,8 @@
   "required_internal_links": [
     "/sxo-framework/",
     "/sxo-score/",
-    "/glossary/"
+    "/glossary/",
+    "/playbooks/visibility-conditions/"
   ],
   "allowed_cta": [
     "take_score"
