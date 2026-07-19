@@ -183,6 +183,20 @@
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
       "link_resolution_note": "2026-07-19: third Tier 4 surface. Chains visibility ↔ experience through the journey sequence."
+    },
+    {
+      "path": "/playbooks/trust-signal-coherence/",
+      "title": "Trust Signal Coherence Playbook — Governing Layer 4 of the Search-to-Action Journey",
+      "publication_order": 14,
+      "internal_link_dependencies": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/playbooks/experience-quality/"
+      ],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "2026-07-19: fourth Tier 4 surface. Chains experience ↔ trust through the journey sequence."
     }
   ],
   "deferred_routes": [],

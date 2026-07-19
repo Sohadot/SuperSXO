@@ -236,7 +236,8 @@
       "required_internal_links": [
         "/sxo-framework/",
         "/sxo-score/",
-        "/playbooks/visibility-conditions/"
+        "/playbooks/visibility-conditions/",
+        "/playbooks/trust-signal-coherence/"
       ],
       "allowed_cta": [
         "take_score"
@@ -244,6 +245,27 @@
       "claim_level": "doctrine_claim",
       "monetization_allowed": false,
       "publication_rule": "Conditions, not results: no bounce-rate, ranking, or conversion promises. No tool names. Condition statements quoted from data/governing-conditions.json must match verbatim. Must pass all quality gates."
+    },
+    {
+      "path": "/playbooks/trust-signal-coherence/",
+      "title": "Trust Signal Coherence Playbook — Governing Layer 4 of the Search-to-Action Journey",
+      "role": "operational_playbook",
+      "purpose": "Fourth Tier 4 practitioner playbook: operationalizes the Trust layer's two governing conditions — claim support and cross-asset consistency. Doctrinally central: trust separates SXO from shallow search practice.",
+      "status": "published",
+      "indexable": true,
+      "canonical": "https://supersxo.com/playbooks/trust-signal-coherence/",
+      "ux_layer": "trust",
+      "required_internal_links": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/playbooks/experience-quality/"
+      ],
+      "allowed_cta": [
+        "take_score"
+      ],
+      "claim_level": "doctrine_claim",
+      "monetization_allowed": false,
+      "publication_rule": "The page must survive its own adversarial reading: every claim doctrine-classified, no promises. Q7/Q8 quoted verbatim from data/governing-conditions.json. Must pass all quality gates."
     },
     {
       "path": "/methodology/",
