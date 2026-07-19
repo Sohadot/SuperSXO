@@ -280,7 +280,8 @@
       "required_internal_links": [
         "/sxo-framework/",
         "/sxo-score/",
-        "/playbooks/trust-signal-coherence/"
+        "/playbooks/trust-signal-coherence/",
+        "/playbooks/action-pathway-integrity/"
       ],
       "allowed_cta": [
         "take_score"
@@ -288,6 +289,27 @@
       "claim_level": "doctrine_claim",
       "monetization_allowed": false,
       "publication_rule": "Path confidence framing, never menu-design language. Q9/Q10 quoted verbatim from data/governing-conditions.json. No outcome promises. Must pass all quality gates."
+    },
+    {
+      "path": "/playbooks/action-pathway-integrity/",
+      "title": "Action Pathway Integrity Playbook — Governing Layer 6 of the Search-to-Action Journey",
+      "role": "operational_playbook",
+      "purpose": "Sixth Tier 4 practitioner playbook: operationalizes the Action layer's two governing conditions — terminal action definition with frictionless completion, and the uninterrupted path.",
+      "status": "published",
+      "indexable": true,
+      "canonical": "https://supersxo.com/playbooks/action-pathway-integrity/",
+      "ux_layer": "action",
+      "required_internal_links": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/playbooks/navigation-clarity/"
+      ],
+      "allowed_cta": [
+        "take_score"
+      ],
+      "claim_level": "doctrine_claim",
+      "monetization_allowed": false,
+      "publication_rule": "Completion mechanics only; no conversion promises. Q11/Q12 quoted verbatim from data/governing-conditions.json. Must pass all quality gates."
     },
     {
       "path": "/methodology/",

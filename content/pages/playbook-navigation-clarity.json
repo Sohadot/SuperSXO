@@ -45,7 +45,8 @@
   "required_internal_links": [
     "/sxo-framework/",
     "/sxo-score/",
-    "/playbooks/trust-signal-coherence/"
+    "/playbooks/trust-signal-coherence/",
+    "/playbooks/action-pathway-integrity/"
   ],
   "allowed_cta": [
     "take_score"

@@ -211,6 +211,20 @@
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
       "link_resolution_note": "2026-07-19: fifth Tier 4 surface. Chains trust ↔ navigation through the journey sequence."
+    },
+    {
+      "path": "/playbooks/action-pathway-integrity/",
+      "title": "Action Pathway Integrity Playbook — Governing Layer 6 of the Search-to-Action Journey",
+      "publication_order": 16,
+      "internal_link_dependencies": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/playbooks/navigation-clarity/"
+      ],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "2026-07-19: sixth Tier 4 surface. Chains navigation ↔ action through the journey sequence."
     }
   ],
   "deferred_routes": [],

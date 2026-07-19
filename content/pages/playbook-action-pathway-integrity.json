@@ -1,0 +1,60 @@
+{
+  "route": "/playbooks/action-pathway-integrity/",
+  "source_status": "approved_for_build",
+  "page_role": "operational_playbook",
+  "ux_layer": "action",
+  "claim_level": "doctrine_claim",
+  "monetization_allowed": false,
+  "title": "Action Pathway Integrity Playbook — Governing Layer 6 of the Search-to-Action Journey",
+  "h1": "The Action Pathway Integrity Playbook",
+  "meta_description": "The operational playbook for governing Action — Layer 6 of the SuperSXO Framework: one clearly defined terminal action per key page, completing without friction, on an uninterrupted path.",
+  "canonical_intent": "Sixth Tier 4 practitioner surface: operationalize the Action layer's two governing conditions — terminal action definition with frictionless completion, and the uninterrupted path.",
+  "summary": "How to establish and maintain the two governing conditions of the Action layer: one clearly defined terminal action on each key page that completes without friction on all devices, and a path to that action free of popups, forced steps, and competing calls. Written for practitioners operating real assets.",
+  "required_sections": [
+    {
+      "name": "playbook_scope",
+      "purpose": "Define what this playbook governs. Anchor to Q11 and Q12. Action as the measurable terminal event, reachable only when upstream layers hold.",
+      "content": "This playbook operationalizes Layer 6 of the SuperSXO Framework: Action. The framework defines the layer's two governing conditions — that each key page has one clearly defined terminal action which completes without friction on all devices, and that nothing interrupts the path to action: no popups, forced steps, or competing calls to action. Action is the journey's measurable terminal event — the thing the asset was built to produce — and it is only reachable when the five layers above it hold: the visitor arrived on intent, found the asset, experienced it functionally, judged it credible, and saw the path. This playbook governs the last segment: the point where an intention formed upstream either completes or dissipates. Everything here concerns completion mechanics; nothing here manufactures intention, and no practice in this playbook substitutes for the layers that do."
+    },
+    {
+      "name": "the_terminal_action_practice",
+      "purpose": "Operationalize Q11: one defined terminal action per key page; the execution test across devices.",
+      "content": "The first condition begins, like its counterpart at the navigation layer, with a decision: for each key page, the operator names the one terminal action the page exists to produce — a request sent, a submission completed, an assessment run, a document obtained. One is the operative number. A page assigned two terminal actions has been assigned a conflict, and the visitor inherits it. With the action named, the practice is the execution test: complete the action yourself, on the devices and conditions your visitors actually use, and treat every point of resistance as a finding. Does the action work on a small screen with a touch keyboard? Does it survive a slow connection? Does it demand information it does not need — every field a form requests is friction, and every unnecessary field is unnecessary friction? Does completing it produce a confirmation the visitor can trust, or does it end in silence? An action that completes cleanly in the operator's development environment and fails on a commuter's phone is, for the journey's purposes, an action that fails."
+    },
+    {
+      "name": "the_uninterrupted_path_practice",
+      "purpose": "Operationalize Q12: the interruption inventory — popups, forced steps, competing calls.",
+      "content": "The second condition governs what stands between a willing visitor and the terminal action. The working practice is the interruption inventory: walk the path from entry to completed action and record everything that inserts itself — overlays that demand dismissal, gates that demand identity before value, steps that exist for the operator's process rather than the visitor's progress, and rival calls to action competing for the same moment of decision. Each inventoried interruption faces one question: does removing it cost the journey anything? Almost always the answer is no — the interruption was serving a metric, a habit, or a hope, and the journey was paying for it. The hardest case is the competing call, because each competing option is usually defensible alone; the defect is the competition itself, and the resolution is hierarchy: one primary action per moment, with alternatives subordinated, not eliminated. An asset that respects its own terminal action — by refusing to interrupt the path it worked five layers to build — is communicating, at the exact moment of decision, that it values the visitor's progress over its own appetite."
+    },
+    {
+      "name": "diagnosing_action_failure",
+      "purpose": "The layer's failure mode: dissipation. Distinguish from navigation failure; find where intent erodes.",
+      "content": "The framework defines this layer's characteristic failure mode: dissipation — an intent to act that erodes step by step through friction the asset itself introduced. The diagnostic boundary with the navigation layer matters: a navigation failure means the visitor never saw the path; an action failure means the visitor found the path, started down it, and was worn out on the way. The evidence is therefore located inside the pathway: begun-but-abandoned completions, and drop-off concentrated at identifiable steps rather than spread across the page. Diagnosis retraces the pathway step by step, asking of each: what does this step demand of the visitor, and is the demand proportionate to their progress so far? Friction found early in a path is cheap for the visitor to escape and expensive for the asset; friction found at the final step is the most expensive of all, because it discards the maximum accumulated intent. The repair priority follows directly: fix the pathway from the end backward, because the deepest friction is destroying the most committed visitors."
+    },
+    {
+      "name": "maintaining_the_conditions",
+      "purpose": "Governance over time: interruptions accrete with good intentions; the re-execution cadence.",
+      "content": "This layer decays through good intentions: the overlay added for an announcement, the extra form field added for better data, the second call to action added because another team also has a goal. Each arrives reasonably and none leaves on its own — interruption removal has no natural constituency, which is why it must have a governed one. Maintenance is two recurring disciplines. The execution test is re-run on the defined cadence and after any change touching a key page's pathway: the operator completes every terminal action again, on real conditions, and treats new resistance as a regression. The interruption inventory is re-taken on the same cadence, with a standing rule that anything added to a pathway since the last inventory must justify itself against the same question — does removing it cost the journey anything? Both rounds are dated and recorded, maintaining the layer's evidence trail alongside its conditions."
+    },
+    {
+      "name": "measurement_pathway",
+      "purpose": "Bridge to the Score instrument and the audit.",
+      "content": "These two conditions are assessed as the sixth pair of statements in the SuperSXO Score, and in a professional SXO Audit they are examined by executing every terminal action across devices and documenting the friction and interruption findings, following the evidence guidance in the governing-conditions registry. The practitioner sequence holds: apply the playbook, then measure. An action reading closes the operational portion of any assessment — what remains above it is the strategic question of whether the actions the asset completes are the ones the operation actually needs, and that question belongs to the journey's final layer."
+    }
+  ],
+  "required_internal_links": [
+    "/sxo-framework/",
+    "/sxo-score/",
+    "/playbooks/navigation-clarity/"
+  ],
+  "allowed_cta": [
+    "take_score"
+  ],
+  "blocked_claims": [
+    "Following this playbook guarantees higher conversion rates.",
+    "Removing friction guarantees more completed actions.",
+    "This playbook guarantees form completion improvement."
+  ],
+  "editorial_notes": "Sixth Tier 4 surface. Completion mechanics only — the scope section explicitly states this playbook does not manufacture intention. Q11/Q12 wording verbatim with data/governing-conditions.json when quoted. No conversion promises.",
+  "publication_blockers": []
+}
