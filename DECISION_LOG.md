@@ -36,6 +36,17 @@ Each entry must follow this structure:
 
 ---
 
+## [2026-07-19] — Build Phase Closed: Full-Asset Production Verification Green; Operational Posture Adopted
+
+**Type:** other  
+**Status:** decided  
+**Decision:** Closed the internal build phase with a full-asset production verification and adopted the operational posture. Verification: all 20 production URLs return 200 (17 routes plus the three discovery files), the live sitemap serves 16 governed URLs, and the playbook cycle closes on production — the final playbook links to the first. Evidence dossier and metrics log updated to current state.  
+**Reasoning:** Every layer of the Category Reference Engine that can be built from inside the repository is now built and live. From this point, asset value accrues primarily from external signals — indexation maturing, first citations, first client — and from the operating disciplines the asset defined for itself. The repository's own Layer 7 doctrine applies to the repository: the review loop is now the work.  
+**Impact:** Operational rhythm adopted: (1) metrics entries appended on every meaningful external signal (Search Console data, citations, inquiries); (2) the evidence dossier refreshed with each entry; (3) first-client readiness standing (delivery standard, report template, and channel all live); (4) Tier 3 (benchmark evidence) begins when real usage data exists, per the engine's guardrails; (5) periodic full-asset verification against the live site. Known gaps register unchanged and honest: no traffic history yet, no citations yet, no revenue yet, no owned audience yet, edge security headers still pending operator action.  
+**Logged by:** agent
+
+---
+
 ## [2026-07-19] — PLAYBOOK LIBRARY COMPLETE: Strategic Outcome Alignment Published (Tier 4 #7 of 7)
 
 **Type:** content  

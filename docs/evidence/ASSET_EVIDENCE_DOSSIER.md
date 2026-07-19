@@ -16,16 +16,17 @@ Rules: every claim in this dossier must be verifiable from a named source (repos
 | Domain cluster | Six domains with defined, documented roles | `DOMAIN_CLUSTER_STRATEGY.md` |
 | Category position | Canonical definitional layer for Search Experience Optimization: named framework, governed glossary, measurement instrument | Live site |
 
-## 2. Product & Content State (as of 2026-07-18)
+## 2. Product & Content State (as of 2026-07-19)
 
 | Component | State | Verify at |
 |---|---|---|
-| Published routes | 10 (9 indexable + acquisition brief, noindex) | `data/routes.json`; live site |
+| Published routes | 17 (16 indexable + acquisition brief, noindex) — 20/20 production URLs verified live 2026-07-19 | `data/routes.json`; live site |
 | SuperSXO Framework | Seven layers, each with governing conditions and failure modes published | `/sxo-framework/` |
 | Governing conditions registry | 14 machine-readable conditions; Score statements validator-synchronized | `data/governing-conditions.json` |
+| Playbook library | Complete: seven operational playbooks, one per journey layer, each derived from the conditions registry, chained through the journey and closed as a cycle | `/playbooks/…` (seven routes) |
 | SuperSXO Score | Live interactive diagnostic; in-browser only, zero data transmission (browser-verified) | `/sxo-score/` |
 | Glossary | 11 canonical definitions, stable anchors, DefinedTermSet JSON-LD | `/glossary/` |
-| Machine discovery | sitemap.xml, robots.txt, llms.txt — generated from route registry only | Live URLs |
+| Machine discovery | sitemap.xml (16 URLs), robots.txt, llms.txt — generated from route registry only | Live URLs |
 | Structured data | 100% route coverage (Organization/WebSite, DefinedTermSet, WebPage nodes) | Page source |
 | Commercial readiness | Audit offer live with working intake; delivery standard and report template ready | `/sxo-audit/`; `AUDIT_DELIVERY_STANDARD.md` |
 
@@ -48,6 +49,7 @@ Source of record: `data/metrics-log.json` (append-only).
 | Date | Entry | Headline facts |
 |---|---|---|
 | 2026-07-18 | Official baseline | GSC verified; sitemap accepted same day; 9 pages discovered; 13/13 production URLs verified live; revenue 0; audience 0; referring domains 0 |
+| 2026-07-19 | Milestone + verification | Playbook library complete (7/7); 17 published routes; 20/20 production URLs verified live; sitemap serving 16 URLs |
 
 Growth against this baseline is the asset's forward evidence. Each future entry is dated and sourced.
 
