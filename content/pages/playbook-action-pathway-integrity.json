@@ -45,7 +45,8 @@
   "required_internal_links": [
     "/sxo-framework/",
     "/sxo-score/",
-    "/playbooks/navigation-clarity/"
+    "/playbooks/navigation-clarity/",
+    "/playbooks/strategic-outcome-alignment/"
   ],
   "allowed_cta": [
     "take_score"

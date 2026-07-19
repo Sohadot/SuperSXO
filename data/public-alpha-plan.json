@@ -225,6 +225,21 @@
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
       "link_resolution_note": "2026-07-19: sixth Tier 4 surface. Chains navigation ↔ action through the journey sequence."
+    },
+    {
+      "path": "/playbooks/strategic-outcome-alignment/",
+      "title": "Strategic Outcome Alignment Playbook — Governing Layer 7 of the Search-to-Action Journey",
+      "publication_order": 17,
+      "internal_link_dependencies": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/playbooks/action-pathway-integrity/",
+        "/playbooks/intent-alignment/"
+      ],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "2026-07-19: seventh and final Tier 4 surface. Completes the library; links back to the intent playbook — the chain is a cycle, not a line."
     }
   ],
   "deferred_routes": [],

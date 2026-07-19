@@ -302,7 +302,8 @@
       "required_internal_links": [
         "/sxo-framework/",
         "/sxo-score/",
-        "/playbooks/navigation-clarity/"
+        "/playbooks/navigation-clarity/",
+        "/playbooks/strategic-outcome-alignment/"
       ],
       "allowed_cta": [
         "take_score"
@@ -310,6 +311,28 @@
       "claim_level": "doctrine_claim",
       "monetization_allowed": false,
       "publication_rule": "Completion mechanics only; no conversion promises. Q11/Q12 quoted verbatim from data/governing-conditions.json. Must pass all quality gates."
+    },
+    {
+      "path": "/playbooks/strategic-outcome-alignment/",
+      "title": "Strategic Outcome Alignment Playbook — Governing Layer 7 of the Search-to-Action Journey",
+      "role": "operational_playbook",
+      "purpose": "Seventh and final Tier 4 practitioner playbook: operationalizes the Strategic Outcome layer's two governing conditions — needed-and-measured actions, and the review loop. Completes the playbook library.",
+      "status": "published",
+      "indexable": true,
+      "canonical": "https://supersxo.com/playbooks/strategic-outcome-alignment/",
+      "ux_layer": "strategic_outcome",
+      "required_internal_links": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/playbooks/action-pathway-integrity/",
+        "/playbooks/intent-alignment/"
+      ],
+      "allowed_cta": [
+        "take_score"
+      ],
+      "claim_level": "doctrine_claim",
+      "monetization_allowed": false,
+      "publication_rule": "Sovereign-asset framing; closing section loops the library back to Layer 1. Q13/Q14 quoted verbatim from data/governing-conditions.json. No outcome promises. Must pass all quality gates."
     },
     {
       "path": "/methodology/",
