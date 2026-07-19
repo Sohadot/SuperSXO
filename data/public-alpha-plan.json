@@ -155,6 +155,20 @@
       "publication_readiness": "approved_for_build",
       "requires_internal_link_resolution": false,
       "link_resolution_note": "2026-07-18: first Tier 4 practitioner surface per CATEGORY_REFERENCE_ENGINE.md. Framework page links to it via required_internal_links."
+    },
+    {
+      "path": "/playbooks/visibility-conditions/",
+      "title": "Visibility Conditions Playbook — Governing Layer 2 of the Search-to-Action Journey",
+      "publication_order": 12,
+      "internal_link_dependencies": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/playbooks/intent-alignment/"
+      ],
+      "all_dependencies_in_alpha": true,
+      "publication_readiness": "approved_for_build",
+      "requires_internal_link_resolution": false,
+      "link_resolution_note": "2026-07-18: second Tier 4 surface. Chains to the intent playbook (layer order) — playbooks link forward and backward through the journey sequence."
     }
   ],
   "deferred_routes": [],

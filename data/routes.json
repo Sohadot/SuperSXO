@@ -192,7 +192,8 @@
       "required_internal_links": [
         "/sxo-framework/",
         "/sxo-score/",
-        "/glossary/"
+        "/glossary/",
+        "/playbooks/visibility-conditions/"
       ],
       "allowed_cta": [
         "take_score"
@@ -200,6 +201,27 @@
       "claim_level": "doctrine_claim",
       "monetization_allowed": false,
       "publication_rule": "Operational depth without tutorial tone. Condition statements quoted from data/governing-conditions.json must match verbatim. Must pass all quality gates."
+    },
+    {
+      "path": "/playbooks/visibility-conditions/",
+      "title": "Visibility Conditions Playbook — Governing Layer 2 of the Search-to-Action Journey",
+      "role": "operational_playbook",
+      "purpose": "Second Tier 4 practitioner playbook: operationalizes the Visibility layer's two governing conditions — metadata control and verified indexation.",
+      "status": "published",
+      "indexable": true,
+      "canonical": "https://supersxo.com/playbooks/visibility-conditions/",
+      "ux_layer": "visibility",
+      "required_internal_links": [
+        "/sxo-framework/",
+        "/sxo-score/",
+        "/playbooks/intent-alignment/"
+      ],
+      "allowed_cta": [
+        "take_score"
+      ],
+      "claim_level": "doctrine_claim",
+      "monetization_allowed": false,
+      "publication_rule": "Conditions, never outcomes: no indexation, ranking, or traffic promises. Condition statements quoted from data/governing-conditions.json must match verbatim. Must pass all quality gates."
     },
     {
       "path": "/methodology/",
